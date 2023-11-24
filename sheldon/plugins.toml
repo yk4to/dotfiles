@@ -1,0 +1,52 @@
+shell = "zsh"
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+[plugins.powerlevel10k]
+github = "romkatv/powerlevel10k"
+hooks.post = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+hooks.pre = "export ZSH_AUTOSUGGEST_STRATEGY=(history completion)"
+
+#[plugins.zsh-completions]
+#github = "zsh-users/zsh-completions"
+#apply = ["defer"]
+
+#[plugins.zsh-autocomplete]
+#github = "marlonrichert/zsh-autocomplete"
+#apply = ["defer"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+# MEMO: to set the theme, run `fast-theme XDG:catppuccin-mocha`
+
+#[plugins.zeno]
+#github = "yuki-yano/zeno.zsh"
+#apply = ["defer"]
+#hooks.pre = 'export ZENO_HOME="$HOME/dotfiles/zeno"'
+#hooks.post = 'bindkey " " zeno-auto-snippet && bindkey "^m" zeno-auto-snippet-and-accept-line'
+
+[plugins.zabrze]
+inline = 'export ZABRZE_CONFIG_HOME="$HOME/dotfiles/zabrze" && eval "$(zabrze init --bind-keys)"'
+
+[plugins.ni]
+github = "azu/ni.zsh"
+apply = ["defer"]
+
+[plugins.rtx]
+inline = 'zsh-defer eval "$(rtx activate zsh)"'
+
+[plugins.zoxide]
+inline = 'eval "$(zoxide init zsh)"'

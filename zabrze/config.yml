@@ -1,0 +1,31 @@
+abbrevs:
+  - name: replace ls with eza
+    abbr: ll
+    snippet: eza --icons -al
+  - name: clear outputs
+    abbr: cl
+    snippet: clear
+  - name: neofetch
+    abbr: ne
+    snippet: neofetch
+  - name: reload .zshrc
+    abbr: soz
+    snippet: source .zshrc
+  - name: install with Homebrew
+    abbr: bi
+    snippet: brew install
+  - name: uninstall with Homebrew
+    abbr: b
+    snippet: brew uninstall
+  - name: upgrade and update Homebrew
+    abbr: bubu
+    snippet: brew upgrade && brew update
+  - name: neovim
+    abbr: nv
+    snippet: nvim
+  - name: create a new file
+    abbr: to
+    snippet: touch
+  - name: move to trash
+    abbr: tr
+    snippet: trash

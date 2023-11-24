@@ -1,0 +1,34 @@
+return {
+  --[[{"rcarriga/nvim-notify",
+    config = function()
+      require("notify").setup({
+        background_colour = "#000000",
+      })
+    end,
+  },]]
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      local lsp_names = function()
+        local clients = {}
+        for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+          --[[if client.name == 'null-ls' then
+            local sources = {}
+            for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
+              table.insert(sources, source.name)
+            end
+            table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
+          else]]
+            table.insert(clients, client.name)
+          --end
+        end
+        if next(clients) then
+          return ' ' .. table.concat(clients, ', ')
+        else
+          return ' No LSP'
+        end
+      end        
+      table.insert(opts.sections.lualine_x, lsp_names)
+    end,
+  }
+}
