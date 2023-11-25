@@ -9,6 +9,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
+      -- ref: https://qiita.com/uhooi/items/99aeff822d4870a8e269
       local lsp_names = function()
         local clients = {}
         for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
