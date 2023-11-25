@@ -11,7 +11,7 @@ return {
     opts = function(_, opts)
       local lsp_names = function()
         local clients = {}
-        for _, client in ipairs(vim.lsp.get_active_clients { bufnr = 0 }) do
+        for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
           --[[if client.name == 'null-ls' then
             local sources = {}
             for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
@@ -19,16 +19,22 @@ return {
             end
             table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
           else]]
-            table.insert(clients, client.name)
+          table.insert(clients, client.name)
           --end
         end
         if next(clients) then
-          return ' ' .. table.concat(clients, ', ')
+          return " " .. table.concat(clients, ", ")
         else
-          return ' No LSP'
+          return " No LSP"
         end
-      end        
+      end
       table.insert(opts.sections.lualine_x, lsp_names)
     end,
-  }
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = true,
+    event = { "WinNew" },
+  },
 }
+
