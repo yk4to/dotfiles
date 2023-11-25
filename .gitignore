@@ -88,3 +88,7 @@ deno.lock
 ### Sheldon ###
 sheldon.zsh
 sheldon.zsh.swc
+
+### Lazygit ###
+lazygit/state.yml
+
