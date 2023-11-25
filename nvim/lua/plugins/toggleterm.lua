@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  lazy = true,
   keys = {
     {
       "<leader>tv",
@@ -19,3 +20,4 @@ return {
     },
   },
 }
+

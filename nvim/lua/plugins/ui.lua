@@ -36,5 +36,31 @@ return {
     config = true,
     event = { "WinNew" },
   },
+  {
+    "petertriho/nvim-scrollbar",
+    event = { "BufReadPre" },
+    dependencies = {
+      "kevinhwang91/nvim-hlslens",
+      "lewis6991/gitsigns.nvim",
+    },
+    opts = function()
+      local mocha = require("catppuccin.palettes").get_palette("mocha")
+      return {
+        handle = {
+          color = mocha.surface2,
+        },
+        marks = {
+          Search = { color = mocha.rosewater },
+          Error = { color = mocha.red },
+          Warn = { color = mocha.yellow },
+          Info = { color = mocha.green },
+          Hint = { color = mocha.sapphire },
+          Misc = { color = mocha.lavender },
+        },
+        handlers = {
+          search = true,
+        },
+      }
+    end,
+  },
 }
-

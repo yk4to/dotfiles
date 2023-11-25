@@ -96,8 +96,10 @@ return {
   },]]
   {
     "keaising/im-select.nvim",
+    lazy = true,
+    events = { "InsertEnter" },
     opts = {
       default_im_select = "com.apple.keylayout.ABC",
     },
-  }
+  },
 }
