@@ -13,6 +13,13 @@ return {
           -- "thumbs.db",
         },
       }
+      opts.default_component_configs.icon = {
+        folder_closed = "󰉋",
+        folder_open = "󰝰",
+        folder_empty = "󰉖",
+        default = "*",
+        highlight = "NeoTreeFileIcon",
+      }
     end,
   },
   {
