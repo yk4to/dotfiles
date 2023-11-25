@@ -10,6 +10,11 @@ hooks.post = "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh"
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+# MEMO: to set the theme, run `fast-theme XDG:catppuccin-mocha`
+
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
 apply = ["defer"]
@@ -26,11 +31,6 @@ hooks.pre = "export ZSH_AUTOSUGGEST_STRATEGY=(history completion)"
 #[plugins.zsh-autocomplete]
 #github = "marlonrichert/zsh-autocomplete"
 #apply = ["defer"]
-
-[plugins.fast-syntax-highlighting]
-github = "zdharma-continuum/fast-syntax-highlighting"
-apply = ["defer"]
-# MEMO: to set the theme, run `fast-theme XDG:catppuccin-mocha`
 
 #[plugins.zeno]
 #github = "yuki-yano/zeno.zsh"
@@ -50,3 +50,4 @@ inline = 'zsh-defer eval "$(rtx activate zsh)"'
 
 [plugins.zoxide]
 inline = 'eval "$(zoxide init zsh)"'
+

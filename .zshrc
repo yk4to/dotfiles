@@ -1,7 +1,5 @@
 # ref: https://zenn.dev/fuzmare/articles/zsh-plugin-manager-cache
 
-BAT_THEME="Catppuccin-mocha"
-
 ZSHRC_DIR=${${(%):-%N}:A:h}
 
 # override `source`
@@ -44,3 +42,11 @@ unfunction source
 # pnpm
 export PNPM_HOME="~/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# zsh-history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# bat
+BAT_THEME="Catppuccin-mocha"
+
