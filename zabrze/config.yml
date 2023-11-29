@@ -15,13 +15,13 @@ abbrevs:
     abbr: bi
     snippet: brew install
   - name: uninstall with Homebrew
-    abbr: b
+    abbr: bu
     snippet: brew uninstall
   - name: upgrade and update Homebrew
-    abbr: bubu
+    abbr: bb
     snippet: brew upgrade && brew update
   - name: neovim
-    abbr: nv
+    abbr: nn
     snippet: nvim
   - name: create a new file
     abbr: to
