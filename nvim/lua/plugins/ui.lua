@@ -1,11 +1,12 @@
 return {
-  --[[{"rcarriga/nvim-notify",
+  {
+    "rcarriga/nvim-notify",
     config = function()
       require("notify").setup({
         background_colour = "#000000",
       })
     end,
-  },]]
+  },
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
@@ -30,6 +31,12 @@ return {
         end
       end
       table.insert(opts.sections.lualine_x, lsp_names)
+      opts.sections.lualine_y = {
+        { "progress", separator = " ", padding = { left = 1, right = 1 } },
+      }
+      opts.sections.lualine_z = {
+        "location",
+      }
     end,
   },
   {
