@@ -13,6 +13,8 @@ return {
           -- "thumbs.db",
         },
       }
+      opts.filesystem.bind_to_cwd = true
+      opts.filesystem.cwd_target = { sidebar = "global" }
       opts.default_component_configs.icon = {
         folder_closed = "󰉋",
         folder_open = "󰝰",
