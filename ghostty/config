@@ -6,3 +6,7 @@ command = /bin/zsh
 
 theme = catppuccin-mocha
 
+background-opacity = 0.95
+background-blur-radius = 15
+
+window-decoration = false
