@@ -95,6 +95,14 @@ return {
     end
   },]]
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ui = {
+        border = "single",
+      }
+    end,
+  },
+  {
     "keaising/im-select.nvim",
     lazy = true,
     events = { "InsertEnter" },
