@@ -18,6 +18,10 @@ apply = ["defer"]
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
 apply = ["defer"]
+hooks.pre = """
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=bold,underline
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+"""
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
@@ -39,7 +43,10 @@ hooks.pre = "export ZSH_AUTOSUGGEST_STRATEGY=(history completion)"
 #hooks.post = 'bindkey " " zeno-auto-snippet && bindkey "^m" zeno-auto-snippet-and-accept-line'
 
 [plugins.zabrze]
-inline = 'export ZABRZE_CONFIG_HOME="$HOME/dotfiles/zabrze" && eval "$(zabrze init --bind-keys)"'
+inline = '''
+export ZABRZE_CONFIG_HOME="$HOME/dotfiles/zabrze"
+eval "$(zabrze init --bind-keys)"
+'''
 
 [plugins.ni]
 github = "azu/ni.zsh"
