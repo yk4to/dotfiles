@@ -14,15 +14,15 @@ return {
       local lsp_names = function()
         local clients = {}
         for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-          --[[if client.name == 'null-ls' then
+          if client.name == "null-ls" then
             local sources = {}
-            for _, source in ipairs(require('null-ls.sources').get_available(vim.bo.filetype)) do
+            for _, source in ipairs(require("null-ls.sources").get_available(vim.bo.filetype)) do
               table.insert(sources, source.name)
             end
-            table.insert(clients, 'null-ls(' .. table.concat(sources, ', ') .. ')')
-          else]]
-          table.insert(clients, client.name)
-          --end
+            table.insert(clients, "null-ls(" .. table.concat(sources, ", ") .. ")")
+          else
+            table.insert(clients, client.name)
+          end
         end
         if next(clients) then
           return " " .. table.concat(clients, ", ")
