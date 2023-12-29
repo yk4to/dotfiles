@@ -1,12 +1,10 @@
-font-family = "UDEV Gothic 35NFLG"
+# font-family = "UDEV Gothic 35LG"
 
 font-thicken = true
 
-command = /bin/zsh
-
 theme = catppuccin-mocha
 
-background-opacity = 0.95
-background-blur-radius = 15
+# background-opacity = 0.95
+# background-blur-radius = 15
 
-window-decoration = false
+# window-decoration = false
