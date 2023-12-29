@@ -1,16 +1,13 @@
 return {
   {
-    "catppuccin/nvim",
+    "olimorris/onedarkpro.nvim",
     priority = 1000,
-    name = "catppuccin",
-    opts = {
-      transparent_background = true,
-    },
+    name = "onedark",
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "onedark",
     },
   },
 }
