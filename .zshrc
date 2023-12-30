@@ -46,7 +46,3 @@ export PATH="$PNPM_HOME:$PATH"
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-# bat
-BAT_THEME="Catppuccin-mocha"
-
