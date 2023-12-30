@@ -1,5 +1,5 @@
-import:
-  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+#import:
+#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 
 env:
   TERM: alacritty
