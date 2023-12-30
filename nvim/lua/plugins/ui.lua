@@ -52,18 +52,20 @@ return {
       "lewis6991/gitsigns.nvim",
     },
     opts = function()
-      local mocha = require("catppuccin.palettes").get_palette("mocha")
+      local color = require("onedarkpro.helpers")
+      local colors = color.get_colors()
+      
       return {
         handle = {
-          color = mocha.surface2,
+          color = colors.line_number,
         },
         marks = {
-          Search = { color = mocha.rosewater },
-          Error = { color = mocha.red },
-          Warn = { color = mocha.yellow },
-          Info = { color = mocha.green },
-          Hint = { color = mocha.sapphire },
-          Misc = { color = mocha.lavender },
+          Search = { color = colors.cyan },
+          Error = { color = colors.red },
+          Warn = { color = colors.yellow },
+          Info = { color = colors.green },
+          Hint = { color = colors.blue },
+          Misc = { color = colors.purple },
         },
         handlers = {
           search = true,

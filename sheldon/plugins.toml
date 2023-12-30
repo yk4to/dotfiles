@@ -13,7 +13,6 @@ github = "romkatv/zsh-defer"
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
-# MEMO: to set the theme, run `fast-theme XDG:catppuccin-mocha`
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
