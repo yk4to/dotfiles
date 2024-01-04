@@ -25,8 +25,8 @@ source ~/.iterm2_shell_integration.fish
 # zoxide
 zoxide init fish | source
 
-# rtx
-rtx activate fish | source
+# mise
+mise activate fish | source
 
 # deno
 set -x DENO_INSTALL $HOME/.deno
