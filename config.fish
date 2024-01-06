@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 # aliases
-alias ls='exa --icons'
+alias ls='eza --icons'
 alias g='git'
 alias vim='nvim'
 alias cl='clear'
