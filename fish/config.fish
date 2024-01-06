@@ -2,13 +2,16 @@ set -g FISH_CONFIG_DIR $HOME/.config/fish
 set -g FISH_CONFIG $FISH_CONFIG_DIR/config.fish
 set -g FISH_CACHE_DIR $HOME/.cache/fish
 
-# aliases
-alias ls='eza --icons'
-alias g='git'
-alias vim='nvim'
-alias cl='clear'
-alias dev='/bin/ls -d ~/dev/*/ | fzf --preview "onefetch  {} --show-logo never ; echo ; bat {}README.md" --bind "enter:become(code {})"'
-alias agi='add-gitignore'
+# abbrs
+abbr --add ll "eza --icons -al"
+abbr --add nn "nvim"
+abbr --add g git
+abbr --add cl clear
+abbr --add to touch
+abbr --add tr trash
+abbr --add ne neofetch
+abbr --add bb "brew upgrade && brew update"
+abbr --add agi add-gitignore
 
 # pnpm
 set -gx PNPM_HOME "$HOME/Library/pnpm"
