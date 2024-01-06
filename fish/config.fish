@@ -19,8 +19,8 @@ set -gx PATH "$PNPM_HOME" $PATH
 source ~/dotfiles/starship_async_transient_prompt.fish
 
 # iterm2
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-source ~/.iterm2_shell_integration.fish
+# test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+# source ~/.iterm2_shell_integration.fish
 
 # zoxide
 zoxide init fish | source
