@@ -1,6 +1,3 @@
-[settings]
-experimental = true
-
 [tools]
 zig = "master"
 neovim = ["stable", "nightly"]
