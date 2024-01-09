@@ -93,6 +93,8 @@ sheldon.zsh.swc
 lazygit/state.yml
 
 ### fish ###
-fish/*
-!fish/config.fish
-!fish/fish_plugins
+fish/completions
+fish/conf.d
+fish/functions
+fish/themes
+fish/fish_variables
