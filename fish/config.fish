@@ -4,7 +4,8 @@ set -g FISH_CACHE_DIR $HOME/.cache/fish
 
 # abbrs
 abbr --add ll "eza --icons -al"
-abbr --add nn "nvim"
+abbr --add nn nvim
+abbr --add lg lazygit
 abbr --add g git
 abbr --add cl clear
 abbr --add to touch
