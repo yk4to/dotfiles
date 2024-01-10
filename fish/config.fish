@@ -2,6 +2,9 @@ set -g FISH_CONFIG_DIR $HOME/.config/fish
 set -g FISH_CONFIG $FISH_CONFIG_DIR/config.fish
 set -g FISH_CACHE_DIR $HOME/.cache/fish
 
+# aliases
+alias vim="nvim"
+
 # abbrs
 abbr --add ll "eza --icons -al"
 abbr --add nn nvim
