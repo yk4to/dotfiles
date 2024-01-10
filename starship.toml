@@ -30,6 +30,9 @@ symbol = " "
 [hg_branch]
 symbol = " "
 
+[hostname]
+ssh_symbol = " "
+
 [java]
 symbol = " "
 
@@ -38,6 +41,9 @@ symbol = " "
 
 [memory_usage]
 symbol = "󰍛 "
+
+[nix_shell]
+symbol = " "
 
 [nodejs]
 symbol = " "
@@ -49,10 +55,11 @@ Debian = " "
 Linux = " "
 Macos = " "
 Manjaro = " "
+NixOS = " "
 Raspbian = " "
 Ubuntu = " "
 Unknown = " "
-Windows = " "
+Windows = "󰍲 "
 
 [package]
 symbol = " "
@@ -68,3 +75,6 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[zig]
+symbol = " "
