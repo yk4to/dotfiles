@@ -4,7 +4,10 @@ font-thicken = true
 
 theme = OneHalfDark
 
-# background-opacity = 0.95
-# background-blur-radius = 15
+macos-titlebar-tabs = true
 
-# window-decoration = false
+window-theme = dark
+
+background-opacity = 0.95
+background-blur-radius = 15
+
