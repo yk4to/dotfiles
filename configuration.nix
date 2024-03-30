@@ -32,6 +32,8 @@
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
 
+  time.hardwareClockInLocalTime = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "ja_JP.UTF-8";
 
