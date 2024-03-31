@@ -15,6 +15,12 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/thinkpad
+
+          inputs.home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.yk4to = import ./home/linux;
+          }
         ];
         specialArgs = {
           inherit inputs;
@@ -23,21 +29,5 @@
     };
 
     # TODO: MacBook
-
-    # home-manager
-    homeConfigurations = {
-      myHome = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-        extraSpecialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./home.nix
-        ];
-      };
-    };
   };
 }
