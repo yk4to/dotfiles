@@ -27,6 +27,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.yuta = import ./home/linux;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
           }
         ];
         specialArgs = {
@@ -46,8 +49,14 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.yuta = import ./home/darwin;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
           }
         ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
   };
