@@ -2,6 +2,7 @@
   imports = [
     ./fish.nix
     ./git.nix
+    ./symlink.nix
     ./tools.nix
   ];
 
