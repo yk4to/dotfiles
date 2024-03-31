@@ -4,10 +4,10 @@
   ];
 
   programs.zsh.enable = true;
-  environment.shells = [
-    pkgs.zsh
-    pkgs.fish
-  ];
+  environment = {
+    shells = [pkgs.zsh pkgs.fish];
+    loginShell = pkgs.fish;
+  };
 
   homebrew = {
     enable = true;

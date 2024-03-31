@@ -5,7 +5,7 @@
 
   users.users.yuta = {
     home = "/Users/yuta";
-    shell = "fish";
+    shell = pkgs.fish;
   };
 
   networking.hostName = "yuta-mba";
