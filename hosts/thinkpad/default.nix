@@ -32,8 +32,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   # set hardware clock in local time to prevent Windows clock from going wrong
   time.hardwareClockInLocalTime = true;
 
