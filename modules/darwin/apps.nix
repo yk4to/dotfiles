@@ -19,7 +19,8 @@
     };
 
     masApps = {
-      # Xcode = 497799835;
+      "Logic Pro" = 634148309;
+      "TitechApp 3" = 1400068981;
     };
 
     taps = [
@@ -47,6 +48,7 @@
       "latest"
       "raycast"
       "rectangle"
+      "1password"
 
       # Editors
       "coteditor"
@@ -59,6 +61,7 @@
       # "balenaetcher"
       "orbstack"
       "sf-symbols"
+      "tailscale"
       "visual-studio-code"
       "xcodes"
 
