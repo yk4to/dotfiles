@@ -1,7 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +35,19 @@
       };
     };
 
-    # TODO: MacBook
+    # MacBook
+    darwinConfigurations = {
+      macbook = inputs.nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/macbook
+
+          inputs.home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.yk4to = import ./home/darwin;
+          }
+        ];
+      };
+    };
   };
 }
