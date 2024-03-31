@@ -1,4 +1,9 @@
 {
+  # install starship without `programs` to load it asynchronously
+  home.packages = with pkgs; [
+    starship
+  ];
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

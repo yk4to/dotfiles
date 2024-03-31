@@ -1,24 +1,5 @@
 {pkgs, ...}: {
-  imports = [
-    ./git.nix
-    ./apps.nix
-    ./fish.nix
-  ];
-
-  home = rec {
-    username = "yk4to";
-    homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
-  };
-
   home.packages = with pkgs; [
-    bat
-    eza
-    neofetch
-    starship
-
-    vscode
-
     gnomeExtensions.dash-to-dock
     gnomeExtensions.kimpanel
     yaru-theme
@@ -75,6 +56,4 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-  
-  programs.home-manager.enable = true;
 }

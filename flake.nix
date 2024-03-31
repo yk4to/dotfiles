@@ -9,11 +9,12 @@
   };
 
   outputs = inputs: {
+    # ThinkPad
     nixosConfigurations = {
-      myNixOS = inputs.nixpkgs.lib.nixosSystem {
+      thinkpad = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./hosts/thinkpad
         ];
         specialArgs = {
           inherit inputs;
@@ -21,6 +22,9 @@
       };
     };
 
+    # TODO: MacBook
+
+    # home-manager
     homeConfigurations = {
       myHome = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs {
