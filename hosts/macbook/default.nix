@@ -9,4 +9,6 @@
   };
 
   networking.hostName = "yuta-mba";
+
+  nixpkgs.hostPlatform = "aarch64-darwin";
 }
