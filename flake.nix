@@ -38,10 +38,11 @@
     # MacBook
     darwinConfigurations = {
       macbook = inputs.nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
         modules = [
           ./hosts/macbook
 
-          inputs.home-manager.nixosModules.home-manager {
+          inputs.home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.yk4to = import ./home/darwin;
