@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./apps.nix
+    ./fish.nix
   ];
 
   home = rec {
@@ -14,6 +15,8 @@
     bat
     eza
     neofetch
+    starship
+
     vscode
 
     gnomeExtensions.dash-to-dock
