@@ -31,7 +31,46 @@
     ];
 
     casks = [
+      # Browsers
+      "arc"
+      "google-chrome"
 
+      # Utilities
+      "alt-tab"
+      "appcleaner"
+      "bartender"
+      "cleanshot"
+      "iina"
+      "karabiner-elements"
+      "keka"
+      "keyboardcleantool"
+      "latest"
+      "raycast"
+      "rectangle"
+
+      # Editors
+      "coteditor"
+      "inkdrop"
+      "obsidian"
+
+      # Dev Tools
+      "apparency"
+      "arduino-ide"
+      # "balenaetcher"
+      "orbstack"
+      "sf-symbols"
+      "visual-studio-code"
+      "xcodes"
+
+      # Design Tools
+      # "adobe-creative-cloud"
+      "figma"
+
+      # Others
+      "discord"
+      # "google-drive"
+      "slack"
+      "zoom"
     ];
   };
 }
