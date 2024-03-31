@@ -4,6 +4,7 @@
   ];
 
   programs.zsh.enable = true;
+  programs.fish.enable = true;
   environment = {
     shells = [pkgs.zsh pkgs.fish];
     loginShell = pkgs.fish;
