@@ -37,7 +37,7 @@
 
     # MacBook
     darwinConfigurations = {
-      macbook = inputs.nix-darwin.lib.darwinSystem {
+      yuta-mba = inputs.nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./hosts/macbook
