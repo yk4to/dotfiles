@@ -3,8 +3,8 @@
     ../../modules/darwin
   ];
 
-  users.users.yk4to = {
-    home = "/Users/yk4to";
+  users.users.yuta = {
+    home = "/Users/yuta";
     shell = "fish";
   };
 

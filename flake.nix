@@ -26,7 +26,7 @@
           inputs.home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.yk4to = import ./home/linux;
+            home-manager.users.yuta = import ./home/linux;
           }
         ];
         specialArgs = {
@@ -45,7 +45,7 @@
           inputs.home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.yk4to = import ./home/darwin;
+            home-manager.users.yuta = import ./home/darwin;
           }
         ];
       };

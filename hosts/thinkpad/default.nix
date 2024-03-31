@@ -10,9 +10,9 @@
   ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.yk4to = {
+  users.users.yuta = {
     isNormalUser = true;
-    description = "yk4to";
+    description = "Yuta Kato";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
