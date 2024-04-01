@@ -28,7 +28,6 @@
 
   # save default item
   boot.loader.grub.default = "saved";
-  boot.loader.grub.saveDefault = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
