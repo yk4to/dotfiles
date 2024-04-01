@@ -1,5 +1,7 @@
 {
   imports = [
+    ./shell.nix
+
     ../base
   ];
 
