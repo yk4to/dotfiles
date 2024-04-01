@@ -8,7 +8,7 @@
   dconf.settings = {
     "org/gnome/shell" = {
       favorite-apps = [
-        "chromium-browser.desktop"
+        "google-chrome-stable.desktop"
         "code.desktop"
         "org.wezfurlong.wezterm.desktop"
         "org.gnome.Nautilus.desktop"
