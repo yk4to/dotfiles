@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     git
+    inputs.ghostty.packages.x86_64-linux.default
   ];
 
   # set time zone
