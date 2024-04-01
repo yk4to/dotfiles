@@ -14,13 +14,12 @@
         local wezterm = require("wezterm")
         local config = {
           font = wezterm.font("UDEV Gothic 35NFLG"),
-          font_size = 13.0,
+          font_size = 10.0,
           color_scheme = "OneHalfDark",
           -- use_fancy_tab_bar = false,
           -- freetype_load_target = "Light",
           -- window_background_opacity = 0.95,
-          hide_tab_bar_if_only_one_tab = true,
-          -- window_decorations = "RESIZE",
+          hide_tab_bar_if_only_one_tab = false,
           window_padding = {
             left = 14,
             right = 14,
