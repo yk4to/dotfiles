@@ -7,6 +7,13 @@
 
   dconf.settings = {
     "org/gnome/shell" = {
+      favorite-apps = [
+        "chromium-browser.desktop"
+        "code.desktop"
+        "org.wezfurlong.wezterm.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
+
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
         "kimpanel@kde.org"
