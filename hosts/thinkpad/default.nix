@@ -26,6 +26,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # save default item
+  boot.loader.grub.default = "saved";
+  boot.loader.grub.saveDefault = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
