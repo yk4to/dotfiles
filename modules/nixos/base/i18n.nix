@@ -13,18 +13,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # change user dir names to English
-  environment.etc."xdg/user-dirs.defaults".text = ''
-    DESKTOP=Desktop
-    DOCUMENTS=Documents
-    DOWNLOAD=Downloads
-    MUSIC=Music
-    PICTURES=Pictures
-    PUBLICSHARE=Public
-    TEMPLATES=Templates
-    VIDEOS=Videos
-  '';
-
   # TODO: extract config about input method to `desktop` dir
   i18n.inputMethod = {
     enabled = "fcitx5";
