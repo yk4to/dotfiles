@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ghostty.url = "github:mitchellh/ghostty";
-
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
   };
 
