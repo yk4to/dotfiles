@@ -47,7 +47,7 @@
       natural-scroll = false;
       tap-to-click = true;
       two-finger-scrolling-enabled = true;
-    }
+    };
   };
 
   gtk = {
