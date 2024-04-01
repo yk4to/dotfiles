@@ -1,4 +1,0 @@
-[tools]
-zig = "master"
-neovim = ["stable", "nightly"]
-node = "latest"
