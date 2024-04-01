@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     bat
+    delta
     eza
     hyperfine
-    lazygit
     neofetch
     zoxide
 
