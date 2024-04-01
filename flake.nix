@@ -13,6 +13,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
   };
 
   outputs = inputs: {
@@ -44,6 +46,8 @@
         system = "aarch64-darwin";
         modules = [
           ./hosts/macbook
+
+          inputs.darwin-custom-icons.darwinModules.default
 
           inputs.home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;
