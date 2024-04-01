@@ -7,7 +7,7 @@
   - NixOS 23.11 (dual-boot with Windows 11)
   - i7 1360P, 32GB RAM
 - MacBook Air 2024
-  - `macbook`
+  - `yuta-mba`
   - macOS Sonoma (managed by nix-darwin)
   - M3, 16GB RAM
 
