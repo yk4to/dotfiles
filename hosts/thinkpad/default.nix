@@ -30,7 +30,7 @@
     };
 
     efi.canTouchEfiVariables = true;
-  }
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
