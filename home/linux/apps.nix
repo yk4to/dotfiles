@@ -20,6 +20,7 @@
           -- freetype_load_target = "Light",
           -- window_background_opacity = 0.95,
           hide_tab_bar_if_only_one_tab = false,
+          hide_mouse_cursor_when_typing = false,
           window_padding = {
             left = 14,
             right = 14,
