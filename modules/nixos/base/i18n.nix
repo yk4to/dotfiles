@@ -12,10 +12,4 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # TODO: extract config about input method to `desktop` dir
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = [pkgs.fcitx5-mozc];
-  };
 }

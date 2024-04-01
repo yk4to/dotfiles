@@ -1,6 +1,7 @@
 {
   imports = [
     ./fonts.nix
+    ./ime.nix
     ./sound.nix
 
     ../base
