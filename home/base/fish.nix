@@ -6,6 +6,17 @@
 
   programs.fish = {
     enable = true;
+
+    shellAbbrs = {
+      ll = "eza --icons -al";
+      lg = "lazygit";
+      g = "git";
+      cl = "clear";
+      to = "touch";
+      tr = "trash";
+      ne = "neofetch";
+    };
+
     interactiveShellInit = ''
       # disable greeting
       set -g fish_greeting
