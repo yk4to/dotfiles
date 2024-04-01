@@ -2,8 +2,6 @@
 
 font-thicken = true
 
-command = /etc/profiles/per-user/yuta/bin/fish
-
 theme = OneHalfDark
 
 macos-titlebar-tabs = true
