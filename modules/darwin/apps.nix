@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     fish
+    darwin.trash
   ];
 
   programs.zsh.enable = true;
