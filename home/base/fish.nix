@@ -1,9 +1,4 @@
-{pkgs, ...}: {
-  # install starship without `programs` to load it asynchronously
-  home.packages = with pkgs; [
-    starship
-  ];
-
+{pkgs, lib, ...}: {
   programs.fish = {
     enable = true;
 
@@ -45,5 +40,20 @@
       end
       source $CONFIG_CACHE
     '';
+  };
+
+  programs.starship = {
+    enable = true;
+    
+    # disable fish integration to load starship manually
+    enableFishIntegration = false;
+
+    settings = lib.mkMerge [
+      (builtins.fromTOML (builtins.readFile "${pkgs.starship}/share/starship/presets/nerd-font-symbols.toml"))
+      {
+        add_newline = true;
+        command_timeout = 5000;
+      }
+    ];
   };
 }
