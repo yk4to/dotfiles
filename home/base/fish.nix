@@ -17,7 +17,7 @@
       set -g fish_greeting
 
       # starship
-      source ~/dotfiles/fish/starship_async_transient_prompt.fish
+      ${builtins.readFile ../../fish/starship_async_transient_prompt.fish}
 
       # ghostty shell integration
       if test -n "$GHOSTTY_RESOURCES_DIR"
@@ -44,7 +44,7 @@
 
   programs.starship = {
     enable = true;
-    
+
     # disable fish integration to load starship manually
     enableFishIntegration = false;
 
