@@ -11,6 +11,14 @@
         path = "/Applications/KeyboardCleanTool.app/";
         icon = ../../icons/keyboardcleantool.icns;
       }
+      {
+        path = "/Applications/Blackmagic RAW/Blackmagic RAW Player.app/";
+        icon = ../../icons/rawplayer.icns;
+      }
+      {
+        path = "/Applications/Blackmagic RAW/Blackmagic RAW Speed Test.app/";
+        icon = ../../icons/rawspeedtest.icns;
+      }
     ];
   };
 }
