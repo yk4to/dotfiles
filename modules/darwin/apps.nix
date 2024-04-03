@@ -67,7 +67,7 @@
       "xcodes"
 
       # Design Tools
-      # "adobe-creative-cloud"
+      "adobe-creative-cloud"
       "figma"
 
       # Others
@@ -75,6 +75,8 @@
       # "google-drive"
       "slack"
       "zoom"
+      "microsoft-office"
+      "microsoft-auto-update"
     ];
   };
 }
