@@ -29,7 +29,10 @@
       gtk-theme = "Yaru-dark";
       icon-theme = "Yaru";
       color-scheme = "prefer-dark";
+      
       gtk-im-module = "fcitx";
+
+      show-battery-percentage = true;
     };
 
     "org/gnome/shell/extensions/dash-to-dock" = {
