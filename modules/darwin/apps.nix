@@ -16,6 +16,7 @@
 
     onActivation = {
       autoUpdate = true;
+      upgrade = true;
       cleanup = "zap";
     };
 
@@ -73,10 +74,10 @@
       # Others
       "discord"
       # "google-drive"
+      "microsoft-auto-update"
+      "microsoft-office"
       "slack"
       "zoom"
-      "microsoft-office"
-      "microsoft-auto-update"
     ];
   };
 }
