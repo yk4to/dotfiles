@@ -73,7 +73,7 @@
 
       # Others
       "discord"
-      # "google-drive"
+      "google-drive"
       "microsoft-auto-update"
       "microsoft-office"
       "slack"
