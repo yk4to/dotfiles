@@ -19,6 +19,18 @@
         path = "/Applications/Blackmagic RAW/Blackmagic RAW Speed Test.app/";
         icon = ../../icons/rawspeedtest.icns;
       }
+      {
+        path = "/Applications/Google Docs.app/";
+        icon = ../../icons/googledocs.icns;
+      }
+      {
+        path = "/Applications/Google Sheets.app/";
+        icon = ../../icons/googlesheets.icns;
+      }
+      {
+        path = "/Applications/Google Slides.app/";
+        icon = ../../icons/googleslides.icns;
+      }
     ];
   };
 }
