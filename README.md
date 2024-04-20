@@ -15,4 +15,4 @@
 
 Inspired by
 
-- [ryan4yin/nix-config](ryan4yin/nix-config)
+- [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
