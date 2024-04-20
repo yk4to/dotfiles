@@ -16,3 +16,7 @@
 Inspired by
 
 - [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
+
+## License
+
+MIT (except for the `icons` directory)
