@@ -48,6 +48,7 @@
       "keka"
       "keyboardcleantool"
       "latest"
+      "logi-options-plus"
       "raycast"
       "rectangle"
       "1password"
@@ -60,7 +61,7 @@
       # Dev Tools
       "apparency"
       "arduino-ide"
-      # "balenaetcher"
+      "balenaetcher"
       "orbstack"
       "sf-symbols"
       "tailscale"
