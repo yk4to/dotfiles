@@ -63,6 +63,7 @@
       "arduino-ide"
       "balenaetcher"
       "orbstack"
+      "raspberry-pi-imager"
       "sf-symbols"
       "tailscale"
       "visual-studio-code"
