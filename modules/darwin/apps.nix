@@ -80,6 +80,7 @@
       "microsoft-auto-update"
       "microsoft-office"
       "slack"
+      "ticktick"
       "zoom"
     ];
   };
