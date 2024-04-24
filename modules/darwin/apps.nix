@@ -49,6 +49,7 @@
       "keyboardcleantool"
       "latest"
       "logi-options-plus"
+      "monitorcontrol"
       "raycast"
       "rectangle"
       "1password"
