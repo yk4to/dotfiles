@@ -15,7 +15,7 @@
       menuExtraClock.Show24Hour = true;
 
       dock = {
-        autohide = true;
+        autohide = false;
         show-recents = false; # do not show recent apps in dock
         # mru-spaces = false;
 
