@@ -31,6 +31,10 @@
         path = "/Applications/Google Slides.app/";
         icon = ../../icons/googleslides.icns;
       }
+      {
+        path = "/Applications/F5 VPN.app/";
+        icon = ../../icons/f5vpn.icns;
+      }
     ];
   };
 }
