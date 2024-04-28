@@ -75,6 +75,7 @@
       "figma"
 
       # Others
+      "box-drive"
       "discord"
       "google-drive"
       "microsoft-auto-update"
