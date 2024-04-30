@@ -32,8 +32,20 @@
         icon = ../../icons/googleslides.icns;
       }
       {
+        path = "/Applications/Box.app/";
+        icon = ../../icons/box.icns;
+      }
+      {
         path = "/Applications/F5 VPN.app/";
         icon = ../../icons/f5vpn.icns;
+      }
+      {
+        path = "/Applications/Raspberry Pi Imager.app/";
+        icon = ../../icons/raspi.icns;
+      }
+      {
+        path = "/Applications/MATLAB_R2024a.app/";
+        icon = ../../icons/matlab.icns;
       }
     ];
   };
