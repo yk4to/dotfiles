@@ -75,15 +75,19 @@
       "adobe-creative-cloud"
       "figma"
 
-      # Others
+      # Cloud Storage
       "box-drive"
-      "discord"
       "google-drive"
+
+      # Communication
+      "discord"
+      "slack"
+      "zoom"
+
+      # Others
       "microsoft-auto-update"
       "microsoft-office"
-      "slack"
       "ticktick"
-      "zoom"
     ];
   };
 }
