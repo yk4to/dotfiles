@@ -22,6 +22,7 @@
 
     masApps = {
       "Logic Pro" = 634148309;
+      "Sleeve" = 1606145041;
       "TitechApp 3" = 1400068981;
     };
 
