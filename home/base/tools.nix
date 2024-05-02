@@ -7,6 +7,6 @@
     neofetch
     zoxide
 
-    nodejs_22
+    nodejs_latest
   ];
 }
