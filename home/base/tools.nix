@@ -8,6 +8,7 @@
     hyperfine # benchmarking tool
 
     neofetch # system info
+    fastfetch
     
     nodejs_latest
   ];
