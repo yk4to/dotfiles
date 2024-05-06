@@ -4,8 +4,9 @@
     ./git.nix
     ./nvim.nix
     ./starship.nix
-    ./symlink.nix
     ./tools.nix
+
+    ./ghostty
   ];
 
   programs.home-manager.enable = true;
