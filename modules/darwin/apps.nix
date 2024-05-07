@@ -87,7 +87,7 @@
       # Others
       "microsoft-auto-update"
       "microsoft-office"
-      "ticktick"
+      "todoist"
     ];
   };
 }
