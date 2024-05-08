@@ -3,6 +3,7 @@
     ./git.nix
     ./shell.nix
     ./ssh.nix
+    ./tools.nix
 
     ../base
   ];
