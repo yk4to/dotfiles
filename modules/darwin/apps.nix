@@ -20,9 +20,20 @@
     };
 
     masApps = {
+      # Apps
       "Logic Pro" = 634148309;
       "Sleeve" = 1606145041;
-      "TitechApp 3" = 1400068981;
+      "TitechApp" = 1400068981;
+
+      # Safari Extensions
+      "1Password for Safari" = 1569813296;
+      "1Blocker" = 1365531024;
+      "uBlacklist" = 1547912640;
+      "Refined GitHub" = 1519867270;
+      "Control Panel for Twitter" = 1668516167;
+      "Control Panel for YouTube" = 6478456678;
+      "Userscripts" = 1463298887;
+      "T2Extension" = 1603240737;
     };
 
     taps = [
