@@ -19,6 +19,11 @@
       # starship
       ${builtins.readFile ../../fish/starship_async_transient_prompt.fish}
 
+      # homebrew
+      if test -d "/opt/homebrew"
+        set -gx PATH "/opt/homebrew/bin" $PATH
+      end
+
       # ghostty shell integration
       if test -n "$GHOSTTY_RESOURCES_DIR"
         builtin source "''$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
