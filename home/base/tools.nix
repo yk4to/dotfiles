@@ -7,8 +7,7 @@
     delta # git diff viewer
     hyperfine # benchmarking tool
 
-    neofetch # system info
-    fastfetch
+    neofetch # system info (deprecated)
     
     nodejs_latest
   ];

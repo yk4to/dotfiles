@@ -1,5 +1,6 @@
 {
   imports = [
+    ./fastfetch.nix
     ./git.nix
     ./nvim.nix
     ./starship.nix
