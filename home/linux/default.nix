@@ -2,6 +2,7 @@
   imports = [
     ./apps.nix
     ./gnome.nix
+    ./ssh.nix
 
     ../base
   ];
