@@ -6,8 +6,6 @@
   ];
 
   programs = {
-    google-chrome.enable = true;
-
     wezterm = {
       enable = true;
       extraConfig = ''
