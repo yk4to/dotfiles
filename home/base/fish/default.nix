@@ -17,7 +17,7 @@
       set -g fish_greeting
 
       # starship
-      ${builtins.readFile ../../fish/starship_async_transient_prompt.fish}
+      ${builtins.readFile ./starship_async_transient_prompt.fish}
 
       # homebrew
       if test -d "/opt/homebrew"
