@@ -20,6 +20,11 @@
       ];
     };
 
+    "org/gnome/mutter" = {
+      # Enable fractional scaling
+      experimental-features = ["scale-monitor-framebuffer"];
+    };
+
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":minimize,maximize,close";
     };
