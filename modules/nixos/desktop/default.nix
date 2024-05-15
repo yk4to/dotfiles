@@ -1,5 +1,6 @@
 {
   imports = [
+    ./apps.nix
     ./fonts.nix
     ./ime.nix
     ./sound.nix
