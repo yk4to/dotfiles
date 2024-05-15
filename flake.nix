@@ -15,6 +15,8 @@
     };
 
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
+
+    ghostty.url = "git+ssh://git@github.com/mitchellh/ghostty";
   };
 
   outputs = inputs: {
@@ -32,6 +34,12 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
             };
+          }
+
+          {
+            environment.systemPackages = [
+              inputs.ghostty.packages.x86_64-linux.default
+            ];
           }
         ];
         specialArgs = {
