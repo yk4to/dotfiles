@@ -26,7 +26,7 @@
         gaps_out = 20;
 
         border_size = 2;
-        "col.active_border" = "rgba(56b6c2ee) rgba(61afefee) 45deg";
+        "col.active_border" = "rgba(56b6c2aa) rgba(61afefaa) 45deg";
         "col.inactive_border" = "rgba(5c6370aa)";
 
         # Set to true enable resizing windows by clicking and dragging on borders and gaps
