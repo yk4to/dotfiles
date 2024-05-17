@@ -15,10 +15,19 @@
         ];
         modules-right = [
           "tray"
+          "pulseaudio"
           "battery"
           "network"
         ];
         
+        pulseaudio= {
+          format= "{icon} {volume}%";
+          format-muted= "󰖁 {volume}%";
+          format-icons= {
+              default= [""];
+          };
+          scroll-step= 5;
+        };
         network = {
           format-wifi = "󰖩 {signalStrength}%";
           format-ethernet = "󰀂 ";
