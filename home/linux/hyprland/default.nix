@@ -23,7 +23,9 @@
       bind = [
         "$mod, F, exec, firefox"
         "$mod, C, exec, code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
-        "$mod, g, exec, ghostty --window-decoration=false"
+        "$mod, G, exec, ghostty --window-decoration=false"
+
+        "$mod, W, killactive"
       ];
 
       # TODO: move this config under `hosts` dir
