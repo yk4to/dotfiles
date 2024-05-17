@@ -1,6 +1,7 @@
 {
   imports = [
     ./clamshell.nix
+    ./waybar.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -34,7 +35,7 @@
       # --- LOOK AND FEEL ---
       general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 10;
 
         border_size = 2;
         "col.active_border" = "rgba(56b6c2aa) rgba(61afefaa) 45deg";

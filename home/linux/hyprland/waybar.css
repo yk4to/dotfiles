@@ -1,0 +1,22 @@
+window#waybar {
+  font-family: "UDEV Gothic 35NF";
+  background-color: #32363e;
+  padding: 0 10px;
+}
+
+#clock,
+#network,
+#battery,
+#pulseaudio,
+#tray {
+  margin: 0 5px;
+}
+
+#workspaces button {
+  margin: 0 5px;
+  padding: 5px;
+}
+
+#workspaces button.active {
+  color: #61afaf;
+}
