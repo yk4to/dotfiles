@@ -71,6 +71,9 @@
           vibrancy = 0.1696;
         };
       };
+
+      # --- INPUT ---
+      input.follow_mouse = 2; # Clicking on a window will move keyboard focus to that window
     };
   };
 }
