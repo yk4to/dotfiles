@@ -7,7 +7,18 @@
     enable = true;
 
     settings = {
+      env = [
+        "GTK_IM_MODULE, fcitx"
+        "QT_IM_MODULE, fcitx"
+        "XMODIFIERS, @im=fcitx"
+      ];
+
+      exec-once = [
+        "fcitx5"
+      ];
+
       "$mod" = "SUPER";
+      
       bind = [
         "$mod, F, exec, firefox"
         "$mod, C, exec, code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
