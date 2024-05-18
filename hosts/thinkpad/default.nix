@@ -14,9 +14,6 @@
     isNormalUser = true;
     description = "Yuta Kato";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
     shell = pkgs.fish;
   };
 

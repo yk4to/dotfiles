@@ -25,7 +25,7 @@
       "$mod" = "SUPER";
       
       bind = [
-        "$mod, F, exec, firefox"
+        "$mod, F, exec, firefox-devedition"
         "$mod, C, exec, code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
         "$mod, G, exec, ghostty --window-decoration=false"
 
