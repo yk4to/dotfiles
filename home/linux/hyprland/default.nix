@@ -2,6 +2,7 @@
   imports = [
     ./clamshell.nix
     ./waybar.nix
+    ./wofi.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -24,6 +25,8 @@
         "$mod, F, exec, firefox"
         "$mod, C, exec, code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
         "$mod, G, exec, ghostty --window-decoration=false"
+
+        "$mod, SPACE, exec, wofi --show drun"
 
         "$mod, W, killactive"
       ];
