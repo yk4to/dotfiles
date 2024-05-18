@@ -1,6 +1,7 @@
 {
   imports = [
     ./clamshell.nix
+    ./swaylock.nix
     ./swaync.nix
     ./waybar.nix
     ./wofi.nix
@@ -29,6 +30,7 @@
         "$mod, G, exec, ghostty --window-decoration=false"
 
         "$mod, SPACE, exec, wofi --show drun"
+        "$mod, L, exec, swaylock"
 
         "$mod, W, killactive"
       ];

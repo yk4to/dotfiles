@@ -17,6 +17,9 @@
   # Enable gdm (GNOME Display Manager)
   services.xserver.displayManager.gdm.enable = true;
 
+  # Enable swaylock for hyprland
+  security.pam.services.swaylock = {};
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
