@@ -1,6 +1,7 @@
 {
   imports = [
     ./clamshell.nix
+    ./swaync.nix
     ./waybar.nix
     ./wofi.nix
   ];
@@ -17,6 +18,7 @@
 
       exec-once = [
         "fcitx5"
+        "swaync"
       ];
 
       "$mod" = "SUPER";
