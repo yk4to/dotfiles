@@ -2,6 +2,7 @@
   imports = [
     ./apps.nix
     ./fonts.nix
+    ./gnome-keyring.nix
     ./gnome.nix
     ./hyprland.nix
     ./ime.nix
