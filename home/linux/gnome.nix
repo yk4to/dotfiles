@@ -31,8 +31,8 @@
 
     "org/gnome/desktop/interface" = {
       cursor-theme = "Yaru";
-      gtk-theme = "Yaru-dark";
-      icon-theme = "Yaru";
+      gtk-theme = "Yaru-blue-dark";
+      icon-theme = "Yaru-blue";
       color-scheme = "prefer-dark";
       
       gtk-im-module = "fcitx";
@@ -63,17 +63,17 @@
 
     iconTheme = {
       package = pkgs.yaru-theme;
-      name = "Yaru";
+      name = "Yaru-blue";
     };
 
     theme = {
       package = pkgs.yaru-theme;
-      name = "Yaru-dark";
+      name = "Yaru-blue-dark";
     };
 
     gtk3.extraConfig = {
       gtk-icon-theme-name = "Yaru";
-      gtk-theme-name = "Yaru-dark";
+      gtk-theme-name = "Yaru-blue-dark";
       gtk-application-prefer-dark-theme = 1;
     };
   };

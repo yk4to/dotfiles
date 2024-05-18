@@ -4,6 +4,8 @@
     ./gnome.nix
     ./ssh.nix
 
+    ./hyprland
+
     ../base
   ];
 

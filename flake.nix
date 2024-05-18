@@ -14,6 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
 
     ghostty.url = "git+ssh://git@github.com/mitchellh/ghostty";
