@@ -2,6 +2,8 @@
   programs.wofi = {
     enable = true;
 
-    settings = {};
+    settings = {
+      width = 500;
+    };
   };
 }
