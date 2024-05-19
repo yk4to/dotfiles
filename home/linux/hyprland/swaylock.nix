@@ -1,6 +1,10 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.swaylock-effects ];
-  home.file.".config/swaylock/config".text = ''
-    effect-blur=5x5
-  '';
+  programs.swaylock = {
+    package = pkgs.swaylock-effects;
+    settings = {
+      clock = true;
+      effect-blur = "5x5";
+      ignore-empty-password = true;
+    };
+  };
 }
