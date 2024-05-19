@@ -82,7 +82,7 @@
       };
 
       # --- ANIMATION ---
-      layerrule = "blur, wofi";
+      layerrule = "noanim, wofi";
 
       # --- INPUT ---
       input.follow_mouse = 2; # Clicking on a window will move keyboard focus to that window
