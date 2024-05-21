@@ -1,6 +1,7 @@
 {
   imports = [
     ./apps.nix
+    ./git.nix
     ./gnome.nix
     ./tools.nix
 
