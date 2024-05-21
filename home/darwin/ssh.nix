@@ -3,11 +3,13 @@ _: let
 in {
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      Host *
-          IdentityAgent ${onePassPath}
 
-      Include ~/.orbstack/ssh/config
-    '';
+    includes = [ "~/.orbstack/ssh/config" ];
+
+    matchBlocks = {
+      "*".extraOptions = {
+        IdentityAgent = "\"${onePassPath}\"";
+      };
+    };
   };
 }
