@@ -7,15 +7,23 @@
     extraConfig = { init.defaultBranch = "main"; };
   };
 
+  # GitHub CLI
   programs.gh.enable = true;
 
+  # git diff viewer
+  programs.git.delta = {
+    enable = true;
+    options.syntax-theme = "OneHalfDark";
+  };
+
+  # git TUI
   programs.lazygit = {
     enable = true;
 
     settings = {
       git.paging = {
         colorArg = "always";
-        pager = "delta --dark --paging=never";
+        pager = "delta --paging=never";
       };
 
       gui.nerdFontsVersion = "3";
