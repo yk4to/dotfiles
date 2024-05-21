@@ -3,6 +3,7 @@
     ./apps.nix
     ./gnome.nix
     ./ssh.nix
+    ./tools.nix
 
     ./hyprland
 

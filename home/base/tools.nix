@@ -7,9 +7,7 @@
     hyperfine # benchmarking tool
 
     neofetch # system info (deprecated)
-
     bottom # system monitor
-    cava # audio visualizer
     
     nodejs_latest
   ];
