@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    bat # `cat` replacement
     eza # `ls` replacement
     zoxide # `cd` replacement
 
@@ -14,4 +13,10 @@
     
     nodejs_latest
   ];
+
+  # `cat` replacement
+  programs.bat = {
+    enable = true;
+    config.theme = "OneHalfDark";
+  };
 }
