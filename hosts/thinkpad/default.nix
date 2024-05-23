@@ -29,6 +29,9 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # Enable graphical splash screen
+  boot.plymouth.enable = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
 
