@@ -20,5 +20,6 @@ in {
 
   xdg.configFile = configFiles [
     "./init.lua"
+    "./lua/plugins/colorscheme.lua"
   ];
 }

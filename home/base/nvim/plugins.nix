@@ -14,5 +14,9 @@
   };
   plugins = p: builtins.foldl' (x: y: x // y) { } (map normalizedPluginAttr p);
 in with pkgs.vimPlugins; plugins [
+  # plugin manager
   lazy-nvim
+  
+  # colorscheme
+  onedarkpro-nvim
 ]
