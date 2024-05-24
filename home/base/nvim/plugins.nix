@@ -19,4 +19,12 @@ in with pkgs.vimPlugins; plugins [
   
   # colorscheme
   onedarkpro-nvim
+
+  # ui
+  lualine-nvim
+  noice-nvim
+  nui-nvim
+  nvim-notify
+
+  nvim-web-devicons
 ]
