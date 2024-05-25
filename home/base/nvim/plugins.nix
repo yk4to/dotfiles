@@ -35,6 +35,9 @@ in with pkgs.vimPlugins; plugins [
   # treesitter
   nvim-treesitter
 
+  # editor
+  gitsigns-nvim
+
   # ui
   lualine-nvim
   noice-nvim

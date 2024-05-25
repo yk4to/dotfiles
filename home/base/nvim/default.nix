@@ -68,6 +68,7 @@ in {
     "./init.lua"
     "./lua/plugins/coding.lua"
     "./lua/plugins/colorscheme.lua"
+    "./lua/plugins/editor.lua"
     "./lua/plugins/ui.lua"
   ];
 }
