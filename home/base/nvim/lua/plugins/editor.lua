@@ -1,5 +1,24 @@
 return {
   {
+    name = "neo-tree.nvim",
+    dir = "@neo_tree_nvim@",
+    dependencies = {
+      { name = "nui.nvim",          dir = "@nui_nvim@" },
+      { name = "nvim-web-devicons", dir = "@nvim_web_devicons@" },
+      { name = "plenary.nvim",      dir = "@plenary_nvim@" },
+    },
+    cmd = "Neotree",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
+        end,
+        desc = "Explorer NeoTree (cwd)",
+      },
+    },
+  },
+  {
     name = "gitsigns",
     dir = "@gitsigns_nvim@",
     event = "BufRead",

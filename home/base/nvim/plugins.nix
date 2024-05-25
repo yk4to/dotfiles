@@ -36,6 +36,7 @@ in with pkgs.vimPlugins; plugins [
   nvim-treesitter
 
   # editor
+  neo-tree-nvim
   gitsigns-nvim
   which-key-nvim
 
@@ -45,5 +46,7 @@ in with pkgs.vimPlugins; plugins [
   nui-nvim
   nvim-notify
 
+  # dependencies
   nvim-web-devicons
+  plenary-nvim
 ]
