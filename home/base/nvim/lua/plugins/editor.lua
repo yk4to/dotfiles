@@ -8,6 +8,32 @@ return {
       { name = "plenary.nvim",      dir = "@plenary_nvim@" },
     },
     cmd = "Neotree",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          hide_by_name = {
+            ".git",
+            -- ".DS_Store",
+            -- "thumbs.db",
+          },
+        },
+        bind_to_cwd = true,
+        cwd_target = { sidebar = "global" },
+      },
+      default_component_configs = {
+        icon = {
+          folder_closed = "󰉋",
+          folder_open = "󰝰",
+          folder_empty = "󰉖",
+          default = "*",
+          highlight = "NeoTreeFileIcon",
+        },
+      },
+    },
     keys = {
       {
         "<leader>e",
