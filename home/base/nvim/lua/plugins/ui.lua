@@ -27,6 +27,7 @@ return {
     opts = {
       options = {
         theme = "onedark",
+        globalstatus = true,
       },
       sections = {
         lualine_x = { 'encoding', 'fileformat', 'filetype', lsp_names },
