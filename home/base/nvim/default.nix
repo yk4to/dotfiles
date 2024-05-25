@@ -8,8 +8,12 @@
     shfmt
     # bash
     nodePackages.bash-language-server
+    # docker
+    nodePackages.dockerfile-language-server-nodejs
     # javascript
     biome
+    # typescript
+    nodePackages.typescript-language-server
     # lua
     lua-language-server
     stylua
@@ -66,9 +70,11 @@ in {
 
   xdg.configFile = configFiles [
     "./init.lua"
-    "./lua/plugins/coding.lua"
     "./lua/plugins/colorscheme.lua"
+    "./lua/plugins/completion.lua"
     "./lua/plugins/editor.lua"
+    "./lua/plugins/lsp.lua"
+    "./lua/plugins/treesitter.lua"
     "./lua/plugins/ui.lua"
   ];
 }

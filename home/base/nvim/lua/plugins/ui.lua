@@ -2,15 +2,15 @@
 local lsp_names = function()
   local clients = {}
   for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-    --[[ if client.name == "null-ls" then
+    if client.name == "null-ls" then
       local sources = {}
       for _, source in ipairs(require("null-ls.sources").get_available(vim.bo.filetype)) do
         table.insert(sources, source.name)
       end
       table.insert(clients, "null-ls(" .. table.concat(sources, ", ") .. ")")
-    else --]]
+    else
       table.insert(clients, client.name)
-    -- end
+    end
   end
   if next(clients) then
     return " " .. table.concat(clients, ", ")
@@ -45,6 +45,13 @@ return {
     init = function() vim.g.barbar_auto_setup = false end,
     config = function()
       require("barbar").setup()
+    end,
+  },
+  {
+    name = "fidget.nvim",
+    dir = "@fidget_nvim@",
+    config = function()
+      require("fidget").setup()
     end,
   },
   {
