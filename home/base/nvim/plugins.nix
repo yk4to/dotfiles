@@ -40,6 +40,7 @@ in with pkgs.vimPlugins; plugins [
   nvim-treesitter
 
   # editor
+  project-nvim
   neo-tree-nvim
   gitsigns-nvim
   nvim-colorizer-lua
