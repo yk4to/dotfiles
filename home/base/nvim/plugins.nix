@@ -20,7 +20,7 @@ in with pkgs.vimPlugins; plugins [
   # colorscheme
   onedarkpro-nvim
 
-  # coding
+  # cmp
   cmp-buffer
   cmp-cmdline
   cmp-nvim-lsp
@@ -31,6 +31,9 @@ in with pkgs.vimPlugins; plugins [
   lspkind-nvim
   luasnip
   nvim-cmp
+
+  # treesitter
+  nvim-treesitter
 
   # ui
   lualine-nvim
