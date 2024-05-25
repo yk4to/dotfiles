@@ -46,7 +46,10 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         formatting = {
-          format = lspkind.cmp_format({}),
+          format = lspkind.cmp_format({
+            mode = "symbol",
+            symbol_map = { Copilot = "" },
+          }),
         },
       })
       cmp.setup.cmdline("/", {
@@ -70,9 +73,7 @@ return {
     dir = "@copilot_lua@",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({
-        panel = { enabled = false },
-      })
+      require("copilot").setup()
     end,
   },
   {
