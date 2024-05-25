@@ -30,7 +30,12 @@ return {
         globalstatus = true,
       },
       sections = {
-        lualine_x = { 'encoding', 'fileformat', 'filetype', lsp_names },
+        lualine_x = {
+          'encoding',
+          -- 'fileformat',
+          -- 'filetype',
+          lsp_names
+        },
       },
     },
   },
