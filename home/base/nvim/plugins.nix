@@ -44,6 +44,7 @@ in with pkgs.vimPlugins; plugins [
   gitsigns-nvim
   nvim-colorizer-lua
   which-key-nvim
+  toggleterm-nvim
 
   # ui
   lualine-nvim
