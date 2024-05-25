@@ -83,6 +83,20 @@ return {
     },
   },
   {
+    name = "nvim-colorizer.lua",
+    dir = "@nvim_colorizer_lua@",
+    event = { "BufReadPre" },
+    opts = {
+      filetypes = {
+        "*",
+        "!lazy",
+      },
+      user_default_options = {
+        names = false,
+      },
+    },
+  },
+  {
     name = "which-key.nvim",
     dir = "@which_key_nvim@",
     event = "VeryLazy",

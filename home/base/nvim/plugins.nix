@@ -38,6 +38,7 @@ in with pkgs.vimPlugins; plugins [
   # editor
   neo-tree-nvim
   gitsigns-nvim
+  nvim-colorizer-lua
   which-key-nvim
 
   # ui
