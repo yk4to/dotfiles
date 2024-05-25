@@ -42,6 +42,7 @@ in with pkgs.vimPlugins; plugins [
 
   # ui
   lualine-nvim
+  barbar-nvim
   noice-nvim
   nui-nvim
   nvim-notify

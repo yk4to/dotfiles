@@ -35,6 +35,19 @@ return {
     },
   },
   {
+    name = "barbar.nvim",
+    dir = "@barbar_nvim@",
+    dependencies = {
+      { name = "nvim-web-devicons", dir = "@nvim_web_devicons@" },
+      { name = "gitsigns.nvim",     dir = "@gitsigns_nvim@" },
+    },
+    event = "VeryLazy",
+    init = function() vim.g.barbar_auto_setup = false end,
+    config = function()
+      require("barbar").setup()
+    end,
+  },
+  {
     name = "noice.nvim",
     dir = "@noice_nvim@",
     event = "VeryLazy",
