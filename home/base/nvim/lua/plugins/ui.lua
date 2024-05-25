@@ -48,6 +48,30 @@ return {
     end,
   },
   {
+    name = "indent-blankline.nvim",
+    dir = "@indent_blankline_nvim@",
+    event = "VeryLazy",
+    opts = {
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { show_start = false, show_end = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "notify",
+          "toggleterm",
+        },
+      },
+    },
+    main = "ibl",
+  },
+  {
     name = "fidget.nvim",
     dir = "@fidget_nvim@",
     config = function()

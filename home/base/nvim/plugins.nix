@@ -50,6 +50,7 @@ in with pkgs.vimPlugins; plugins [
   # ui
   lualine-nvim
   barbar-nvim
+  indent-blankline-nvim
   fidget-nvim
   noice-nvim
   nui-nvim
