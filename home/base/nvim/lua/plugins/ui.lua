@@ -50,5 +50,12 @@ return {
         },
       },
     },
-  }
+  },
+  {
+    name = "nvim-notify",
+    dir = "@nvim_notify@",
+    opts = {
+      background_colour = "#000000",
+    }
+  },
 }
