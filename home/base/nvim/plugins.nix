@@ -37,6 +37,7 @@ in with pkgs.vimPlugins; plugins [
 
   # editor
   gitsigns-nvim
+  which-key-nvim
 
   # ui
   lualine-nvim
