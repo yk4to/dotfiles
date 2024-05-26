@@ -31,6 +31,17 @@ vim.api.nvim_set_keymap('n', '<Left>', '<Nop>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<Right>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<BS>', '<Nop>', { noremap = true, silent = true })
 
+-- terminal
+local function float_term(cmd)
+	local opts = { size = { width = 0.9, height = 0.9 } }
+	require("lazy.util").float_term(cmd, opts)
+end
+
+vim.keymap.set("n", "<Leader>gg", function()
+	float_term({ "lazygit" })
+end)
+
+-- setup lazy.nvim
 local lazypath = "@lazy_nvim@"
 vim.opt.rtp:prepend(lazypath)
 
