@@ -10,7 +10,7 @@
       udev-gothic
       udev-gothic-nf
 
-      # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 }
