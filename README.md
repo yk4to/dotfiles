@@ -17,7 +17,3 @@ Inspired by
 
 - [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
 - [natsukium/dotfiles](https://github.com/natsukium/dotfiles)
-
-## License
-
-MIT (except for the `icons` directory)
