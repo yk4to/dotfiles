@@ -24,9 +24,9 @@
       # github.copilot-chat # github copilot chat
 
       # Git / GitHub
-      github.vscode-pull-request-github # github pull requests
-      github.vscode-github-actions # github actions
-      eamodio.gitlens # gitlens
+      # github.vscode-pull-request-github # github pull requests
+      # github.vscode-github-actions # github actions
+      # eamodio.gitlens # gitlens
 
       # Containers
       ms-vscode-remote.remote-containers # remote containers
@@ -69,7 +69,7 @@
       bradgashler.htmltagwrap # wrap html tags
 
       # Others
-      platformio.platformio-ide
+      # platformio.platformio-ide
     ];
 
     userSettings = {
@@ -94,7 +94,7 @@
 
       ## Extensions
       "wikitext.host" = "ja.wikipedia.org";
-      "platformio-ide.useBuiltinPIOCore" = false;
+      # "platformio-ide.useBuiltinPIOCore" = false;
     };
   };
 }
