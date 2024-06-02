@@ -1,4 +1,9 @@
-{ inputs, pkgs, vars, ... }: {
+{
+  inputs,
+  pkgs,
+  vars,
+  ...
+}: {
   imports = [
     ../../modules/darwin
   ];

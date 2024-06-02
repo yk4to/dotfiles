@@ -23,7 +23,7 @@
 
   outputs = inputs: let
     vars = import ./vars.nix;
-    args = { inherit inputs vars; };
+    args = {inherit inputs vars;};
   in {
     # ThinkPad
     nixosConfigurations = {
@@ -32,7 +32,8 @@
         modules = [
           ./hosts/thinkpad
 
-          inputs.home-manager.nixosModules.home-manager {
+          inputs.home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${vars.username} = import ./home/linux;
@@ -52,7 +53,8 @@
 
           inputs.darwin-custom-icons.darwinModules.default
 
-          inputs.home-manager.darwinModules.home-manager {
+          inputs.home-manager.darwinModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${vars.username} = import ./home/darwin;

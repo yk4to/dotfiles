@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     eza # `ls` replacement
     zoxide # `cd` replacement
@@ -7,7 +7,7 @@
 
     neofetch # system info (deprecated)
     bottom # system monitor
-    
+
     nodejs_latest
   ];
 

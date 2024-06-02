@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     fish
   ];
@@ -41,7 +41,6 @@
     ];
 
     brews = [
-
     ];
 
     casks = [

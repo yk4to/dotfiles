@@ -1,19 +1,25 @@
-{ inputs, pkgs, vars, ... }: {
-  imports = [
-    ../../modules/nixos/desktop
-    ./hardware-configuration.nix
-  ]
-  ++ (with inputs.nixos-hardware.nixosModules; [
-    common-cpu-intel
-    common-gpu-nvidia
-    common-pc-ssd
-  ]);
+{
+  inputs,
+  pkgs,
+  vars,
+  ...
+}: {
+  imports =
+    [
+      ../../modules/nixos/desktop
+      ./hardware-configuration.nix
+    ]
+    ++ (with inputs.nixos-hardware.nixosModules; [
+      common-cpu-intel
+      common-gpu-nvidia
+      common-pc-ssd
+    ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.username} = {
     isNormalUser = true;
     description = vars.userfullname;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.fish;
   };
 

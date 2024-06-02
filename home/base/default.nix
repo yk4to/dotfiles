@@ -1,4 +1,8 @@
-{ pkgs, vars, ... }: {
+{
+  pkgs,
+  vars,
+  ...
+}: {
   imports = [
     ./git.nix
     ./ssh.nix
@@ -12,10 +16,10 @@
 
   home = rec {
     username = vars.username;
-    homeDirectory = if pkgs.stdenv.isDarwin then
-      "/Users/${vars.username}"
-    else
-      "/home/${vars.username}";
+    homeDirectory =
+      if pkgs.stdenv.isDarwin
+      then "/Users/${vars.username}"
+      else "/home/${vars.username}";
     stateVersion = "23.11";
   };
 

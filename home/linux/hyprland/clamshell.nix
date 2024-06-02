@@ -1,7 +1,11 @@
 # ref: https://github.com/heywoodlh/nixos-configs/blob/master/home/linux/hyprland/laptop.nix
-
-{ pkgs, home-manager, hyprland, vars, ... }:
-
+{
+  pkgs,
+  home-manager,
+  hyprland,
+  vars,
+  ...
+}:
 # Resources for laptops running Hyprland
 let
   homeDir = "/home/${vars.username}";

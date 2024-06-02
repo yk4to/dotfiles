@@ -22,29 +22,30 @@
     # yaml
     yaml-language-server
   ];
-  parsers = p: with p; [
-    astro
-    bash
-    c
-    css
-    dockerfile
-    fish
-    lua
-    markdown
-    markdown_inline
-    nix
-    python
-    rust
-    toml
-    tsx
-    typescript
-    tree-sitter-typst
-    vim
-    vimdoc
-    yaml
-  ];
+  parsers = p:
+    with p; [
+      astro
+      bash
+      c
+      css
+      dockerfile
+      fish
+      lua
+      markdown
+      markdown_inline
+      nix
+      python
+      rust
+      toml
+      tsx
+      typescript
+      tree-sitter-typst
+      vim
+      vimdoc
+      yaml
+    ];
 
-  plugins = import ./plugins.nix { inherit pkgs; };
+  plugins = import ./plugins.nix {inherit pkgs;};
   configFile = file: {
     "nvim/${file}".source = pkgs.substituteAll (
       {
@@ -57,7 +58,7 @@
       // plugins
     );
   };
-  configFiles = files: builtins.foldl' (x: y: x // y) { } (map configFile files);
+  configFiles = files: builtins.foldl' (x: y: x // y) {} (map configFile files);
 in {
   programs.neovim = {
     enable = true;

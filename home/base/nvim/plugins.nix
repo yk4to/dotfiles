@@ -10,53 +10,56 @@
         "_"
         "_"
       ]
-      (pkgs.lib.toLower p.pname)}" = p;
+      (pkgs.lib.toLower p.pname)}" =
+      p;
   };
-  plugins = p: builtins.foldl' (x: y: x // y) { } (map normalizedPluginAttr p);
-in with pkgs.vimPlugins; plugins [
-  # plugin manager
-  lazy-nvim
-  
-  # colorscheme
-  onedarkpro-nvim
+  plugins = p: builtins.foldl' (x: y: x // y) {} (map normalizedPluginAttr p);
+in
+  with pkgs.vimPlugins;
+    plugins [
+      # plugin manager
+      lazy-nvim
 
-  # completion
-  cmp-buffer
-  cmp-cmdline
-  cmp-nvim-lsp
-  cmp-path
-  cmp_luasnip
-  copilot-cmp
-  copilot-lua
-  lspkind-nvim
-  luasnip
-  nvim-cmp
+      # colorscheme
+      onedarkpro-nvim
 
-  # lsp
-  nvim-lspconfig
-  none-ls-nvim
+      # completion
+      cmp-buffer
+      cmp-cmdline
+      cmp-nvim-lsp
+      cmp-path
+      cmp_luasnip
+      copilot-cmp
+      copilot-lua
+      lspkind-nvim
+      luasnip
+      nvim-cmp
 
-  # treesitter
-  nvim-treesitter
+      # lsp
+      nvim-lspconfig
+      none-ls-nvim
 
-  # editor
-  project-nvim
-  neo-tree-nvim
-  gitsigns-nvim
-  nvim-colorizer-lua
-  which-key-nvim
-  toggleterm-nvim
+      # treesitter
+      nvim-treesitter
 
-  # ui
-  lualine-nvim
-  barbar-nvim
-  indent-blankline-nvim
-  fidget-nvim
-  noice-nvim
-  nui-nvim
-  nvim-notify
+      # editor
+      project-nvim
+      neo-tree-nvim
+      gitsigns-nvim
+      nvim-colorizer-lua
+      which-key-nvim
+      toggleterm-nvim
 
-  # dependencies
-  nvim-web-devicons
-  plenary-nvim
-]
+      # ui
+      lualine-nvim
+      barbar-nvim
+      indent-blankline-nvim
+      fidget-nvim
+      noice-nvim
+      nui-nvim
+      nvim-notify
+
+      # dependencies
+      nvim-web-devicons
+      plenary-nvim
+    ]

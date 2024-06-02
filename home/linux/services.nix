@@ -1,12 +1,12 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # launch 1Password at login
   systemd.user.services._1password = {
     Unit = {
-      After = [ "graphical-session.target" ];
-      PartOf = [ "graphical-session.target" ];
+      After = ["graphical-session.target"];
+      PartOf = ["graphical-session.target"];
     };
     Install = {
-      WantedBy = [ "graphical-session.target" ];
+      WantedBy = ["graphical-session.target"];
     };
     Service = {
       SyslogIdentifier = "1password";

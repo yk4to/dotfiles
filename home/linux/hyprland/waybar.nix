@@ -19,14 +19,14 @@
           "battery"
           "network"
         ];
-        
-        pulseaudio= {
-          format= "{icon} {volume}%";
-          format-muted= "󰖁 {volume}%";
-          format-icons= {
-              default= [""];
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = "󰖁 {volume}%";
+          format-icons = {
+            default = [""];
           };
-          scroll-step= 5;
+          scroll-step = 5;
         };
         network = {
           format-wifi = "󰖩 {signalStrength}%";
@@ -43,7 +43,7 @@
           format-warning = "{capacity}%";
           interval = 5;
           states = {
-              warning = 20;
+            warning = 20;
           };
           format-time = "{H}h{M}m";
           tooltip = true;

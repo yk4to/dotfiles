@@ -34,7 +34,7 @@
       gtk-theme = "Yaru-blue-dark";
       icon-theme = "Yaru-blue";
       color-scheme = "prefer-dark";
-      
+
       gtk-im-module = "fcitx";
 
       show-battery-percentage = true;

@@ -23,7 +23,7 @@
       ];
 
       "$mod" = "SUPER";
-      
+
       bind = [
         "$mod, F, exec, firefox-devedition"
         "$mod, C, exec, code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
@@ -76,7 +76,7 @@
           enabled = true;
           size = 3;
           passes = 1;
-          
+
           vibrancy = 0.1696;
         };
       };
