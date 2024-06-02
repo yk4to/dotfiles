@@ -29,11 +29,6 @@
         set -gx PATH "/opt/homebrew/bin" $PATH
       end
 
-      # ghostty shell integration
-      if test -n "$GHOSTTY_RESOURCES_DIR"
-        builtin source "''$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
-      end
-
       # cache
       # ref: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
       set -l CONFIG_CACHE $HOME/.cache/fish/config.fish
