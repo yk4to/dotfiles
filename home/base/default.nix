@@ -4,13 +4,13 @@
   ...
 }: {
   imports = [
+    ./ghostty.nix
     ./git.nix
     ./ssh.nix
     ./starship.nix
     ./tools.nix
 
     ./fish
-    ./ghostty
     ./nvim
   ];
 

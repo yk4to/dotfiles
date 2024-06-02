@@ -19,6 +19,7 @@
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
 
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    ghosttyModule.url = "github:clo4/ghostty-hm-module";
   };
 
   outputs = inputs: let
@@ -37,6 +38,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${vars.username} = import ./home/linux;
+            home-manager.sharedModules = [inputs.ghosttyModule.homeModules.default];
             home-manager.extraSpecialArgs = args;
           }
         ];
@@ -58,6 +60,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${vars.username} = import ./home/darwin;
+            home-manager.sharedModules = [inputs.ghosttyModule.homeModules.default];
             home-manager.extraSpecialArgs = args;
           }
         ];
