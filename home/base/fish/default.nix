@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
 
@@ -24,10 +24,12 @@
       # starship
       ${builtins.readFile ./starship_async_transient_prompt.fish}
 
-      # homebrew
-      if test -d "/opt/homebrew"
-        set -gx PATH "/opt/homebrew/bin" $PATH
-      end
+      # homebrew (only on darwin)
+      ${
+        if pkgs.stdenv.isDarwin
+        then "set -gx PATH \"/opt/homebrew/bin\" $PATH"
+        else ""
+      }
 
       # cache
       # ref: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
