@@ -5,10 +5,6 @@
 }: {
   programs.vscode = {
     enable = true;
-    package =
-      if pkgs.stdenv.isDarwin
-      then pkgs.vscode
-      else null;
 
     extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace-release;
     with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
