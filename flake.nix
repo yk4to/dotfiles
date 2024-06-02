@@ -18,7 +18,7 @@
 
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
 
-    ghostty.url = "git+ssh://git@github.com/mitchellh/ghostty";
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
   };
 
   outputs = inputs: {
