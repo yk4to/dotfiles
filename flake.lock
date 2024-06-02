@@ -116,7 +116,7 @@
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       }
     },
-    "ghosttyModule": {
+    "ghostty-module": {
       "locked": {
         "lastModified": 1702368251,
         "narHash": "sha256-hafrDmzGplzm+vdIo+LkOjRfA4qRcy5JmpGGksnht5c=",
@@ -420,7 +420,7 @@
       "inputs": {
         "darwin-custom-icons": "darwin-custom-icons",
         "ghostty": "ghostty",
-        "ghosttyModule": "ghosttyModule",
+        "ghostty-module": "ghostty-module",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-darwin": "nix-darwin",
