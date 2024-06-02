@@ -34,6 +34,8 @@
 
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
     ghostty-module.url = "github:clo4/ghostty-hm-module";
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = inputs: let

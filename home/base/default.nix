@@ -9,6 +9,7 @@
     ./ssh.nix
     ./starship.nix
     ./tools.nix
+    ./vscode.nix
 
     ./fish
     ./nvim
