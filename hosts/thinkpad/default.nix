@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, vars, ... }: {
   imports = [
     ../../modules/nixos/desktop
     ./hardware-configuration.nix
@@ -10,9 +10,9 @@
   ]);
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.yuta = {
+  users.users.${vars.username} = {
     isNormalUser = true;
-    description = "Yuta Kato";
+    description = vars.userfullname;
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
   };

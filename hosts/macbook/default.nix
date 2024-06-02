@@ -1,10 +1,10 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, vars, ... }: {
   imports = [
     ../../modules/darwin
   ];
 
-  users.users.yuta = {
-    home = "/Users/yuta";
+  users.users.${vars.username} = {
+    home = "/Users/${vars.username}";
     shell = pkgs.fish;
   };
 

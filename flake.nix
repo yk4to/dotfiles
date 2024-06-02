@@ -21,7 +21,10 @@
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
   };
 
-  outputs = inputs: {
+  outputs = inputs: let
+    vars = import ./vars.nix;
+    args = { inherit inputs vars; };
+  in {
     # ThinkPad
     nixosConfigurations = {
       thinkpad = inputs.nixpkgs.lib.nixosSystem {
@@ -32,15 +35,11 @@
           inputs.home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.yuta = import ./home/linux;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
+            home-manager.users.${vars.username} = import ./home/linux;
+            home-manager.extraSpecialArgs = args;
           }
         ];
-        specialArgs = {
-          inherit inputs;
-        };
+        specialArgs = args;
       };
     };
 
@@ -56,15 +55,11 @@
           inputs.home-manager.darwinModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.yuta = import ./home/darwin;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
+            home-manager.users.${vars.username} = import ./home/darwin;
+            home-manager.extraSpecialArgs = args;
           }
         ];
-        specialArgs = {
-          inherit inputs;
-        };
+        specialArgs = args;
       };
     };
   };

@@ -1,5 +1,5 @@
-let 
-  icloudPath = "/Users/yuta/Library/Mobile Documents/com~apple~CloudDocs";
+{ vars, ... }: let 
+  icloudPath = "/Users/${vars.username}/Library/Mobile Documents/com~apple~CloudDocs";
   iconsPath = "${icloudPath}/icons";
 in {
   # ref: https://github.com/ryanccn/nix-darwin-custom-icons
