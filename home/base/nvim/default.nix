@@ -19,6 +19,7 @@
     stylua
     # nix
     nil
+    alejandra
     # yaml
     yaml-language-server
   ];

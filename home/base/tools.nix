@@ -9,6 +9,7 @@
     bottom # system monitor
 
     nodejs_latest
+    alejandra # nix formatter
   ];
 
   # `cat` replacement
