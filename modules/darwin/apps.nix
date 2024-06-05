@@ -35,9 +35,11 @@
       "Consent-O-Matic" = 1606897889;
       "uBlacklist" = 1547912640;
       "Refined GitHub" = 1519867270;
+      "File Icons for GitHub and GitLab" = 1631366167;
       "Control Panel for Twitter" = 1668516167;
       "Control Panel for YouTube" = 6478456678;
       "Userscripts" = 1463298887;
+      "Wappalyzer" = 1520333300;
       "T2Extension" = 1603240737;
     };
 
