@@ -19,15 +19,20 @@
       cleanup = "zap";
     };
 
+    # Apps from App Store
     masApps = {
       # Apps
       "Logic Pro" = 634148309;
-      "Sleeve" = 1606145041;
       "TitechApp" = 1400068981;
+
+      # Utilities
+      "Hand Mirror" = 1502839586;
+      "Sleeve" = 1606145041;
 
       # Safari Extensions
       "1Password for Safari" = 1569813296;
       "1Blocker" = 1365531024;
+      "Consent-O-Matic" = 1606897889;
       "uBlacklist" = 1547912640;
       "Refined GitHub" = 1519867270;
       "Control Panel for Twitter" = 1668516167;
