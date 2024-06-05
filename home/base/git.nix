@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    commitizen
+  ];
+
   programs.git = {
     enable = true;
 
@@ -47,6 +51,17 @@
 
       disableStartupPopups = true;
       notARepository = "quit";
+
+      customCommands = [
+        {
+          key = "C";
+          command = "git cz c";
+          description = "commit with commitizen";
+          context = "files";
+          loadingText = "opening commitizen commit tool";
+          subprocess = true;
+        }
+      ];
     };
   };
 }
