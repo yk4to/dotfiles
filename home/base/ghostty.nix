@@ -18,8 +18,8 @@
       macos-titlebar-style = "tabs";
       macos-window-shadow = false;
 
-      background-opacity = 0.98;
-      background-blur-radius = 15;
+      background-opacity = 0.95;
+      background-blur-radius = 20;
 
       window-padding-balance = true;
     };
