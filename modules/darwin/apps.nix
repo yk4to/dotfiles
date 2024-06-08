@@ -28,6 +28,7 @@
       # Utilities
       "Hand Mirror" = 1502839586;
       "Sleeve" = 1606145041;
+      "Velja" = 1607635845;
 
       # Safari Extensions
       "1Password for Safari" = 1569813296;
