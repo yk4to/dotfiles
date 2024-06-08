@@ -45,6 +45,7 @@ in
       # editor
       project-nvim
       neo-tree-nvim
+      telescope-nvim
       gitsigns-nvim
       nvim-colorizer-lua
       which-key-nvim

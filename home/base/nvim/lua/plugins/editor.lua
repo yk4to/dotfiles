@@ -56,6 +56,24 @@ return {
     },
   },
   {
+    name = "telescope.nvim",
+    dir = "@telescope_nvim@",
+    dependencies = { name = "plenary.nvim", dir = "@plenary_nvim@" },
+    cmd = "Telescope",
+    keys = { "<leader>f" },
+    config = function()
+      local telescope = require("telescope")
+      local builtin = require("telescope.builtin")
+
+      vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+      vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+      vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+
+      telescope.setup()
+    end,
+  },
+  {
     name = "gitsigns",
     dir = "@gitsigns_nvim@",
     event = "BufRead",
