@@ -15,7 +15,8 @@
 
       theme = "OneHalfDark";
 
-      macos-titlebar-tabs = true;
+      macos-titlebar-style = "tabs";
+      macos-window-shadow = false;
 
       background-opacity = 0.98;
       background-blur-radius = 15;
