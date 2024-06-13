@@ -56,6 +56,7 @@
       naumovs.color-highlight # highlight colors
       anseki.vscode-color # color picker
       simonsiefke.svg-preview # preview svg files
+      oderwat.indent-rainbow # make indentation more readable
 
       # Web Development
       ms-vscode.live-server # host a local server
