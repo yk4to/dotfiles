@@ -4,7 +4,7 @@
 
 - ThinkPad P14s Gen 4
   - `thinkpad`
-  - NixOS 24.05 (dual-boot with Windows 11)
+  - NixOS 24.11 (dual-boot with Windows 11)
   - i7 1360P, 32GB RAM
 - MacBook Air 2024
   - `yuta-mba`
