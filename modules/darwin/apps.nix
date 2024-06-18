@@ -92,6 +92,9 @@
       "adobe-creative-cloud"
       "figma"
 
+      # CAD
+      "kicad"
+
       # Cloud Storage
       "box-drive"
       "google-drive"
