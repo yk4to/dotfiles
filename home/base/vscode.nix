@@ -25,8 +25,8 @@
       # eamodio.gitlens # gitlens
 
       # Containers
-      ms-vscode-remote.remote-containers # remote containers
-      ms-azuretools.vscode-docker # docker support
+      # ms-vscode-remote.remote-containers # remote containers
+      # ms-azuretools.vscode-docker # docker support
 
       # Nix
       kamadorueda.alejandra # alejandra (nix formatter) support
