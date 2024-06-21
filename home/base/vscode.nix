@@ -33,7 +33,7 @@
 
       # Language Support
       idleberg.applescript # applescript support
-      ms-vscode.cpptools # C/C++ support
+      # ms-vscode.cpptools # C/C++ support
       # denoland.vscode-deno # deno support
       # tamasfe.even-better-toml # toml support
       # skyapps.fish-vscode # fish support

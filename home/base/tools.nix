@@ -10,6 +10,8 @@
 
     nodejs_latest
     alejandra # nix formatter
+
+    platformio
   ];
 
   # `cat` replacement
