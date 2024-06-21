@@ -59,9 +59,9 @@
       # Utilities
       "alt-tab"
       "appcleaner"
-      "bartender"
       "cleanshot"
       "iina"
+      "jordanbaird-ice"
       "karabiner-elements"
       "keka"
       "keyboardcleantool"
