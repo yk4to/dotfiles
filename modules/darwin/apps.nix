@@ -81,6 +81,7 @@
       "apparency"
       "arduino-ide"
       "balenaetcher"
+      "clion"
       "orbstack"
       "raspberry-pi-imager"
       "sf-symbols"
