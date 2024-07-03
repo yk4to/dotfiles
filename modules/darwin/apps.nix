@@ -22,7 +22,9 @@
     # Apps from App Store
     masApps = {
       # Apps
+      "Goodnotes" = 1444383602;
       "Logic Pro" = 634148309;
+      "ReadKit" = 1615798039;
       "TitechApp" = 1400068981;
 
       # Utilities
