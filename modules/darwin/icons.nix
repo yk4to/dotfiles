@@ -50,6 +50,10 @@ in {
         path = "/Applications/MATLAB_R2024a.app/";
         icon = "${iconsPath}/matlab.icns";
       }
+      {
+        path = "/Applications/KiCad/KiCad.app/";
+        icon = "${iconsPath}/kicad.icns";
+      }
     ];
   };
 }
