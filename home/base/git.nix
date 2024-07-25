@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  vars,
+  ...
+}: {
   home.packages = with pkgs; [
     commitizen
   ];
@@ -6,7 +10,7 @@
   programs.git = {
     enable = true;
 
-    userName = "Yuta Kato";
+    userName = vars.userfullname;
     userEmail = "64204135+yk4to@users.noreply.github.com";
 
     extraConfig = {
