@@ -95,12 +95,13 @@
       # Design Tools
       "adobe-creative-cloud"
       "figma"
+      "sketch"
 
       # CAD
       "kicad"
 
       # Cloud Storage
-      "box-drive"
+      # "box-drive"
       "google-drive"
 
       # Communication
