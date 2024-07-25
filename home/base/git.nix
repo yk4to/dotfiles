@@ -6,7 +6,7 @@
   programs.git = {
     enable = true;
 
-    userName = "yk4to";
+    userName = "Yuta Kato";
     userEmail = "64204135+yk4to@users.noreply.github.com";
 
     extraConfig = {
