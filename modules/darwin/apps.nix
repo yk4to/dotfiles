@@ -71,6 +71,7 @@
       "latest"
       "logi-options-plus"
       "monitorcontrol"
+      "notchnook"
       "raycast"
       "rectangle"
       "1password"
