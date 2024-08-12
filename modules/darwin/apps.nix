@@ -29,6 +29,7 @@
 
       # Utilities
       "Hand Mirror" = 1502839586;
+      "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
       "Velja" = 1607635845;
 
@@ -39,6 +40,7 @@
       "uBlacklist" = 1547912640;
       "Refined GitHub" = 1519867270;
       "File Icons for GitHub and GitLab" = 1631366167;
+      "Keepa" = 1533805339;
       "Control Panel for Twitter" = 1668516167;
       "Control Panel for YouTube" = 6478456678;
       "Userscripts" = 1463298887;
