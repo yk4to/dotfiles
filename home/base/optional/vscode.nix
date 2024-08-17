@@ -49,9 +49,6 @@
       bierner.markdown-emoji # add emoji syntax support
       bierner.markdown-preview-github-styles # github markdown styles
 
-      # LaTeX
-      james-yu.latex-workshop # latex support
-
       # Utilities
       naumovs.color-highlight # highlight colors
       anseki.vscode-color # color picker
@@ -95,12 +92,6 @@
       ## Extensions
       "wikitext.host" = "ja.wikipedia.org";
       # "platformio-ide.useBuiltinPIOCore" = false;
-
-      ## LaTeX
-      "latex-workshop.intellisense.package.enabled" = true;
-      "latex-workshop.view.pdf.viewer" = "tab";
-      "latex-workshop.latex.outDir" = "out";
-      "latex-workshop.latex.recipe.default" = "latexmk (lualatex)";
     };
   };
 }

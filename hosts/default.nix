@@ -4,6 +4,7 @@ inputs: let
   mkSystem = {
     system,
     modules,
+    homeManagerModules,
   }: let
     isDarwin = builtins.elem "darwin" (builtins.split "-" system);
   in
@@ -25,10 +26,7 @@ inputs: let
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${vars.username} =
-                if isDarwin
-                then import ../home/darwin
-                else import ../home/linux;
+              users.${vars.username} = homeManagerModules;
 
               sharedModules = [inputs.ghostty-module.homeModules.default];
               extraSpecialArgs = {
@@ -50,7 +48,8 @@ in {
   nixos = {
     thinkpad = mkSystem {
       system = "x86_64-linux";
-      modules = [./thinkpad];
+      modules = [./thinkpad/nixos.nix];
+      homeManagerModules = import ./thinkpad/home-manager.nix;
     };
   };
 
@@ -58,9 +57,10 @@ in {
     "yuta-mba" = mkSystem {
       system = "aarch64-darwin";
       modules = [
-        ./yuta-mba
+        ./yuta-mba/darwin.nix
         inputs.darwin-custom-icons.darwinModules.default
       ];
+      homeManagerModules = import ./yuta-mba/home-manager.nix;
     };
   };
 }
