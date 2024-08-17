@@ -42,7 +42,7 @@ inputs: let
             };
           }
         ];
-      specialArgs = {inherit inputs vars;};
+      specialArgs = {inherit inputs vars system;};
     };
 in {
   nixos = {
