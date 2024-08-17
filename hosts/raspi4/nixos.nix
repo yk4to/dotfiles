@@ -5,7 +5,7 @@
   ...
 }: let
   # Get this file in a hacky way because it is included in the raspi kernel repository under GPL 2.0 license
-  gpioFanOverlay = fetchurl {
+  gpioFanOverlay = pkgs.fetchurl {
     url = "https://github.com/raspberrypi/linux/raw/rpi-6.6.y/arch/arm/boot/dts/overlays/gpio-fan-overlay.dts";
     sha256 = "35cc89362d0ebeb584c67024ca6bdc1be357921550e3568e1ad41d9000f61b42";
   };
