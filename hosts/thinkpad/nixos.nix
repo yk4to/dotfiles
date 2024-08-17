@@ -6,7 +6,10 @@
 }: {
   imports =
     [
-      ../../modules/nixos/desktop
+      ../../modules/nixos
+      ../../modules/nixos/optional/gui
+      ../../modules/nixos/optional/gnome.nix
+      ../../modules/nixos/optional/hyprland
       ./hardware-configuration.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [

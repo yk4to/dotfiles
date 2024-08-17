@@ -4,13 +4,10 @@
   ...
 }: {
   imports = [
-    ./ghostty.nix
     ./git.nix
-    ./latex.nix
     ./ssh.nix
     ./starship.nix
     ./tools.nix
-    ./vscode.nix
 
     ./fish
     ./nvim
