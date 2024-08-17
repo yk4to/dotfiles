@@ -41,64 +41,10 @@
   };
 
   outputs = inputs: let
-    vars = import ./vars.nix;
-    args = {inherit inputs vars;};
+    hosts = import ./hosts inputs;
   in {
-    # ThinkPad
-    nixosConfigurations = {
-      thinkpad = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/thinkpad
-
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${vars.username} = import ./home/linux;
-            home-manager.sharedModules = [inputs.ghostty-module.homeModules.default];
-            home-manager.extraSpecialArgs =
-              args
-              // {
-                pkgs-for-delta = import inputs.nixpkgs-for-delta {
-                  system = "x86_64-linux";
-                  config.permittedInsecurePackages = ["delta"];
-                };
-              };
-          }
-        ];
-        specialArgs = args;
-      };
-    };
-
-    # MacBook
-    darwinConfigurations = {
-      yuta-mba = inputs.nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./hosts/macbook
-
-          inputs.darwin-custom-icons.darwinModules.default
-
-          inputs.home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${vars.username} = import ./home/darwin;
-            home-manager.sharedModules = [inputs.ghostty-module.homeModules.default];
-            home-manager.extraSpecialArgs =
-              args
-              // {
-                pkgs-for-delta = import inputs.nixpkgs-for-delta {
-                  system = "aarch64-darwin";
-                  config.permittedInsecurePackages = ["delta"];
-                };
-              };
-          }
-        ];
-        specialArgs = args;
-      };
-    };
+    nixosConfigurations = hosts.nixos;
+    darwinConfigurations = hosts.darwin;
 
     formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     formatter.aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
