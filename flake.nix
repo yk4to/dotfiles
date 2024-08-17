@@ -16,6 +16,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    nixpkgs-for-delta.url = "github:NixOS/nixpkgs/195662d20d9c35f988d0122d34479f90da709e0a";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nix-darwin = {
@@ -55,7 +57,14 @@
             home-manager.useUserPackages = true;
             home-manager.users.${vars.username} = import ./home/linux;
             home-manager.sharedModules = [inputs.ghostty-module.homeModules.default];
-            home-manager.extraSpecialArgs = args;
+            home-manager.extraSpecialArgs =
+              args
+              // {
+                pkgs-for-delta = import inputs.nixpkgs-for-delta {
+                  system = "x86_64-linux";
+                  config.permittedInsecurePackages = ["delta"];
+                };
+              };
           }
         ];
         specialArgs = args;
@@ -77,7 +86,14 @@
             home-manager.useUserPackages = true;
             home-manager.users.${vars.username} = import ./home/darwin;
             home-manager.sharedModules = [inputs.ghostty-module.homeModules.default];
-            home-manager.extraSpecialArgs = args;
+            home-manager.extraSpecialArgs =
+              args
+              // {
+                pkgs-for-delta = import inputs.nixpkgs-for-delta {
+                  system = "aarch64-darwin";
+                  config.permittedInsecurePackages = ["delta"];
+                };
+              };
           }
         ];
         specialArgs = args;

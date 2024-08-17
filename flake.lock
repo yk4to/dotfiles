@@ -476,6 +476,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-for-delta": {
+      "locked": {
+        "lastModified": 1723724988,
+        "narHash": "sha256-e4ZDt1i10PE4ScWc9smyRJHrAWSdWHRtZ3ZyZE8v4UI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "195662d20d9c35f988d0122d34479f90da709e0a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "195662d20d9c35f988d0122d34479f90da709e0a",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1705957679,
@@ -550,7 +566,8 @@
         "nix-darwin": "nix-darwin",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "nixpkgs-for-delta": "nixpkgs-for-delta"
       }
     },
     "systems": {
