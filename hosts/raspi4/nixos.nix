@@ -34,5 +34,16 @@
     };
   };
 
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXOS_SD";
+      fsType = "ext4";
+      options = ["noatime"];
+    };
+  };
+
+  # Enable GPU acceleration
+  hardware.raspberry-pi."4".fkms-3d.enable = true;
+
   system.stateVersion = "23.11";
 }
