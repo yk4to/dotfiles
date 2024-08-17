@@ -3,7 +3,18 @@
   pkgs,
   vars,
   ...
-}: {
+}: let
+  # Get this file in a hacky way because it is included in the raspi kernel repository under GPL 2.0 license
+  gpioFanOverlay = fetchurl {
+    url = "https://github.com/raspberrypi/linux/raw/rpi-6.6.y/arch/arm/boot/dts/overlays/gpio-fan-overlay.dts";
+    sha256 = "35cc89362d0ebeb584c67024ca6bdc1be357921550e3568e1ad41d9000f61b42";
+  };
+  gpioFanOverlayContent =
+    builtins.replaceStrings
+    ["<&gpio 12 0>" "temperature = <55000>;"]
+    ["<&gpio 18 0>" "temperature = <65000>;"]
+    (builtins.readFile gpioFanOverlay);
+in {
   imports =
     [
       ../../modules/nixos
@@ -55,65 +66,10 @@
     };
 
     # Enable fan control
-    # ref: https://github.com/raspberrypi/linux/blob/rpi-6.6.y/arch/arm/boot/dts/overlays/gpio-fan-overlay.dts
     deviceTree.overlays = [
       {
         name = "gpio-fan";
-        dtsText = ''
-          /dts-v1/;
-          /plugin/;
-
-          / {
-            compatible = "brcm,bcm2835";
-
-            fragment@0 {
-              target-path = "/";
-              __overlay__ {
-                fan0: gpio-fan@0 {
-                  compatible = "gpio-fan";
-                  gpios = <&gpio 18 0>;
-                  gpio-fan,speed-map = <0    0>,
-                            <5000 1>;
-                  #cooling-cells = <2>;
-                };
-              };
-            };
-
-            fragment@1 {
-              target = <&cpu_thermal>;
-              __overlay__ {
-                polling-delay = <2000>;	/* milliseconds */
-              };
-            };
-
-            fragment@2 {
-              target = <&thermal_trips>;
-              __overlay__ {
-                cpu_hot: trip-point@0 {
-                  temperature = <65000>;	/* (millicelsius) Fan started at 65°C */
-                  hysteresis = <10000>;	/* (millicelsius) Fan stopped at 55°C */
-                  type = "active";
-                };
-              };
-            };
-
-            fragment@3 {
-              target = <&cooling_maps>;
-              __overlay__ {
-                map0 {
-                  trip = <&cpu_hot>;
-                  cooling-device = <&fan0 1 1>;
-                };
-              };
-            };
-
-            __overrides__ {
-              gpiopin = <&fan0>,"gpios:4", <&fan0>,"brcm,pins:0";
-              temp = <&cpu_hot>,"temperature:0";
-              hyst = <&cpu_hot>,"hysteresis:0";
-            };
-          };
-        '';
+        dtsText = gpioFanOverlayContent;
       }
     ];
   };
