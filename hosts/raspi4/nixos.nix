@@ -42,8 +42,22 @@
     };
   };
 
-  # Enable GPU acceleration
-  hardware.raspberry-pi."4".fkms-3d.enable = true;
+  hardware = {
+    raspberry-pi."4" = {
+      apply-overlays-dtmerge.enable = true;
+
+      # Enable GPU acceleration
+      fkms-3d.enable = true;
+
+      # Enable audio
+      audio.enable = true;
+    };
+
+    deviceTree = {
+      enable = true;
+      filter = "*rpi-4-*.dtb";
+    };
+  };
 
   system.stateVersion = "23.11";
 }
