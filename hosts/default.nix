@@ -51,6 +51,11 @@ in {
       modules = [./thinkpad/nixos.nix];
       homeManagerModules = import ./thinkpad/home-manager.nix;
     };
+    raspi4 = mkSystem {
+      system = "aarch64-linux";
+      modules = [./raspi4/nixos.nix];
+      homeManagerModules = import ./raspi4/home-manager.nix;
+    };
   };
 
   darwin = {
