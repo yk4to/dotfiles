@@ -49,8 +49,9 @@
       # Enable GPU acceleration
       fkms-3d.enable = true;
 
-      # Enable audio
-      audio.enable = true;
+      # Enable audio (NOT WORKING)
+      # ref: https://github.com/NixOS/nixos-hardware/issues/703
+      # audio.enable = true;
     };
   };
 
