@@ -52,12 +52,12 @@
       # Enable audio
       audio.enable = true;
     };
-
-    deviceTree = {
-      enable = true;
-      filter = "*rpi-4-*.dtb";
-    };
   };
+
+  environment.systemPackages = with pkgs; [
+    libraspberrypi
+    raspberrypi-eeprom
+  ];
 
   system.stateVersion = "23.11";
 }
