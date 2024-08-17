@@ -58,7 +58,7 @@ in {
     "yuta-mba" = mkSystem {
       system = "aarch64-darwin";
       modules = [
-        ./macbook
+        ./yuta-mba
         inputs.darwin-custom-icons.darwinModules.default
       ];
     };
