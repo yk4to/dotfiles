@@ -23,5 +23,9 @@
       file = "${inputs.secrets}/nextdns.age";
       mode = "600";
     };
+    cloudflared = {
+      file = "${inputs.secrets}/cloudflared.age";
+      mode = "600";
+    };
   };
 }
