@@ -1,9 +1,9 @@
-{
+{config, ...}: {
   services.freshrss = {
     enable = true;
 
     defaultUser = "yuta";
-    passwordFile = age.secrets.freshrss.path;
+    passwordFile = config.age.secrets.freshrss.path;
 
     baseUrl = "https://rss.yk4to.com";
 
