@@ -20,6 +20,7 @@ in {
       ../../modules/nixos
       ../../modules/nixos/optional/gui
       ../../modules/nixos/optional/gnome.nix
+      ./services/freshrss.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
       raspberry-pi-4
