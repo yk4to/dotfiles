@@ -39,6 +39,8 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
+    arion.url = "github:hercules-ci/arion";
+
     agenix.url = "github:yaxitech/ragenix";
 
     secrets = {
