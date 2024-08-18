@@ -1,7 +1,7 @@
 {
   virtualisation.arion.projects.memos.settings = {
     services.memos = {
-      service.image = "neosmemo/memos:version-0.22.4";
+      service.image = "neosmemo/memos:0.22.4";
       service.container_name = "memos";
       service.volumes = [
         {
