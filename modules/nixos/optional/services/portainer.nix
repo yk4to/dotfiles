@@ -10,7 +10,7 @@
           target = "/data";
         }
         {
-          type = "volume";
+          type = "bind";
           source = "/var/run/docker.sock";
           target = "/var/run/docker.sock";
         }
