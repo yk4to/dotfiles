@@ -1,4 +1,4 @@
-{vars, ...}: {
+{
   virtualisation.arion.projects.freshrss.settings = {
     services.freshrss = {
       service.image = "lscr.io/linuxserver/freshrss:version-1.24.1";
@@ -12,22 +12,16 @@
       service.volumes = [
         {
           type = "volume";
-          source = "/home/${vars.username}/freshrss/config";
-          target = "/config";
-        }
-        {
-          type = "volume";
-          source = "/home/${vars.username}/freshrss/data";
+          source = "data";
           target = "/var/www/FreshRSS/data";
-        }
-        {
-          type = "volume";
-          source = "freshrss/extensions";
-          target = "/var/www/FreshRSS/extensions";
         }
       ];
       service.ports = ["80:80"];
       service.restart = "unless-stopped";
+    };
+
+    docker-compose.volumes = {
+      data = {};
     };
   };
 }
