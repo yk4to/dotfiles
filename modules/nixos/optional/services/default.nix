@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./freshrss.nix
+    ./memos.nix
 
     inputs.arion.nixosModules.arion
   ];
