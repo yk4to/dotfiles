@@ -7,6 +7,7 @@
   imports = [
     ./freshrss.nix
     ./memos.nix
+    ./portainer.nix
 
     inputs.arion.nixosModules.arion
   ];
