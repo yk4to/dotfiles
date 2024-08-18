@@ -13,4 +13,15 @@
   age.identityPaths = [
     "/etc/ssh/ssh_host_ed25519_key"
   ];
+
+  age.secrets = {
+    freshrss = {
+      file = "${inputs.secrets}/freshrss.age";
+      mode = "600";
+    };
+    nextdns = {
+      file = "${inputs.secrets}/nextdns.age";
+      mode = "600";
+    };
+  };
 }
