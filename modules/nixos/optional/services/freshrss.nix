@@ -12,8 +12,8 @@
       service.volumes = [
         {
           type = "volume";
-          source = "data";
-          target = "/var/www/FreshRSS/data";
+          source = "config";
+          target = "/config";
         }
       ];
       service.ports = ["80:80"];
@@ -21,7 +21,7 @@
     };
 
     docker-compose.volumes = {
-      data = {};
+      config = {};
     };
   };
 }
