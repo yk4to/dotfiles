@@ -1,4 +1,4 @@
-{config, ...}: {
+{vars, ...}: {
   virtualisation.arion.projects.freshrss.settings = {
     services.freshrss = {
       service.image = "lscr.io/linuxserver/freshrss:version-1.24.1";
@@ -12,12 +12,12 @@
       service.volumes = [
         {
           type = "volume";
-          source = "freshrss/config";
+          source = "/home/${vars.username}/freshrss/config";
           target = "/config";
         }
         {
           type = "volume";
-          source = "freshrss/data";
+          source = "/home/${vars.username}/freshrss/data";
           target = "/var/www/FreshRSS/data";
         }
         {
