@@ -40,6 +40,16 @@ in {
   # Enable ssh
   services.openssh.enable = true;
 
+  # Enable mDNS
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
