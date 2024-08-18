@@ -6,10 +6,7 @@
 }: {
   imports = [
     ./freshrss.nix
-  ];
 
-  # Setup Arion
-  imports = with inputs; [
     inputs.arion.nixosModules.arion
   ];
 
