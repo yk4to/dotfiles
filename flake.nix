@@ -38,6 +38,13 @@
     ghostty-module.url = "github:clo4/ghostty-hm-module";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    agenix.url = "github:yaxitech/ragenix";
+
+    secrets = {
+      url = "git+ssh://git@github.com/yk4to/nix-secrets";
+      flake = false;
+    };
   };
 
   outputs = inputs: let

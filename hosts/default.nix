@@ -41,6 +41,11 @@ inputs: let
               };
             };
           }
+          (
+            if isDarwin
+            then inputs.agenix.darwinModules.default
+            else inputs.agenix.nixosModules.default
+          )
         ];
       specialArgs = {inherit inputs vars system;};
     };
