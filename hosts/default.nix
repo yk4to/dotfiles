@@ -41,8 +41,13 @@ inputs: let
               };
             };
           }
+          (
+            if isDarwin
+            then inputs.agenix.darwinModules.default
+            else inputs.agenix.nixosModules.default
+          )
         ];
-      specialArgs = {inherit inputs vars;};
+      specialArgs = {inherit inputs vars system;};
     };
 in {
   nixos = {
@@ -50,6 +55,11 @@ in {
       system = "x86_64-linux";
       modules = [./thinkpad/nixos.nix];
       homeManagerModules = import ./thinkpad/home-manager.nix;
+    };
+    raspi4 = mkSystem {
+      system = "aarch64-linux";
+      modules = [./raspi4/nixos.nix];
+      homeManagerModules = import ./raspi4/home-manager.nix;
     };
   };
 
