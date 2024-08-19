@@ -25,7 +25,8 @@
     };
     cloudflared = {
       file = "${inputs.secrets}/cloudflared.age";
-      mode = "600";
+      owner = "cloudflared";
+      group = "cloudflared";
     };
   };
 }
