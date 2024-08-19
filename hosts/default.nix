@@ -29,16 +29,7 @@ inputs: let
               users.${vars.username} = homeManagerModules;
 
               sharedModules = [inputs.ghostty-module.homeModules.default];
-              extraSpecialArgs = {
-                inherit inputs vars;
-
-                # TODO: This is a patch needed while delta is broken on nixpkgs-unstable branch
-                # When that's fixed, this will be unnecessary.
-                pkgs-for-delta = import inputs.nixpkgs-for-delta {
-                  inherit system;
-                  config.permittedInsecurePackages = ["delta"];
-                };
-              };
+              extraSpecialArgs = {inherit inputs vars;};
             };
           }
           (

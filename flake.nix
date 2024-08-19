@@ -16,8 +16,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nixpkgs-for-delta.url = "github:NixOS/nixpkgs/195662d20d9c35f988d0122d34479f90da709e0a";
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nix-darwin = {

@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-for-delta,
   vars,
   ...
 }: {
@@ -39,7 +38,6 @@
   # git diff viewer
   programs.git.delta = {
     enable = true;
-    package = pkgs-for-delta.delta;
     options.syntax-theme = "OneHalfDark";
   };
 
