@@ -28,6 +28,7 @@
       "TitechApp" = 1400068981;
 
       # Utilities
+      "Amphetamine" = 937984704;
       "Hand Mirror" = 1502839586;
       "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
