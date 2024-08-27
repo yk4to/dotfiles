@@ -27,7 +27,7 @@
         credentialsFile = config.age.secrets.cloudflared.path;
         ingress = {
           "rss.fus1on.dev" = "http://localhost:80";
-          "memos2.fus1on.dev" = "http://localhost:5230";
+          "memos.fus1on.dev" = "http://localhost:5230";
         };
         default = "http_status:404";
       };
