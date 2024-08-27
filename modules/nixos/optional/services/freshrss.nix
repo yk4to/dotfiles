@@ -1,6 +1,6 @@
 {
-  virtualisation.arion.projects.freshrss.settings = {
-    services.freshrss.service = {
+  virtualisation.arion.projects.freshrss.settings.services = {
+    freshrss.service = {
       image = "lscr.io/linuxserver/freshrss:version-1.24.1";
       container_name = "freshrss";
       environment = {
@@ -20,6 +20,22 @@
         "host.docker.internal:host-gateway"
       ];
       ports = ["80:80"];
+      restart = "unless-stopped";
+    };
+
+    rss-bridge.service = {
+      image = "rssbridge/rss-bridge:latest";
+      container_name = "rss-bridge";
+      /*
+      volumes = [
+        {
+          type = "volume";
+          source = "config";
+          target = "/config";
+        }
+      ];
+      */
+      ports = ["3000:80"];
       restart = "unless-stopped";
     };
 
