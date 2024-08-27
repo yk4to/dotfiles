@@ -1,26 +1,26 @@
 {
   virtualisation.arion.projects.freshrss.settings = {
-    services.freshrss = {
-      service.image = "lscr.io/linuxserver/freshrss:version-1.24.1";
-      service.container_name = "freshrss";
-      service.environment = {
+    services.freshrss.service = {
+      image = "lscr.io/linuxserver/freshrss:version-1.24.1";
+      container_name = "freshrss";
+      environment = {
         PUID = "1000";
         PGID = "1000";
         TZ = "Asia/Tokyo";
         CRON_MIN = "1,16,31,46";
       };
-      service.volumes = [
+      volumes = [
         {
           type = "volume";
           source = "config";
           target = "/config";
         }
       ];
-      services.extra_hosts = [
+      extra_hosts = [
         "host.docker.internal:host-gateway"
       ];
-      service.ports = ["80:80"];
-      service.restart = "unless-stopped";
+      ports = ["80:80"];
+      restart = "unless-stopped";
     };
 
     docker-compose.volumes = {
