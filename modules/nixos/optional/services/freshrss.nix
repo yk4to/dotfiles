@@ -16,7 +16,7 @@
           target = "/config";
         }
       ];
-      networks = ["rss-bridge"];
+      networks = ["rss-net"];
       ports = ["80:80"];
       restart = "unless-stopped";
     };
@@ -33,12 +33,12 @@
         }
       ];
       */
-      networks = ["rss-bridge"];
+      networks = ["rss-net"];
       ports = ["3000:80"];
       restart = "unless-stopped";
     };
 
-    networks.rss-bridge.external = true;
+    networks.rss-net.external = true;
 
     docker-compose.volumes = {
       config = {};
