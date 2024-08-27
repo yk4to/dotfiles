@@ -16,6 +16,9 @@
           target = "/config";
         }
       ];
+      services.extra_hosts = [
+        "host.docker.internal:host-gateway"
+      ];
       service.ports = ["80:80"];
       service.restart = "unless-stopped";
     };
