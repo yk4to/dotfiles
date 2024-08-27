@@ -16,9 +16,7 @@
           target = "/config";
         }
       ];
-      extra_hosts = [
-        "host.docker.internal:host-gateway"
-      ];
+      networks = ["rss-bridge"];
       ports = ["80:80"];
       restart = "unless-stopped";
     };
@@ -35,9 +33,12 @@
         }
       ];
       */
+      networks = ["rss-bridge"];
       ports = ["3000:80"];
       restart = "unless-stopped";
     };
+
+    networks.rss-bridge.external = true;
 
     docker-compose.volumes = {
       config = {};
