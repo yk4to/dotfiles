@@ -1,6 +1,6 @@
 {
-  virtualisation.arion.projects.freshrss.settings.services = {
-    freshrss.service = {
+  virtualisation.arion.projects.freshrss.settings = {
+    services.freshrss.service = {
       image = "lscr.io/linuxserver/freshrss:version-1.24.1";
       container_name = "freshrss";
       environment = {
@@ -23,7 +23,7 @@
       restart = "unless-stopped";
     };
 
-    rss-bridge.service = {
+    services.rss-bridge.service = {
       image = "rssbridge/rss-bridge:latest";
       container_name = "rss-bridge";
       /*
