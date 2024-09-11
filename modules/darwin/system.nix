@@ -2,6 +2,13 @@
   # use TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
 
+  # keep ghostty terminfo
+  # ref: https://ryanccn.dev/posts/ghostty-sudo-terminfo/
+  # `security.sudo.keepTerminfo` does not exist in nix-darwin
+  security.sudo.extraConfig = ''
+    Defaults    env_keep += "TERMINFO"
+  '';
+
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
