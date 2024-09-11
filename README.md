@@ -10,6 +10,10 @@
   - `yuta-mba`
   - macOS Sonoma (managed by nix-darwin)
   - M3, 16GB RAM
+- Raspberry Pi 4 Model B Rev 1.4
+  - `raspi4`
+  - NixOS 24.11 (booted with USB-connected SATA SSD)
+  - Cortex-A72, 8GB RAM
 
 ## Stacks
 
