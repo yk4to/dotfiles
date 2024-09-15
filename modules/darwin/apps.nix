@@ -105,6 +105,9 @@
       # CAD
       "kicad"
 
+      # 3D Printing
+      "bambu-studio"
+
       # Cloud Storage
       # "box-drive"
       "google-drive"
@@ -113,6 +116,9 @@
       "discord"
       "slack"
       "zoom"
+
+      # LLM
+      "chatgpt"
 
       # Others
       "microsoft-auto-update"
