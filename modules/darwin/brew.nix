@@ -1,15 +1,4 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    fish
-  ];
-
-  programs.zsh.enable = true;
-  programs.fish.enable = true;
-  environment = {
-    shells = [pkgs.zsh pkgs.fish];
-    loginShell = pkgs.fish;
-  };
-
   homebrew = {
     enable = true;
 
