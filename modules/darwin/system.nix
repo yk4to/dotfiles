@@ -26,6 +26,8 @@
         show-recents = false; # do not show recent apps in dock
         # mru-spaces = false;
 
+        tilesize = 56;
+
         # disable hot corners
         wvous-tl-corner = 1;
         wvous-tr-corner = 1;
