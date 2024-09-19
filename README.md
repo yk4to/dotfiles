@@ -8,7 +8,7 @@
   - i7 1360P, 32GB RAM
 - MacBook Air 2024
   - `yuta-mba`
-  - macOS Sonoma (managed by nix-darwin)
+  - macOS Sequoia (managed by nix-darwin)
   - M3, 16GB RAM
 - Raspberry Pi 4 Model B Rev 1.4
   - `raspi4`
