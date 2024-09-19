@@ -60,6 +60,13 @@ in {
     };
   };
 
+  # Enable automatic login
+  # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = vars.username;
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
