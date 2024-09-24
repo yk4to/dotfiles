@@ -39,8 +39,10 @@
       "T2Extension" = 1603240737;
     };
 
+    # Until Ghostty is added to the official casks registry,
+    # install it from the unofficial tap
     taps = [
-      # "homebrew/cask-fonts"
+      "indirect/tap"
     ];
 
     brews = [
@@ -85,6 +87,7 @@
       "tailscale"
       "visual-studio-code"
       "xcodes"
+      "indirect/tap/ghostty"
 
       # Design Tools
       "adobe-creative-cloud"
