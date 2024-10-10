@@ -95,6 +95,7 @@
       "sketch"
 
       # CAD
+      "autodesk-fusion"
       "kicad"
 
       # 3D Printing
