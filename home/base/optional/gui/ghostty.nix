@@ -22,6 +22,8 @@
       background-blur-radius = 20;
 
       window-padding-balance = true;
+
+      keybind = "global:ctrl+escape=toggle_quick_terminal";
     };
   };
 }
