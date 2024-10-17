@@ -50,7 +50,6 @@
 
     casks = [
       # Browsers
-      "arc"
       "google-chrome"
 
       # Utilities
