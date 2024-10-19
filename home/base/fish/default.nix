@@ -40,6 +40,7 @@
 
           # tools
           type -q zoxide && zoxide init fish >>$CONFIG_CACHE
+          direnv hook fish >>$CONFIG_CACHE
 
           set_color brmagenta --bold --underline
           echo "cache updated"
