@@ -36,7 +36,6 @@
 - Git-related tools
   - commitizen
   - lazygit
-- 1Password (to manage SSH secrets)
 - TexLive
 - PlatformIO
 
