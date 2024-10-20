@@ -53,12 +53,16 @@
   system.stateVersion = "23.11";
 
   # set config about nvidia gpu
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
+  hardware.nvidia = {
+    open = true;
+
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:3:0:0";
     };
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:3:0:0";
   };
 }
