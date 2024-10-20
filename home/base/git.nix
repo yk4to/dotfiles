@@ -17,18 +17,8 @@
       init.defaultBranch = "main";
 
       commit.gpgsign = true;
-      gpg = {
-        format = "ssh";
-        ssh.program =
-          if pkgs.stdenv.isDarwin
-          then "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-          else "${pkgs._1password-gui}/share/1password/op-ssh-sign";
-      };
-    };
-
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKyEcrKmm/9CLZSzfaEqQ6VFjgXemIFpcdpIwrg1PYVy";
-      signByDefault = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_ed25519.pub";
     };
   };
 

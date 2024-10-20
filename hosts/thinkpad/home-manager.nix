@@ -1,7 +1,6 @@
 {
   imports = [
     ../../home/linux
-    ../../home/linux/optional/gui
     ../../home/linux/optional/gui-apps.nix
     ../../home/linux/optional/gnome
     ../../home/linux/optional/hyprland
