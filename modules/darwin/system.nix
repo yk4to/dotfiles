@@ -51,8 +51,11 @@
       # Incomplete list of macOS `defaults` commands :
       #   https://github.com/yannbertrand/macos-defaults
       CustomUserPreferences = {
+        # disable resizing Dock
+        "com.apple.dock".size-immutable = true;
+
         "com.apple.desktopservices" = {
-          # Avoid creating .DS_Store files on network or USB volumes
+          # avoid creating .DS_Store files on network or USB volumes
           DSDontWriteNetworkStores = true;
           DSDontWriteUSBStores = true;
         };
