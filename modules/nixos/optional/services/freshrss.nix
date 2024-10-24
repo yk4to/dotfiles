@@ -44,4 +44,11 @@
       config = {};
     };
   };
+
+  age.secrets = {
+    freshrss = {
+      file = "${inputs.secrets}/freshrss.age";
+      mode = "600";
+    };
+  };
 }

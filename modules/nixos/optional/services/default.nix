@@ -32,4 +32,12 @@
       };
     };
   };
+
+  age.secrets = {
+    cloudflared = {
+      file = "${inputs.secrets}/cloudflared.age";
+      owner = "cloudflared";
+      group = "cloudflared";
+    };
+  };
 }
