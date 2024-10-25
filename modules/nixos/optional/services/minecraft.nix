@@ -4,7 +4,6 @@
       image = "itzg/minecraft-server";
       container_name = "minecraft";
       tty = true;
-      stdin_open = true;
       environment = {
         EULA = "TRUE";
         TYPE = "PAPER";
