@@ -14,11 +14,4 @@
     "/etc/ssh/ssh_host_ed25519_key"
     "/home/${vars.username}/.ssh/id_ed25519"
   ];
-
-  age.secrets = {
-    nextdns = {
-      file = "${inputs.secrets}/nextdns.age";
-      mode = "600";
-    };
-  };
 }
