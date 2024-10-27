@@ -3,18 +3,7 @@
   pkgs,
   vars,
   ...
-}: let
-  # Get this file in a hacky way because it is included in the raspi kernel repository under GPL 2.0 license
-  gpioFanOverlay = pkgs.fetchurl {
-    url = "https://github.com/raspberrypi/linux/raw/rpi-6.6.y/arch/arm/boot/dts/overlays/gpio-fan-overlay.dts";
-    sha256 = "35cc89362d0ebeb584c67024ca6bdc1be357921550e3568e1ad41d9000f61b42";
-  };
-  gpioFanOverlayContent =
-    builtins.replaceStrings
-    ["<&gpio 12 0>" "temperature = <55000>;"]
-    ["<&gpio 18 0>" "temperature = <65000>;"]
-    (builtins.readFile gpioFanOverlay);
-in {
+}: {
   imports =
     [
       ../../modules/nixos
@@ -74,6 +63,10 @@ in {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
+    # Enable fan control
+    raspberrypi.config.all.dtoverlay = [
+      "gpio-fan,gpiopin=18,temp=60000"
+    ];
   };
 
   fileSystems = {
@@ -95,14 +88,6 @@ in {
       # ref: https://github.com/NixOS/nixos-hardware/issues/703
       # audio.enable = true;
     };
-
-    # Enable fan control
-    deviceTree.overlays = [
-      {
-        name = "gpio-fan";
-        dtsText = gpioFanOverlayContent;
-      }
-    ];
   };
 
   environment.systemPackages = with pkgs; [
