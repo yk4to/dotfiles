@@ -23,6 +23,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
