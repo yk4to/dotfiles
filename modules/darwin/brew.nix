@@ -50,8 +50,6 @@
     ];
 
     brews = [
-      "mecab"
-      "mecab-ipadic"
     ];
 
     casks = [
