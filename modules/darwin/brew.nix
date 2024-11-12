@@ -15,6 +15,7 @@
       "Goodnotes" = 1444383602;
       "Logic Pro" = 634148309;
       "ReadKit" = 1615798039;
+      "Todoist" = 585829637;
       "TitechApp" = 1400068981;
 
       # Utilities
@@ -23,6 +24,9 @@
       "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
       "Velja" = 1607635845;
+
+      # Dev Tools
+      "Tailscale" = 1475387142;
 
       # Safari Extensions
       "1Password for Safari" = 1569813296;
@@ -46,6 +50,8 @@
     ];
 
     brews = [
+      "mecab"
+      "mecab-ipadic"
     ];
 
     casks = [
@@ -83,7 +89,6 @@
       "orbstack"
       "raspberry-pi-imager"
       "sf-symbols"
-      "tailscale"
       "visual-studio-code"
       "xcodes"
       "indirect/tap/ghostty"
@@ -115,7 +120,6 @@
       # Others
       "microsoft-auto-update"
       "microsoft-office"
-      "todoist"
     ];
   };
 
