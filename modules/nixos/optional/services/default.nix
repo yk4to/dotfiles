@@ -8,7 +8,6 @@
   imports = [
     ./freshrss.nix
     ./memos.nix
-    ./minecraft.nix
     ./portainer.nix
 
     inputs.arion.nixosModules.arion
