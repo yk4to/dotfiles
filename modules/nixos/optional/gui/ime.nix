@@ -2,6 +2,7 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.addons = [pkgs.fcitx5-mozc];
+    # TODO: uncomment this when #355852 is solved
+    # fcitx5.addons = [pkgs.fcitx5-mozc];
   };
 }
