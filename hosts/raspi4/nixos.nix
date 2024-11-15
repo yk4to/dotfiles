@@ -65,27 +65,18 @@
   };
 
   hardware = {
-    raspberry-pi = {
-      "4" = {
-        apply-overlays-dtmerge.enable = true;
+    raspberry-pi."4" = {
+      apply-overlays-dtmerge.enable = true;
 
-        # Enable GPU acceleration
-        fkms-3d.enable = true;
+      # Enable GPU acceleration
+      fkms-3d.enable = true;
 
-        # Enable audio (NOT WORKING)
-        # ref: https://github.com/NixOS/nixos-hardware/issues/703
-        # audio.enable = true;
-      };
-
-      # Enable fan control
-      config.all.dt-overlays.gpio-fan = {
-        enable = true;
-        params = {
-          gpiopin = 18;
-          temp = 60000;
-        };
-      };
+      # Enable audio (NOT WORKING)
+      # ref: https://github.com/NixOS/nixos-hardware/issues/703
+      # audio.enable = true;
     };
+
+    # TODO: Enable fan control
   };
 
   environment.systemPackages = with pkgs; [

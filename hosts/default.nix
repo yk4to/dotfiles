@@ -49,10 +49,7 @@ in {
     };
     raspi4 = mkSystem {
       system = "aarch64-linux";
-      modules = [
-        inputs.raspberry-pi-nix.nixosModules.raspberry-pi
-        ./raspi4/nixos.nix
-      ];
+      modules = [./raspi4/nixos.nix];
       homeManagerModules = import ./raspi4/home-manager.nix;
     };
   };
