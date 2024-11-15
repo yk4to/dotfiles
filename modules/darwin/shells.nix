@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   environment = {
     shells = [pkgs.zsh pkgs.fish];
-    loginShell = pkgs.fish;
 
     systemPackages = with pkgs; [
       fish
