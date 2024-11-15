@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   environment.systemPackages = [pkgs.tailscale];
