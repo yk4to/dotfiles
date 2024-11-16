@@ -98,3 +98,6 @@ fish/conf.d
 fish/functions
 fish/themes
 fish/fish_variables
+
+### direnv ###
+.direnv

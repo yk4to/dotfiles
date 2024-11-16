@@ -28,6 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
@@ -45,6 +47,8 @@
 
     agenix.url = "github:yaxitech/ragenix";
 
+    deploy-rs.url = "github:serokell/deploy-rs";
+
     secrets = {
       url = "git+ssh://git@github.com/yk4to/nix-secrets";
       flake = false;
@@ -53,11 +57,34 @@
 
   outputs = inputs: let
     hosts = import ./hosts inputs;
-  in {
-    nixosConfigurations = hosts.nixos;
-    darwinConfigurations = hosts.darwin;
+  in
+    {
+      nixosConfigurations = hosts.nixos;
+      darwinConfigurations = hosts.darwin;
 
-    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    formatter.aarch64-darwin = inputs.nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-  };
+      deploy = {
+        user = "root";
+
+        autoRollback = true;
+        magicRollback = true;
+
+        remoteBuild = true;
+
+        nodes.raspi4 = {
+          hostname = "raspi4";
+          profiles.system.path = inputs.deploy-rs.lib.aarch64-linux.activate.nixos hosts.nixos.raspi4;
+        };
+      };
+
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks inputs.self.deploy) inputs.deploy-rs.lib;
+    }
+    // inputs.flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import inputs.nixpkgs {inherit system;};
+    in {
+      formatter = pkgs.alejandra;
+
+      devShells.default = pkgs.mkShell {
+        buildInputs = [pkgs.deploy-rs];
+      };
+    });
 }
