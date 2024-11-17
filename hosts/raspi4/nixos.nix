@@ -30,16 +30,6 @@
   # Enable ssh
   services.openssh.enable = true;
 
-  # Enable mDNS
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-    };
-  };
-
   # Enable automatic login
   # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   services.displayManager.autoLogin.enable = true;
