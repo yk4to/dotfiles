@@ -872,11 +872,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1731573066,
-        "narHash": "sha256-FMhQu3URBLWnTqeQKjlkiWux/0wC4uXscTWnZ/bDD8g=",
+        "lastModified": 1731805674,
+        "narHash": "sha256-RDl/i1xtK7MoVgXR80iXrzVdQAY5pk1TUAXJBzKyOcM=",
         "ref": "refs/heads/main",
-        "rev": "d3b0c962356ca9e7a2371371e30156436aaf397f",
-        "revCount": 4,
+        "rev": "694a0d928b3978851c4819c6c072b7b428a69152",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-secrets"
       },
