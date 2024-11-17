@@ -1,8 +1,17 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   services.nextdns = {
     enable = true;
-    arguments = ["-config" "${builtins.readFile config.age.secrets.nextdns.path}"];
+    arguments = ["-config-file" "${config.age.secrets.nextdns.path}"];
   };
+
+  networking.nameservers = [
+    "127.0.0.1"
+    "::1"
+  ];
 
   age.secrets = {
     nextdns = {
