@@ -30,7 +30,7 @@
 
       # Safari Extensions
       "1Password for Safari" = 1569813296;
-      "1Blocker" = 1365531024;
+      "AdGuard for Safari" = 1440147259;
       "Consent-O-Matic" = 1606897889;
       "uBlacklist" = 1547912640;
       "Refined GitHub" = 1519867270;
