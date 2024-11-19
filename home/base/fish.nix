@@ -21,9 +21,6 @@
       # make the completion not be the same color as the bg color
       set -g fish_color_autosuggestion 5c6370
 
-      # starship
-      ${builtins.readFile ./starship_async_transient_prompt.fish}
-
       # homebrew (only on darwin)
       ${
         if pkgs.stdenv.isDarwin

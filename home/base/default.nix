@@ -5,12 +5,12 @@
 }: {
   imports = [
     ./direnv.nix
+    ./fish.nix
     ./git.nix
     ./ssh.nix
     ./starship.nix
     ./tools.nix
 
-    ./fish
     ./nvim
   ];
 
