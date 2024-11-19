@@ -11,6 +11,8 @@
       ../../modules/nixos/optional/gnome.nix
       ../../modules/nixos/optional/tailscale.nix
       ../../modules/nixos/optional/services
+
+      ./fan-control.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
       raspberry-pi-4
@@ -54,19 +56,15 @@
     };
   };
 
-  hardware = {
-    raspberry-pi."4" = {
-      apply-overlays-dtmerge.enable = true;
+  hardware.raspberry-pi."4" = {
+    apply-overlays-dtmerge.enable = true;
 
-      # Enable GPU acceleration
-      fkms-3d.enable = true;
+    # Enable GPU acceleration
+    fkms-3d.enable = true;
 
-      # Enable audio (NOT WORKING)
-      # ref: https://github.com/NixOS/nixos-hardware/issues/703
-      # audio.enable = true;
-    };
-
-    # TODO: Enable fan control
+    # Enable audio (NOT WORKING)
+    # ref: https://github.com/NixOS/nixos-hardware/issues/703
+    # audio.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
