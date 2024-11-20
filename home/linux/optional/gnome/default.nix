@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    gnomeExtensions.paperwm
     gnomeExtensions.dash-to-dock
     gnomeExtensions.kimpanel
     yaru-theme
@@ -15,6 +16,7 @@
       ];
 
       enabled-extensions = [
+        "paperwm@paperwm.github.com"
         "dash-to-dock@micxgx.gmail.com"
         "kimpanel@kde.org"
       ];
