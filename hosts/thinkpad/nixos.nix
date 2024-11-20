@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   vars,
+  config,
   ...
 }: {
   imports =
@@ -55,6 +56,9 @@
   # set config about nvidia gpu
   hardware.nvidia = {
     open = true;
+
+    # ref: https://github.com/NixOS/nixpkgs/issues/353990
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
       offload = {
