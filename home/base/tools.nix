@@ -3,12 +3,16 @@
     eza # `ls` replacement
     zoxide # `cd` replacement
 
+    just # `make` replacement
+
     hyperfine # benchmarking tool
 
     neofetch # system info (deprecated)
     bottom # system monitor
 
     nodejs_latest
+
+    nix-output-monitor
     alejandra # nix formatter
   ];
 
