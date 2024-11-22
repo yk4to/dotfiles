@@ -1,13 +1,8 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    discord
-    slack
-  ];
-
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
