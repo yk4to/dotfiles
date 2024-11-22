@@ -69,30 +69,39 @@
       # platformio.platformio-ide
     ];
 
-    userSettings = {
-      "editor.fontFamily" = "'UDEV Gothic 35NF', Menlo, Monaco, 'Courier New', monospace";
-      "editor.fontSize" = 14;
-      "editor.inlineSuggest.enabled" = true;
-      "editor.tabSize" = 2;
+    userSettings =
+      {
+        "editor.fontFamily" = "'UDEV Gothic 35NF', Menlo, Monaco, 'Courier New', monospace";
+        "editor.fontSize" = 14;
+        "editor.inlineSuggest.enabled" = true;
+        "editor.tabSize" = 2;
 
-      "terminal.integrated.fontFamily" = "'UDEV Gothic 35NF'";
-      "terminal.integrated.fontSize" = 13;
+        "terminal.integrated.fontFamily" = "'UDEV Gothic 35NF'";
+        "terminal.integrated.fontSize" = 13;
 
-      "workbench.startupEditor" = "none"; # disable welcome page
-      "workbench.editor.empty.hint" = false;
-      "workbench.colorTheme" = "One Dark Pro";
-      "workbench.iconTheme" = "material-icon-theme";
+        "workbench.startupEditor" = "none"; # disable welcome page
+        "workbench.editor.empty.hint" = false;
+        "workbench.colorTheme" = "One Dark Pro";
+        "workbench.iconTheme" = "material-icon-theme";
 
-      "window.commandCenter" = false; # disable command center on title bar
+        "window.commandCenter" = false; # disable command center on title bar
 
-      "git.confirmSync" = false;
-      "git.autofetch" = true;
-      "git.openRepositoryInParentFolders" = "never";
+        "git.confirmSync" = false;
+        "git.autofetch" = true;
+        "git.openRepositoryInParentFolders" = "never";
 
-      ## Extensions
-      "wikitext.host" = "ja.wikipedia.org";
-      # "platformio-ide.useBuiltinPIOCore" = false;
-    };
+        ## Extensions
+        "wikitext.host" = "ja.wikipedia.org";
+        # "platformio-ide.useBuiltinPIOCore" = false;
+      }
+      ++ (
+        if pkgs.stdenv.isLinux
+        then {
+          # disable auto update on linux(NixOS)
+          "update.mode" = "none";
+        }
+        else {}
+      );
   };
 
   home.file.".vscode/argv.json".text = builtins.toJSON {
