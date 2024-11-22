@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  mylib,
   vars,
   ...
 }: {

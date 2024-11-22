@@ -1,5 +1,3 @@
-{
-  imports = [
-    ./ghostty.nix
-  ];
+{mylib, ...}: {
+  imports = mylib.scanPaths ./.;
 }

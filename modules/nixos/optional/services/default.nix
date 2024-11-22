@@ -1,17 +1,16 @@
 {
   inputs,
+  mylib,
   vars,
   pkgs,
   config,
   ...
 }: {
-  imports = [
-    ./freshrss.nix
-    ./memos.nix
-    ./portainer.nix
-
-    inputs.arion.nixosModules.arion
-  ];
+  imports =
+    (mylib.scanPaths ./.)
+    ++ [
+      inputs.arion.nixosModules.arion
+    ];
 
   virtualisation = {
     docker.enable = true;

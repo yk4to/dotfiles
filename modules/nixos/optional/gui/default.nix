@@ -1,11 +1,5 @@
-{
-  imports = [
-    ./apps.nix
-    ./fonts.nix
-    ./gnome-keyring.nix
-    ./ime.nix
-    ./sound.nix
-  ];
+{mylib, ...}: {
+  imports = mylib.scanPaths ./.;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

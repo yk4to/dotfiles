@@ -1,7 +1,9 @@
-{vars, ...}: {
-  imports = [
-    ./agenix.nix
-  ];
+{
+  mylib,
+  vars,
+  ...
+}: {
+  imports = mylib.scanPaths ./.;
 
   # enable experimental features
   nix.settings = {

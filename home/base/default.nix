@@ -1,18 +1,10 @@
 {
   pkgs,
+  mylib,
   vars,
   ...
 }: {
-  imports = [
-    ./direnv.nix
-    ./fish.nix
-    ./git.nix
-    ./ssh.nix
-    ./starship.nix
-    ./tools.nix
-
-    ./nvim
-  ];
+  imports = mylib.scanPaths ./.;
 
   home = rec {
     username = vars.username;

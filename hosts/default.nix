@@ -1,4 +1,6 @@
 inputs: let
+  inherit (inputs.nixpkgs) lib;
+  mylib = import ../lib {inherit lib;};
   vars = import ../vars.nix;
 
   mkSystem = {
@@ -29,7 +31,7 @@ inputs: let
               users.${vars.username} = homeManagerModules;
 
               sharedModules = [inputs.ghostty-module.homeModules.default];
-              extraSpecialArgs = {inherit inputs vars;};
+              extraSpecialArgs = {inherit inputs mylib vars;};
             };
           }
           (
@@ -38,7 +40,7 @@ inputs: let
             else inputs.agenix.nixosModules.default
           )
         ];
-      specialArgs = {inherit inputs vars system;};
+      specialArgs = {inherit inputs mylib vars system;};
     };
 in {
   nixos = {

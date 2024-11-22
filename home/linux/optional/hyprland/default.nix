@@ -1,11 +1,5 @@
-{
-  imports = [
-    ./clamshell.nix
-    ./swaylock.nix
-    ./swaync.nix
-    ./waybar.nix
-    ./wofi.nix
-  ];
+{mylib, ...}: {
+  imports = mylib.scanPaths ./.;
 
   wayland.windowManager.hyprland = {
     enable = true;
