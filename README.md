@@ -1,61 +1,55 @@
 # dotfiles
 
+![](https://img.shields.io/badge/NixOS-unstable-informational.svg?style=for-the-badge&logo=nixos)
+![](https://img.shields.io/badge/macOS-Sequoia-informational.svg?style=for-the-badge&logo=apple)
+
 ## Hosts
 
-- ThinkPad P14s Gen 4
-  - `thinkpad`
-  - NixOS 24.11 (dual-boot with Windows 11)
-  - i7 1360P, 32GB RAM
-- MacBook Air 2024
-  - `yuta-mba`
-  - macOS Sequoia (managed by nix-darwin)
-  - M3, 16GB RAM
-- Raspberry Pi 4 Model B Rev 1.4
-  - `raspi4`
-  - NixOS 24.11 (booted with USB-connected SATA SSD)
-  - Cortex-A72, 8GB RAM
+See [./hosts](./hosts) for details.
 
 ## Stacks
 
-### Base
-- Nix
-  - Home Manager
-  - formatter: alejandra
-- shell: Fish
-- prompt: Starship ([asynchronous loading](https://gist.github.com/duament/bac0181935953b97ca71640727c9c029))
-- terminal emulator: Ghostty (private beta)
-- editor: VSCode, Neovim
-  - lazy.nvim
-- font: UDEV Gothic
-- theme: Atom One Dark
-- tools
-  - eza (`ls` replacement)
-  - zoxide (`cd` replacement)
-  - hyperfine (benchmarking tool)
-  - bottom (system monitor)
-- Git-related tools
-  - commitizen
-  - lazygit
-- TexLive
-- PlatformIO
+### Base (shared on macOS and Linux)
 
-### Linux
-- vm: Gnome, Hyprland
-- Hyprland-related tools (🚧 WIP)
-  - swaylock
-  - swaync
-  - waybar
-  - wofi
+| | Managed by [Nix](https://github.com/NixOS/nix) and [Home Manager](https://github.com/nix-community/home-manager) |
+| - | - |
+| Shell | [Fish](https://github.com/fish-shell/fish-shell) |
+| Shell Prompt | [Starship](https://github.com/starship/starship) |
+| Terminal Emulator | [Ghostty](https://mitchellh.com/ghostty) |
+| Editor | [VSCode](https://github.com/microsoft/vscode), [Neovim](https://github.com/neovim/neovim) |
+| Font | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [UDEV Gothic](https://github.com/yuru7/udev-gothic) 🇯🇵 |
+| Color Scheme | Atom One Dark ([VSCode](https://github.com/Binaryify/OneDark-Pro), [Neovim](https://github.com/olimorris/onedarkpro.nvim)) |
+| Nix Formatter | [Alejandra](https://github.com/kamadorueda/alejandra) |
+| Secret Management | [ragenix](https://github.com/yaxitech/ragenix) |
+| System Monitor | [bottom](https://github.com/ClementTsang/bottom) |
+| Git-related Tools | [Commitizen](https://github.com/commitizen-tools/commitizen), [Lazygit](https://github.com/jesseduffield/lazygit), [delta](https://github.com/dandavison/delta) |
+| Modern CLI Tools | [zoxide](https://github.com/ajeetdsouza/zoxide), [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat) |
+| Other CLI Tools | [direnv](https://github.com/direnv/direnv), [just](https://github.com/casey/just), [hyperfine](https://github.com/sharkdp/hyperfine), ... |
+| VPN | [Tailscale](https://github.com/tailscale/tailscale) |
+
+#### Neovim plugins
+
+| | Managed by Nix |
+| - | - |
+| Plugin Manager | [lazy.nvim](https://github.com/folke/lazy.nvim) |
+| File Tree | [Neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) |
+| Statusline | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) |
 
 ### macOS
 
-- nix-darwin
-  - nix-darwin-custom-icons
-- Homebrew (for Casks only)
-- mas (to install App Store apps via Homebrew)
-- tools
-  - trash
-- OrbStack (`docker` replacement)
+| | Managed by [nix-darwin](https://github.com/LnL7/nix-darwin) |
+| - | - |
+| GUI Apps Manager | [Homebrew Cask](https://github.com/Homebrew/homebrew-cask), [mas](https://github.com/mas-cli/mas) |
+| Container System | [OrbStack](https://orbstack.dev) (Docker replacement) |
+
+### Linux
+
+| | NixOS |
+| - | - |
+| Desktop Environment | [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) |
+| Window Manager | [Pop Shell](https://github.com/pop-os/shell) |
+| Container System | [Arion](https://github.com/hercules-ci/arion) (Docker helper for NixOS) |
+| Private Network | [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) |
 
 ## References
 
