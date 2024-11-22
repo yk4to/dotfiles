@@ -6,8 +6,6 @@
   # set time zone
   time.timeZone = "Asia/Tokyo";
 
-  nixpkgs.config.allowUnfree = true;
-
   # enable auto optimisation and gc
   nix = {
     settings = {

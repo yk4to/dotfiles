@@ -1,4 +1,5 @@
 {
+  inputs,
   mylib,
   vars,
   ...
@@ -10,4 +11,11 @@
     experimental-features = ["nix-command" "flakes"];
     trusted-users = [vars.username];
   };
+
+  nixpkgs.config.allowUnfree = true;
+
+  # enable nur
+  nixpkgs.overlays = [
+    inputs.nur.overlay
+  ];
 }

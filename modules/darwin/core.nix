@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  nixpkgs.config.allowUnfree = true;
-
   # enable nix-darwin
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
