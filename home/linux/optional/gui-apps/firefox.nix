@@ -17,6 +17,9 @@
         ublacklist
         refined-github
         stylus
+        translate-web-pages
+        control-panel-for-twitter
+        wappalyzer
       ];
     };
   };
