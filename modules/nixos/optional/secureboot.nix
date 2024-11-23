@@ -1,8 +1,14 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
+  # ref: https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md
+  # NOTE: To install lanzaboote on a new machine,
+  # we need to follow the install instruction for systemd-boot
+  # and than switch to lanzaboote after the first boot.
+
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
   ];
