@@ -35,6 +35,11 @@
 
     deploy-rs.url = "github:serokell/deploy-rs";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     secrets = {
       url = "git+ssh://git@github.com/yk4to/nix-secrets";
       flake = false;

@@ -11,6 +11,7 @@
       ../../modules/nixos
       ../../modules/nixos/optional/gui
       ../../modules/nixos/optional/gnome.nix
+      ../../modules/nixos/optional/secureboot.nix
       ./hardware-configuration.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
@@ -30,6 +31,7 @@
   networking.hostName = "thinkpad";
 
   # Bootloader.
+  # NOTE: This is replaced by the secureboot module.
   boot.loader = {
     systemd-boot = {
       enable = true;
