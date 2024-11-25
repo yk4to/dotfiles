@@ -77,7 +77,6 @@
 
       # Editors
       "inkdrop"
-      "obsidian"
 
       # Dev Tools
       "apparency"
