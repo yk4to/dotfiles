@@ -9,6 +9,7 @@
     kimpanel # show ime status on menu bar
     appindicator # show indicator icons on menu bar
     logo-menu
+    caffeine # prevent screen from turning off
   ];
 
   dconf.settings = {
@@ -18,6 +19,7 @@
       "kimpanel@kde.org"
       "appindicatorsupport@rgcjonas.gmail.com"
       "logomenu@aryan_k"
+      "caffeine@patapon.info"
     ];
 
     "org/gnome/shell/extensions/pop-shell" = {
