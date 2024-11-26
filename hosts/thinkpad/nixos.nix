@@ -10,6 +10,7 @@
     [
       ../../modules/nixos
       ../../modules/nixos/optional/gui
+      ../../modules/nixos/optional/ghostty.nix
       ../../modules/nixos/optional/gnome.nix
       ../../modules/nixos/optional/secureboot.nix
       ./hardware-configuration.nix
