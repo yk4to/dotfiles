@@ -30,9 +30,6 @@
 
   networking.hostName = "raspi4";
 
-  # Enable ssh
-  services.openssh.enable = true;
-
   # Enable automatic login
   # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   services.displayManager.autoLogin.enable = true;

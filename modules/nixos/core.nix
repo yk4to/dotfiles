@@ -21,4 +21,8 @@
   # keep ghostty terminfo
   # ref: https://ryanccn.dev/posts/ghostty-sudo-terminfo/
   security.sudo.keepTerminfo = true;
+
+  # enable ssh
+  services.openssh.enable = true;
+  programs.ssh.startAgent = true;
 }
