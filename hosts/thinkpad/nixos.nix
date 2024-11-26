@@ -13,6 +13,7 @@
       ../../modules/nixos/optional/ghostty.nix
       ../../modules/nixos/optional/gnome.nix
       ../../modules/nixos/optional/secureboot.nix
+      ../../modules/nixos/optional/tailscale.nix
       ./hardware-configuration.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
