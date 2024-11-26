@@ -1,10 +1,14 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    git
-  ];
+  programs = {
+    git.enable = true;
+    fish.enable = true;
+  };
 
   # set time zone
   time.timeZone = "Asia/Tokyo";
+
+  # set locale
+  i18n.defaultLocale = "ja_JP.UTF-8";
 
   # enable auto optimisation and gc
   nix = {
@@ -18,11 +22,17 @@
     };
   };
 
-  # keep ghostty terminfo
-  # ref: https://ryanccn.dev/posts/ghostty-sudo-terminfo/
-  security.sudo.keepTerminfo = true;
-
   # enable ssh
   services.openssh.enable = true;
   programs.ssh.startAgent = true;
+
+  # Enable mDNS
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
 }
