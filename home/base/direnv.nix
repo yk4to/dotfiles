@@ -13,5 +13,6 @@
 
   home.sessionVariables = {
     DIRENV_WARN_TIMEOUT = "3m";
+    DIRENV_LOG_FORMAT = ''\033[2mdirenv: %s\033[0m''; # make direnv log less noisy
   };
 }
