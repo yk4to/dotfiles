@@ -12,13 +12,15 @@ in {
     enable = mkEnableOption "GUI Applications";
   };
 
-  config = mkIf cfg.enable mkMerge [
-    (import ./firefox.nix {inherit pkgs;})
-    {
-      home.packages = with pkgs; [
-        discord
-        slack
-      ];
-    }
-  ];
+  config = mkIf cfg.enable (mkMerge (map
+      (f: import f {inherit pkgs lib config;})
+      (mylib.scanPaths ./.))
+    ++ [
+      {
+        home.packages = with pkgs; [
+          discord
+          slack
+        ];
+      }
+    ]);
 }
