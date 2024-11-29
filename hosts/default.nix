@@ -21,6 +21,11 @@ inputs: let
         ++ [
           (
             if isDarwin
+            then ../modules/darwin
+            else ../modules/nixos
+          )
+          (
+            if isDarwin
             then inputs.home-manager.darwinModules.home-manager
             else inputs.home-manager.nixosModules.home-manager
           )

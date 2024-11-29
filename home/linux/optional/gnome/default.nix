@@ -3,6 +3,7 @@
   inputs,
   config,
   lib,
+  mylib,
   ...
 }:
 with lib; let
@@ -13,8 +14,9 @@ in {
   };
 
   config = mkIf cfg.enable mkMerge [
-    (import ./extensions.nix {inherit pkgs lib config;})
-    (import ./themes.nix {inherit pkgs lib;})
+    (map
+      (f: import f {inherit pkgs lib config;})
+      (mylib.scanPaths ./.))
     {
       dconf.settings = {
         "org/gnome/shell".favorite-apps = [
