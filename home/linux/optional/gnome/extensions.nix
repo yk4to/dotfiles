@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   home.packages = with pkgs.gnomeExtensions; [
@@ -41,7 +42,10 @@
       menu-button-icon-image = 23;
       menu-button-icon-size = 23;
       menu-button-icon-click-type = 3;
-      menu-button-terminal = "ghostty";
+      menu-button-terminal =
+        if config.modules.base.ghostty.enable
+        then "ghostty"
+        else "gnome-terminal";
       hide-softwarecentre = true;
     };
   };

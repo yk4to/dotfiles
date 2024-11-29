@@ -1,29 +1,41 @@
 {
-  programs.ghostty = {
-    enable = true;
+  inputs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.base.ghostty;
+in {
+  options.modules.base.ghostty = {
+    enable = mkEnableOption "Ghostty terminal emulator";
+  };
 
-    shellIntegration.enable = false;
-    shellIntegration.enableFishIntegration = true;
+  config = mkIf cfg.enable {
+    programs.ghostty = {
+      shellIntegration.enable = false;
+      shellIntegration.enableFishIntegration = true;
 
-    settings = {
-      font-family = [
-        "JetBrainsMono Nerd Font"
-        "UDEV Gothic 35LG"
-      ];
+      settings = {
+        font-family = [
+          "JetBrainsMono Nerd Font"
+          "UDEV Gothic 35LG"
+        ];
 
-      font-thicken = true;
+        font-thicken = true;
 
-      theme = "OneHalfDark";
+        theme = "OneHalfDark";
 
-      # macos-titlebar-style = "tabs";
-      macos-window-shadow = false;
+        # macos-titlebar-style = "tabs";
+        macos-window-shadow = false;
 
-      background-opacity = 0.95;
-      background-blur-radius = 20;
+        background-opacity = 0.95;
+        background-blur-radius = 20;
 
-      window-padding-balance = true;
+        window-padding-balance = true;
 
-      keybind = "global:ctrl+escape=toggle_quick_terminal";
+        keybind = "global:ctrl+escape=toggle_quick_terminal";
+      };
     };
   };
 }

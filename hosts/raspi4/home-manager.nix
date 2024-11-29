@@ -1,7 +1,14 @@
 {
-  imports = [
-    ../../home/linux
-    ../../home/linux/optional/gnome
-    ../../home/base/optional/gui
-  ];
+  modules = {
+    base = {
+      # ghostty.enable = true;
+      # latex.enable = true;
+      # platformio.enable = true;
+      # vscode.enable = true;
+    };
+    linux = {
+      gnome.enable = true;
+      # gui-apps.enable = true;
+    };
+  };
 }
