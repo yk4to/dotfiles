@@ -22,6 +22,15 @@ in {
 
   config = mkIf cfg.enable {
     virtualisation = {
+      containers.enable = true;
+      podman = {
+        enable = true;
+        # Create a `docker` alias for podman, to use it as a drop-in replacement
+        dockerCompat = true;
+      };
+      oci-containers.backend = "podman";
+
+      # TODO: remove Arion and migrate to Podman
       docker.enable = true;
       arion.backend = "docker";
     };
