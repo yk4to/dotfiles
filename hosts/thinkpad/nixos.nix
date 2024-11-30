@@ -8,12 +8,6 @@
 }: {
   imports =
     [
-      ../../modules/nixos
-      ../../modules/nixos/optional/gui
-      ../../modules/nixos/optional/ghostty.nix
-      ../../modules/nixos/optional/gnome.nix
-      ../../modules/nixos/optional/secureboot.nix
-      ../../modules/nixos/optional/tailscale.nix
       ./hardware-configuration.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
@@ -21,6 +15,13 @@
       common-gpu-nvidia
       common-pc-ssd
     ]);
+
+  modules.nixos = {
+    gui.enable = true;
+    ghostty.enable = true;
+    secureboot.enable = true;
+    tailscale.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.username} = {

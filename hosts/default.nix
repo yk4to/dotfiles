@@ -21,6 +21,11 @@ inputs: let
         ++ [
           (
             if isDarwin
+            then ../modules/darwin
+            else ../modules/nixos
+          )
+          (
+            if isDarwin
             then inputs.home-manager.darwinModules.home-manager
             else inputs.home-manager.nixosModules.home-manager
           )
@@ -28,7 +33,17 @@ inputs: let
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${vars.username} = homeManagerModules;
+              users.${vars.username} = {
+                imports =
+                  homeManagerModules
+                  ++ [
+                    (
+                      if isDarwin
+                      then ../home/darwin
+                      else ../home/linux
+                    )
+                  ];
+              };
 
               sharedModules = [inputs.ghostty-module.homeModules.default];
               extraSpecialArgs = {inherit inputs mylib vars;};
@@ -47,12 +62,12 @@ in {
     thinkpad = mkSystem {
       system = "x86_64-linux";
       modules = [./thinkpad/nixos.nix];
-      homeManagerModules = import ./thinkpad/home-manager.nix;
+      homeManagerModules = [./thinkpad/home-manager.nix];
     };
     raspi4 = mkSystem {
       system = "aarch64-linux";
       modules = [./raspi4/nixos.nix];
-      homeManagerModules = import ./raspi4/home-manager.nix;
+      homeManagerModules = [./raspi4/home-manager.nix];
     };
   };
 
@@ -63,7 +78,7 @@ in {
         ./yuta-mba/darwin.nix
         inputs.darwin-custom-icons.darwinModules.default
       ];
-      homeManagerModules = import ./yuta-mba/home-manager.nix;
+      homeManagerModules = [./yuta-mba/home-manager.nix];
     };
   };
 }

@@ -10,10 +10,7 @@
       (lib.attrsets.filterAttrs
         (
           path: _type:
-            (
-              (_type == "directory") # include directories
-              && (path != "optional") # ignore optional
-            )
+            (_type == "directory") # include directories
             || (
               (path != "default.nix") # ignore default.nix
               && (lib.strings.hasSuffix ".nix" path) # include .nix files

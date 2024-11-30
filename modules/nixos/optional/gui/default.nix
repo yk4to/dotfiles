@@ -1,15 +1,34 @@
-{mylib, ...}: {
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  mylib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.nixos.gui;
+in {
   imports = mylib.scanPaths ./.;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  options.modules.nixos.gui = {
+    enable = mkEnableOption "Generic GUI Settings";
+  };
 
-  # Enable gdm (GNOME Display Manager)
-  services.xserver.displayManager.gdm.enable = true;
+  config = mkIf cfg.enable {
+    # Enable the X11 windowing system.
+    services.xserver.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    # Enable gdm (GNOME Display Manager)
+    services.xserver.displayManager.gdm.enable = true;
+
+    # Enable GNOME
+    services.xserver.desktopManager.gnome.enable = true;
+
+    # Configure keymap in X11
+    services.xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 }

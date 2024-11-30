@@ -7,18 +7,20 @@
 }: {
   imports =
     [
-      ../../modules/nixos
-      ../../modules/nixos/optional/gui
-      ../../modules/nixos/optional/gnome.nix
-      ../../modules/nixos/optional/tailscale.nix
-      ../../modules/nixos/optional/services
-
       ./fan-control.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
       raspberry-pi-4
       common-pc-ssd
     ]);
+
+  modules.nixos = {
+    gui.enable = true;
+    services.enable = true;
+    # ghostty.enable = true;
+    # secureboot.enable = true;
+    tailscale.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.username} = {
