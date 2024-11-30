@@ -17,20 +17,25 @@ in {
 
   config = mkIf cfg.enable {
     dconf.settings = {
-      "org/gnome/shell".favorite-apps = [
+      "org/gnome/shell".favorite-apps =
         (
           if config.optionalModules.linux.gui-apps.enable
-          then "firefox-devedition.desktop"
-          else null
+          then ["firefox-devedition.desktop"]
+          else []
         )
-        "code.desktop"
-        (
+        ++ (
           if config.optionalModules.base.ghostty.enable
-          then "com.mitchellh.ghostty.desktop"
-          else "org.gnome.Terminal.desktop"
+          then ["com.mitchellh.ghostty.desktop"]
+          else ["org.gnome.Terminal.desktop"]
         )
-        "org.gnome.Nautilus.desktop"
-      ];
+        ++ (
+          if config.optionalModules.base.vscode.enable
+          then ["code.desktop"]
+          else []
+        )
+        ++ [
+          "org.gnome.Nautilus.desktop"
+        ];
 
       "org/gnome/mutter" = {
         # Enable fractional scaling
