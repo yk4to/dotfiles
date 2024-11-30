@@ -1,14 +1,20 @@
 {
-  virtualisation.oci-containers.containers.homebridge = {
-    image = "docker.io/homebridge/homebridge:latest";
-    volumes = ["/var/lib/homebridge:/homebridge"];
-    environment = {
-      "TZ" = "Asia/Tokyo";
-      "HOMEBRIDGE_CONFIG_UI" = "1";
-      "HOMEBRIDGE_CONFIG_UI_PORT" = "8581";
+  lib,
+  config,
+  ...
+}: {
+  config = lib.mkIf config.optionalModules.nixos.services.enable {
+    virtualisation.oci-containers.containers.homebridge = {
+      image = "docker.io/homebridge/homebridge:latest";
+      volumes = ["/var/lib/homebridge:/homebridge"];
+      environment = {
+        "TZ" = "Asia/Tokyo";
+        "HOMEBRIDGE_CONFIG_UI" = "1";
+        "HOMEBRIDGE_CONFIG_UI_PORT" = "8581";
+      };
+      extraOptions = ["--network=host"];
     };
-    extraOptions = ["--network=host"];
-  };
 
-  networking.firewall.allowedTCPPorts = [8581];
+    networking.firewall.allowedTCPPorts = [8581];
+  };
 }
