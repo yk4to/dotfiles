@@ -59,8 +59,7 @@ in {
     age.secrets = {
       tailscale = {
         file = "${inputs.secrets}/tailscale.age";
-        owner = "tailscale";
-        group = "tailscale";
+        mode = "600";
       };
     };
   };
