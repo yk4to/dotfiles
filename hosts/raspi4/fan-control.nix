@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   # ref: https://discourse.nixos.org/t/enabling-fan-control-on-a-raspberry-pi/40534/3
 
   environment.systemPackages = with pkgs; [
