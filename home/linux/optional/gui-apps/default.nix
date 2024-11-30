@@ -3,8 +3,9 @@
   inputs,
   config,
   lib,
+  mylib,
   ...
-}:
+} @ args:
 with lib; let
   cfg = config.modules.linux.gui-apps;
 in {
@@ -12,15 +13,15 @@ in {
     enable = mkEnableOption "GUI Applications";
   };
 
-  config = mkIf cfg.enable (mkMerge (map
-      (f: import f {inherit pkgs lib config;})
-      (mylib.scanPaths ./.))
-    ++ [
-      {
-        home.packages = with pkgs; [
-          discord
-          slack
-        ];
-      }
-    ]);
+  config = mkIf cfg.enable (
+    mkMerge ([
+        {
+          home.packages = with pkgs; [
+            discord
+            slack
+          ];
+        }
+      ]
+      ++ (map (path: import path args) (mylib.scanPaths ./.)))
+  );
 }
