@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  vars,
   ...
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
@@ -12,7 +13,7 @@
         environment = {
           PUID = "1000";
           PGID = "1000";
-          TZ = "Asia/Tokyo";
+          TZ = vars.timeZone;
           CRON_MIN = "1,16,31,46";
         };
         volumes = [

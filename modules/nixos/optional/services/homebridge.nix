@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  vars,
   ...
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
@@ -8,7 +9,7 @@
       image = "docker.io/homebridge/homebridge:latest";
       volumes = ["/var/lib/homebridge:/homebridge"];
       environment = {
-        "TZ" = "Asia/Tokyo";
+        "TZ" = vars.timeZone;
         "HOMEBRIDGE_CONFIG_UI" = "1";
         "HOMEBRIDGE_CONFIG_UI_PORT" = "8581";
       };

@@ -1,11 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  vars,
+  ...
+}: {
   programs = {
     git.enable = true;
     fish.enable = true;
   };
 
   # set time zone
-  time.timeZone = "Asia/Tokyo";
+  time.timeZone = vars.timeZone;
 
   # set locale
   i18n.defaultLocale = "ja_JP.UTF-8";
