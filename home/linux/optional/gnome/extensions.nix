@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.linux.gnome.enable {
+  config = lib.mkIf config.optionalModules.linux.gnome.enable {
     home.packages = with pkgs.gnomeExtensions; [
       pop-shell # tiling window manager
       dash-to-dock # dock used in Ubuntu
@@ -44,7 +44,7 @@
         menu-button-icon-size = 23;
         menu-button-icon-click-type = 3;
         menu-button-terminal =
-          if config.modules.base.ghostty.enable
+          if config.optionalModules.base.ghostty.enable
           then "ghostty"
           else "gnome-terminal";
         hide-softwarecentre = true;

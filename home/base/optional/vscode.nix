@@ -6,14 +6,14 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.base.vscode;
+  cfg = config.optionalModules.base.vscode;
   # disable auto update on linux(NixOS)
   updateMode =
     if pkgs.stdenv.isLinux
     then "none"
     else "manual";
 in {
-  options.modules.base.vscode = {
+  options.optionalModules.base.vscode = {
     enable = mkEnableOption "Visual Studio Code";
   };
 

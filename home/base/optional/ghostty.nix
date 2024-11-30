@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.base.ghostty;
+  cfg = config.optionalModules.base.ghostty;
 in {
-  options.modules.base.ghostty = {
+  options.optionalModules.base.ghostty = {
     enable = mkEnableOption "Ghostty terminal emulator";
   };
 

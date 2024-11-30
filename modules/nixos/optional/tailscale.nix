@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.tailscale;
+  cfg = config.optionalModules.nixos.tailscale;
 in {
-  options.modules.nixos.tailscale = {
+  options.optionalModules.nixos.tailscale = {
     enable = mkEnableOption "Tailscale";
   };
 

@@ -7,11 +7,11 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.linux.gnome;
+  cfg = config.optionalModules.linux.gnome;
 in {
   imports = mylib.scanPaths ./.;
 
-  options.modules.linux.gnome = {
+  options.optionalModules.linux.gnome = {
     enable = mkEnableOption "GNOME Desktop Environment";
   };
 
@@ -19,13 +19,13 @@ in {
     dconf.settings = {
       "org/gnome/shell".favorite-apps = [
         (
-          if config.modules.linux.gui-apps.enable
+          if config.optionalModules.linux.gui-apps.enable
           then "firefox-devedition.desktop"
           else null
         )
         "code.desktop"
         (
-          if config.modules.base.ghostty.enable
+          if config.optionalModules.base.ghostty.enable
           then "com.mitchellh.ghostty.desktop"
           else "org.gnome.Terminal.desktop"
         )

@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.linux.gui-apps.enable {
+  config = lib.mkIf config.optionalModules.linux.gui-apps.enable {
     programs.firefox = {
       enable = true;
       package = pkgs.firefox-devedition;

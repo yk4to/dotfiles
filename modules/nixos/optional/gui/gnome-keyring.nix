@@ -5,7 +5,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.nixos.gui.enable {
+  config = lib.mkIf config.optionalModules.nixos.gui.enable {
     services.gnome.gnome-keyring.enable = true;
     environment.systemPackages = [pkgs.libsecret];
     security.pam.services.gdm.enableGnomeKeyring = true;

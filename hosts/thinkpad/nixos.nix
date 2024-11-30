@@ -16,7 +16,7 @@
       common-pc-ssd
     ]);
 
-  modules.nixos = {
+  optionalModules.nixos = {
     gui.enable = true;
     ghostty.enable = true;
     secureboot.enable = true;

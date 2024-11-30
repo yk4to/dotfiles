@@ -14,7 +14,7 @@
       common-pc-ssd
     ]);
 
-  modules.nixos = {
+  optionalModules.nixos = {
     gui.enable = true;
     services.enable = true;
     # ghostty.enable = true;

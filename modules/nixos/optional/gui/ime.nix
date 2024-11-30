@@ -5,7 +5,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.nixos.gui.enable {
+  config = lib.mkIf config.optionalModules.nixos.gui.enable {
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";

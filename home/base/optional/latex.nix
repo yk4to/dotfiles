@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.base.latex;
+  cfg = config.optionalModules.base.latex;
 in {
-  options.modules.base.latex = {
+  options.optionalModules.base.latex = {
     enable = mkEnableOption "LaTeX (TeX Live)";
 
     package = mkOption {

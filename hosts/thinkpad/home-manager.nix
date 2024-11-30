@@ -1,5 +1,5 @@
 {
-  modules = {
+  optionalModules = {
     base = {
       ghostty.enable = true;
       # latex.enable = true;

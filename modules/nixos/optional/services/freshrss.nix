@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.nixos.services.enable {
+  config = lib.mkIf config.optionalModules.nixos.services.enable {
     virtualisation.arion.projects.freshrss.settings = {
       services.freshrss.service = {
         image = "lscr.io/linuxserver/freshrss:version-1.24.1";

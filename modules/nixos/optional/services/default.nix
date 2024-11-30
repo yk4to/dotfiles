@@ -8,7 +8,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.services;
+  cfg = config.optionalModules.nixos.services;
 in {
   imports =
     (mylib.scanPaths ./.)
@@ -16,7 +16,7 @@ in {
       inputs.arion.nixosModules.arion
     ];
 
-  options.modules.nixos.services = {
+  options.optionalModules.nixos.services = {
     enable = mkEnableOption "Self-hosted services";
   };
 

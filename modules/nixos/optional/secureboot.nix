@@ -6,13 +6,13 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.secureboot;
+  cfg = config.optionalModules.nixos.secureboot;
 in {
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
   ];
 
-  options.modules.nixos.secureboot = {
+  options.optionalModules.nixos.secureboot = {
     enable = mkEnableOption "Secure Boot";
   };
 

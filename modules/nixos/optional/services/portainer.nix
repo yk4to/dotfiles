@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.nixos.services.enable {
+  config = lib.mkIf config.optionalModules.nixos.services.enable {
     virtualisation.arion.projects.portainer.settings = {
       services.portainer.service = {
         image = "portainer/portainer-ce:latest";

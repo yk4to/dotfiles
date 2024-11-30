@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.nixos.gui.enable {
+  config = lib.mkIf config.optionalModules.nixos.gui.enable {
     # Enable sound with pipewire.
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;

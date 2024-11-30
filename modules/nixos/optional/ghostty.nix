@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.ghostty;
+  cfg = config.optionalModules.nixos.ghostty;
 in {
-  options.modules.nixos.ghostty = {
+  options.optionalModules.nixos.ghostty = {
     enable = mkEnableOption "Ghostty terminal emulator";
   };
 

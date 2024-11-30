@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.linux.gnome.enable {
+  config = lib.mkIf config.optionalModules.linux.gnome.enable {
     home.packages = with pkgs; [
       yaru-theme
     ];

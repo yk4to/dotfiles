@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.modules.nixos.services.enable {
+  config = lib.mkIf config.optionalModules.nixos.services.enable {
     virtualisation.arion.projects.memos.settings = {
       services.memos.service = {
         image = "neosmemo/memos:0.22.4";

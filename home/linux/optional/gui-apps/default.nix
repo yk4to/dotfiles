@@ -7,11 +7,11 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.linux.gui-apps;
+  cfg = config.optionalModules.linux.gui-apps;
 in {
   imports = mylib.scanPaths ./.;
 
-  options.modules.linux.gui-apps = {
+  options.optionalModules.linux.gui-apps = {
     enable = mkEnableOption "GUI Applications";
   };
 

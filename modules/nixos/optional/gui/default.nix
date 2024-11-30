@@ -7,11 +7,11 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.nixos.gui;
+  cfg = config.optionalModules.nixos.gui;
 in {
   imports = mylib.scanPaths ./.;
 
-  options.modules.nixos.gui = {
+  options.optionalModules.nixos.gui = {
     enable = mkEnableOption "Generic GUI Settings";
   };
 

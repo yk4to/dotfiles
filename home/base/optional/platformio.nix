@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.base.platformio;
+  cfg = config.optionalModules.base.platformio;
 in {
-  options.modules.base.platformio = {
+  options.optionalModules.base.platformio = {
     enable = mkEnableOption "PlatformIO";
 
     package = mkOption {
