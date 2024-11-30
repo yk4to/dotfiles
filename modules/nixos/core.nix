@@ -39,4 +39,5 @@
       addresses = true;
     };
   };
+  network.firewall.allowedUDPPorts = [5353];
 }

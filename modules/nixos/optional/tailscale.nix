@@ -24,10 +24,7 @@ in {
       trustedInterfaces = ["tailscale0"];
 
       # allow the Tailscale UDP port through the firewall
-      allowedUDPPorts = [
-        config.services.tailscale.port
-        5353 # avahi
-      ];
+      allowedUDPPorts = [config.services.tailscale.port];
 
       # let you SSH in over the public internet
       allowedTCPPorts = [22];
