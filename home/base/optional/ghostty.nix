@@ -13,6 +13,8 @@ in {
 
   config = mkIf cfg.enable {
     programs.ghostty = {
+      enable = true;
+
       shellIntegration.enable = false;
       shellIntegration.enableFishIntegration = true;
 
