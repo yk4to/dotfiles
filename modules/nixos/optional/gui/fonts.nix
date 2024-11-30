@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  config = lib.mkIf config.modules.nixos.gui.enable {
   fonts = {
     packages = with pkgs; [
       # system fonts
@@ -18,6 +25,7 @@
         sansSerif = ["Noto Sans CJK JP" "Noto Color Emoji"];
         monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
         emoji = ["Noto Color Emoji"];
+        };
       };
     };
   };

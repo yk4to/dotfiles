@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   config,
   lib,
   ...
@@ -7,6 +8,10 @@
 with lib; let
   cfg = config.modules.nixos.secureboot;
 in {
+  imports = [
+    inputs.lanzaboote.nixosModules.lanzaboote
+  ];
+
   options.modules.nixos.secureboot = {
     enable = mkEnableOption "Secure Boot";
   };
@@ -16,10 +21,6 @@ in {
     # NOTE: To install lanzaboote on a new machine,
     # we need to follow the install instruction for systemd-boot
     # and than switch to lanzaboote after the first boot.
-
-    imports = [
-      inputs.lanzaboote.nixosModules.lanzaboote
-    ];
 
     environment.systemPackages = [
       # For debugging and troubleshooting Secure Boot.

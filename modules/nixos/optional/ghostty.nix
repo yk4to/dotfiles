@@ -1,5 +1,6 @@
 {
   inputs,
+  system,
   config,
   lib,
   ...
