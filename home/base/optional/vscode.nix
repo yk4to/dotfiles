@@ -90,6 +90,9 @@ in {
         "editor.inlineSuggest.enabled" = true;
         "editor.tabSize" = 2;
 
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = true;
+
         "terminal.integrated.fontFamily" = "'UDEV Gothic 35NF'";
         "terminal.integrated.fontSize" = 13;
 
@@ -113,7 +116,8 @@ in {
         # Nix
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
-        "nix.formatterPath" = ["nix" "fmt" "--" "--"];
+        "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
+        "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
       };
     };
 
