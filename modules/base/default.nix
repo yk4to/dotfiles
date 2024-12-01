@@ -1,7 +1,10 @@
 {
+  pkgs,
   inputs,
   mylib,
   vars,
+  system,
+  isDarwin,
   ...
 }: {
   imports = mylib.scanPaths ./.;
@@ -24,10 +27,33 @@
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  # Define a user account.
+  # Don't forget to set a password with ‘passwd’ on NixOS.
+  users.users.${vars.username} =
+    {
+      description = vars.userfullname;
+      shell = pkgs.fish;
+    }
+    // (
+      if isDarwin
+      then {
+        home = "/Users/${vars.username}";
+      }
+      else {
+        home = "/home/${vars.username}";
+        isNormalUser = true;
+        extraGroups = ["wheel"];
+      }
+    );
 
-  # enable nur
-  nixpkgs.overlays = [
-    inputs.nur.overlay
-  ];
+  nixpkgs = {
+    hostPlatform = system;
+
+    config.allowUnfree = true;
+
+    # enable nur
+    overlays = [
+      inputs.nur.overlay
+    ];
+  };
 }

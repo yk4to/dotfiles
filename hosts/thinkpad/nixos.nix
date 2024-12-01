@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   vars,
   config,
   ...
@@ -22,14 +21,6 @@
     tailscale.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${vars.username} = {
-    isNormalUser = true;
-    description = vars.userfullname;
-    extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.fish;
-  };
-
   networking.hostName = "thinkpad";
 
   # Bootloader.
@@ -48,6 +39,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  users.users.${vars.username}.extraGroups = ["networkmanager"];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

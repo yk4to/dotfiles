@@ -21,14 +21,6 @@
     tailscale.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${vars.username} = {
-    isNormalUser = true;
-    description = vars.userfullname;
-    extraGroups = ["wheel"];
-    shell = pkgs.fish;
-  };
-
   networking.hostName = "raspi4";
 
   # Enable automatic login

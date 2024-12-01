@@ -39,7 +39,7 @@ inputs: let
           };
 
           sharedModules = [inputs.ghostty-module.homeModules.default];
-          extraSpecialArgs = {inherit inputs mylib vars;};
+          extraSpecialArgs = {inherit inputs mylib vars system isDarwin;};
         };
       }
     ];
@@ -51,7 +51,7 @@ inputs: let
     ) {
       inherit system;
       modules = baseModules ++ modules;
-      specialArgs = {inherit inputs mylib vars system;};
+      specialArgs = {inherit inputs mylib vars system isDarwin;};
     };
 in {
   nixos = {

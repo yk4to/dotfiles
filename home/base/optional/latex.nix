@@ -3,6 +3,7 @@
   inputs,
   config,
   lib,
+  system,
   ...
 }:
 with lib; let
@@ -23,8 +24,8 @@ in {
     home.packages = [cfg.package];
 
     programs.vscode = {
-      extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace-release;
-      with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
+      extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
+      with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
         james-yu.latex-workshop # latex support
       ];
 

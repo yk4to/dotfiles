@@ -3,6 +3,7 @@
   inputs,
   config,
   lib,
+  system,
   ...
 }:
 with lib; let
@@ -21,8 +22,8 @@ in {
     programs.vscode = {
       enable = true;
 
-      extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace-release;
-      with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
+      extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
+      with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
         # General
         ms-ceintl.vscode-language-pack-ja # japanese language pack
 
