@@ -13,6 +13,7 @@
     nodejs_latest
 
     nix-output-monitor
+    nil # nix language server
     alejandra # nix formatter
   ];
 

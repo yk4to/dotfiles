@@ -44,7 +44,8 @@ in {
         # ms-azuretools.vscode-docker # docker support
 
         # Nix
-        kamadorueda.alejandra # alejandra (nix formatter) support
+        jnoortheen.nix-ide # nix support
+        # kamadorueda.alejandra # alejandra (nix formatter) support
 
         # Language Support
         # idleberg.applescript # applescript support
@@ -105,9 +106,14 @@ in {
 
         "update.mode" = updateMode;
 
-        ## Extensions
+        # Extensions
         "wikitext.host" = "ja.wikipedia.org";
         # "platformio-ide.useBuiltinPIOCore" = false;
+
+        # Nix
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
+        "nix.formatterPath" = ["nix" "fmt" "--" "--"];
       };
     };
 
