@@ -1,14 +1,8 @@
 {
-  inputs,
   pkgs,
-  mylib,
   vars,
   ...
 }: {
-  imports = [
-    ../../modules/darwin
-  ];
-
   users.users.${vars.username} = {
     home = "/Users/${vars.username}";
     shell = pkgs.fish;

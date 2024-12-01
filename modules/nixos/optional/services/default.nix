@@ -1,7 +1,5 @@
 {
-  pkgs,
   inputs,
-  vars,
   config,
   lib,
   mylib,

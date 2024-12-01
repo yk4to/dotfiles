@@ -6,7 +6,7 @@
 }: {
   imports = mylib.scanPaths ./.;
 
-  home = rec {
+  home = {
     username = vars.username;
     homeDirectory =
       if pkgs.stdenv.isDarwin

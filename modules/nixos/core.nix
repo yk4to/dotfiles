@@ -1,8 +1,4 @@
-{
-  pkgs,
-  vars,
-  ...
-}: {
+{vars, ...}: {
   programs = {
     git.enable = true;
     fish.enable = true;
