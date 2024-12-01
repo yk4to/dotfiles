@@ -37,7 +37,7 @@ in {
         # Git / GitHub
         # github.vscode-pull-request-github # github pull requests
         # github.vscode-github-actions # github actions
-        # eamodio.gitlens # gitlens
+        eamodio.gitlens # gitlens
 
         # Containers
         # ms-vscode-remote.remote-containers # remote containers
@@ -47,16 +47,15 @@ in {
         kamadorueda.alejandra # alejandra (nix formatter) support
 
         # Language Support
-        idleberg.applescript # applescript support
+        # idleberg.applescript # applescript support
         # ms-vscode.cpptools # C/C++ support
         # denoland.vscode-deno # deno support
         # tamasfe.even-better-toml # toml support
         # skyapps.fish-vscode # fish support
-        bbenoist.nix # nix support
         mechatroner.rainbow-csv # csv support
-        mariomatheu.syntax-project-pbxproj # Xcode syntax support
-        mhcpnl.xcodestrings # Xcode strings support
-        coolbear.systemd-unit-file # systemd unit file support
+        # mariomatheu.syntax-project-pbxproj # Xcode syntax support
+        # mhcpnl.xcodestrings # Xcode strings support
+        # coolbear.systemd-unit-file # systemd unit file support
         rowewilsonfrederiskholme.wikitext # wiki syntax support
 
         # Markdown
