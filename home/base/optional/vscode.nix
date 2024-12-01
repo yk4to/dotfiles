@@ -70,6 +70,7 @@ in {
         anseki.vscode-color # color picker
         simonsiefke.svg-preview # preview svg files
         oderwat.indent-rainbow # make indentation more readable
+        usernamehw.errorlens # highlight the entire line
 
         # Web Development
         ms-vscode.live-server # host a local server
