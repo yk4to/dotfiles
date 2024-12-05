@@ -21,16 +21,18 @@ in {
   config = mkIf cfg.enable {
     virtualisation = {
       containers.enable = true;
+
       podman = {
         enable = true;
-        # Create a `docker` alias for podman, to use it as a drop-in replacement
-        # dockerCompat = true;
-      };
-      oci-containers.backend = "podman";
 
-      # TODO: remove Arion and migrate to Podman
-      docker.enable = true;
-      arion.backend = "docker";
+        # Create a `docker` alias for podman, to use it as a drop-in replacement
+        dockerCompat = true;
+
+        # Required for containers under podman-compose to be able to talk to each other.
+        defaultNetwork.settings.dns_enabled = true;
+      };
+
+      oci-containers.backend = "podman";
     };
 
     services.cloudflared = {

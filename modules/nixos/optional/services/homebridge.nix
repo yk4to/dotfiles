@@ -21,7 +21,10 @@
     };
 
     networking.firewall = {
-      allowedTCPPorts = [8581 51873];
+      allowedTCPPorts = [
+        8581 # Homebridge Config UI
+        51873 # Homebridge
+      ];
       allowedTCPPortRanges = [
         {
           from = 50100;
