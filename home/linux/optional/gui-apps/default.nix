@@ -18,6 +18,8 @@ in {
     home.packages = with pkgs; [
       discord
       slack
+
+      todoist-electron
     ];
   };
 }
