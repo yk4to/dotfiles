@@ -18,7 +18,9 @@ in {
       "org/gnome/shell".favorite-apps =
         (
           if config.optionalModules.linux.gui-apps.enable
-          then ["firefox-devedition.desktop"]
+          then [
+            "firefox-devedition.desktop"
+          ]
           else []
         )
         ++ (
@@ -29,6 +31,15 @@ in {
         ++ (
           if config.optionalModules.base.vscode.enable
           then ["code.desktop"]
+          else []
+        )
+        ++ (
+          if config.optionalModules.linux.gui-apps.enable
+          then [
+            "discord.desktop"
+            "slack.desktop"
+            "todoist.desktop"
+          ]
           else []
         )
         ++ [
