@@ -15,4 +15,6 @@
     };
     options = "--delete-older-than 30d";
   };
+
+  environment.variables.LANG = "ja_JP.UTF-8";
 }
