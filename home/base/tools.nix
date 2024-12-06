@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     eza # `ls` replacement
+    ripgrep # `grep` replacement
     zoxide # `cd` replacement
+    fzf # fuzzy finder
 
-    just # `make` replacement
+    just # simple task runner
 
     hyperfine # benchmarking tool
 
-    neofetch # system info (deprecated)
     bottom # system monitor
 
     nodejs_latest
