@@ -13,8 +13,6 @@
       image = "docker.io/homebridge/homebridge:latest";
       volumes = [
         "/var/lib/homebridge:/homebridge"
-        "/var/run/dbus:/var/run/dbus"
-        "/var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket"
       ];
       environment = {
         "TZ" = vars.timeZone;
