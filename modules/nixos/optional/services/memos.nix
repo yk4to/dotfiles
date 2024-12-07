@@ -11,7 +11,7 @@
     virtualisation.oci-containers.containers.memos = {
       image = "neosmemo/memos:0.22.5";
       volumes = [
-        "var/lib/memos:/var/opt/memos"
+        "/var/lib/memos:/var/opt/memos"
       ];
       ports = ["5230:5230"];
     };

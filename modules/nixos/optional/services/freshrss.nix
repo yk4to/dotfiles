@@ -15,7 +15,7 @@
       freshrss = {
         image = "lscr.io/linuxserver/freshrss:version-1.24.3";
         volumes = [
-          "var/lib/freshrss/config:/config"
+          "/var/lib/freshrss/config:/config"
         ];
         environment = {
           "TZ" = vars.timeZone;
@@ -32,7 +32,7 @@
       rss-bridge = {
         image = "rssbridge/rss-bridge:latest";
         volumes = [
-          "var/lib/rss-bridge/config:/config"
+          "/var/lib/rss-bridge/config:/config"
         ];
         ports = ["3000:80"];
         extraOptions = [
