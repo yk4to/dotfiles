@@ -14,9 +14,6 @@
         "var/lib/memos:/var/opt/memos"
       ];
       ports = ["5230:5230"];
-      extraOptions = [
-        "--restart=unless-stopped"
-      ];
     };
 
     networking.firewall.allowedTCPPorts = [5230];

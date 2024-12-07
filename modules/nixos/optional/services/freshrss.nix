@@ -26,7 +26,6 @@
         ports = ["80:80"];
         extraOptions = [
           "--network=rss-net"
-          "--restart=unless-stopped"
         ];
       };
 
@@ -38,7 +37,6 @@
         ports = ["3000:80"];
         extraOptions = [
           "--network=rss-net"
-          "--restart=unless-stopped"
         ];
       };
     };
