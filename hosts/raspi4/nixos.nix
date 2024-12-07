@@ -41,9 +41,21 @@
     # initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
 
     initrd.luks.devices.luksroot = {
-      device = "42479f9e-559e-44c3-a05f-3989daf38fce";
+      device = "/dev/disk/by-uuid/42479f9e-559e-44c3-a05f-3989daf38fce";
       preLVM = true;
       allowDiscards = true;
+    };
+  };
+
+  fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-uuid/AE92-0E3B";
+      fsType = "vfat";
+    };
+    "/" = {
+      device = "/dev/mapper/vg-root";
+      fsType = "ext4";
+      options = ["noatime"];
     };
   };
 
