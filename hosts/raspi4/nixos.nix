@@ -6,16 +6,16 @@
 }: {
   imports =
     [
-      ./fan-control.nix
+      # ./fan-control.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
       raspberry-pi-4
-      common-pc-ssd
+      # common-pc-ssd
     ]);
 
   optionalModules.nixos = {
     gui.enable = true;
-    services.enable = true;
+    services.enable = false;
     # ghostty.enable = true;
     # secureboot.enable = true;
     tailscale.enable = true;
@@ -32,18 +32,18 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
+
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
     };
-  };
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "ext4";
-      options = ["noatime"];
+    # initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
+
+    initrd.luks.devices.luksroot = {
+      device = "42479f9e-559e-44c3-a05f-3989daf38fce";
+      preLVM = true;
+      allowDiscards = true;
     };
   };
 
@@ -63,5 +63,5 @@
     raspberrypi-eeprom
   ];
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "25.05";
 }
