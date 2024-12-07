@@ -5,6 +5,10 @@
   ...
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
+    systemd.tmpfiles.rules = [
+      "d /var/lib/homebridge 0755 root root - -"
+    ];
+
     virtualisation.oci-containers.containers.homebridge = {
       image = "docker.io/homebridge/homebridge:latest";
       volumes = [

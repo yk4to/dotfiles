@@ -1,15 +1,21 @@
 {
+  pkgs,
   lib,
   config,
   vars,
   ...
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
+    systemd.tmpfiles.rules = [
+      "d /var/lib/freshrss/config 0755 root root - -"
+      "d /var/lib/rss-bridge/config 0755 root root - -"
+    ];
+
     virtualisation.oci-containers.containers = {
       freshrss = {
         image = "lscr.io/linuxserver/freshrss:version-1.24.3";
         volumes = [
-          "config:/config"
+          "var/lib/freshrss/config:/config"
         ];
         environment = {
           "TZ" = vars.timeZone;
@@ -27,7 +33,7 @@
       rss-bridge = {
         image = "rssbridge/rss-bridge:latest";
         volumes = [
-          "config:/config"
+          "var/lib/rss-bridge/config:/config"
         ];
         ports = ["3000:80"];
         extraOptions = [
@@ -42,6 +48,19 @@
         80 # FreshRSS
         3000 # RSS-Bridge
       ];
+    };
+
+    systemd.services."create-podman-rss-network" = {
+      path = [pkgs.podman];
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+        ExecStop = "${pkgs.podman}/bin/podman network rm -f rss-net";
+      };
+      script = ''
+        ${pkgs.podman}/bin/podman network exists rss-net || ${pkgs.podman}/bin/podman network create rss-net
+      '';
+      wantedBy = ["multi-user.target"];
     };
 
     # age.secrets = {
