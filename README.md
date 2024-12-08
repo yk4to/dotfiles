@@ -48,7 +48,6 @@ See [./hosts](./hosts) for details.
 | - | - |
 | Desktop Environment | [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) |
 | Window Manager | [Pop Shell](https://github.com/pop-os/shell) |
-| Container System | [Arion](https://github.com/hercules-ci/arion) (Docker helper for NixOS) |
 | Self-Hosted Services | [FreshRSS](https://github.com/FreshRSS/FreshRSS), [Memos](https://github.com/usememos/memos), [Homebridge](https://github.com/homebridge/homebridge) |
 | Private Network | [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) |
 | Secure Boot | [Lanzaboote](https://github.com/nix-community/lanzaboote) |

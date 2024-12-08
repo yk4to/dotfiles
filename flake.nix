@@ -29,8 +29,6 @@
 
     nur.url = "github:nix-community/nur";
 
-    arion.url = "github:hercules-ci/arion";
-
     agenix.url = "github:yaxitech/ragenix";
 
     deploy-rs.url = "github:serokell/deploy-rs";
