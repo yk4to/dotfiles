@@ -62,7 +62,10 @@
       script = ''
         ${pkgs.podman}/bin/podman network exists rss-net || ${pkgs.podman}/bin/podman network create rss-net
       '';
-      wantedBy = ["multi-user.target"];
+      wantedBy = [
+        "podman-freshrss.target"
+        "podman-rss-bridge.target"
+      ];
     };
 
     # age.secrets = {
