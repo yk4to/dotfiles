@@ -62,7 +62,7 @@
         remoteBuild = true;
 
         nodes.raspi4 = {
-          hostname = "raspi4";
+          hostname = "raspi4.local";
           profiles.system.path = inputs.deploy-rs.lib.aarch64-linux.activate.nixos hosts.nixos.raspi4;
         };
       };
