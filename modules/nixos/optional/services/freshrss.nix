@@ -46,6 +46,10 @@
         80 # FreshRSS
         3000 # RSS-Bridge
       ];
+
+      # enable dns on `rss-net` network
+      # ref: https://github.com/NixOS/nixpkgs/issues/226365#issuecomment-2164985192
+      interfaces.podman1.allowedUDPPorts = [53];
     };
 
     systemd.services."create-podman-rss-network" = {
