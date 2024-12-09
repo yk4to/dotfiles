@@ -26,7 +26,7 @@ in {
         ++ (
           if config.optionalModules.base.ghostty.enable
           then ["com.mitchellh.ghostty.desktop"]
-          else ["org.gnome.Terminal.desktop"]
+          else ["org.gnome.Console.desktop"]
         )
         ++ (
           if config.optionalModules.base.vscode.enable
