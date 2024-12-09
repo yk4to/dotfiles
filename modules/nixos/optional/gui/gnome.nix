@@ -22,14 +22,20 @@
       gnome-characters
       gnome-logs
       gnome-calculator
+      gnome-clocks
+      gnome-weather
+      gnome-text-editor
       gedit # text editor
       simple-scan # scanner
       yelp # help viewer
       epiphany # web browser
       geary # email reader
       evince # document viewer
-      totem # video player
+      snapshot # camera
+      xterm # terminal
 
+      # totem # video player
+      # loupe # image viewer
       # baobab # disk usage analyzer
       # gnome-disk-utility
       # gnome-system-monitor
