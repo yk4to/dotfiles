@@ -14,19 +14,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
+    services.xserver = {
+      # Enable the X11 windowing system.
+      enable = true;
 
-    # Enable gdm (GNOME Display Manager)
-    services.xserver.displayManager.gdm.enable = true;
-
-    # Enable GNOME
-    services.xserver.desktopManager.gnome.enable = true;
-
-    # Configure keymap in X11
-    services.xserver.xkb = {
-      layout = "us";
-      variant = "";
+      # Configure keymap in X11
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
   };
 }
