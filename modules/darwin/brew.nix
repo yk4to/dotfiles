@@ -16,14 +16,12 @@
       "Logic Pro" = 634148309;
       "ReadKit" = 1615798039;
       "Todoist" = 585829637;
-      "TitechApp" = 1400068981;
 
       # Utilities
       "Amphetamine" = 937984704;
       "Hand Mirror" = 1502839586;
       "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
-      "Velja" = 1607635845;
 
       # Dev Tools
       "Tailscale" = 1475387142;
