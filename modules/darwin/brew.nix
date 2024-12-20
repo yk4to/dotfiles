@@ -13,8 +13,8 @@
       # Apps
       "CotEditor" = 1024640650;
       "Goodnotes" = 1444383602;
-      "Logic Pro" = 634148309;
-      "ReadKit" = 1615798039;
+      # "Logic Pro" = 634148309;
+      # "ReadKit" = 1615798039;
       "Todoist" = 585829637;
 
       # Utilities
@@ -27,7 +27,6 @@
       "Tailscale" = 1475387142;
 
       # Safari Extensions
-      "1Password for Safari" = 1569813296;
       "AdGuard for Safari" = 1440147259;
       "Consent-O-Matic" = 1606897889;
       "uBlacklist" = 1547912640;
@@ -61,17 +60,16 @@
       "cleanshot"
       "iina"
       "istat-menus"
-      "jordanbaird-ice"
+      # "jordanbaird-ice"
       "karabiner-elements"
       "keka"
       "keyboardcleantool"
       "latest"
       "logi-options+"
       "monitorcontrol"
-      "notchnook"
+      # "notchnook"
       "raycast"
       "rectangle"
-      "1password"
 
       # Editors
       "inkdrop"
@@ -82,16 +80,16 @@
       "balenaetcher"
       "clion"
       "orbstack"
-      "raspberry-pi-imager"
-      "sf-symbols"
+      # "raspberry-pi-imager"
+      # "sf-symbols"
       "visual-studio-code"
-      "xcodes"
+      # "xcodes"
       "indirect/tap/ghostty"
 
       # Design Tools
       "adobe-creative-cloud"
       "figma"
-      "sketch"
+      # "sketch"
 
       # CAD
       "autodesk-fusion"
