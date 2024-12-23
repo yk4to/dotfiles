@@ -1,7 +1,15 @@
-{vars, ...}: let
+{
+  inputs,
+  vars,
+  ...
+}: let
   icloudPath = "/Users/${vars.username}/Library/Mobile Documents/com~apple~CloudDocs";
   iconsPath = "${icloudPath}/icons";
 in {
+  imports = [
+    inputs.darwin-custom-icons.darwinModules.default
+  ];
+
   # ref: https://github.com/ryanccn/nix-darwin-custom-icons
   environment.customIcons = {
     enable = true;

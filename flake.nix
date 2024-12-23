@@ -19,7 +19,6 @@
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
 
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
-
     ghostty-module.url = "github:clo4/ghostty-hm-module";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -37,6 +36,22 @@
 
     secrets = {
       url = "git+ssh://git@github.com/yk4to/nix-secrets";
+      flake = false;
+    };
+
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    # Declarative homebrew tap management
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
   };

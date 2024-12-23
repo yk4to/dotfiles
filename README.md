@@ -39,7 +39,7 @@ See [./hosts](./hosts) for details.
 
 | | Managed by [nix-darwin](https://github.com/LnL7/nix-darwin) |
 | - | - |
-| GUI Apps Manager | [Homebrew Cask](https://github.com/Homebrew/homebrew-cask), [mas](https://github.com/mas-cli/mas) |
+| GUI Apps Manager | [nix-homebrew](https://github.com/zhaofengli/nix-homebrew), [Homebrew Cask](https://github.com/Homebrew/homebrew-cask), [mas](https://github.com/mas-cli/mas) |
 | Container System | [OrbStack](https://orbstack.dev) (Docker replacement) |
 
 ### Linux

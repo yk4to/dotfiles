@@ -70,10 +70,7 @@ in {
   darwin = {
     "yuta-mba" = mkSystem {
       system = "aarch64-darwin";
-      modules = [
-        ./yuta-mba/darwin.nix
-        inputs.darwin-custom-icons.darwinModules.default
-      ];
+      modules = [./yuta-mba/darwin.nix];
       homeManagerModules = [./yuta-mba/home-manager.nix];
     };
   };
