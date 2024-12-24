@@ -62,6 +62,10 @@ in {
         path = "/Applications/KiCad/KiCad.app/";
         icon = "${iconsPath}/kicad.icns";
       }
+      {
+        path = "/Applications/LINE.app/";
+        icon = "${iconsPath}/line.icns";
+      }
     ];
   };
 }

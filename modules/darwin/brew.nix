@@ -44,6 +44,7 @@
       # Apps
       "CotEditor" = 1024640650;
       "Goodnotes" = 1444383602;
+      "LINE" = 539883307;
       # "Logic Pro" = 634148309;
       # "ReadKit" = 1615798039;
       "Todoist" = 585829637;
