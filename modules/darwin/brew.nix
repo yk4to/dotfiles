@@ -111,7 +111,7 @@
       # "sf-symbols"
       "visual-studio-code"
       # "xcodes"
-      # "ghostty"
+      "ghostty"
 
       # Design Tools
       "adobe-creative-cloud"
