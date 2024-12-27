@@ -15,7 +15,7 @@ See [./hosts](./hosts) for details.
 | - | - |
 | Shell | [Fish](https://github.com/fish-shell/fish-shell) |
 | Shell Prompt | [Starship](https://github.com/starship/starship) |
-| Terminal Emulator | [Ghostty](https://mitchellh.com/ghostty) |
+| Terminal Emulator | [Ghostty](https://github.com/ghostty-org/ghostty) |
 | Editor | [VSCode](https://github.com/microsoft/vscode), [Neovim](https://github.com/neovim/neovim) |
 | Font | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [UDEV Gothic](https://github.com/yuru7/udev-gothic) 🇯🇵 |
 | Color Scheme | Atom One Dark ([VSCode](https://github.com/Binaryify/OneDark-Pro), [Neovim](https://github.com/olimorris/onedarkpro.nvim)) |
