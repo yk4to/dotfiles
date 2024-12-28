@@ -63,6 +63,10 @@ in {
         icon = "${iconsPath}/kicad.icns";
       }
       {
+        path = "/Applications/Creality Print.app/";
+        icon = "${iconsPath}/crealityprint.icns";
+      }
+      {
         path = "/Applications/LINE.app/";
         icon = "${iconsPath}/line.icns";
       }
