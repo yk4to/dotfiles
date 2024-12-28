@@ -3,7 +3,7 @@
 
   optionalModules = {
     base = {
-      # ghostty.enable = true;
+      ghostty.enable = true;
       # latex.enable = true;
       # platformio.enable = true;
       # vscode.enable = true;
