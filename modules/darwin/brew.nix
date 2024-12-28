@@ -119,13 +119,14 @@
       # Design Tools
       "adobe-creative-cloud"
       "figma"
-      # "sketch"
+      "sketch"
 
       # CAD
       "autodesk-fusion"
       "kicad"
 
       # 3D Printing
+      "creality-print"
       "bambu-studio"
 
       # Cloud Storage
