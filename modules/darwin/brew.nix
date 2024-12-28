@@ -73,6 +73,8 @@
       "T2Extension" = 1603240737;
     };
 
+    # pass all taps to avoid untapping all taps
+    # ref: https://github.com/zhaofengli/nix-homebrew/issues/5#issuecomment-1878798641
     taps = builtins.attrNames config.nix-homebrew.taps;
 
     brews = [];
