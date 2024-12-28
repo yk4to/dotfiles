@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   vars,
   ...
 }: {
@@ -72,7 +73,7 @@
       "T2Extension" = 1603240737;
     };
 
-    taps = [];
+    taps = builtins.attrNames config.nix-homebrew.taps;
 
     brews = [];
 
