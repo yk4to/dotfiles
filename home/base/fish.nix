@@ -10,8 +10,7 @@
       cl = "clear";
       to = "touch";
       tr = "trash";
-      fa = "fastfetch";
-      ne = "neofetch";
+      ff = "fastfetch";
     };
 
     interactiveShellInit = ''
