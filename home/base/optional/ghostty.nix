@@ -34,6 +34,7 @@ in {
         background-blur-radius = 20;
 
         window-padding-balance = true;
+        window-padding-color = "extend";
 
         keybind = "global:ctrl+escape=toggle_quick_terminal";
       };
