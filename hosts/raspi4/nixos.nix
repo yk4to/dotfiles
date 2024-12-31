@@ -44,6 +44,8 @@
       device = "/dev/disk/by-uuid/42479f9e-559e-44c3-a05f-3989daf38fce";
       preLVM = true;
       allowDiscards = true;
+      keyFileSize = 4096;
+      keyFile = "/dev/mmcblk0";
     };
   };
 
