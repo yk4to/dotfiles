@@ -13,7 +13,7 @@ return {
         "bashls",
         "biome",
         "nil_ls",
-        "tsserver",
+        "ts_ls",
         "yamlls",
       }) do
         lspconfig[ls].setup({
