@@ -38,7 +38,6 @@ inputs: let
               ];
           };
 
-          sharedModules = [inputs.ghostty-module.homeModules.default];
           extraSpecialArgs = {inherit inputs mylib vars system isDarwin;};
         };
       }
