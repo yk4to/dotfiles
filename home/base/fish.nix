@@ -20,10 +20,11 @@
       # make the completion not be the same color as the bg color
       set -g fish_color_autosuggestion 5c6370
 
-      # homebrew (only on darwin)
       ${
         if pkgs.stdenv.isDarwin
-        then "set -gx PATH \"/opt/homebrew/bin\" $PATH"
+        then ''
+          # homebrew (only on darwin)
+          set -gx PATH \"/opt/homebrew/bin\" $PATH''
         else ""
       }
 
