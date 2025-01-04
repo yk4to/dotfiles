@@ -39,6 +39,38 @@
           "--network=rss-net"
         ];
       };
+
+      rsshub = {
+        image = "diygod/rsshub:chromium-bundled";
+        environment = {
+          "NODE_ENV" = "production";
+          "CACHE_TYPE" = "redis";
+          "REDIS_URL" = "redis://redis:6379/";
+          "PUPPETEER_WS_ENDPOINT" = "ws://browserless:3000";
+        };
+        ports = ["1200:1200"];
+        dependsOn = ["redis" "browserless"];
+        extraOptions = [
+          "--network=rss-net"
+        ];
+      };
+
+      browserless = {
+        image = "browserless/chrome";
+        extraOptions = [
+          "--network=rss-net"
+        ];
+      };
+
+      redis = {
+        image = "redis:alpine";
+        volumes = [
+          "/var/lib/rsshub/data:/data"
+        ];
+        extraOptions = [
+          "--network=rss-net"
+        ];
+      };
     };
 
     networking.firewall = {
@@ -65,6 +97,9 @@
       wantedBy = [
         "podman-freshrss.target"
         "podman-rss-bridge.target"
+        "podman-rsshub.target"
+        "podman-browserless.target"
+        "podman-redis.target"
       ];
     };
 
