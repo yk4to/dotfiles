@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -54,6 +55,7 @@
         extraOptions = [
           "--network=rss-net"
         ];
+        environmentFiles = [config.age.secrets.rsshub.path];
       };
 
       browserless = {
@@ -104,11 +106,11 @@
       ];
     };
 
-    # age.secrets = {
-    #   freshrss = {
-    #     file = "${inputs.secrets}/freshrss.age";
-    #     mode = "600";
-    #   };
-    # };
+    age.secrets = {
+      rsshub = {
+        file = "${inputs.secrets}/rsshub.age";
+        mode = "600";
+      };
+    };
   };
 }
