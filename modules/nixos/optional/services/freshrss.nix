@@ -9,6 +9,7 @@
     systemd.tmpfiles.rules = [
       "d /var/lib/freshrss/config 0755 root root - -"
       "d /var/lib/rss-bridge/config 0755 root root - -"
+      "d /var/lib/rsshub/data 0755 root root - -"
     ];
 
     virtualisation.oci-containers.containers = {
