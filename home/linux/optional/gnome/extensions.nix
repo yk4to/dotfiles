@@ -4,25 +4,20 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.optionalModules.linux.gnome.enable {
-    home.packages = with pkgs.gnomeExtensions; [
+  config = lib.mkIf config.optionalModules.linux.gnome.enable (let
+    extensions = with pkgs.gnomeExtensions; [
       pop-shell # tiling window manager
       dash-to-dock # dock used in Ubuntu
       kimpanel # show ime status on menu bar
       appindicator # show indicator icons on menu bar
-      logo-menu
       caffeine # prevent screen from turning off
+      gtk4-desktop-icons-ng-ding # desktop icons
     ];
+  in {
+    home.packages = extensions;
 
     dconf.settings = {
-      "org/gnome/shell".enabled-extensions = [
-        "pop-shell@system76.com"
-        "dash-to-dock@micxgx.gmail.com"
-        "kimpanel@kde.org"
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "logomenu@aryan_k"
-        "caffeine@patapon.info"
-      ];
+      "org/gnome/shell".enabled-extensions = map (p: p.extensionUuid or p.uuid) extensions;
 
       "org/gnome/shell/extensions/pop-shell" = {
         tile-by-default = true;
@@ -38,17 +33,6 @@
         apply-custom-theme = true;
         custom-theme-shrink = true;
       };
-
-      "org/gnome/shell/extensions/Logo-menu" = {
-        menu-button-icon-image = 23;
-        menu-button-icon-size = 23;
-        menu-button-icon-click-type = 3;
-        menu-button-terminal =
-          if config.optionalModules.base.ghostty.enable
-          then "ghostty"
-          else "gnome-terminal";
-        hide-softwarecentre = true;
-      };
     };
-  };
+  });
 }
