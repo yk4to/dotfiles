@@ -11,7 +11,6 @@
       kimpanel # show ime status on menu bar
       appindicator # show indicator icons on menu bar
       caffeine # prevent screen from turning off
-      gtk4-desktop-icons-ng-ding # desktop icons
     ];
   in {
     home.packages = extensions;
