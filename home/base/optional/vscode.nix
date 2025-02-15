@@ -112,6 +112,7 @@ in {
         "git.openRepositoryInParentFolders" = "never";
 
         "update.mode" = updateMode;
+        "extensions.autoCheckUpdates" = false;
 
         # Extensions
         "wikitext.host" = "ja.wikipedia.org";
