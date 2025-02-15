@@ -110,7 +110,7 @@
       "balenaetcher"
       "clion"
       "orbstack"
-      # "raspberry-pi-imager"
+      "raspberry-pi-imager"
       # "sf-symbols"
       "visual-studio-code"
       # "xcodes"
