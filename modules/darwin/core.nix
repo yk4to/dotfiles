@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  # enable nix-darwin
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
   # ref: https://github.com/NixOS/nix/issues/7273
