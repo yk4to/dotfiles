@@ -8,11 +8,6 @@
 }:
 with lib; let
   cfg = config.optionalModules.base.vscode;
-  # disable auto update on linux(NixOS)
-  updateMode =
-    if pkgs.stdenv.isLinux
-    then "none"
-    else "manual";
 in {
   options.optionalModules.base.vscode = {
     enable = mkEnableOption "Visual Studio Code";
@@ -21,6 +16,13 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
+
+      # disable auto update on linux(NixOS)
+      enableUpdateCheck = pkgs.stdenv.isDarwin;
+
+      # NOTE: Extensions installed without Nix must be updated manually
+      # because extension update check is set to disabled
+      enableExtensionUpdateCheck = false;
 
       extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
       with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
@@ -111,8 +113,7 @@ in {
         "git.autofetch" = true;
         "git.openRepositoryInParentFolders" = "never";
 
-        "update.mode" = updateMode;
-        "extensions.autoCheckUpdates" = false;
+        "extensions.ignoreRecommendations" = true;
 
         # Extensions
         "wikitext.host" = "ja.wikipedia.org";
