@@ -4,6 +4,7 @@
   config,
   lib,
   system,
+  isDarwin,
   ...
 }:
 with lib; let
@@ -18,7 +19,7 @@ in {
       enable = true;
 
       # disable auto update on linux(NixOS)
-      enableUpdateCheck = pkgs.stdenv.isDarwin;
+      enableUpdateCheck = isDarwin;
 
       # NOTE: Extensions installed without Nix must be updated manually
       # because extension update check is set to disabled

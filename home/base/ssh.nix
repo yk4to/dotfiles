@@ -1,12 +1,12 @@
-{pkgs, ...}: let
-  includeConfig =
-    if pkgs.stdenv.isDarwin
-    then ["~/.orbstack/ssh/config"]
-    else [];
-in {
+{
+  lib,
+  isDarwin,
+  ...
+}: {
   programs.ssh = {
     enable = true;
 
-    includes = includeConfig;
+    # Include Orbstack config on macOS
+    includes = lib.optional isDarwin "~/.orbstack/ssh/config";
   };
 }

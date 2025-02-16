@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{isDarwin, ...}: {
   programs.fish = {
     enable = true;
 
@@ -21,7 +21,7 @@
       set -g fish_color_autosuggestion 5c6370
 
       ${
-        if pkgs.stdenv.isDarwin
+        if isDarwin
         then ''
           # homebrew (only on darwin)
           set -gx PATH \"/opt/homebrew/bin\" $PATH''
