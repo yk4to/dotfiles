@@ -104,7 +104,7 @@ in {
         "terminal.integrated.fontSize" = 13;
 
         "workbench.startupEditor" = "none"; # disable welcome page
-        "workbench.editor.empty.hint" = false;
+        "workbench.editor.empty.hint" = "hidden";
         "workbench.colorTheme" = "One Dark Pro";
         "workbench.iconTheme" = "material-icon-theme";
 
