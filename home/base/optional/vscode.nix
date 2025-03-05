@@ -18,14 +18,14 @@ in {
     programs.vscode = {
       enable = true;
 
-      # disable auto update on linux(NixOS)
-      enableUpdateCheck = isDarwin;
-
-      # NOTE: Extensions installed without Nix must be updated manually
-      # because extension update check is set to disabled
-      enableExtensionUpdateCheck = false;
-
       profiles.default = {
+        # disable auto update on linux(NixOS)
+        enableUpdateCheck = isDarwin;
+
+        # NOTE: Extensions installed without Nix must be updated manually
+        # because extension update check is set to disabled
+        enableExtensionUpdateCheck = false;
+
         extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
         with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
           # General
