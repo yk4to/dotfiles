@@ -102,6 +102,7 @@ in {
 
         "terminal.integrated.fontFamily" = "'UDEV Gothic 35NF'";
         "terminal.integrated.fontSize" = 13;
+        "terminal.integrated.cursorStyle" = "line";
 
         "workbench.startupEditor" = "none"; # disable welcome page
         "workbench.editor.empty.hint" = "hidden";
