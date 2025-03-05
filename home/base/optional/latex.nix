@@ -23,7 +23,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = [cfg.package];
 
-    programs.vscode = {
+    programs.vscode.profiles.default = {
       extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
       with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
         james-yu.latex-workshop # latex support
