@@ -1,6 +1,6 @@
 {
   # use TouchID for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # keep ghostty terminfo
   # ref: https://ryanccn.dev/posts/ghostty-sudo-terminfo/
