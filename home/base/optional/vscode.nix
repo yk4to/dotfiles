@@ -36,9 +36,7 @@ in {
           pkief.material-icon-theme # material icons
 
           # AI
-          # Get `copilot-chat` from nixpkgs
-          # ref: https://github.com/nix-community/nix-vscode-extensions/issues/76
-          pkgs.vscode-extensions.github.copilot-chat # github copilot chat
+          github.copilot-chat # github copilot chat
           github.copilot # github copilot
 
           # Git / GitHub
