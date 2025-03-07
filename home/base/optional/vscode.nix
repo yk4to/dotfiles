@@ -3,12 +3,19 @@
   inputs,
   config,
   lib,
-  system,
   isDarwin,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.base.vscode;
+
+  # ref: https://github.com/nix-community/nix-vscode-extensions/issues/99#issuecomment-2701520457
+  # use overlay to allow unfree packages
+  pkgs-ext = import inputs.nixpkgs {
+    inherit (pkgs) system;
+    config.allowUnfree = true;
+    overlays = [inputs.nix-vscode-extensions.overlays.default];
+  };
 in {
   options.optionalModules.base.vscode = {
     enable = mkEnableOption "Visual Studio Code";
@@ -26,8 +33,8 @@ in {
         # because extension update check is set to disabled
         enableExtensionUpdateCheck = false;
 
-        extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
-        with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
+        extensions = with pkgs-ext.vscode-marketplace-release;
+        with pkgs-ext.vscode-marketplace; [
           # General
           ms-ceintl.vscode-language-pack-ja # japanese language pack
 
