@@ -9,7 +9,7 @@
     ];
 
     virtualisation.oci-containers.containers.memos = {
-      image = "neosmemo/memos:0.24.0";
+      image = "neosmemo/memos:0.24.1";
       volumes = [
         "/var/lib/memos:/var/opt/memos"
       ];
