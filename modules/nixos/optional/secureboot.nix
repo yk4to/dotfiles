@@ -36,6 +36,12 @@ in {
     boot.lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
+      settings = {
+        # the chosen entry will be saved and automatically selected the next time
+        default = "@saved";
+        # no menu is shown and the default entry will be booted immediately
+        timeout = 0;
+      };
     };
   };
 }
