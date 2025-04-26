@@ -2,5 +2,6 @@
   home.packages = with pkgs; [
     darwin.trash
     mas
+    tart
   ];
 }
