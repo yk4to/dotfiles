@@ -12,4 +12,10 @@
       inkdrop.enable = true;
     };
   };
+
+  programs.ssh.extraConfig = ''
+    Host tart
+      HostName 192.168.64.3
+      User yuta
+  '';
 }
