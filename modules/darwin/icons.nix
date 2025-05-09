@@ -67,6 +67,10 @@ in {
         icon = "${iconsPath}/crealityprint.icns";
       }
       {
+        path = "/Applications/FlashPrint 5.app/";
+        icon = "${iconsPath}/flashprint.icns";
+      }
+      {
         path = "/Applications/LINE.app/";
         icon = "${iconsPath}/line.icns";
       }
