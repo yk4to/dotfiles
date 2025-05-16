@@ -43,8 +43,9 @@ in {
           pkief.material-icon-theme # material icons
 
           # AI
-          github.copilot-chat # github copilot chat
-          github.copilot # github copilot
+          github.copilot-chat # GitHub Copilot Chat
+          github.copilot # GitHub Copilot
+          openai.chatgpt # ChatGPT
 
           # Git / GitHub
           # github.vscode-pull-request-github # github pull requests
