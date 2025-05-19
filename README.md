@@ -22,7 +22,7 @@ See [./hosts](./hosts) for details.
 | Nix Formatter | [Alejandra](https://github.com/kamadorueda/alejandra) |
 | Secret Management | [ragenix](https://github.com/yaxitech/ragenix) |
 | System Monitor | [bottom](https://github.com/ClementTsang/bottom) |
-| Git-related Tools | [Commitizen](https://github.com/commitizen-tools/commitizen), [Lazygit](https://github.com/jesseduffield/lazygit), [delta](https://github.com/dandavison/delta) |
+| Git-related Tools | [Commitizen](https://github.com/commitizen-tools/commitizen), [Lazygit](https://github.com/jesseduffield/lazygit), [delta](https://github.com/dandavison/delta), [ghq](https://github.com/x-motemen/ghq) |
 | Modern CLI Tools | [zoxide](https://github.com/ajeetdsouza/zoxide), [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat) |
 | Other CLI Tools | [direnv](https://github.com/direnv/direnv), [just](https://github.com/casey/just), [hyperfine](https://github.com/sharkdp/hyperfine), ... |
 | VPN | [Tailscale](https://github.com/tailscale/tailscale) |
