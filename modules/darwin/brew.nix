@@ -132,14 +132,14 @@
 
       # Cloud Storage
       # "box-drive"
-      "google-drive"
+      # "google-drive"
 
       # Communication
       "discord"
       "slack"
       "zoom"
 
-      # LLM
+      # AI
       "chatgpt"
 
       # Others
