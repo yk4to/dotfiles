@@ -101,8 +101,9 @@
       "raycast"
       "rectangle"
 
-      # Editors
+      # Notes
       "inkdrop"
+      "notion"
 
       # Dev Tools
       "apparency"

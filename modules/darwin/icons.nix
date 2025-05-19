@@ -74,6 +74,10 @@ in {
         path = "/Applications/LINE.app/";
         icon = "${iconsPath}/line.icns";
       }
+      {
+        path = "/Applications/Notion.app/";
+        icon = "${iconsPath}/notion.icns";
+      }
     ];
   };
 }
