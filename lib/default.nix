@@ -9,11 +9,16 @@
     (builtins.attrNames
       (lib.attrsets.filterAttrs
         (
-          path: _type:
-            (_type == "directory") # include directories
-            || (
-              (path != "default.nix") # ignore default.nix
-              && (lib.strings.hasSuffix ".nix" path) # include .nix files
+          # Filtering logic for files and directories in a path:
+          name: _type:
+          # Exclude files/directories starting with "_"
+            (!(lib.strings.hasPrefix "_" name))
+            && (
+              (_type == "directory") # include directories
+              || (
+                (name != "default.nix") # exclude default.nix
+                && (lib.strings.hasSuffix ".nix" name) # include .nix files
+              )
             )
         )
         (builtins.readDir path)));
