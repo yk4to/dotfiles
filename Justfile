@@ -18,7 +18,7 @@ gc:
 [group('desktop')]
 switch name:
   nom build ".#darwinConfigurations.{{name}}.system" --extra-experimental-features "nix-command flakes"
-  darwin-rebuild switch --flake .#{{name}}
+  sudo darwin-rebuild switch --flake .#{{name}}
 
 [linux]
 [group('desktop')]
