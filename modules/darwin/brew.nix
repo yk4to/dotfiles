@@ -81,6 +81,7 @@
     casks = [
       # Browsers
       "arc"
+      "thebrowsercompany-dia"
       "google-chrome"
 
       # Utilities
