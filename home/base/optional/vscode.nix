@@ -107,6 +107,8 @@ in {
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;
 
+          "editor.inlayHints.enabled" = "offUnlessPressed";
+
           "terminal.integrated.fontFamily" = "'UDEV Gothic 35NF'";
           "terminal.integrated.fontSize" = 13;
           "terminal.integrated.cursorStyle" = "line";
