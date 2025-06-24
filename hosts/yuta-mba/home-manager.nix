@@ -15,7 +15,7 @@
 
   programs.ssh.extraConfig = ''
     Host tart
-      HostName 192.168.64.3
+      HostName 192.168.64.4
       User yuta
   '';
 }
