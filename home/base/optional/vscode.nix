@@ -53,7 +53,7 @@ in {
           eamodio.gitlens # gitlens
 
           # Containers
-          # ms-vscode-remote.remote-containers # remote containers
+          ms-vscode-remote.remote-containers # remote containers
           # ms-azuretools.vscode-docker # docker support
 
           # Nix
