@@ -51,13 +51,12 @@
 
   fileSystems = {
     "/boot" = {
-      device = "/dev/disk/by-uuid/AE92-0E3B";
+      device = "/dev/disk/by-label/FIRMWARE";
       fsType = "vfat";
     };
     "/" = {
-      device = "/dev/mapper/vg-root";
+      device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = ["noatime"];
     };
   };
 
