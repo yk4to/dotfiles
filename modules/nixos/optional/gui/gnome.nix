@@ -6,10 +6,10 @@
 }: {
   config = lib.mkIf config.optionalModules.nixos.gui.enable {
     # Enable gdm (GNOME Display Manager)
-    services.xserver.displayManager.gdm.enable = true;
+    services.displayManager.gdm.enable = true;
 
     # Enable GNOME
-    services.xserver.desktopManager.gnome.enable = true;
+    services.desktopManager.gnome.enable = true;
 
     environment.gnome.excludePackages = with pkgs; [
       gnome-photos
