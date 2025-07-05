@@ -24,7 +24,8 @@
 
   # enable ssh
   services.openssh.enable = true;
-  programs.ssh.startAgent = true;
+  # disable to prevent conflict with services.gnome.gcr-ssh-agent.enable
+  # programs.ssh.startAgent = true;
 
   # Enable mDNS
   services.avahi = {
