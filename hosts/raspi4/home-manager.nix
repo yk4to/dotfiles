@@ -3,13 +3,13 @@
 
   optionalModules = {
     base = {
-      ghostty.enable = true;
+      # ghostty.enable = true;
       # latex.enable = true;
       # platformio.enable = true;
       # vscode.enable = true;
     };
     linux = {
-      gnome.enable = true;
+      # gnome.enable = true;
       # gui-apps.enable = true;
     };
   };

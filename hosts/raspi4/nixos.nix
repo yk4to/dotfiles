@@ -14,9 +14,9 @@
     ]);
 
   optionalModules.nixos = {
-    gui.enable = true;
+    # gui.enable = true;
     services.enable = true;
-    ghostty.enable = true;
+    # ghostty.enable = true;
     # secureboot.enable = true;
     tailscale.enable = true;
   };
@@ -27,8 +27,8 @@
   # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = vars.username;
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  # systemd.services."getty@tty1".enable = false;
+  # systemd.services."autovt@tty1".enable = false;
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
