@@ -14,21 +14,25 @@
     ]);
 
   optionalModules.nixos = {
-    gui.enable = true;
+    # gui.enable = true;
     services.enable = true;
-    ghostty.enable = true;
+    # ghostty.enable = true;
     # secureboot.enable = true;
     tailscale.enable = true;
   };
 
   networking.hostName = "raspi4";
 
+  # Enable networking
+  networking.networkmanager.enable = true;
+  users.users.${vars.username}.extraGroups = ["networkmanager"];
+
   # Enable automatic login
   # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = vars.username;
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  # systemd.services."getty@tty1".enable = false;
+  # systemd.services."autovt@tty1".enable = false;
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
@@ -39,25 +43,16 @@
     };
 
     # initrd.availableKernelModules = ["xhci_pci" "usbhid" "usb_storage"];
-
-    initrd.luks.devices.luksroot = {
-      device = "/dev/disk/by-uuid/42479f9e-559e-44c3-a05f-3989daf38fce";
-      preLVM = true;
-      allowDiscards = true;
-      keyFileSize = 4096;
-      keyFile = "/dev/mmcblk0";
-    };
   };
 
   fileSystems = {
     "/boot" = {
-      device = "/dev/disk/by-uuid/AE92-0E3B";
+      device = "/dev/disk/by-label/FIRMWARE";
       fsType = "vfat";
     };
     "/" = {
-      device = "/dev/mapper/vg-root";
+      device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
-      options = ["noatime"];
     };
   };
 
@@ -77,5 +72,5 @@
     raspberrypi-eeprom
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

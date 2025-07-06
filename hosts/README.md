@@ -8,4 +8,4 @@
   - Core i7 1360P, 32GB RAM, 1TB SSD
 - `raspi4`: Raspberry Pi 4 Model B Rev 1.4
   - NixOS unstable
-  - 8GB RAM, 512GB USB-connected SATA SSD
+  - 8GB RAM, 128GB USB-connected SATA SSD

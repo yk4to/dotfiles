@@ -98,11 +98,7 @@
         ${pkgs.podman}/bin/podman network exists rss-net || ${pkgs.podman}/bin/podman network create rss-net
       '';
       wantedBy = [
-        "podman-freshrss.target"
-        "podman-rss-bridge.target"
-        "podman-rsshub.target"
-        "podman-browserless.target"
-        "podman-redis.target"
+        "multi-user.target"
       ];
     };
 
