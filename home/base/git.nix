@@ -14,6 +14,10 @@
     userName = vars.userfullname;
     userEmail = "64204135+yk4to@users.noreply.github.com";
 
+    aliases = {
+      main = "switch main";
+    };
+
     extraConfig = {
       init.defaultBranch = "main";
 
