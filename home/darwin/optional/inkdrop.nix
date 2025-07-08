@@ -34,6 +34,7 @@ with lib; let
     "atom-one-dark-mod-syntax"
     "emoji-picker"
     "thumbnail-list"
+    "img-small"
   ];
 
   patchJson = builtins.toFile "inkdrop-config.json" (builtins.toJSON inkdropConfig);
