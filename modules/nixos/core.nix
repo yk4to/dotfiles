@@ -8,7 +8,7 @@
   time.timeZone = vars.timeZone;
 
   # set locale
-  i18n.defaultLocale = "ja_JP.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # enable auto optimisation and gc
   nix = {
