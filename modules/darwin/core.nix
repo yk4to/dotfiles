@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  vars,
+  pkgs,
+  ...
+}: {
   nix.package = pkgs.nix;
 
   # ref: https://github.com/NixOS/nix/issues/7273
@@ -14,5 +18,5 @@
     options = "--delete-older-than 30d";
   };
 
-  environment.variables.LANG = "en_US.UTF-8";
+  environment.variables.LANG = vars.locale;
 }

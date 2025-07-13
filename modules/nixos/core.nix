@@ -4,11 +4,9 @@
     fish.enable = true;
   };
 
-  # set time zone
   time.timeZone = vars.timeZone;
 
-  # set locale
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = vars.locale;
 
   # enable auto optimisation and gc
   nix = {

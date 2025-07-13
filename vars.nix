@@ -4,4 +4,6 @@
   userfullname = "Yuta Kato";
 
   timeZone = "Asia/Tokyo";
+
+  locale = "en_US.UTF-8";
 }
