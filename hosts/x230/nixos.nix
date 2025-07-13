@@ -30,10 +30,6 @@
   # Enable graphical splash screen
   boot.plymouth.enable = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  users.users.${vars.username}.extraGroups = ["networkmanager"];
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

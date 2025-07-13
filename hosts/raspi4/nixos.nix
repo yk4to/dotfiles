@@ -23,10 +23,6 @@
 
   networking.hostName = "raspi4";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  users.users.${vars.username}.extraGroups = ["networkmanager"];
-
   # Enable automatic login
   # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   services.displayManager.autoLogin.enable = true;
