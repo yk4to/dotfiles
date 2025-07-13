@@ -21,13 +21,10 @@
   networking.hostName = "x230";
 
   # Bootloader.
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      extraInstallCommands = "echo 'default @saved' > /boot/loader/loader.conf";
-    };
-
-    efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
   };
 
   # Enable graphical splash screen
