@@ -59,6 +59,11 @@ in {
       modules = [./thinkpad/nixos.nix];
       homeManagerModules = [./thinkpad/home-manager.nix];
     };
+    x230 = mkSystem {
+      system = "x86_64-linux";
+      modules = [./x230/nixos.nix];
+      homeManagerModules = [./x230/home-manager.nix];
+    };
     raspi4 = mkSystem {
       system = "aarch64-linux";
       modules = [./raspi4/nixos.nix];
