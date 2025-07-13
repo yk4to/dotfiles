@@ -31,8 +31,9 @@
 
       # TODO: move this config under `hosts` dir
       monitor = [
-        "eDP-1, 2880x1800@90, 0x0, 1.8"
-        "HDMI-A-1, 3840x2160@60, 0x0, 1.5"
+        "eDP-1, 1366x768@60, 0x0, 1.0"
+        # "eDP-1, 2880x1800@90, 0x0, 1.8"
+        # "HDMI-A-1, 3840x2160@60, 0x0, 1.5"
       ];
 
       # --- LOOK AND FEEL ---
