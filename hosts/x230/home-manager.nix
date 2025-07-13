@@ -11,6 +11,7 @@
     linux = {
       gnome.enable = true;
       gui-apps.enable = true;
+      hyprland.enable = true;
     };
   };
 }
