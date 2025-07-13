@@ -1,6 +1,4 @@
 {
-  inputs,
-  pkgs,
   lib,
   config,
   ...
@@ -13,10 +11,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    };
+    programs.hyprland.enable = true;
 
     # Enable swaylock for hyprland
     security.pam.services.swaylock = {};

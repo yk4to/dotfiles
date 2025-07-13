@@ -16,8 +16,6 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
 
     ghostty.url = "github:ghostty-org/ghostty";
