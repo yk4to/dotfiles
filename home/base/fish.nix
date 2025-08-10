@@ -5,7 +5,7 @@
     shellAbbrs = {
       ll = "eza --icons -al";
       nn = "nvim";
-      lg = "lazygit";
+      gg = "lazygit";
       g = "git";
       cl = "clear";
       to = "touch";
