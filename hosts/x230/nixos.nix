@@ -22,6 +22,8 @@
     enable = true;
     device = "/dev/sda";
     useOSProber = true;
+    timeoutStyle = "hidden";
+    default = "saved";
   };
 
   # Enable graphical splash screen
