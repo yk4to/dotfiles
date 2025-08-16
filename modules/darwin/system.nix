@@ -16,6 +16,12 @@
       # show 24 hour clock
       menuExtraClock.Show24Hour = true;
 
+      controlcenter = {
+        AirDrop = false;
+        BatteryShowPercentage = true;
+        Bluetooth = true;
+      };
+
       dock = {
         autohide = false;
         show-recents = false; # do not show recent apps in dock
@@ -33,6 +39,8 @@
       finder = {
         # show file extensions
         AppleShowAllExtensions = true;
+        # set Finder's default view style to list view
+        FXPreferredViewStyle = "Nlsv";
         # show path bar
         ShowPathbar = true;
       };
