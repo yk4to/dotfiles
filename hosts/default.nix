@@ -15,6 +15,7 @@ inputs: let
       else "nixosModules";
 
     baseModules = [
+      ../modules/base
       (
         if isDarwin
         then ../modules/darwin
@@ -30,6 +31,7 @@ inputs: let
             imports =
               homeManagerModules
               ++ [
+                ../home/base
                 (
                   if isDarwin
                   then ../home/darwin
