@@ -9,7 +9,7 @@
     # This option will become deprecated in the future.
     enableDefaultConfig = false;
 
-    programs.ssh.matchBlocks."*" = {
+    matchBlocks."*" = {
       forwardAgent = false;
       addKeysToAgent = "no";
       compression = false;
