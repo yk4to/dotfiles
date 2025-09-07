@@ -1,54 +1,56 @@
-# ref: https://github.com/nix-community/home-manager/blob/master/modules/programs/ghostty.nix
 {
   config,
   lib,
   pkgs,
+  isDarwin,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.base.ghostty;
-
-  keyValueSettings = {
-    listsAsDuplicateKeys = true;
-    mkKeyValue = lib.generators.mkKeyValueDefault {} " = ";
-  };
-  keyValue = pkgs.formats.keyValue keyValueSettings;
 in {
   options.optionalModules.base.ghostty = {
     enable = mkEnableOption "Ghostty";
   };
 
   config = mkIf cfg.enable {
-    # NOTE: sey up manually not to manage ghostty package in home-manager
+    programs.ghostty = {
+      enable = true;
 
-    # enable shell integration for fish
-    programs.fish.interactiveShellInit = ''
-      if set -q GHOSTTY_RESOURCES_DIR
-        source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
-      end
-    '';
+      # on macOS, use a mock package since the ghostty pkg is broken
+      # use Nix only for deploying configuration files; install binaries via Homebrew
+      package =
+        if isDarwin
+        then null
+        else pkgs.ghostty;
 
-    # generate config file
-    xdg.configFile."ghostty/config".source = keyValue.generate "ghostty-config" {
-      font-family = [
-        "JetBrainsMono Nerd Font"
-        "UDEV Gothic 35LG"
-      ];
+      enableFishIntegration = true;
 
-      font-thicken = true;
+      settings = {
+        font-family = [
+          "JetBrainsMono Nerd Font"
+          "UDEV Gothic 35LG"
+        ];
 
-      theme = "OneHalfDark";
+        font-thicken = true;
 
-      # macos-titlebar-style = "tabs";
-      macos-window-shadow = false;
+        theme = "OneHalfDark";
 
-      background-opacity = 0.95;
-      background-blur-radius = 20;
+        # macos-titlebar-style = "tabs";
+        macos-window-shadow = false;
 
-      window-padding-balance = true;
-      window-padding-color = "extend";
+        background-opacity = 0.95;
+        background-blur-radius = 20;
 
-      keybind = "global:ctrl+escape=toggle_quick_terminal";
+        window-padding-balance = true;
+        window-padding-color = "extend";
+
+        keybind = "global:ctrl+escape=toggle_quick_terminal";
+      };
+    };
+
+    # Install bat syntax manually on macOS
+    xdg.configFile."bat/syntaxes/ghostty.sublime-syntax" = lib.mkIf isDarwin {
+      source = "/Applications/Ghostty.app/Contents/Resources/bat/syntaxes/ghostty.sublime-syntax";
     };
   };
 }

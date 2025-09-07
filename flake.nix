@@ -18,8 +18,6 @@
 
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
 
-    ghostty.url = "github:ghostty-org/ghostty";
-
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nur.url = "github:nix-community/nur";

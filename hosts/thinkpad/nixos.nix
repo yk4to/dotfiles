@@ -15,7 +15,6 @@
 
   optionalModules.nixos = {
     gui.enable = true;
-    ghostty.enable = true;
     secureboot.enable = true;
     tailscale.enable = true;
   };
