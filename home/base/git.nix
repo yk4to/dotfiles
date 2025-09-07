@@ -12,7 +12,7 @@
     enable = true;
 
     userName = vars.userfullname;
-    userEmail = "64204135+yk4to@users.noreply.github.com";
+    userEmail = vars.useremail;
 
     aliases = {
       main = "switch main";
