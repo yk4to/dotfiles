@@ -25,6 +25,17 @@ in {
     programs.vscode = {
       enable = true;
 
+      # on macOS, use a mock package to install vscode from brew instead of nix
+      package =
+        if isDarwin
+        then
+          pkgs.emptyDirectory.overrideAttrs (oldAttrs: {
+            meta.mainProgram = "code";
+            pname = "vscode";
+            version = "999";
+          })
+        else pkgs.vscode;
+
       profiles.default = {
         # disable auto update on linux(NixOS)
         enableUpdateCheck = isDarwin;
