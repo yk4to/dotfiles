@@ -17,5 +17,8 @@
     Host tart
       HostName 192.168.64.4
       User yuta
+    Host umiusi2
+      HostName umiusi2.local
+      User pi
   '';
 }
