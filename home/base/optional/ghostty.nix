@@ -47,10 +47,5 @@ in {
         keybind = "global:ctrl+escape=toggle_quick_terminal";
       };
     };
-
-    # Install bat syntax manually on macOS
-    xdg.configFile."bat/syntaxes/ghostty.sublime-syntax" = lib.mkIf isDarwin {
-      source = "/Applications/Ghostty.app/Contents/Resources/bat/syntaxes/ghostty.sublime-syntax";
-    };
   };
 }
