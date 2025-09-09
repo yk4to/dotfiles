@@ -2,20 +2,29 @@ name: update-flake-lock
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
-    - cron: '0 3 * * 5' # runs weekly on Friday at 3:00 UTC (12:00 JST)
+    - cron: "0 3 * * 5" # runs weekly on Friday at 3:00 UTC (12:00 JST)
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v19
+
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.9.1
         with:
           ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v27
         with:

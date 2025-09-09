@@ -1,7 +1,8 @@
 # dotfiles
 
-![](https://img.shields.io/badge/NixOS-unstable-informational.svg?style=for-the-badge&logo=nixos)
-![](https://img.shields.io/badge/macOS-Sequoia-informational.svg?style=for-the-badge&logo=apple)
+![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-informational.svg?style=for-the-badge&logo=nixos)
+![macOS Sequoia](https://img.shields.io/badge/macOS-Sequoia-informational.svg?style=for-the-badge&logo=apple)
+[![CI](https://github.com/yk4to/dotfiles/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yk4to/dotfiles/actions/workflows/ci.yml)
 
 ## Hosts
 
