@@ -24,4 +24,4 @@ switch name:
 [group('desktop')]
 switch name:
   nom build ".#nixosConfigurations.{{name}}.config.system.build.toplevel" --extra-experimental-features "nix-command flakes"
-  nixos-rebuild switch --use-remote-sudo --flake .#{{name}}
+  nixos-rebuild switch --sudo --flake .#{{name}}
