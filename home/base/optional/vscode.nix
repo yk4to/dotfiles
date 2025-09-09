@@ -29,8 +29,7 @@ in {
       package =
         if isDarwin
         then
-          pkgs.emptyDirectory.overrideAttrs (oldAttrs: {
-            meta.mainProgram = "code";
+          (pkgs.writeShellScriptBin "vscode-mock" "true").overrideAttrs (oldAttrs: {
             pname = "vscode";
             version = "999";
           })
