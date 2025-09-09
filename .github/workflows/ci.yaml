@@ -26,6 +26,10 @@ jobs:
 
     runs-on: ${{ matrix.runner }}
 
+    permissions:
+      contents: read
+      id-token: write
+
     name: Build (${{ matrix.system }})
 
     steps:
@@ -34,6 +38,9 @@ jobs:
 
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v19
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.9.1
