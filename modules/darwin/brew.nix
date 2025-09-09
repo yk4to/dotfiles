@@ -138,6 +138,7 @@
 
       # Communication
       "discord"
+      "microsoft-teams"
       "slack"
       "zoom"
 
