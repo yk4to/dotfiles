@@ -118,6 +118,12 @@ in
         --prefix PATH : "${coreutils.out}/bin" \
         --prefix LD_LIBRARY_PATH : "$out/lib/inkdrop" \
         --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath deps}"
+
+      mkdir -p $out/bin
+      makeWrapper $out/lib/inkdrop/resources/app/ipm/bin/ipm $out/bin/ipm \
+        --prefix PATH : "${coreutils.out}/bin" \
+        --prefix LD_LIBRARY_PATH : "$out/lib/inkdrop" \
+        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath deps}"
     '';
 
     meta = {
