@@ -21,6 +21,11 @@ in {
         then null
         else inputs.nix-inkdrop.packages.${system}.default;
 
+      ipmPath =
+        if isDarwin
+        then "/usr/local/bin/ipm"
+        else "${inputs.nix-inkdrop.packages.${system}.default}/bin/ipm";
+
       plugins = [
         "atom-one-dark-mod-syntax"
         "emoji-picker"
