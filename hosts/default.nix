@@ -40,6 +40,7 @@ inputs: let
               ];
           };
 
+          sharedModules = [inputs.nix-inkdrop.homeModules.default];
           extraSpecialArgs = {inherit inputs mylib vars system isDarwin;};
         };
       }
