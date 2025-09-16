@@ -26,8 +26,12 @@ in {
         then "/usr/local/bin/ipm"
         else "${inputs.nix-inkdrop.packages.${system}.default}/bin/ipm";
 
+      themes = {
+        ui = "default-dark-ui";
+        syntax = "atom-one-dark-mod-syntax";
+      };
+
       plugins = [
-        "atom-one-dark-mod-syntax"
         "emoji-picker"
         "thumbnail-list"
         "img-small"
@@ -38,11 +42,6 @@ in {
           core = {
             betaChannel = true;
             devMode = true;
-            themes = [
-              "github-preview"
-              "atom-one-dark-mod-syntax"
-              "default-dark-ui"
-            ];
           };
           editor = {
             fontFamily = "'UDEV Gothic 35NF',SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace";
