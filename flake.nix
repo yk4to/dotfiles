@@ -20,6 +20,8 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
+    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop";
+
     nur.url = "github:nix-community/nur";
 
     agenix.url = "github:yaxitech/ragenix";
