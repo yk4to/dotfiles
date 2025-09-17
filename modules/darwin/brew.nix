@@ -60,8 +60,7 @@
       "Tailscale" = 1475387142;
 
       # Safari Extensions
-      "AdGuard for Safari" = 1440147259;
-      "Consent-O-Matic" = 1606897889;
+      "1Blocker" = 1365531024;
       "uBlacklist" = 1547912640;
       "Refined GitHub" = 1519867270;
       "File Icons for GitHub and GitLab" = 1631366167;
@@ -86,7 +85,6 @@
       "google-chrome"
 
       # Utilities
-      "alt-tab"
       "appcleaner"
       "bartender"
       "cleanshot"
@@ -134,7 +132,7 @@
 
       # Cloud Storage
       # "box-drive"
-      "google-drive"
+      # "google-drive"
 
       # Communication
       "discord"
