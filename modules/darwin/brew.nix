@@ -54,7 +54,7 @@
       "Hand Mirror" = 1502839586;
       "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
-      "Velja" = 1607635845;
+      # "Velja" = 1607635845;
 
       # Dev Tools
       "Tailscale" = 1475387142;
@@ -87,6 +87,7 @@
       # Utilities
       "appcleaner"
       "bartender"
+      "betterdisplay"
       "cleanshot"
       "iina"
       "istat-menus"
@@ -96,7 +97,7 @@
       "keyboardcleantool"
       "latest"
       "logi-options+"
-      "monitorcontrol"
+      # "monitorcontrol"
       # "notchnook"
       "raycast"
       "rectangle"
