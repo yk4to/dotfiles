@@ -1,20 +1,18 @@
 {
+  delib,
   inputs,
-  config,
-  lib,
-  mylib,
   ...
 }:
-with lib; let
-  cfg = config.optionalModules.nixos.services;
-in {
-  imports = mylib.scanPaths ./.;
+delib.module {
+  name = "containers";
 
-  options.optionalModules.nixos.services = {
-    enable = mkEnableOption "Self-hosted services";
-  };
+  options = delib.singleEnableOption false;
 
-  config = mkIf cfg.enable {
+  nixos.always.age.secrets.cloudflared.file = "${inputs.secrets}/cloudflared.age";
+
+  nixos.ifEnabled = {myconfig, ...}: let
+    inherit (myconfig.services.containers) age;
+  in {
     virtualisation = {
       containers.enable = true;
 
@@ -36,7 +34,7 @@ in {
 
       tunnels = {
         "bed69fbf-bc28-4eea-9d9e-be8d6601dc76" = {
-          credentialsFile = config.age.secrets.cloudflared.path;
+          credentialsFile = age.secrets.cloudflared.path;
           ingress = {
             "rss.fus1on.dev" = "http://localhost:80";
             "memos.fus1on.dev" = "http://localhost:5230";
@@ -45,7 +43,5 @@ in {
         };
       };
     };
-
-    age.secrets.cloudflared.file = "${inputs.secrets}/cloudflared.age";
   };
 }

@@ -1,9 +1,8 @@
-{
-  lib,
-  config,
-  ...
-}: {
-  config = lib.mkIf config.optionalModules.nixos.services.enable {
+{delib, ...}:
+delib.module {
+  name = "containers";
+
+  nixos.ifEnabled = {
     systemd.tmpfiles.rules = [
       "d /var/lib/memos 0755 root root - -"
     ];

@@ -1,12 +1,20 @@
 {
+  delib,
   inputs,
   pkgs,
-  lib,
-  config,
-  vars,
   ...
-}: {
-  config = lib.mkIf config.optionalModules.nixos.services.enable {
+}:
+delib.module {
+  name = "containers";
+
+  nixos.always.age.secrets.rsshub = {
+    file = "${inputs.secrets}/rsshub.age";
+    mode = "600";
+  };
+
+  nixos.ifEnabled = {myconfig, ...}: let
+    inherit (myconfig.services.containers) age;
+  in {
     systemd.tmpfiles.rules = [
       "d /var/lib/freshrss/config 0755 root root - -"
       "d /var/lib/rss-bridge/config 0755 root root - -"
@@ -20,7 +28,7 @@
           "/var/lib/freshrss/config:/config"
         ];
         environment = {
-          "TZ" = vars.timeZone;
+          "TZ" = myconfig.constants.timeZone;
           "PUID" = "1000";
           "PGID" = "1000";
           "CRON_MIN" = "1,16,31,46";
@@ -55,7 +63,7 @@
         extraOptions = [
           "--network=rss-net"
         ];
-        environmentFiles = [config.age.secrets.rsshub.path];
+        environmentFiles = [age.secrets.rsshub.path];
       };
 
       browserless = {
@@ -100,13 +108,6 @@
       wantedBy = [
         "multi-user.target"
       ];
-    };
-
-    age.secrets = {
-      rsshub = {
-        file = "${inputs.secrets}/rsshub.age";
-        mode = "600";
-      };
     };
   };
 }

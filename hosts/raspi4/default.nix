@@ -8,4 +8,6 @@ delib.host {
   features = [
     "cli"
   ];
+
+  myconfig.containers.enable = true;
 }
