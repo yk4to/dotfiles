@@ -17,6 +17,6 @@ in
   delib.module {
     name = "nixpkgs";
 
-    nixos.always.nixpkgs = config;
-    darwin.always.nixpkgs = config;
+    nixos.always = config;
+    darwin.always = config;
   }
