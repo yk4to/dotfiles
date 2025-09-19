@@ -14,6 +14,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    denix = {
+      url = "github:yunfachi/denix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nix-darwin.follows = "nix-darwin";
+    };
+
     flake-utils.url = "github:numtide/flake-utils";
 
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
@@ -49,12 +56,43 @@
     };
   };
 
-  outputs = inputs: let
-    hosts = import ./hosts inputs;
+  outputs = {denix, ...} @ inputs: let
+    mkConfigurations = moduleSystem:
+      denix.lib.configurations {
+        inherit moduleSystem;
+        homeManagerUser = "yuta";
+
+        paths = [
+          ./hosts
+          ./modules
+          ./rices
+        ];
+
+        extensions = with denix.lib.extensions; [
+          args
+          (base.withConfig {
+            args.enable = true;
+            # cli: not must-have (ssh, git, ...) utilities like eza, bat, etc.
+            # gui: gui applications and modules that are needed only for gui applications (gnome-keyring, ...)
+            # electronics: for programming microcontrollers (platformio, ...)
+            # academic: for academic works (LaTeX, ...)
+            hosts.features.features = [
+              "cli"
+              "gui"
+              "electronics"
+              "academic"
+            ];
+          })
+        ];
+
+        specialArgs = {
+          inherit inputs;
+        };
+      };
   in
     {
-      nixosConfigurations = hosts.nixos;
-      darwinConfigurations = hosts.darwin;
+      nixosConfigurations = mkConfigurations "nixos";
+      darwinConfigurations = mkConfigurations "darwin";
     }
     // inputs.flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import inputs.nixpkgs {inherit system;};
