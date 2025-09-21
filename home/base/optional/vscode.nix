@@ -55,7 +55,7 @@ in {
           # AI
           github.copilot-chat # GitHub Copilot Chat
           github.copilot # GitHub Copilot
-          # openai.chatgpt # ChatGPT
+          openai.chatgpt # ChatGPT (Codex)
 
           # Git / GitHub
           # github.vscode-pull-request-github # github pull requests
