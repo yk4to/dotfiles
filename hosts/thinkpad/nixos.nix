@@ -14,6 +14,7 @@
     ]);
 
   optionalModules.nixos = {
+    docker.enable = true;
     gui.enable = true;
     secureboot.enable = true;
     tailscale.enable = true;
