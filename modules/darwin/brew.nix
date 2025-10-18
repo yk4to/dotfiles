@@ -49,11 +49,18 @@
       # "ReadKit" = 1615798039;
       "Todoist" = 585829637;
 
+      # Office
+      "Microsoft Word" = 462054704;
+      "Microsoft Excel" = 462058435;
+      "Microsoft PowerPoint" = 462062816;
+
       # Utilities
       "Amphetamine" = 937984704;
+      "CleanMyKeyboard" = 6468120888;
       "Hand Mirror" = 1502839586;
       "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
+      "Speedtest" = 1153157709;
       # "Velja" = 1607635845;
 
       # Dev Tools
@@ -94,7 +101,6 @@
       # "jordanbaird-ice"
       "karabiner-elements"
       "keka"
-      "keyboardcleantool"
       "latest"
       "logi-options+"
       # "monitorcontrol"
@@ -122,6 +128,7 @@
       "adobe-creative-cloud"
       "figma"
       "sketch"
+      "icon-composer"
 
       # CAD
       "autodesk-fusion"
@@ -143,10 +150,6 @@
 
       # AI
       "chatgpt"
-
-      # Others
-      "microsoft-auto-update"
-      "microsoft-office"
     ];
   };
 
