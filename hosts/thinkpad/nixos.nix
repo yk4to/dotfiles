@@ -18,6 +18,7 @@
     gui.enable = true;
     secureboot.enable = true;
     tailscale.enable = true;
+    vscode-server.enable = true;
   };
 
   networking.hostName = "thinkpad";
