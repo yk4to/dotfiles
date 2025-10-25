@@ -88,6 +88,7 @@
     casks = [
       # Browsers
       "arc"
+      "chatgpt-atlas"
       "thebrowsercompany-dia"
       "google-chrome"
 
