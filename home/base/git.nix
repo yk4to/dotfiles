@@ -11,14 +11,16 @@
   programs.git = {
     enable = true;
 
-    userName = vars.userfullname;
-    userEmail = vars.useremail;
+    settings = {
+      user = {
+        name = vars.userfullname;
+        email = vars.useremail;
+      };
 
-    aliases = {
-      main = "switch main";
-    };
+      aliases = {
+        main = "switch main";
+      };
 
-    extraConfig = {
       init.defaultBranch = "main";
 
       commit.gpgsign = true;
@@ -31,8 +33,11 @@
   programs.gh.enable = true;
 
   # git diff viewer
-  programs.git.delta = {
+  programs.delta = {
     enable = true;
+
+    enableGitIntegration = true;
+
     options.syntax-theme = "OneHalfDark";
   };
 
