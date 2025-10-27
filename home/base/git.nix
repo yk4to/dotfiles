@@ -11,21 +11,23 @@
   programs.git = {
     enable = true;
 
+    signing = {
+      format = "ssh";
+      signByDefault = true;
+    };
+
     settings = {
       user = {
         name = vars.userfullname;
         email = vars.useremail;
+        signingkey = "~/.ssh/id_ed25519.pub";
       };
 
-      aliases = {
+      alias = {
         main = "switch main";
       };
 
       init.defaultBranch = "main";
-
-      commit.gpgsign = true;
-      gpg.format = "ssh";
-      user.signingkey = "~/.ssh/id_ed25519.pub";
     };
   };
 
