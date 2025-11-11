@@ -35,7 +35,7 @@ in {
 
         theme = "Atom One Dark";
 
-        # macos-titlebar-style = "tabs";
+        macos-titlebar-style = "tabs";
         macos-window-shadow = false;
 
         background-opacity = 0.95;
