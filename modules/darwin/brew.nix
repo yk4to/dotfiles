@@ -104,6 +104,7 @@
       "keka"
       "latest"
       "logi-options+"
+      "mac-mouse-fix"
       # "monitorcontrol"
       # "notchnook"
       "raycast"
