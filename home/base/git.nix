@@ -48,7 +48,7 @@
     enable = true;
 
     settings = {
-      git.paging = {
+      git.pagers = {
         colorArg = "always";
         pager = "delta --paging=never";
       };
