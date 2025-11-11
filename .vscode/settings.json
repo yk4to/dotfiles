@@ -1,0 +1,25 @@
+{
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide",
+  },
+  "nix.serverSettings": {
+    "nixd": {
+      "nixpkgs": {
+        "expr": "import (builtins.getFlake \"${workspaceFolder}\").inputs.nixpkgs { }",
+      },
+      "options": {
+        "yuta-mba": {
+          "expr": "(builtins.getFlake \"${workspaceFolder}\").darwinConfigurations.yuta-mba.options",
+        },
+        "thinkpad": {
+          "expr": "(builtins.getFlake \"${workspaceFolder}\").nixosConfigurations.thinkpad.options",
+        },
+        "home": {
+          "expr": "(builtins.getFlake \"${workspaceFolder}\").darwinConfigurations.yuta-mba.options.home-manager.users.type.getSubOptions []",
+        }
+      },
+    },
+  },
+}

@@ -143,8 +143,8 @@ in {
 
           # Nix
           "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "nil";
-          "nix.serverSettings"."nil"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
+          "nix.serverPath" = "nixd";
+          "nix.serverSettings"."nixd"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
           "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
         };
       };
