@@ -34,5 +34,9 @@
   # set hardware clock in local time to prevent Windows clock from going wrong
   time.hardwareClockInLocalTime = true;
 
+  environment.variables = {
+    MESA_LOADER_DRIVER_OVERRIDE = "i965";
+  };
+
   system.stateVersion = "25.05";
 }
