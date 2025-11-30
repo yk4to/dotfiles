@@ -12,7 +12,8 @@ with lib; let
   # ref: https://github.com/nix-community/nix-vscode-extensions/issues/99#issuecomment-2701520457
   # use overlay to allow unfree packages
   pkgs-ext = import inputs.nixpkgs {
-    inherit (pkgs) system;
+    # `pkgs.system` is deprecated; use the canonical host platform value
+    inherit (pkgs.stdenv.hostPlatform) system;
     config.allowUnfree = true;
     overlays = [inputs.nix-vscode-extensions.overlays.default];
   };
