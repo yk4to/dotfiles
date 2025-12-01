@@ -152,6 +152,9 @@
 
       # AI
       "chatgpt"
+
+      # Others
+      "anki"
     ];
   };
 
