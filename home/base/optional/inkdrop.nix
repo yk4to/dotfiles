@@ -32,6 +32,8 @@ in {
       };
 
       plugins = [
+        "math"
+        "sidetoc"
         "emoji-picker"
         "thumbnail-list"
         "img-small"
