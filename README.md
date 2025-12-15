@@ -1,7 +1,7 @@
 # dotfiles
 
 ![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-informational.svg?logo=nixos)
-![macOS Sequoia](https://img.shields.io/badge/macOS-Sequoia-informational.svg?logo=apple)
+![macOS Tahoe](https://img.shields.io/badge/macOS-Tahoe-informational.svg?logo=apple)
 [![CI](https://github.com/yk4to/dotfiles/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/yk4to/dotfiles/actions/workflows/ci.yml)
 
 ## Hosts
