@@ -96,12 +96,12 @@
 
       # Utilities
       "appcleaner"
-      "bartender"
+      # "bartender"
       "betterdisplay"
       "cleanshot"
       "iina"
       "istat-menus"
-      # "jordanbaird-ice"
+      "jordanbaird-ice@beta"
       "karabiner-elements"
       "keka"
       "latest"
