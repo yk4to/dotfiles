@@ -44,8 +44,7 @@ in {
         # because extension update check is set to disabled
         enableExtensionUpdateCheck = false;
 
-        extensions = with pkgs-ext.vscode-marketplace-release;
-        with pkgs-ext.vscode-marketplace; [
+        extensions = with pkgs-ext.vscode-marketplace-release; [
           # General
           ms-ceintl.vscode-language-pack-ja # japanese language pack
 
@@ -61,7 +60,7 @@ in {
           # Git / GitHub
           # github.vscode-pull-request-github # github pull requests
           # github.vscode-github-actions # github actions
-          eamodio.gitlens # gitlens
+          # eamodio.gitlens # gitlens
 
           # Containers
           ms-vscode-remote.remote-containers # remote containers
@@ -98,12 +97,16 @@ in {
           # Web Development
           ms-vscode.live-server # host a local server
           dbaeumer.vscode-eslint # eslint support
-          esbenp.prettier-vscode # prettier support
           stylelint.vscode-stylelint # stylelint support
           yoavbls.pretty-ts-errors # make typescript errors pretty
           formulahendry.auto-rename-tag # rename tags
           vunguyentuan.vscode-css-variables # autocomplete css variables
-          bradgashler.htmltagwrap # wrap html tags
+          # bradgashler.htmltagwrap # wrap html tags
+          bradlc.vscode-tailwindcss # tailwindcss support
+
+          # Linters / Formatters
+          editorconfig.editorconfig # editorconfig support
+          esbenp.prettier-vscode # prettier support
 
           # Others
           # platformio.platformio-ide
