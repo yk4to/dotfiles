@@ -34,6 +34,7 @@ in {
         "latex-workshop.view.pdf.viewer" = "tab";
         "latex-workshop.latex.outDir" = "out";
         "latex-workshop.latex.recipe.default" = "latexmk (lualatex)";
+        "latex-workshop.formatting.latex" = "latexindent";
       };
     };
   };
