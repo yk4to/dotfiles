@@ -20,7 +20,6 @@ jobs:
         include:
           - system: x86_64-linux
             runner: ubuntu-latest
-
           - system: aarch64-darwin
             runner: macos-15
 
@@ -45,7 +44,15 @@ jobs:
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.9.1
         with:
-          ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
+          ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY }}
+
+      - name: Setup Cachix
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: cachix/cachix-action@v16
+        with:
+          name: yk4to
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          extraPullNames: nix-community
 
       - name: Run flake check
         run: nix flake check .
