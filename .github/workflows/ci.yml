@@ -20,39 +20,26 @@ jobs:
         include:
           - system: x86_64-linux
             runner: ubuntu-latest
-
           - system: aarch64-darwin
             runner: macos-15
 
     runs-on: ${{ matrix.runner }}
-
-    permissions:
-      contents: read
-      id-token: write
-
     name: Build (${{ matrix.system }})
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v21
+      - uses: DeterminateSystems/nix-installer-action@v21
 
-      - name: Setup Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
 
-      - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.9.1
+      - name: Setup Cachix
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: cachix/cachix-action@v16
         with:
-          ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
+          name: yk4to
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          extraPullNames: nix-community
 
       - name: Run flake check
         run: nix flake check .
-
-      - name: Show build info
-        run: |
-          echo "System: ${{ matrix.system }}"
-          echo "Runner: ${{ matrix.runner }}"
-          uname -a
-          nix --version
