@@ -14,7 +14,7 @@
     ]);
 
   optionalModules.nixos = {
-    # services.enable = true;
+    services.enable = true;
     tailscale.enable = true;
   };
 
