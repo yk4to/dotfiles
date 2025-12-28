@@ -16,15 +16,12 @@ in {
   config = mkIf (cfg.enable) {
     programs.inkdrop = {
       enable = true;
+      useCanary = true;
+
       package =
         if isDarwin
         then null
-        else inputs.nix-inkdrop.packages.${system}.default;
-
-      ipmPath =
-        if isDarwin
-        then "/usr/local/bin/ipm"
-        else "${inputs.nix-inkdrop.packages.${system}.default}/bin/ipm";
+        else inputs.nix-inkdrop.packages.${system}.inkdrop-canary;
 
       themes = {
         ui = "default-dark-ui";
@@ -34,8 +31,8 @@ in {
       plugins = [
         "math"
         "sidetoc"
-        "emoji-picker"
-        "thumbnail-list"
+        # "emoji-picker"
+        # "thumbnail-list"
         "img-small"
       ];
 

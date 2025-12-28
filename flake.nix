@@ -22,7 +22,7 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
-    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop";
+    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop?ref=support-v6";
 
     nur.url = "github:nix-community/nur";
 

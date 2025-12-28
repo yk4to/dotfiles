@@ -404,15 +404,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1766887953,
-        "narHash": "sha256-shZ+884ZQByVB6qTxtn00E/9pqlXaHYfvVhYwfxiQog=",
-        "ref": "refs/heads/main",
-        "rev": "ad220c7f74364d372abe51376aa04a4acbbd556a",
-        "revCount": 21,
+        "lastModified": 1766897921,
+        "narHash": "sha256-n9NV+GDQqMG3M6w1D7Adc2e1+YystY47prp9r8YvHEo=",
+        "ref": "support-v6",
+        "rev": "2c83642a88755bab67bdb8ec9a8457af72f8fbd8",
+        "revCount": 30,
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-inkdrop"
       },
       "original": {
+        "ref": "support-v6",
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-inkdrop"
       }
