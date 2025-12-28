@@ -32,7 +32,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [rtl8812au];
+  boot.extraModulePackages = with config.boot.kernelPackages; [rtw88];
 
   system.stateVersion = "25.05";
 }
