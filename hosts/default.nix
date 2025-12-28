@@ -67,6 +67,11 @@ in {
       modules = [./x230/nixos.nix];
       homeManagerModules = [./x230/home-manager.nix];
     };
+    mate = mkSystem {
+      system = "x86_64-linux";
+      modules = [./mate/nixos.nix];
+      homeManagerModules = [./mate/home-manager.nix];
+    };
     raspi4 = mkSystem {
       system = "aarch64-linux";
       modules = [./raspi4/nixos.nix];
