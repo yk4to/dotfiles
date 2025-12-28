@@ -28,15 +28,11 @@
   # systemd.services."autovt@tty1".enable = false;
 
   boot.loader = {
-    systemd-boot = {
-      enable = true;
-      extraInstallCommands = "echo 'default @saved' > /boot/loader/loader.conf";
-    };
-
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [rtl88xxau-aircrack];
+  boot.extraModulePackages = with config.boot.kernelPackages; [rtl8812au];
 
   system.stateVersion = "25.05";
 }
