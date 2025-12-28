@@ -36,7 +36,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [rtl8812au-aircrack];
+  boot.extraModulePackages = with config.boot.kernelPackages; [rtl88xxau-aircrack];
 
   system.stateVersion = "25.05";
 }
