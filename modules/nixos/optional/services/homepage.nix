@@ -10,9 +10,9 @@
     services.homepage-dashboard = {
       enable = true;
 
-      listenPort = 1000;
+      listenPort = 10000;
       openFirewall = true;
-      allowedHosts = "mate.local";
+      allowedHosts = "mate.local:10000";
 
       environmentFile = config.age.secrets.homepage.path;
 
@@ -41,10 +41,11 @@
           Networks = [
             {
               Tailscale = {
+                icon="tailscale.svg";
                 widget = {
                   type = "tailscale";
-                  deviceid = "mate";
-                  key = "{{HOMEPAGE_TAILSCALE_KEY}}";
+                  deviceid = "{{HOMEPAGE_VAR_TAILSCALE_DEVICEID}}";
+                  key = "{{HOMEPAGE_VAR_TAILSCALE_KEY}}";
                 };
               };
             }
@@ -52,9 +53,9 @@
               Cloudflare = {
                 widget = {
                   type = "cloudflared";
-                  accountid = "{{HOMEPAGE_CLOUDFLARE_ACCOUNTID}}";
-                  tunnelid = "{{HOMEPAGE_CLOUDFLARE_TUNNELID}}";
-                  key = "{{HOMEPAGE_CLOUDFLARE_KEY}}";
+                  accountid = "{{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNTID}}";
+                  tunnelid = "{{HOMEPAGE_VAR_CLOUDFLARE_TUNNELID}}";
+                  key = "{{HOMEPAGE_VAR_CLOUDFLARE_KEY}}";
                 };
               };
             }
@@ -62,12 +63,14 @@
               NextDNS = {
                 widget = {
                   type = "nextdns";
-                  profile = "{{HOMEPAGE_NEXTDNS_PROFILE}}";
-                  key = "{{HOMEPAGE_NEXTDNS_KEY}}";
+                  profile = "{{HOMEPAGE_VAR_NEXTDNS_PROFILE}}";
+                  key = "{{HOMEPAGE_VAR_NEXTDNS_KEY}}";
                 };
               };
             }
           ];
+	}
+	{
           Containers = [
             {
               FreshRSS = {
@@ -75,8 +78,8 @@
                 widget = {
                   type = "freshrss";
                   url = "http://mate.local:80";
-                  username = "{{HOMEPAGE_FRESHRSS_USERNAME}}";
-                  password = "{{HOMEPAGE_FRESHRSS_PASSWORD}}";
+                  username = "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}";
+                  password = "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}";
                 };
               };
             }
