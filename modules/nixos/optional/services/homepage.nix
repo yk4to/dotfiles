@@ -4,9 +4,9 @@
   lib,
   ...
 }: {
-  age.secrets.cloudflared.file = "${inputs.secrets}/homepage.age";
-
   config = lib.mkIf config.optionalModules.nixos.services.enable {
+    age.secrets.homepage.file = "${inputs.secrets}/homepage.age";
+
     services.homepage-dashboard = {
       enable = true;
 
@@ -63,7 +63,7 @@
                 widget = {
                   type = "nextdns";
                   profile = "{{HOMEPAGE_NEXTDNS_PROFILE}}";
-                  key = "{{HOMEPAGE_NEXTDNS_KEY}";
+                  key = "{{HOMEPAGE_NEXTDNS_KEY}}";
                 };
               };
             }
