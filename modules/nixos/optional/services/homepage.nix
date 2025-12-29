@@ -41,7 +41,7 @@
           Networks = [
             {
               Tailscale = {
-                icon = "tailscale.svg";
+                icon = "tailscale-light.svg";
                 widget = {
                   type = "tailscale";
                   deviceid = "{{HOMEPAGE_VAR_TAILSCALE_DEVICEID}}";
@@ -88,7 +88,7 @@
             }
             {
               RSSHub = {
-                icon = "rsshub.svg";
+                icon = "rsshub.png";
                 description = "RSS feed generator";
                 container = "rsshub";
                 href = "http://mate.local:1200";
@@ -104,7 +104,7 @@
             }
             {
               Memos = {
-                icon = "memos.svg";
+                icon = "memos.png";
                 description = "Self-hosted note-taking service";
                 container = "memos";
                 href = "http://mate.local:5230";
