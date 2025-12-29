@@ -41,7 +41,7 @@
           Networks = [
             {
               Tailscale = {
-                icon="tailscale.svg";
+                icon = "tailscale.svg";
                 widget = {
                   type = "tailscale";
                   deviceid = "{{HOMEPAGE_VAR_TAILSCALE_DEVICEID}}";
@@ -51,6 +51,7 @@
             }
             {
               Cloudflare = {
+                icon = "cloudflare.svg";
                 widget = {
                   type = "cloudflared";
                   accountid = "{{HOMEPAGE_VAR_CLOUDFLARE_ACCOUNTID}}";
@@ -61,6 +62,7 @@
             }
             {
               NextDNS = {
+                icon = "nextdns.svg";
                 widget = {
                   type = "nextdns";
                   profile = "{{HOMEPAGE_VAR_NEXTDNS_PROFILE}}";
@@ -69,11 +71,12 @@
               };
             }
           ];
-	}
-	{
+        }
+        {
           Containers = [
             {
               FreshRSS = {
+                icon = "freshrss.svg";
                 description = "RSS feed reader";
                 widget = {
                   type = "freshrss";
@@ -84,7 +87,24 @@
               };
             }
             {
+              RSSHub = {
+                icon = "rsshub.svg";
+                description = "RSS feed generator";
+                container = "rsshub";
+                href = "http://mate.local:1200";
+              };
+            }
+            {
+              RSS-Bridge = {
+                icon = "rss-bridge.svg";
+                description = "RSS feed bridge";
+                container = "rss-bridge";
+                href = "http://mate.local:3000";
+              };
+            }
+            {
               Memos = {
+                icon = "memos.svg";
                 description = "Self-hosted note-taking service";
                 container = "memos";
                 href = "http://mate.local:5230";
