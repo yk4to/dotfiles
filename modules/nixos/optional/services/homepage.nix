@@ -136,19 +136,21 @@
           ];
         }
         {
-          "Smart Home" = {
-            Homebridge = {
-              icon = "homebridge.svg";
-              description = "HomeKit bridge for smart home devices";
-              href = "http://homebridge.local";
-              widget = {
-                type = "homebridge";
-                url = "http://homebridge.local";
-                username = "{{HOMEPAGE_VAR_HOMEBRIDGE_USERNAME}}";
-                password = "{{HOMEPAGE_VAR_HOMEBRIDGE_PASSWORD}";
+          "Smart Home" = [
+            {
+              Homebridge = {
+                icon = "homebridge.svg";
+                description = "HomeKit bridge for smart home devices";
+                href = "http://homebridge.local";
+                widget = {
+                  type = "homebridge";
+                  url = "http://homebridge.local";
+                  username = "{{HOMEPAGE_VAR_HOMEBRIDGE_USERNAME}}";
+                  password = "{{HOMEPAGE_VAR_HOMEBRIDGE_PASSWORD}";
+                };
               };
-            };
-          };
+            }
+          ];
         }
       ];
     };
