@@ -146,7 +146,7 @@
                   type = "homebridge";
                   url = "http://homebridge.local";
                   username = "{{HOMEPAGE_VAR_HOMEBRIDGE_USERNAME}}";
-                  password = "{{HOMEPAGE_VAR_HOMEBRIDGE_PASSWORD}";
+                  password = "{{HOMEPAGE_VAR_HOMEBRIDGE_PASSWORD}}";
                 };
               };
             }
