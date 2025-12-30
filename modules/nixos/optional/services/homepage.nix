@@ -7,6 +7,12 @@
   config = lib.mkIf config.optionalModules.nixos.services.enable {
     age.secrets.homepage.file = "${inputs.secrets}/homepage.age";
 
+    systemd.services.homepage-dashboard = {
+      serviceConfig = {
+        SupplementaryGroups = ["podman"];
+      };
+    };
+
     services.homepage-dashboard = {
       enable = true;
 
@@ -15,6 +21,8 @@
       allowedHosts = "mate.local:10000";
 
       environmentFile = config.age.secrets.homepage.path;
+
+      docker.podman.socket = "/run/podman/podman.sock";
 
       widgets = [
         {
@@ -78,6 +86,8 @@
               FreshRSS = {
                 icon = "freshrss.svg";
                 description = "RSS feed reader";
+                server = "podman";
+                container = "freshrss";
                 widget = {
                   type = "freshrss";
                   url = "http://mate.local:80";
@@ -90,6 +100,7 @@
               RSSHub = {
                 icon = "rsshub.png";
                 description = "RSS feed generator";
+                server = "podman";
                 container = "rsshub";
                 href = "http://mate.local:1200";
               };
@@ -98,6 +109,7 @@
               RSS-Bridge = {
                 icon = "rss-bridge.svg";
                 description = "RSS feed bridge";
+                server = "podman";
                 container = "rss-bridge";
                 href = "http://mate.local:3000";
               };
@@ -106,6 +118,7 @@
               Memos = {
                 icon = "memos.png";
                 description = "Self-hosted note-taking service";
+                server = "podman";
                 container = "memos";
                 href = "http://mate.local:5230";
               };
