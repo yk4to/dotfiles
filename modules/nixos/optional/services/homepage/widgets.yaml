@@ -1,0 +1,11 @@
+- greeting:
+    text_size: 4xl
+    text: Homelab
+- resources:
+    expanded: true
+    cpu: true
+    memory: true
+    disk: /
+    uptime: true
+    diskUnits: bytes
+    network: true
