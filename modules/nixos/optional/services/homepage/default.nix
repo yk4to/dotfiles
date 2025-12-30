@@ -10,6 +10,7 @@
     environment.etc."homepage/docker.yaml".source = ./docker.yaml;
     environment.etc."homepage/widgets.yaml".source = ./widgets.yaml;
     environment.etc."homepage/services.yaml".source = ./services.yaml;
+    environment.etc."homepage/settings.yaml".source = ./settings.yaml;
 
     virtualisation.oci-containers.containers.homepage = {
       image = "ghcr.io/gethomepage/homepage:v1.8.0";
