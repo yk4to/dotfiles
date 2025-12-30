@@ -19,4 +19,7 @@
       options = "--delete-older-than 7d";
     };
   };
+
+  # enable all terminfo entries to support Ghostty and other terminal apps
+  environment.enableAllTerminfo = true;
 }
