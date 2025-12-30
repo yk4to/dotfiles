@@ -88,6 +88,7 @@
                 description = "RSS feed reader";
                 server = "podman";
                 container = "freshrss";
+                href = "http://mate.local:80";
                 widget = {
                   type = "freshrss";
                   url = "http://mate.local:80";
@@ -123,7 +124,31 @@
                 href = "http://mate.local:5230";
               };
             }
+            {
+              Karakeep = {
+                icon = "karakeep.svg";
+                description = "Knowledge management system";
+                server = "podman";
+                container = "karakeep";
+                href = "http://mate.local:5000";
+              };
+            }
           ];
+        }
+        {
+          "Smart Home" = {
+            Homebridge = {
+              icon = "homebridge.svg";
+              description = "HomeKit bridge for smart home devices";
+              href = "http://homebridge.local";
+              widget = {
+                type = "homebridge";
+                url = "http://homebridge.local";
+                username = "{{HOMEPAGE_VAR_HOMEBRIDGE_USERNAME}}";
+                password = "{{HOMEPAGE_VAR_HOMEBRIDGE_PASSWORD}";
+              };
+            };
+          };
         }
       ];
     };
