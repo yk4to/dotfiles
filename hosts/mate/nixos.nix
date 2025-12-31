@@ -16,6 +16,7 @@
   optionalModules.nixos = {
     services.enable = true;
     tailscale.enable = true;
+    vscode-server.enable = true;
   };
 
   networking.hostName = "mate";
