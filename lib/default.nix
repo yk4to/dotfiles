@@ -3,9 +3,9 @@
 
   attrs = import ./attrs.nix {inherit lib;};
 
-  scanPaths = path:
-    builtins.map
-    (f: (path + "/${f}"))
+  scanPaths = _path:
+    map
+    (f: (_path + "/${f}"))
     (builtins.attrNames
       (lib.attrsets.filterAttrs
         (
@@ -21,5 +21,5 @@
               )
             )
         )
-        (builtins.readDir path)));
+        (builtins.readDir _path)));
 }
