@@ -16,6 +16,7 @@
     nix-output-monitor
     nixd # nix language server
     alejandra # nix formatter
+    comma # nix-shell wrapper
   ];
 
   # `cat` replacement
