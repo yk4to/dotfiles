@@ -40,6 +40,7 @@ in {
           ingress = {
             "rss.fus1on.dev" = "http://localhost:80";
             "memos.fus1on.dev" = "http://localhost:5230";
+            "karakeep.fus1on.dev" = "http://localhost:5000";
           };
           default = "http_status:404";
         };
