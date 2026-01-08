@@ -47,6 +47,8 @@
   programs.lazygit = {
     enable = true;
 
+    shellWrapperName = "gg";
+
     settings = {
       git.pagers = [
         {
