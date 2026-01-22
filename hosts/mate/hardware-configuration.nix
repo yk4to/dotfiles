@@ -17,12 +17,19 @@
     device = "/dev/disk/by-label/NIXOS";
     fsType = "ext4";
   };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/BOOT";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
+  fileSystems."/srv/data" = {
+    device = "/dev/disk/by-label/DATA";
+    fsType = "ext4";
+    options = ["noatime"];
+  };
+  systemd.tmpfiles.rules = [
+    "d /srv/data 2775 root users - -"
+  ];
 
   swapDevices = [];
 

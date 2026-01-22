@@ -8,16 +8,16 @@
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
     systemd.tmpfiles.rules = [
-      "d /var/lib/freshrss/config 0755 root root - -"
-      "d /var/lib/rss-bridge/config 0755 root root - -"
-      "d /var/lib/rsshub/data 0755 root root - -"
+      "d /srv/data/freshrss/config 0755 root root - -"
+      "d /srv/data/rss-bridge/config 0755 root root - -"
+      "d /srv/data/rsshub/data 0755 root root - -"
     ];
 
     virtualisation.oci-containers.containers = {
       freshrss = {
         image = "lscr.io/linuxserver/freshrss:version-1.28.0";
         volumes = [
-          "/var/lib/freshrss/config:/config"
+          "/srv/data/freshrss/config:/config"
         ];
         environment = {
           "TZ" = vars.timeZone;
@@ -34,7 +34,7 @@
       rss-bridge = {
         image = "rssbridge/rss-bridge:latest";
         volumes = [
-          "/var/lib/rss-bridge/config:/config"
+          "/srv/data/rss-bridge/config:/config"
         ];
         ports = ["3000:80"];
         extraOptions = [
@@ -68,7 +68,7 @@
       redis = {
         image = "redis:alpine";
         volumes = [
-          "/var/lib/rsshub/data:/data"
+          "/srv/data/rsshub/data:/data"
         ];
         extraOptions = [
           "--network=rss-net"

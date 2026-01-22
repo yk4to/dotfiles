@@ -7,8 +7,8 @@
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
     systemd.tmpfiles.rules = [
-      "d /var/lib/karakeep/data 0755 root root - -"
-      "d /var/lib/karakeep/meili 0755 root root - -"
+      "d /srv/data/karakeep/data 0755 root root - -"
+      "d /srv/data/karakeep/meili 0755 root root - -"
     ];
 
     systemd.services."create-podman-karakeep-network" = {
@@ -36,7 +36,7 @@
         ];
 
         volumes = [
-          "/var/lib/karakeep/data:/data"
+          "/srv/data/karakeep/data:/data"
         ];
 
         environment = {
@@ -59,7 +59,7 @@
         };
         environmentFiles = [config.age.secrets.karakeep.path];
         volumes = [
-          "/var/lib/karakeep/meili:/meili_data"
+          "/srv/data/karakeep/meili:/meili_data"
         ];
         extraOptions = [
           "--network=karakeep-net"

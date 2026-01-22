@@ -5,13 +5,13 @@
 }: {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
     systemd.tmpfiles.rules = [
-      "d /var/lib/memos 0755 root root - -"
+      "d /srv/data/memos 0755 root root - -"
     ];
 
     virtualisation.oci-containers.containers.memos = {
       image = "neosmemo/memos:0.25.3";
       volumes = [
-        "/var/lib/memos:/var/opt/memos"
+        "/srv/data/memos:/var/opt/memos"
       ];
       ports = ["5230:5230"];
     };
