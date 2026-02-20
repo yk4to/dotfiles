@@ -110,7 +110,6 @@
       # "monitorcontrol"
       # "notchnook"
       "raycast"
-      "rectangle"
 
       # Notes
       "inkdrop"
@@ -121,6 +120,7 @@
       "arduino-ide"
       "balenaetcher"
       "clion"
+      "codexbar"
       "orbstack"
       "raspberry-pi-imager"
       # "sf-symbols"
