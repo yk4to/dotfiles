@@ -29,11 +29,34 @@ in {
       # on macOS, use a mock package to install vscode from brew instead of nix
       package =
         if isDarwin
-        then
-          (pkgs.writeShellScriptBin "vscode-mock" "true").overrideAttrs (oldAttrs: {
+        then let
+          productJson = pkgs.writeText "product.json" ''
+            {
+              "nameShort": "Code",
+              "dataFolderName": ".vscode"
+            }
+          '';
+        in
+          pkgs.stdenvNoCC.mkDerivation {
             pname = "vscode";
-            version = "999";
-          })
+            version = "brew";
+
+            dontUnpack = true;
+
+            installPhase = ''
+              mkdir -p $out/bin $out/lib/vscode/resources/app
+
+              # Provide a wrapper that delegates to the Homebrew-installed VSCode CLI
+              cat > $out/bin/code <<EOF
+              #!/bin/sh
+              exec /opt/homebrew/bin/code "\$@"
+              EOF
+              chmod +x $out/bin/code
+
+              # Provide a minimal product.json so Home Manager can resolve metadata
+              cp ${productJson} $out/lib/vscode/resources/app/product.json
+            '';
+          }
         else pkgs.vscode;
 
       profiles.default = {
@@ -53,8 +76,8 @@ in {
           pkief.material-icon-theme # material icons
 
           # AI
-          github.copilot-chat # GitHub Copilot Chat
-          github.copilot # GitHub Copilot
+          # github.copilot-chat # GitHub Copilot Chat
+          # github.copilot # GitHub Copilot
           openai.chatgpt # ChatGPT (Codex)
 
           # Git / GitHub
@@ -80,7 +103,7 @@ in {
           # mariomatheu.syntax-project-pbxproj # Xcode syntax support
           # mhcpnl.xcodestrings # Xcode strings support
           # coolbear.systemd-unit-file # systemd unit file support
-          rowewilsonfrederiskholme.wikitext # wiki syntax support
+          # rowewilsonfrederiskholme.wikitext # wiki syntax support
 
           # Markdown
           yzhang.markdown-all-in-one # markdown support
@@ -99,7 +122,7 @@ in {
           dbaeumer.vscode-eslint # eslint support
           stylelint.vscode-stylelint # stylelint support
           yoavbls.pretty-ts-errors # make typescript errors pretty
-          formulahendry.auto-rename-tag # rename tags
+          # formulahendry.auto-rename-tag # rename tags
           vunguyentuan.vscode-css-variables # autocomplete css variables
           # bradgashler.htmltagwrap # wrap html tags
           bradlc.vscode-tailwindcss # tailwindcss support
