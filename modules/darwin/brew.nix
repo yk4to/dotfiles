@@ -120,6 +120,7 @@
       "arduino-ide"
       "balenaetcher"
       "clion"
+      "codex-app"
       "codexbar"
       "orbstack"
       "raspberry-pi-imager"
