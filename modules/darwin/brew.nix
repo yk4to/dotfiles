@@ -125,7 +125,7 @@
       "orbstack"
       "raspberry-pi-imager"
       # "sf-symbols"
-      "visual-studio-code"
+      # "visual-studio-code"
       # "xcodes"
       "ghostty"
 

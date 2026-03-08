@@ -3,7 +3,6 @@
   inputs,
   config,
   lib,
-  isDarwin,
   ...
 }:
 with lib; let
@@ -26,42 +25,9 @@ in {
     programs.vscode = {
       enable = true;
 
-      # on macOS, use a mock package to install vscode from brew instead of nix
-      package =
-        if isDarwin
-        then let
-          productJson = pkgs.writeText "product.json" ''
-            {
-              "nameShort": "Code",
-              "dataFolderName": ".vscode"
-            }
-          '';
-        in
-          pkgs.stdenvNoCC.mkDerivation {
-            pname = "vscode";
-            version = "brew";
-
-            dontUnpack = true;
-
-            installPhase = ''
-              mkdir -p $out/bin $out/lib/vscode/resources/app
-
-              # Provide a wrapper that delegates to the Homebrew-installed VSCode CLI
-              cat > $out/bin/code <<EOF
-              #!/bin/sh
-              exec /opt/homebrew/bin/code "\$@"
-              EOF
-              chmod +x $out/bin/code
-
-              # Provide a minimal product.json so Home Manager can resolve metadata
-              cp ${productJson} $out/lib/vscode/resources/app/product.json
-            '';
-          }
-        else pkgs.vscode;
-
       profiles.default = {
-        # disable auto update on linux(NixOS)
-        enableUpdateCheck = isDarwin;
+        # disable auto update
+        enableUpdateCheck = false;
 
         # NOTE: Extensions installed without Nix must be updated manually
         # because extension update check is set to disabled
