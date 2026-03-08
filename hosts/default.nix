@@ -4,15 +4,16 @@ inputs: let
   vars = import ../vars.nix;
 
   mkSystem = {
+    hostName,
     system,
-    modules,
-    homeManagerModules,
   }: let
     isDarwin = builtins.elem "darwin" (builtins.split "-" system);
     moduleName =
       if isDarwin
       then "darwinModules"
       else "nixosModules";
+
+    hostDir = ./. + "/${hostName}";
 
     baseModules = [
       ../modules/base
@@ -27,24 +28,32 @@ inputs: let
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.${vars.username} = {
-            imports =
-              homeManagerModules
-              ++ [
-                ../home/base
-                (
-                  if isDarwin
-                  then ../home/darwin
-                  else ../home/linux
-                )
-              ];
-          };
 
-          sharedModules = [inputs.nix-inkdrop.homeModules.default];
-          extraSpecialArgs = {inherit inputs mylib vars system isDarwin;};
+          users.${vars.username}.imports = [
+            ../home/base
+            (
+              if isDarwin
+              then ../home/darwin
+              else ../home/linux
+            )
+            (hostDir + "/home-manager.nix")
+          ];
+
+          sharedModules = [
+            inputs.nix-inkdrop.homeModules.default
+          ];
+
+          extraSpecialArgs = {
+            inherit inputs mylib vars system isDarwin hostName;
+          };
         };
       }
     ];
+
+    hostModule =
+      if isDarwin
+      then hostDir + "/darwin.nix"
+      else hostDir + "/nixos.nix";
   in
     (
       if isDarwin
@@ -52,38 +61,38 @@ inputs: let
       else inputs.nixpkgs.lib.nixosSystem
     ) {
       inherit system;
-      modules = baseModules ++ modules;
-      specialArgs = {inherit inputs mylib vars system isDarwin;};
+      modules = baseModules ++ [hostModule];
+      specialArgs = {
+        inherit inputs mylib vars system isDarwin hostName;
+      };
     };
 in {
   nixos = {
     thinkpad = mkSystem {
+      hostName = "thinkpad";
       system = "x86_64-linux";
-      modules = [./thinkpad/nixos.nix];
-      homeManagerModules = [./thinkpad/home-manager.nix];
     };
+
     x230 = mkSystem {
+      hostName = "x230";
       system = "x86_64-linux";
-      modules = [./x230/nixos.nix];
-      homeManagerModules = [./x230/home-manager.nix];
     };
+
     mate = mkSystem {
+      hostName = "mate";
       system = "x86_64-linux";
-      modules = [./mate/nixos.nix];
-      homeManagerModules = [./mate/home-manager.nix];
     };
+
     raspi4 = mkSystem {
+      hostName = "raspi4";
       system = "aarch64-linux";
-      modules = [./raspi4/nixos.nix];
-      homeManagerModules = [./raspi4/home-manager.nix];
     };
   };
 
   darwin = {
-    "yuta-mba" = mkSystem {
+    yuta-mba = mkSystem {
+      hostName = "yuta-mba";
       system = "aarch64-darwin";
-      modules = [./yuta-mba/darwin.nix];
-      homeManagerModules = [./yuta-mba/home-manager.nix];
     };
   };
 }
