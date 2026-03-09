@@ -82,11 +82,6 @@ in {
       hostName = "mate";
       system = "x86_64-linux";
     };
-
-    raspi4 = mkSystem {
-      hostName = "raspi4";
-      system = "aarch64-linux";
-    };
   };
 
   darwin = {
