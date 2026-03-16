@@ -19,7 +19,7 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v21
 
       - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
 
