@@ -11,7 +11,6 @@
     gui.enable = true;
     secureboot.enable = false;
     tailscale.enable = true;
-    hyprland.enable = true;
   };
 
   networking.hostName = "x230";

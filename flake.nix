@@ -26,6 +26,8 @@
 
     nur.url = "github:nix-community/nur";
 
+    niri-flake.url = "github:sodiboo/niri-flake";
+
     agenix.url = "github:yaxitech/ragenix";
 
     lanzaboote = {
