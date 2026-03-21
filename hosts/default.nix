@@ -68,8 +68,8 @@ inputs: let
     };
 in {
   nixos = {
-    thinkpad = mkSystem {
-      hostName = "thinkpad";
+    x13 = mkSystem {
+      hostName = "x13";
       system = "x86_64-linux";
     };
 

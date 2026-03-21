@@ -1,30 +1,23 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: {
   imports =
     [
       ./hardware-configuration.nix
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
-      common-cpu-intel
-      common-gpu-nvidia
-      common-pc-ssd
+      lenovo-thinkpad-x13-intel
     ]);
 
   optionalModules.nixos = {
     docker.enable = true;
     gui.enable = true;
-    secureboot.enable = true;
     tailscale.enable = true;
     vscode-server.enable = true;
   };
 
-  networking.hostName = "thinkpad";
+  networking.hostName = "x13";
 
   # Bootloader.
-  # NOTE: This is replaced by the secureboot module.
+  # NOTE: This will be replaced by the secureboot module.
   boot.loader = {
     systemd-boot = {
       enable = true;
@@ -43,22 +36,5 @@
   # set hardware clock in local time to prevent Windows clock from going wrong
   time.hardwareClockInLocalTime = true;
 
-  system.stateVersion = "23.11";
-
-  # set config about nvidia gpu
-  hardware.nvidia = {
-    open = true;
-
-    # ref: https://github.com/NixOS/nixpkgs/issues/353990
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:3:0:0";
-    };
-  };
+  system.stateVersion = "25.05";
 }

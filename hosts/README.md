@@ -3,9 +3,9 @@
 - `yuta-mba`: MacBook Air (13-inch, M3, 2024)
   - macOS Tahoe
   - Apple M3, 16GB RAM, 512GB SSD
-- `thinkpad`: ThinkPad P14s Gen 4
+- `x13`: ThinkPad X13 Gen 1
   - NixOS unstable (dual-boot with Windows 11)
-  - Core i7 1360P, 32GB RAM, 1TB SSD
+  - Core i5 10310U, 16GB RAM, 1TB SSD
 - `x230`: ThinkPad X230
   - NixOS unstable (dual-boot with Windows 10)
   - Core i5 3320M, 16GB RAM, 512GB SSD
