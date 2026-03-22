@@ -10,7 +10,8 @@
   optionalModules.nixos = {
     docker.enable = true;
     gui.enable = true;
-    tailscale.enable = true;
+    niri.enable = true;
+    # tailscale.enable = true;
     vscode-server.enable = true;
   };
 
