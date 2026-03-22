@@ -20,7 +20,7 @@
       openFirewall = true;
       allowedHosts = "mate.local:10000";
 
-      environmentFile = config.age.secrets.homepage.path;
+      environmentFiles = [config.age.secrets.homepage.path];
 
       docker.podman.socket = "/run/podman/podman.sock";
 
