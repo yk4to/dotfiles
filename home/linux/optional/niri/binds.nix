@@ -20,7 +20,7 @@ in {
       binds = {
         "Mod+Shift+Slash".action.show-hotkey-overlay = [];
 
-        "Mod+Q" = {
+        "Mod+W" = {
           repeat = false;
           action.close-window = [];
         };
