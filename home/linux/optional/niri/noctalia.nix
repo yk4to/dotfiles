@@ -18,17 +18,24 @@
         }
       ];
 
-      window-rule = {
-        # Rounded corners for a modern look.
-        geometry-corner-radius = 20;
+      window-rules = [
+        {
+          # Rounded corners for a modern look.
+          geometry-corner-radius = {
+            bottom-left = 20.0;
+            bottom-right = 20.0;
+            top-left = 20.0;
+            top-right = 20.0;
+          };
 
-        # Clips window contents to the rounded corner boundaries.
-        clip-to-geometry = true;
-      };
+          # Clips window contents to the rounded corner boundaries.
+          clip-to-geometry = true;
+        }
+      ];
 
       debug = {
         # Allows notification actions and window activation from Noctalia.
-        honor-xdg-activation-with-invalid-serial = true;
+        honor-xdg-activation-with-invalid-serial = [];
       };
     };
 
@@ -36,7 +43,7 @@
       enable = true;
 
       settings = {
-        colorSchemes.predefinedScheme = "Monochrome";
+        colorSchemes.predefinedScheme = "One";
         # general = {
         #   avatarImage = "/home/drfoobar/.face";
         #   radiusRatio = 0.2;
@@ -45,6 +52,8 @@
           monthBeforeDay = true;
           name = "Tokyo, Japan";
         };
+
+        appLauncher.terminalCommand = "ghostty --window-decoration=false";
       };
     };
   };
