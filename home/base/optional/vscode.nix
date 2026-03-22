@@ -144,9 +144,12 @@ in {
       };
     };
 
-    home.file.".vscode/argv.json".text = builtins.toJSON {
-      enable-crash-reporter = false;
-      locale = "ja";
-    };
+    home.file.".vscode/argv.json".text = builtins.toJSON ({
+        enable-crash-reporter = false;
+        locale = "ja";
+      }
+      // lib.optionalAttrs config.optionalModules.linux.niri.enable {
+        password-store = "gnome-libsecret";
+      });
   };
 }
