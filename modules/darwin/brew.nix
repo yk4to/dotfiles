@@ -126,7 +126,7 @@
       "raspberry-pi-imager"
       # "sf-symbols"
       # "visual-studio-code"
-      # "xcodes"
+      "xcodes"
       "ghostty"
 
       # Design Tools
