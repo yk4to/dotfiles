@@ -44,10 +44,9 @@
 
       settings = {
         colorSchemes.predefinedScheme = "One";
-        # general = {
-        #   avatarImage = "/home/drfoobar/.face";
-        #   radiusRatio = 0.2;
-        # };
+
+        general.avatarImage = "${../../../../icon.jpg}";
+
         location = {
           monthBeforeDay = true;
           name = "Tokyo, Japan";
