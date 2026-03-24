@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   config,
   lib,
   ...
@@ -13,45 +12,34 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [pkgs.tailscale];
-
-    services.tailscale.enable = true;
-
-    networking.firewall = {
+    services.tailscale = {
       enable = true;
-
-      # always allow traffic from your Tailscale network
-      trustedInterfaces = ["tailscale0"];
-
-      # allow the Tailscale UDP port through the firewall
-      allowedUDPPorts = [config.services.tailscale.port];
-
-      # let you SSH in over the public internet
-      allowedTCPPorts = [22];
+      authKeyFile = config.age.secrets.tailscale.path;
+      openFirewall = true;
     };
 
-    systemd.services.tailscale-autoconnect = {
-      description = "Automatic connection to Tailscale";
+    networking = {
+      nftables.enable = true;
 
-      after = ["tailscaled.service"];
-      wantedBy = ["multi-user.target"];
+      firewall = {
+        enable = true;
 
-      serviceConfig.Type = "oneshot";
+        # always allow traffic from your Tailscale network
+        trustedInterfaces = ["tailscale0"];
 
-      script = with pkgs; ''
-        # wait for tailscaled to settle
-        sleep 5
-
-        # check if we are already authenticated to tailscale
-        status="$(${tailscale}/bin/tailscale status -json | ${jq}/bin/jq -r .BackendState)"
-        if [ $status = "Running" ]; then # if so, then do nothing
-          exit 0
-        fi
-
-        # otherwise authenticate with tailscale
-        ${tailscale}/bin/tailscale up -authkey $(<${config.age.secrets.tailscale.path})
-      '';
+        # let you SSH in over the public internet
+        allowedTCPPorts = [22];
+      };
     };
+
+    # Force tailscaled to use nftables
+    systemd.services.tailscaled.serviceConfig.Environment = [
+      "TS_DEBUG_FIREWALL_MODE=nftables"
+    ];
+
+    # Prevent systemd from waiting for network online
+    systemd.network.wait-online.enable = false;
+    boot.initrd.systemd.network.wait-online.enable = false;
 
     age.secrets = {
       tailscale = {
