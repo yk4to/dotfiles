@@ -27,6 +27,8 @@ in {
           path = getExe xwaylandSatellite;
         };
 
+        environment."NIXOS_OZONE_WL" = "1";
+
         outputs."eDP-1".scale = 1.1;
 
         input.touchpad.natural-scroll = false;
