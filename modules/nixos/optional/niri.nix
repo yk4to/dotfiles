@@ -17,15 +17,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [niri-flake.overlays.niri];
+    nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
 
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;
-      settings.xwayland-satellite = {
-        enable = true;
-        path = getExe pkgs.xwayland-satellite-unstable;
-      };
     };
 
     environment.systemPackages = with pkgs; [
