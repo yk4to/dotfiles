@@ -3,7 +3,6 @@
   inputs,
   lib,
   mylib,
-  system,
   ...
 }:
 with lib; let
@@ -15,16 +14,15 @@ in {
     enable = mkEnableOption "Niri window manager";
   };
 
-  config = mkIf cfg.enable (let
-    niriPkgs = inputs.niri-flake.packages.${system};
-    xwaylandSatellite = niriPkgs.xwayland-satellite-unstable;
-  in {
+  config = mkIf cfg.enable {
+    nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
+
     programs.niri = {
-      package = niriPkgs.niri-unstable;
+      package = pkgs.niri-unstable;
       settings = {
         xwayland-satellite = {
           enable = true;
-          path = getExe xwaylandSatellite;
+          path = getExe pkgs.xwayland-satellite-unstable;
         };
 
         environment."NIXOS_OZONE_WL" = "1";
@@ -46,5 +44,5 @@ in {
         ];
       };
     };
-  });
+  };
 }
