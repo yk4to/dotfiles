@@ -2,8 +2,11 @@
   inputs,
   config,
   lib,
+  hostName,
   ...
-}: {
+}: let
+  localDomain = "${hostName}.local";
+in {
   config = lib.mkIf config.optionalModules.nixos.services.enable {
     age.secrets.homepage.file = "${inputs.secrets}/homepage.age";
 
@@ -18,7 +21,7 @@
 
       listenPort = 10000;
       openFirewall = true;
-      allowedHosts = "mate.local:10000";
+      allowedHosts = "${localDomain}:10000";
 
       environmentFiles = [config.age.secrets.homepage.path];
 
@@ -88,10 +91,10 @@
                 description = "RSS feed reader";
                 server = "podman";
                 container = "freshrss";
-                href = "http://mate.local:80";
+                href = "http://${localDomain}:80";
                 widget = {
                   type = "freshrss";
-                  url = "http://mate.local:80";
+                  url = "http://${localDomain}:80";
                   username = "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}";
                   password = "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}";
                 };
@@ -103,7 +106,7 @@
                 description = "RSS feed generator";
                 server = "podman";
                 container = "rsshub";
-                href = "http://mate.local:1200";
+                href = "http://${localDomain}:1200";
               };
             }
             {
@@ -112,7 +115,7 @@
                 description = "RSS feed bridge";
                 server = "podman";
                 container = "rss-bridge";
-                href = "http://mate.local:3000";
+                href = "http://${localDomain}:3000";
               };
             }
             {
@@ -121,7 +124,7 @@
                 description = "Self-hosted note-taking service";
                 server = "podman";
                 container = "memos";
-                href = "http://mate.local:5230";
+                href = "http://${localDomain}:5230";
               };
             }
             {
@@ -130,7 +133,7 @@
                 description = "Knowledge management system";
                 server = "podman";
                 container = "karakeep";
-                href = "http://mate.local:5000";
+                href = "http://${localDomain}:5000";
               };
             }
           ];
