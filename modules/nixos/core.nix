@@ -1,8 +1,14 @@
-{vars, ...}: {
+{
+  hostConfig,
+  vars,
+  ...
+}: {
   programs = {
     git.enable = true;
     fish.enable = true;
   };
+
+  system.stateVersion = hostConfig.stateVersion;
 
   time.timeZone = vars.timeZone;
 

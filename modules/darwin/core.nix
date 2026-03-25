@@ -1,8 +1,11 @@
 {
+  hostConfig,
   vars,
   pkgs,
   ...
 }: {
+  system.stateVersion = hostConfig.darwinStateVersion;
+
   nix.package = pkgs.nix;
 
   # ref: https://github.com/NixOS/nix/issues/7273

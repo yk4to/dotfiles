@@ -1,6 +1,4 @@
 {
-  home.stateVersion = "25.05";
-
   optionalModules = {
     base = {
       # ghostty.enable = true;

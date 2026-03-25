@@ -19,8 +19,6 @@
     vscode-server.enable = true;
   };
 
-  networking.hostName = "mate";
-
   # Enable automatic login
   # ref: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   services.displayManager.autoLogin.enable = true;
@@ -34,6 +32,4 @@
   };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [rtw88];
-
-  system.stateVersion = "25.05";
 }

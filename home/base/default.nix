@@ -2,11 +2,13 @@
   mylib,
   vars,
   isDarwin,
+  hostConfig,
   ...
 }: {
   imports = mylib.scanPaths ./.;
 
   home = {
+    stateVersion = hostConfig.stateVersion;
     username = vars.username;
     homeDirectory =
       if isDarwin

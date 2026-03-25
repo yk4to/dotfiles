@@ -15,8 +15,6 @@
     vscode-server.enable = true;
   };
 
-  networking.hostName = "x13";
-
   # Bootloader.
   # NOTE: This will be replaced by the secureboot module.
   boot.loader = {
@@ -36,6 +34,4 @@
 
   # set hardware clock in local time to prevent Windows clock from going wrong
   time.hardwareClockInLocalTime = true;
-
-  system.stateVersion = "25.05";
 }

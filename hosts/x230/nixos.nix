@@ -13,8 +13,6 @@
     tailscale.enable = true;
   };
 
-  networking.hostName = "x230";
-
   # Bootloader.
   boot.loader.grub = {
     enable = true;
@@ -37,6 +35,4 @@
   environment.variables = {
     MESA_LOADER_DRIVER_OVERRIDE = "i965";
   };
-
-  system.stateVersion = "25.05";
 }
