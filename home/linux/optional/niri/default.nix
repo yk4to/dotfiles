@@ -3,6 +3,7 @@
   inputs,
   lib,
   mylib,
+  pkgs,
   ...
 }:
 with lib; let
