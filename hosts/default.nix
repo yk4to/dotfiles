@@ -3,11 +3,8 @@ inputs: let
   mylib = import ../lib {inherit lib;};
   vars = import ../vars.nix;
 
-  mkSystem = {
-    hostName,
-    system,
-  }: let
-    isDarwin = builtins.elem "darwin" (builtins.split "-" system);
+  mkSystem = hostName: {system}: let
+    isDarwin = lib.strings.hasSuffix "darwin" system;
     moduleName =
       if isDarwin
       then "darwinModules"
@@ -66,27 +63,25 @@ inputs: let
         inherit inputs mylib vars system isDarwin hostName;
       };
     };
+
+  mkSystems = lib.mapAttrs mkSystem;
 in {
-  nixos = {
-    x13 = mkSystem {
-      hostName = "x13";
+  nixos = mkSystems {
+    x13 = {
       system = "x86_64-linux";
     };
 
-    x230 = mkSystem {
-      hostName = "x230";
+    x230 = {
       system = "x86_64-linux";
     };
 
-    mate = mkSystem {
-      hostName = "mate";
+    mate = {
       system = "x86_64-linux";
     };
   };
 
-  darwin = {
-    yuta-mba = mkSystem {
-      hostName = "yuta-mba";
+  darwin = mkSystems {
+    yuta-mba = {
       system = "aarch64-darwin";
     };
   };
