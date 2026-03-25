@@ -3,11 +3,17 @@
 
   optionalModules = {
     base = {
-      ghostty.enable = true;
+      ghostty = {
+        enable = true;
+        disableWindowDecoration = true;
+      };
       # inkdrop.enable = true;
       # latex.enable = true;
       # platformio.enable = true;
-      vscode.enable = true;
+      vscode = {
+        enable = true;
+        useGnomeLibsecret = true;
+      };
     };
     linux = {
       gnome.enable = true;

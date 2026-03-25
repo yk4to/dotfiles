@@ -10,6 +10,12 @@ with lib; let
 in {
   options.optionalModules.base.ghostty = {
     enable = mkEnableOption "Ghostty";
+
+    disableWindowDecoration = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Disable Ghostty window decorations.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -47,7 +53,7 @@ in {
 
           keybind = "global:ctrl+escape=toggle_quick_terminal";
         }
-        // lib.optionalAttrs config.optionalModules.linux.niri.enable {
+        // optionalAttrs cfg.disableWindowDecoration {
           window-decoration = "none";
         };
     };

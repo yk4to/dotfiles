@@ -19,6 +19,12 @@ with lib; let
 in {
   options.optionalModules.base.vscode = {
     enable = mkEnableOption "Visual Studio Code";
+
+    useGnomeLibsecret = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Use gnome-libsecret as VS Code password store.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -144,12 +150,14 @@ in {
       };
     };
 
-    home.file.".vscode/argv.json".text = builtins.toJSON ({
+    home.file.".vscode/argv.json".text = builtins.toJSON (
+      {
         enable-crash-reporter = false;
         locale = "ja";
       }
-      // lib.optionalAttrs config.optionalModules.linux.niri.enable {
+      // optionalAttrs cfg.useGnomeLibsecret {
         password-store = "gnome-libsecret";
-      });
+      }
+    );
   };
 }
