@@ -24,7 +24,10 @@ in {
           path = getExe pkgs.xwayland-satellite-unstable;
         };
 
-        environment."NIXOS_OZONE_WL" = "1";
+        environment = {
+          NIXOS_OZONE_WL = "1";
+          QT_QPA_PLATFORMTHEME = "gtk3";
+        };
 
         outputs."eDP-1".scale = 1.1;
 
