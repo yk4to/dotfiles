@@ -29,6 +29,8 @@ in {
           QT_QPA_PLATFORMTHEME = "gtk3";
         };
 
+        cursor.theme = "catppuccin-mocha-blue-cursors";
+
         outputs."eDP-1".scale = 1.1;
 
         input.touchpad.natural-scroll = false;
