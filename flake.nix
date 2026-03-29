@@ -15,6 +15,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:catppuccin/nix";
+
     niri-flake.url = "github:sodiboo/niri-flake";
 
     noctalia = {
