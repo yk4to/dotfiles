@@ -33,6 +33,8 @@ in {
 
         input.touchpad.natural-scroll = false;
 
+        gestures.hot-corners.enable = false;
+
         window-rules = [
           {
             matches = [
