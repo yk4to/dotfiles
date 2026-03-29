@@ -43,7 +43,7 @@
       enable = true;
 
       settings = {
-        colorSchemes.predefinedScheme = "One";
+        colorSchemes.predefinedScheme = "Catppuccin";
 
         general.avatarImage = "${../../../../icon.jpg}";
 
