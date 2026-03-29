@@ -30,7 +30,7 @@ in {
 
       plugins = [
         "math"
-        "sidetoc"
+        # "sidetoc"
         # "emoji-picker"
         # "thumbnail-list"
         "img-small"
