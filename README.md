@@ -19,7 +19,7 @@ See [./hosts](./hosts) for details.
 | Terminal Emulator | [Ghostty](https://github.com/ghostty-org/ghostty) |
 | Editor | [VSCode](https://github.com/microsoft/vscode), [Neovim](https://github.com/neovim/neovim) |
 | Font | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [UDEV Gothic](https://github.com/yuru7/udev-gothic) 🇯🇵 |
-| Color Scheme | Atom One Dark ([VSCode](https://github.com/Binaryify/OneDark-Pro), [Neovim](https://github.com/olimorris/onedarkpro.nvim)) |
+| Color Scheme | [Catppuccin Mocha](https://github.com/catppuccin/nix) |
 | Nix Formatter | [Alejandra](https://github.com/kamadorueda/alejandra) |
 | Secret Management | [ragenix](https://github.com/yaxitech/ragenix) |
 | System Monitor | [bottom](https://github.com/ClementTsang/bottom) |
@@ -47,8 +47,7 @@ See [./hosts](./hosts) for details.
 
 | | NixOS |
 | - | - |
-| Desktop Environment | [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) |
-| Window Manager | [Pop Shell](https://github.com/pop-os/shell) |
+| DE + WM | [Niri](https://github.com/niri-wm/niri) + [Noctalia](https://github.com/noctalia-dev/noctalia-shell) / [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) + [Pop Shell](https://github.com/pop-os/shell) |
 | Self-Hosted Services | [FreshRSS](https://github.com/FreshRSS/FreshRSS), [Memos](https://github.com/usememos/memos), [Karakeep](https://github.com/karakeep-app/karakeep), [homepage](https://github.com/gethomepage/homepage) |
 | Private Network | [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) |
 | Secure Boot | [Lanzaboote](https://github.com/nix-community/lanzaboote) |
