@@ -44,8 +44,8 @@ in {
           ms-ceintl.vscode-language-pack-ja # japanese language pack
 
           # Themes
-          zhuangtongfa.material-theme # Atom One Dark Theme
-          pkief.material-icon-theme # material icons
+          # zhuangtongfa.material-theme # Atom One Dark Theme
+          # pkief.material-icon-theme # material icons
 
           # AI
           # github.copilot-chat # GitHub Copilot Chat
@@ -124,8 +124,8 @@ in {
 
           "workbench.startupEditor" = "none"; # disable welcome page
           "workbench.editor.empty.hint" = "hidden";
-          "workbench.colorTheme" = "One Dark Pro";
-          "workbench.iconTheme" = "material-icon-theme";
+          # "workbench.colorTheme" = "One Dark Pro";
+          # "workbench.iconTheme" = "material-icon-theme";
 
           "window.commandCenter" = false; # disable command center on title bar
 

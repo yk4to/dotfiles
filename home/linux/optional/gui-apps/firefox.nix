@@ -15,15 +15,19 @@
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         };
 
-        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          ublacklist
-          refined-github
-          stylus
-          translate-web-pages
-          control-panel-for-twitter
-          wappalyzer
-        ];
+        extensions = {
+          force = true;
+
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            ublacklist
+            refined-github
+            stylus
+            translate-web-pages
+            control-panel-for-twitter
+            wappalyzer
+          ];
+        };
 
         bookmarks = {
           force = true;

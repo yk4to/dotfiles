@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -14,17 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-utils.url = "github:numtide/flake-utils";
-
-    darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
-
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-
-    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop?ref=support-v6";
-
-    nur.url = "github:nix-community/nur";
+    catppuccin.url = "github:catppuccin/nix";
 
     niri-flake.url = "github:sodiboo/niri-flake";
 
@@ -38,21 +29,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    agenix.url = "github:yaxitech/ragenix";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+
+    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop?ref=support-v6";
+
+    nur.url = "github:nix-community/nur";
+
+    agenix.url = "github:yaxitech/ragenix";
 
     secrets = {
       url = "git+ssh://git@github.com/yk4to/nix-secrets";
       flake = false;
     };
 
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # Declarative homebrew tap management
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -61,6 +58,8 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
   };
 
   outputs = inputs: let

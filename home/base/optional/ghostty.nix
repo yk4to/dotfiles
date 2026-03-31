@@ -40,8 +40,6 @@ in {
 
           font-thicken = true;
 
-          theme = "Atom One Dark";
-
           macos-titlebar-style = "tabs";
           macos-window-shadow = false;
 

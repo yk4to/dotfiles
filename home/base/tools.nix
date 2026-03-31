@@ -22,7 +22,6 @@
   # `cat` replacement
   programs.bat = {
     enable = true;
-    config.theme = "OneHalfDark";
   };
 
   # system info (`neofetch` replacement)

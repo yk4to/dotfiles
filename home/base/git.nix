@@ -39,8 +39,6 @@
     enable = true;
 
     enableGitIntegration = true;
-
-    options.syntax-theme = "OneHalfDark";
   };
 
   # git TUI
