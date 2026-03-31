@@ -33,6 +33,17 @@
         }
       ];
 
+      layer-rules = [
+        {
+          matches = [
+            {
+              namespace = "^noctalia-overview*";
+            }
+          ];
+          place-within-backdrop = true;
+        }
+      ];
+
       debug = {
         # Allows notification actions and window activation from Noctalia.
         honor-xdg-activation-with-invalid-serial = [];
@@ -46,6 +57,8 @@
         colorSchemes.predefinedScheme = "Catppuccin";
 
         general.avatarImage = "${../../../../icon.jpg}";
+
+        wallpaper.overviewEnabled = true;
 
         location.name = "Tokyo, Japan";
 
