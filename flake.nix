@@ -72,7 +72,12 @@
     }
     // inputs.flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import inputs.nixpkgs {inherit system;};
+      inherit (inputs.nixpkgs) lib;
     in {
       formatter = pkgs.alejandra;
+      checks =
+        if pkgs.stdenv.isDarwin
+        then lib.mapAttrs (_: config: config.system) hosts.darwin
+        else lib.mapAttrs (_: config: config.config.system.build.toplevel) hosts.nixos;
     });
 }
