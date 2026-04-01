@@ -10,10 +10,5 @@
     flavor = "mocha";
 
     cache.enable = true;
-
-    cursors = {
-      enable = true;
-      accent = "blue";
-    };
   };
 }
