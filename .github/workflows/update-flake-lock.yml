@@ -23,9 +23,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
 
-      - name: Setup Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
-
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v28
         with:
