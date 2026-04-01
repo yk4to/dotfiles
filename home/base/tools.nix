@@ -20,8 +20,12 @@
   ];
 
   # `cat` replacement
-  programs.bat = {
+  programs.bat.enable = true;
+
+  # shell history replacement
+  programs.atuin = {
     enable = true;
+    enableFishIntegration = true;
   };
 
   # system info (`neofetch` replacement)
