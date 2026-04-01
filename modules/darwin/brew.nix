@@ -112,7 +112,7 @@
       "raycast"
 
       # Notes
-      "inkdrop"
+      # "inkdrop" # disabled until the v6 release
       "notion"
 
       # Dev Tools
@@ -126,7 +126,7 @@
       "raspberry-pi-imager"
       # "sf-symbols"
       # "visual-studio-code"
-      "xcodes"
+      "xcodes-app"
       "ghostty"
 
       # Design Tools
