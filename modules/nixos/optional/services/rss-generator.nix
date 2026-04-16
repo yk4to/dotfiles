@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  ...
 }: {
   imports = [
     inputs.rss-generator.nixosModules.default
