@@ -656,6 +656,22 @@
     },
     "nixpkgs_8": {
       "locked": {
+        "lastModified": 1776169885,
+        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_9": {
+      "locked": {
         "lastModified": 1682134069,
         "narHash": "sha256-TnI/ZXSmRxQDt2sjRYK/8j8iha4B4zP2cnQCZZ3vp7k=",
         "owner": "NixOS",
@@ -775,8 +791,27 @@
         "noctalia": "noctalia",
         "noctalia-qs": "noctalia-qs",
         "nur": "nur",
+        "rss-generator": "rss-generator",
         "secrets": "secrets",
         "vscode-server": "vscode-server"
+      }
+    },
+    "rss-generator": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1776344367,
+        "narHash": "sha256-QpxCKcAhVnpK4yrLZxl/G8cN5LKvts2rR9yl3/LZZwE=",
+        "ref": "refs/heads/main",
+        "rev": "db9fe7b037f231fa74e8ec033bfe3d1e394a3324",
+        "revCount": 8,
+        "type": "git",
+        "url": "ssh://git@github.com/yk4to/rss-generator"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/yk4to/rss-generator"
       }
     },
     "rust-overlay": {
@@ -951,7 +986,7 @@
     "vscode-server": {
       "inputs": {
         "flake-utils": "flake-utils_4",
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_9"
       },
       "locked": {
         "lastModified": 1770124655,

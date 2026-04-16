@@ -44,6 +44,8 @@
       flake = false;
     };
 
+    rss-generator.url = "git+ssh://git@github.com/yk4to/rss-generator";
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
