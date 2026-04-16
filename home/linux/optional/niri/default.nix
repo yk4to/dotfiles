@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   mylib,
   pkgs,
@@ -29,7 +28,7 @@ in {
           QT_QPA_PLATFORMTHEME = "gtk3";
         };
 
-        cursor.theme = "catppuccin-mocha-blue-cursors";
+        cursor.theme = "catppuccin-mocha-mauve-cursors";
 
         outputs."eDP-1".scale = 1.1;
 
@@ -46,6 +45,10 @@ in {
               }
             ];
             open-floating = true;
+          }
+          {
+            matches = [{app-id = "com.mitchellh.ghostty";}];
+            draw-border-with-background = false;
           }
         ];
       };
