@@ -101,7 +101,6 @@
       "cleanshot"
       "iina"
       "istat-menus"
-      "jordanbaird-ice@beta"
       "karabiner-elements"
       "keka"
       "latest"
@@ -110,6 +109,7 @@
       # "monitorcontrol"
       # "notchnook"
       "raycast"
+      "thaw"
 
       # Notes
       # "inkdrop" # disabled until the v6 release
