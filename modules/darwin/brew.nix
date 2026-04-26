@@ -48,6 +48,7 @@
       # "Logic Pro" = 634148309;
       # "ReadKit" = 1615798039;
       "Todoist" = 585829637;
+      "辞書 by 物書堂" = 1380563956;
 
       # Office
       "Microsoft Word" = 462054704;
@@ -119,7 +120,7 @@
       "apparency"
       "arduino-ide"
       "balenaetcher"
-      "clion"
+      # "clion"
       "codex-app"
       "codexbar"
       "orbstack"
