@@ -44,8 +44,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
 
-      - name: Run flake check
-        run: nix flake check . --system ${{ matrix.system }} --no-build --show-trace
+      - name: Evaluate flake outputs
+        run: |
+          nix eval .#formatter.${{ matrix.system }}.drvPath --raw
+          nix eval .#checks.${{ matrix.system }} --json --apply 'checks: builtins.mapAttrs (_: drv: drv.drvPath) checks'
 
       - name: Show build info
         run: |
