@@ -45,7 +45,7 @@ jobs:
           ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
 
       - name: Run flake check
-        run: nix flake check . --system ${{ matrix.system }}
+        run: nix flake check . --system ${{ matrix.system }} --no-build --show-trace
 
       - name: Show build info
         run: |
