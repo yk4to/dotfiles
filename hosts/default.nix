@@ -75,11 +75,6 @@ in {
       stateVersion = "25.05";
     };
 
-    x230 = {
-      system = "x86_64-linux";
-      stateVersion = "25.05";
-    };
-
     mate = {
       system = "x86_64-linux";
       stateVersion = "25.05";
