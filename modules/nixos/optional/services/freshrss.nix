@@ -15,7 +15,7 @@
 
     virtualisation.oci-containers.containers = {
       freshrss = {
-        image = "lscr.io/linuxserver/freshrss:version-1.28.1";
+        image = "lscr.io/linuxserver/freshrss:version-1.29.0";
         volumes = [
           "/srv/data/freshrss/config:/config"
         ];
