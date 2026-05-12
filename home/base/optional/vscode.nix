@@ -146,6 +146,16 @@ in {
           "nix.serverPath" = "nixd";
           "nix.serverSettings"."nixd"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
           "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
+          "json.schemaDownload.trustedDomains" = {
+            "https://schemastore.azurewebsites.net/" = true;
+            "https://raw.githubusercontent.com/microsoft/vscode/" = true;
+            "https://raw.githubusercontent.com/devcontainers/spec/" = true;
+            "https://www.schemastore.org/" = true;
+            "https://json.schemastore.org/" = true;
+            "https://json-schema.org/" = true;
+            "https://developer.microsoft.com/json-schemas/" = true;
+            "https://biomejs.dev" = true;
+          };
         };
       };
     };
