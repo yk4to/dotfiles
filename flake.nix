@@ -29,6 +29,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
