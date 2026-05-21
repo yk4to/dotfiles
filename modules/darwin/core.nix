@@ -8,8 +8,8 @@
 
   nix.package = pkgs.nix;
 
-  # ref: https://github.com/NixOS/nix/issues/7273
-  nix.settings.auto-optimise-store = false;
+  # Optimise the store automatically during every build
+  nix.settings.auto-optimise-store = true;
 
   nix.gc = {
     automatic = true;
