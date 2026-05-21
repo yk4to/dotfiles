@@ -1,14 +1,11 @@
 {
   config,
   lib,
-  mylib,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.linux.gnome;
 in {
-  imports = mylib.scanPaths ./.;
-
   options.optionalModules.linux.gnome = {
     enable = mkEnableOption "GNOME Desktop Environment";
   };

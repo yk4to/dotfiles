@@ -1,14 +1,11 @@
 {
   config,
   lib,
-  mylib,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.nixos.services;
 in {
-  imports = mylib.scanPaths ./.;
-
   options.optionalModules.nixos.services = {
     enable = mkEnableOption "Self-hosted services";
   };

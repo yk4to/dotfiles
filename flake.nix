@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    import-tree.url = "github:denful/import-tree";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 

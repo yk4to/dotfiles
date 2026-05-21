@@ -1,6 +1,5 @@
 inputs: let
   inherit (inputs.nixpkgs) lib;
-  mylib = import ../lib {inherit lib;};
   vars = import ../vars.nix;
 
   optionalImport = path:
@@ -16,16 +15,16 @@ inputs: let
     hostDir = ./. + "/${hostName}";
 
     specialArgs = {
-      inherit inputs mylib vars system isDarwin hostName hostConfig;
+      inherit inputs vars system isDarwin hostName hostConfig;
     };
 
     modules =
       [
-        ../modules/base
+        (inputs.import-tree ../modules/base)
         (
           if isDarwin
-          then ../modules/darwin
-          else ../modules/nixos
+          then (inputs.import-tree ../modules/darwin)
+          else (inputs.import-tree ../modules/nixos)
         )
         inputs.agenix.${moduleName}.default
         inputs.home-manager.${moduleName}.home-manager
@@ -36,11 +35,11 @@ inputs: let
 
             users.${vars.username}.imports =
               [
-                ../home/base
+                (inputs.import-tree ../home/base)
                 (
                   if isDarwin
-                  then ../home/darwin
-                  else ../home/linux
+                  then (inputs.import-tree ../home/darwin)
+                  else (inputs.import-tree ../home/linux)
                 )
               ]
               ++ optionalImport (hostDir + "/home-manager.nix");
