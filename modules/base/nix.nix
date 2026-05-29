@@ -4,6 +4,9 @@
     trusted-users = ["root" vars.username];
     accept-flake-config = true;
 
+    # Optimise the store automatically during every build
+    auto-optimise-store = true;
+
     substituters = [
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"

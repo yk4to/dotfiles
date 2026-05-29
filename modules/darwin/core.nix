@@ -8,9 +8,6 @@
 
   nix.package = pkgs.nix;
 
-  # Optimise the store automatically during every build
-  nix.settings.auto-optimise-store = true;
-
   nix.gc = {
     automatic = true;
     interval = {
