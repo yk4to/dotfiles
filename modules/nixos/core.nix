@@ -14,7 +14,6 @@
 
   i18n.defaultLocale = vars.locale;
 
-  # enable auto optimisation and gc
   nix.gc = {
     automatic = true;
     dates = "weekly";
