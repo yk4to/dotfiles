@@ -1,29 +1,31 @@
-{config, ...}: let
-  helpers = config.lib.nixvim;
-in {
-  programs.nixvim.plugins.cmp = {
+{
+  programs.nixvim.plugins.blink-cmp = {
     enable = true;
 
     settings = {
-      mapping = {
-        "<C-Space>" = "cmp.mapping.complete()";
-        "<C-e>" = "cmp.mapping.abort()";
-        "<C-n>" = "cmp.mapping.select_next_item()";
-        "<C-p>" = "cmp.mapping.select_prev_item()";
-        "<CR>" = "cmp.mapping.confirm({ select = true })";
+      keymap = {
+        preset = "default";
+        "<CR>" = [
+          "accept"
+          "fallback"
+        ];
+        "<C-e>" = [
+          "cancel"
+          "fallback"
+        ];
       };
 
-      snippet.expand = helpers.mkRaw ''
-        function(args)
-          vim.snippet.expand(args.body)
-        end
-      '';
+      completion.documentation.auto_show = false;
 
-      sources = [
-        {name = "nvim_lsp";}
-        {name = "path";}
-        {name = "buffer";}
-      ];
+      sources = {
+        default = [
+          "lsp"
+          "path"
+          "buffer"
+        ];
+
+        providers.lsp.fallbacks = [];
+      };
     };
   };
 }
