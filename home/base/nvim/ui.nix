@@ -16,6 +16,14 @@
     };
 
     plugins = {
+      snacks = {
+        enable = true;
+
+        settings = {
+          lazygit.enabled = true;
+        };
+      };
+
       web-devicons.enable = true;
 
       lualine = {

@@ -11,7 +11,11 @@ in {
     {
       key = "<leader>gg";
       mode = "n";
-      action = "<cmd>tabnew | terminal lazygit<cr>";
+      action = helpers.mkRaw ''
+        function()
+          Snacks.lazygit.open()
+        end
+      '';
       options.desc = "Open lazygit";
     }
     {
