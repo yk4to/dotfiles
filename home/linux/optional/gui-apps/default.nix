@@ -17,6 +17,8 @@ in {
       slack
 
       todoist-electron
+
+      parsec-bin
     ];
   };
 }
