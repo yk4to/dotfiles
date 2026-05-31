@@ -48,6 +48,7 @@ See [./hosts](./hosts) for details.
 | | NixOS |
 | - | - |
 | DE + WM | [Niri](https://github.com/niri-wm/niri) + [Noctalia](https://github.com/noctalia-dev/noctalia-shell) / [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) + [Pop Shell](https://github.com/pop-os/shell) |
+| Input Method | [Fcitx5](https://github.com/fcitx/fcitx5) + [Hazkey](https://github.com/7ka-Hiira/hazkey) |
 | Self-Hosted Services | [FreshRSS](https://github.com/FreshRSS/FreshRSS), [Memos](https://github.com/usememos/memos), [Karakeep](https://github.com/karakeep-app/karakeep), [homepage](https://github.com/gethomepage/homepage) |
 | Private Network | [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) |
 | Secure Boot | [Lanzaboote](https://github.com/nix-community/lanzaboote) |
