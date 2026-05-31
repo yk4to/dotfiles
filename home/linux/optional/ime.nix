@@ -3,10 +3,13 @@
   lib,
   config,
   ...
-}: {
-  imports = [inputs.nix-hazkey.nixosModules.hazkey];
+}:
+with lib; let
+  guiEnabled = config.optionalModules.linux.gnome.enable || config.optionalModules.linux.niri.enable;
+in {
+  imports = [inputs.nix-hazkey.homeModules.hazkey];
 
-  config = lib.mkIf config.optionalModules.nixos.gui.enable {
+  config = mkIf guiEnabled {
     services.hazkey.enable = true;
 
     i18n.inputMethod = {
