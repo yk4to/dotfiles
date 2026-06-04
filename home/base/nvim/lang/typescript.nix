@@ -15,6 +15,8 @@ in {
     ];
 
     plugins.lsp.servers.vtsls.enable = true;
+    plugins.ts-context-commentstring.enable = true;
+    plugins.comment.settings.pre_hook = "require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()";
 
     plugins.conform-nvim.settings = {
       formatters = {

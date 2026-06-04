@@ -1,4 +1,4 @@
-{
+{...}: {
   programs.nixvim = {
     colorschemes.catppuccin = {
       enable = true;
@@ -16,15 +16,12 @@
     };
 
     plugins = {
-      snacks = {
-        enable = true;
-
-        settings = {
-          lazygit.enabled = true;
-        };
-      };
-
       web-devicons.enable = true;
+
+      fidget.enable = true;
+      # render-markdown.enable = true;
+      smear-cursor.enable = true;
+      tiny-inline-diagnostic.enable = true;
 
       lualine = {
         enable = true;

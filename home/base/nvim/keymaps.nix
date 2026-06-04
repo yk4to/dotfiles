@@ -9,16 +9,6 @@ in {
       options.desc = "Exit terminal mode";
     }
     {
-      key = "<leader>gg";
-      mode = "n";
-      action = helpers.mkRaw ''
-        function()
-          Snacks.lazygit.open()
-        end
-      '';
-      options.desc = "Open lazygit";
-    }
-    {
       key = "gd";
       mode = "n";
       action = helpers.mkRaw "vim.lsp.buf.definition";
@@ -27,7 +17,7 @@ in {
     {
       key = "gr";
       mode = "n";
-      action = "<cmd>Telescope lsp_references<cr>";
+      action = "<cmd>lua Snacks.picker.lsp_references()<cr>";
       options.desc = "References";
     }
     {
@@ -65,6 +55,12 @@ in {
       mode = "n";
       action = helpers.mkRaw "vim.diagnostic.goto_next";
       options.desc = "Next diagnostic";
+    }
+    {
+      key = "<leader>bd";
+      mode = "n";
+      action = "<cmd>bdelete<cr>";
+      options.desc = "Close buffer";
     }
   ];
 }
