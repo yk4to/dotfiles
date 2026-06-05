@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim.url = "github:nix-community/nixvim";
+
     catppuccin.url = "github:catppuccin/nix";
 
     niri-flake.url = "github:sodiboo/niri-flake";
