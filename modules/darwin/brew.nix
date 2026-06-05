@@ -156,6 +156,8 @@
 
       # AI
       "chatgpt"
+      "claude"
+      "gemini"
 
       # Others
       "anki"
