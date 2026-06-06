@@ -1,4 +1,8 @@
-{vars, ...}: {
+{
+  vars,
+  pkgs,
+  ...
+}: {
   # use TouchID for sudo authentication
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -26,6 +30,34 @@
         autohide = false;
         show-recents = false; # do not show recent apps in dock
         # mru-spaces = false;
+
+        persistent-apps = [
+          "/System/Applications/Apps.app"
+          "/Applications/Arc.app"
+          "/System/Cryptexes/App/System/Applications/Safari.app"
+          "/Applications/Google Chrome.app"
+          "/System/Applications/Notes.app"
+          "/System/Applications/Music.app"
+          "/System/Applications/System Settings.app"
+          "/Applications/Todoist.app"
+          "/Applications/Discord.app"
+          "/Applications/Slack.app"
+          "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          "/Applications/Ghostty.app"
+          "/Applications/CotEditor.app"
+          "/Applications/Notion.app"
+        ];
+
+        persistent-others = [
+          {
+            folder = {
+              path = "/Users/${vars.username}/Downloads";
+              arrangement = "date-added";
+              displayas = "stack";
+              showas = "fan";
+            };
+          }
+        ];
 
         tilesize = 56;
 

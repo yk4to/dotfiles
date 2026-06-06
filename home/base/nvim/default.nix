@@ -5,7 +5,8 @@
 
   programs.nixvim = {
     enable = true;
+    nixpkgs.source = inputs.nixpkgs;
     wrapRc = true;
   };
-  # programs.nixvim.defaultEditor = true;
+  programs.nixvim.defaultEditor = true;
 }
