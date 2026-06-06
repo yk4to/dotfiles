@@ -9,6 +9,9 @@
       enable = true;
       package = pkgs.firefox-devedition;
 
+      # Remove this line once all hosts are upgraded to 26.05 or higher
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
+
       profiles."dev-edition-default" = {
         settings = {
           "browser.newtabpage.activity-stream.showSponsored" = false;
