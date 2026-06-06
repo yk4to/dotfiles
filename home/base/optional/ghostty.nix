@@ -1,5 +1,6 @@
 {
   config,
+  mylib,
   lib,
   pkgs,
   isDarwin,
@@ -15,6 +16,12 @@ in {
       type = types.bool;
       default = false;
       description = "Disable Ghostty window decorations.";
+    };
+
+    fontSizeInPt = mkOption {
+      type = types.float;
+      default = 13.0;
+      description = "Reference Mac Ghostty font size in pt.";
     };
   };
 
@@ -39,6 +46,11 @@ in {
           ];
 
           font-thicken = true;
+          # On Linux, adjust the font size in pt to match the macOS font size, accounting for differences in DPI scaling.
+          font-size =
+            if isDarwin
+            then cfg.fontSizeInPt
+            else mylib.display.getLinuxPt cfg.fontSizeInPt;
 
           macos-titlebar-style = "tabs";
           macos-window-shadow = false;
