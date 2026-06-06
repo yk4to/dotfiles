@@ -1,4 +1,4 @@
-{}: let
+{lib, ...}: let
   # Nix builtins do not expose sqrt, so use Newton's method for DPI calculation.
   sqrt = value: let
     iterate = guess: remaining:
