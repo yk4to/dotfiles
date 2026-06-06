@@ -1016,6 +1016,23 @@
         "type": "github"
       }
     },
+    "private-assets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780736679,
+        "narHash": "sha256-QQAjI61qdM7ekJh5mux9+SHlawmI/CUkERndifOYaC4=",
+        "ref": "main",
+        "rev": "173667b286330de4e59cd604f52f66d39fef912e",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/yk4to/private-assets"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://git@github.com/yk4to/private-assets"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -1040,6 +1057,7 @@
         "noctalia": "noctalia",
         "noctalia-qs": "noctalia-qs",
         "nur": "nur",
+        "private-assets": "private-assets",
         "rss-generator": "rss-generator",
         "secrets": "secrets",
         "vscode-server": "vscode-server"

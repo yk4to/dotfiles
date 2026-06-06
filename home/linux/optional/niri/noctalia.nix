@@ -3,12 +3,19 @@
   lib,
   config,
   ...
-}: {
+}: let
+  wallpaperPath = "${inputs.private-assets}/wallpapers/checkmate.png";
+in {
   imports = [
     inputs.noctalia.homeModules.default
   ];
 
   config = lib.mkIf config.optionalModules.linux.niri.enable {
+    home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
+      defaultWallpaper = wallpaperPath;
+      wallpapers = {};
+    };
+
     programs.niri.settings = {
       spawn-at-startup = [
         {
