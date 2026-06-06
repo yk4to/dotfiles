@@ -1,5 +1,6 @@
 inputs: let
   inherit (inputs.nixpkgs) lib;
+  mylib = import ../lib {inherit lib;};
   vars = import ../vars.nix;
 
   optionalImport = path:
@@ -15,7 +16,7 @@ inputs: let
     hostDir = ./. + "/${hostName}";
 
     specialArgs = {
-      inherit inputs vars system isDarwin hostName hostConfig;
+      inherit inputs vars system isDarwin hostName hostConfig mylib;
     };
 
     modules =
@@ -72,6 +73,17 @@ in {
     x13 = {
       system = "x86_64-linux";
       stateVersion = "25.05";
+      displays = [
+        {
+          connector = "eDP-1";
+          resolution = {
+            width = 1920;
+            height = 1080;
+          };
+          inch = 13.3;
+          is_laptop = true;
+        }
+      ];
     };
 
     mate = {
