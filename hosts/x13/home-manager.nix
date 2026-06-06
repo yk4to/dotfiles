@@ -5,7 +5,7 @@
         enable = true;
         disableWindowDecoration = true;
       };
-      # inkdrop.enable = true;
+      inkdrop.enable = true;
       # latex.enable = true;
       # platformio.enable = true;
       vscode = {
