@@ -2,20 +2,38 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
+  imports = [inputs.zen-browser.homeModules.beta];
+
   config = lib.mkIf config.optionalModules.linux.gui-apps.enable {
-    programs.firefox = {
+    programs.zen-browser = {
       enable = true;
-      package = pkgs.firefox-devedition;
+      setAsDefaultBrowser = true;
 
-      # Remove this line once all hosts are upgraded to 26.05 or higher
-      configPath = "${config.xdg.configHome}/mozilla/firefox";
+      policies = {
+        DisableAppUpdate = true;
+        DisableTelemetry = true;
+        DisablePocket = true;
+        DisableFirefoxStudies = true;
+        DisableFeedbackCommands = true;
+        DontCheckDefaultBrowser = true;
+        OfferToSaveLogins = false;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+      };
 
-      profiles."dev-edition-default" = {
+      profiles.default = {
         settings = {
           "browser.newtabpage.activity-stream.showSponsored" = false;
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "extensions.autoDisableScopes" = 0;
+          "zen.welcome-screen.seen" = true;
         };
 
         extensions = {
