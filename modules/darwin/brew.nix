@@ -162,6 +162,7 @@
 
       # Others
       "anki"
+      "parsec"
     ];
   };
 
