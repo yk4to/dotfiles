@@ -12,46 +12,46 @@ See [./hosts](./hosts) for details.
 
 ### Base (shared on macOS and Linux)
 
-| | Managed by [Nix](https://github.com/NixOS/nix) and [Home Manager](https://github.com/nix-community/home-manager) |
-| - | - |
-| Shell | [Fish](https://github.com/fish-shell/fish-shell) |
-| Shell Prompt | [Starship](https://github.com/starship/starship) |
-| Terminal Emulator | [Ghostty](https://github.com/ghostty-org/ghostty) |
-| Editor | [VSCode](https://github.com/microsoft/vscode), [Neovim](https://github.com/neovim/neovim) |
-| Font | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [UDEV Gothic](https://github.com/yuru7/udev-gothic) 🇯🇵 |
-| Color Scheme | [Catppuccin Mocha](https://github.com/catppuccin/nix) |
-| Nix Formatter | [Alejandra](https://github.com/kamadorueda/alejandra) |
-| Secret Management | [ragenix](https://github.com/yaxitech/ragenix) |
-| System Monitor | [bottom](https://github.com/ClementTsang/bottom) |
+|                   | Managed by [Nix](https://github.com/NixOS/nix) and [Home Manager](https://github.com/nix-community/home-manager)                                                                                         |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Shell             | [Fish](https://github.com/fish-shell/fish-shell)                                                                                                                                                         |
+| Shell Prompt      | [Starship](https://github.com/starship/starship)                                                                                                                                                         |
+| Terminal Emulator | [Ghostty](https://github.com/ghostty-org/ghostty)                                                                                                                                                        |
+| Editor            | [VSCode](https://github.com/microsoft/vscode), [Neovim](https://github.com/neovim/neovim)                                                                                                                |
+| Font              | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [UDEV Gothic](https://github.com/yuru7/udev-gothic) 🇯🇵                                                                                     |
+| Color Scheme      | [Catppuccin Mocha](https://github.com/catppuccin/nix)                                                                                                                                                    |
+| Nix Formatter     | [Alejandra](https://github.com/kamadorueda/alejandra)                                                                                                                                                    |
+| Secret Management | [ragenix](https://github.com/yaxitech/ragenix)                                                                                                                                                           |
+| System Monitor    | [bottom](https://github.com/ClementTsang/bottom)                                                                                                                                                         |
 | Git-related Tools | [Commitizen](https://github.com/commitizen-tools/commitizen), [Lazygit](https://github.com/jesseduffield/lazygit), [delta](https://github.com/dandavison/delta), [ghq](https://github.com/x-motemen/ghq) |
-| Modern CLI Tools | [zoxide](https://github.com/ajeetdsouza/zoxide), [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat), [Atuin](https://github.com/atuinsh/atuin) |
-| Other CLI Tools | [direnv](https://github.com/direnv/direnv), [just](https://github.com/casey/just), [hyperfine](https://github.com/sharkdp/hyperfine), ... |
-| VPN | [Tailscale](https://github.com/tailscale/tailscale) |
+| Modern CLI Tools  | [zoxide](https://github.com/ajeetdsouza/zoxide), [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat), [Atuin](https://github.com/atuinsh/atuin)                           |
+| Other CLI Tools   | [direnv](https://github.com/direnv/direnv), [just](https://github.com/casey/just), [hyperfine](https://github.com/sharkdp/hyperfine), ...                                                                |
+| VPN               | [Tailscale](https://github.com/tailscale/tailscale)                                                                                                                                                      |
 
 #### Neovim plugins
 
-| | Managed by Nix |
-| - | - |
-| Plugin Manager | [lazy.nvim](https://github.com/folke/lazy.nvim) |
-| File Tree | [Neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) |
-| Statusline | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) |
+|                | Managed by Nix                                                  |
+| -------------- | --------------------------------------------------------------- |
+| Plugin Manager | [lazy.nvim](https://github.com/folke/lazy.nvim)                 |
+| File Tree      | [Neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) |
+| Statusline     | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)    |
 
 ### macOS
 
-| | Managed by [nix-darwin](https://github.com/LnL7/nix-darwin) |
-| - | - |
+|                  | Managed by [nix-darwin](https://github.com/LnL7/nix-darwin)                                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | GUI Apps Manager | [nix-homebrew](https://github.com/zhaofengli/nix-homebrew), [Homebrew Cask](https://github.com/Homebrew/homebrew-cask), [mas](https://github.com/mas-cli/mas) |
-| Container System | [OrbStack](https://orbstack.dev) (Docker replacement) |
+| Container System | [OrbStack](https://orbstack.dev) (Docker replacement)                                                                                                         |
 
 ### Linux
 
-| | NixOS |
-| - | - |
-| DE + WM | [Niri](https://github.com/niri-wm/niri) + [Noctalia](https://github.com/noctalia-dev/noctalia-shell) / [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) + [Pop Shell](https://github.com/pop-os/shell) |
-| Input Method | [Fcitx5](https://github.com/fcitx/fcitx5) + [Hazkey](https://github.com/7ka-Hiira/hazkey) |
-| Self-Hosted Services | [FreshRSS](https://github.com/FreshRSS/FreshRSS), [Memos](https://github.com/usememos/memos), [Karakeep](https://github.com/karakeep-app/karakeep), [homepage](https://github.com/gethomepage/homepage) |
-| Private Network | [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/) |
-| Secure Boot | [Lanzaboote](https://github.com/nix-community/lanzaboote) |
+|                      | NixOS                                                                                                                                                                                                     |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DE + WM              | [Niri](https://github.com/niri-wm/niri) + [Noctalia](https://github.com/noctalia-dev/noctalia-shell) / [GNOME](https://gitlab.gnome.org/GNOME/gnome-shell) + [Pop Shell](https://github.com/pop-os/shell) |
+| Input Method         | [Fcitx5](https://github.com/fcitx/fcitx5) + [Hazkey](https://github.com/7ka-Hiira/hazkey)                                                                                                                 |
+| Self-Hosted Services | [FreshRSS](https://github.com/FreshRSS/FreshRSS), [Memos](https://github.com/usememos/memos), [Karakeep](https://github.com/karakeep-app/karakeep), [homepage](https://github.com/gethomepage/homepage)   |
+| Private Network      | [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/)                                                                                                                                          |
+| Secure Boot          | [Lanzaboote](https://github.com/nix-community/lanzaboote)                                                                                                                                                 |
 
 ## References
 
