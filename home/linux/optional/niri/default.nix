@@ -42,7 +42,7 @@ in {
             {
               matches = [
                 {
-                  app-id = "firefox$";
+                  app-id = "^zen-beta$";
                   title = "^Picture-in-Picture$";
                 }
               ];

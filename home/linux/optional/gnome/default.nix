@@ -16,7 +16,7 @@ in {
         (
           if config.optionalModules.linux.gui-apps.enable
           then [
-            "firefox-devedition.desktop"
+            "zen-beta.desktop"
           ]
           else []
         )
