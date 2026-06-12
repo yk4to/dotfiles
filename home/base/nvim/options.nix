@@ -1,5 +1,7 @@
 {
   programs.nixvim = {
+    globals.editorconfig = true;
+
     globals.mapleader = " ";
 
     opts = {

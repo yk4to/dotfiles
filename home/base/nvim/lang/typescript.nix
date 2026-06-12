@@ -31,6 +31,7 @@ in {
           command = lib.getExe pkgs.prettierd;
           cwd = helpers.mkRaw ''
             require("conform.util").root_file({
+              ".editorconfig",
               ".prettierrc",
               ".prettierrc.json",
               ".prettierrc.json5",
@@ -54,6 +55,7 @@ in {
           command = lib.getExe pkgs.prettier;
           cwd = helpers.mkRaw ''
             require("conform.util").root_file({
+              ".editorconfig",
               ".prettierrc",
               ".prettierrc.json",
               ".prettierrc.json5",
