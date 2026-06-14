@@ -19,6 +19,10 @@ in {
   config = mkIf cfg.enable {
     nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
 
+    hardware.bluetooth.enable = mkDefault true;
+    services.power-profiles-daemon.enable = mkDefault true;
+    services.upower.enable = mkDefault true;
+
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;

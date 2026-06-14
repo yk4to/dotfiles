@@ -28,10 +28,7 @@
 
     niri-flake.url = "github:sodiboo/niri-flake";
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    noctalia.url = "github:noctalia-dev/noctalia";
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 

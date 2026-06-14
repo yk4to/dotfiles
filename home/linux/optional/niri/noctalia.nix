@@ -5,22 +5,18 @@
   ...
 }: let
   wallpaperPath = "${inputs.private-assets}/wallpapers/checkmate.png";
+  wallpaperDirectory = "${inputs.private-assets}/wallpapers";
 in {
   imports = [
     inputs.noctalia.homeModules.default
   ];
 
   config = lib.mkIf config.optionalModules.linux.niri.enable {
-    home.file.".cache/noctalia/wallpapers.json".text = builtins.toJSON {
-      defaultWallpaper = wallpaperPath;
-      wallpapers = {};
-    };
-
     programs.niri.settings = {
       spawn-at-startup = [
         {
           command = [
-            "noctalia-shell"
+            "noctalia"
           ];
         }
       ];
@@ -38,13 +34,27 @@ in {
           # Clips window contents to the rounded corner boundaries.
           clip-to-geometry = true;
         }
+        {
+          matches = [
+            {
+              app-id = "dev.noctalia.Noctalia.Settings";
+            }
+          ];
+          open-floating = true;
+          default-column-width = {
+            fixed = 1080;
+          };
+          default-window-height = {
+            fixed = 920;
+          };
+        }
       ];
 
       layer-rules = [
         {
           matches = [
             {
-              namespace = "^noctalia-overview*";
+              namespace = "^noctalia-backdrop";
             }
           ];
           place-within-backdrop = true;
@@ -57,104 +67,91 @@ in {
       };
     };
 
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
 
       settings = {
-        colorSchemes.predefinedScheme = "Catppuccin";
+        theme = {
+          mode = "dark";
+          source = "builtin";
+          builtin = "Catppuccin";
+        };
 
-        general.avatarImage = "${../../../../icon.jpg}";
+        shell = {
+          avatar_path = "${../../../../icon.jpg}";
+        };
 
-        wallpaper.overviewEnabled = true;
+        wallpaper = {
+          enabled = true;
+          directory = wallpaperDirectory;
+          transition_on_startup = true;
 
-        location.name = "Tokyo, Japan";
+          default = {
+            path = wallpaperPath;
+          };
+        };
 
-        appLauncher.terminalCommand = "ghostty --window-decoration=false";
+        backdrop = {
+          enabled = true;
+          blur_intensity = 0.5;
+          tint_intensity = 0.3;
+        };
+
+        location = {
+          address = "Tokyo, Japan";
+        };
+
+        notification = {
+          enable_daemon = true;
+        };
 
         bar = {
-          widgets = {
-            left = [
-              {
-                id = "Launcher";
-                useDistroLogo = true;
-                enableColorization = true;
-              }
-              {
-                id = "Workspace";
-              }
-              {
-                id = "SystemMonitor";
-                compactMode = true;
-              }
-              {
-                id = "MediaMini";
-              }
+          order = ["main"];
+
+          main = {
+            start = [
+              "launcher"
+              "workspaces"
+              "cpu"
+              "media"
             ];
             center = [
-              {
-                id = "ActiveWindow";
-              }
+              "active_window"
             ];
-            right = [
-              {
-                id = "Tray";
-                drawerEnabled = false;
-              }
-              {
-                id = "NotificationHistory";
-              }
-              {
-                id = "Battery";
-                showPowerProfiles = true;
-              }
-              {
-                id = "Volume";
-              }
-              {
-                id = "Brightness";
-              }
-              {
-                id = "KeepAwake";
-              }
-              {
-                id = "Clock";
-                formatHorizontal = "yyyy/MM/dd (ddd) HH:mm";
-                tooltipFormat = "yyyy/MM/dd (ddd) HH:mm";
-              }
-              {
-                id = "ControlCenter";
-              }
+            end = [
+              "tray"
+              "notifications"
+              "power_profile"
+              "battery"
+              "volume"
+              "brightness"
+              "caffeine"
+              "clock"
+              "control-center"
             ];
           };
         };
 
-        controlCenter = {
-          cards = [
-            {
-              id = "profile-card";
-              enabled = true;
-            }
-            {
-              id = "shortcuts-card";
-              enabled = true;
-            }
-            {
-              id = "audio-card";
-              enabled = true;
-            }
-            {
-              id = "brightness-card";
-              enabled = false;
-            }
-            {
-              id = "weather-card";
-              enabled = false;
-            }
-            {
-              id = "media-sysmon-card";
-              enabled = false;
-            }
-          ];
+        widget = {
+          clock = {
+            format = "{:%Y/%m/%d (%a) %H:%M}";
+            tooltip_format = "{:%Y/%m/%d (%a) %H:%M}";
+          };
+
+          cpu = {
+            type = "sysmon";
+            stat = "cpu_usage";
+            show_label = false;
+          };
+
+          media = {
+            hide_when_no_media = true;
+            title_scroll = "on_hover";
+          };
+
+          notifications = {
+            hide_when_no_unread = true;
+          };
         };
       };
     };
