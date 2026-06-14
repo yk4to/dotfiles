@@ -933,25 +933,28 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ]
+        ],
+        "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1781228354,
-        "narHash": "sha256-hmX11Y/byBxhHc6MDpUOkDrBDHmSh6tSOjkjpwyNV/8=",
+        "lastModified": 1780949817,
+        "narHash": "sha256-2oJuPyt+4dd+ZzO7TFqpmkSAAYpRg9SF4eV8kJGl6Tk=",
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "rev": "885b5f12594ae92a97f861897f90549a820ca4e6",
+        "repo": "noctalia",
+        "rev": "f816591afc2f2f606d1f0cf70b51e95c04a7a8aa",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "ref": "legacy-v4",
+        "repo": "noctalia",
         "type": "github"
       }
     },
     "noctalia-qs": {
       "inputs": {
         "nixpkgs": [
+          "noctalia",
           "nixpkgs"
         ],
         "systems": "systems_7",
@@ -1052,7 +1055,6 @@
         "nixpkgs": "nixpkgs_8",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
-        "noctalia-qs": "noctalia-qs",
         "nur": "nur",
         "private-assets": "private-assets",
         "rss-generator": "rss-generator",
@@ -1282,6 +1284,7 @@
     "treefmt-nix_2": {
       "inputs": {
         "nixpkgs": [
+          "noctalia",
           "noctalia-qs",
           "nixpkgs"
         ]
