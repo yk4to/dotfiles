@@ -40,6 +40,12 @@ in {
 
           window-rules = [
             {
+              background-effect = {
+                blur = true;
+                xray = false;
+              };
+            }
+            {
               matches = [
                 {
                   app-id = "^zen-beta$";
@@ -53,6 +59,13 @@ in {
               draw-border-with-background = false;
             }
           ];
+
+          blur = {
+            passes = 2;
+            offset = 3.0;
+            noise = 0.03;
+            saturation = 1.0;
+          };
         }
         // optionalAttrs (displays != []) {
           # [{ connector = "eDP-1"; resolution = { width = 1920; height = 1080; }; inch = 13.3; is_laptop = true; }] ->
