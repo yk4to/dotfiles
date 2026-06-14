@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   mylib,
   hostConfig,
   lib,
@@ -12,6 +13,36 @@ with lib; let
   mkNiriDisplayOutputs = display: {
     "${display.connector}".scale = mylib.display.getScale display;
   };
+  niriBlurPatch = let
+    inherit (inputs.niri-flake.lib.internal) validated-config-for;
+    inherit (config.programs.niri) finalConfig package;
+  in
+    lib.mkForce (
+      validated-config-for pkgs package ''
+        ${finalConfig}
+
+        blur {
+          passes 2
+          offset 3.0
+          noise 0.03
+          saturation 1.0
+        }
+
+        window-rule {
+          background-effect {
+            blur true
+            xray false
+          }
+        }
+
+        layer-rule {
+          match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+          background-effect {
+            xray false
+          }
+        }
+      ''
+    );
 in {
   options.optionalModules.linux.niri = {
     enable = mkEnableOption "Niri window manager";
@@ -40,12 +71,6 @@ in {
 
           window-rules = [
             {
-              background-effect = {
-                blur = true;
-                xray = false;
-              };
-            }
-            {
               matches = [
                 {
                   app-id = "^zen-beta$";
@@ -59,13 +84,6 @@ in {
               draw-border-with-background = false;
             }
           ];
-
-          blur = {
-            passes = 2;
-            offset = 3.0;
-            noise = 0.03;
-            saturation = 1.0;
-          };
         }
         // optionalAttrs (displays != []) {
           # [{ connector = "eDP-1"; resolution = { width = 1920; height = 1080; }; inch = 13.3; is_laptop = true; }] ->
@@ -73,5 +91,8 @@ in {
           outputs = mkMerge (map mkNiriDisplayOutputs displays);
         };
     };
+
+    # niri-flake doesn't expose blur-related schema yet, so append raw KDL after generation.
+    xdg.configFile.niri-config.source = niriBlurPatch;
   };
 }

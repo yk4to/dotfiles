@@ -59,17 +59,6 @@ in {
           ];
           place-within-backdrop = true;
         }
-        {
-          matches = [
-            {
-              namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$";
-            }
-          ];
-          background-effect = {
-            xray = false;
-            # Set blur = false here if you want translucent surfaces without blur.
-          };
-        }
       ];
 
       debug = {
