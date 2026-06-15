@@ -67,7 +67,6 @@ in {
 
           # Language Support
           # idleberg.applescript # applescript support
-          # ms-vscode.cpptools # C/C++ support
           # denoland.vscode-deno # deno support
           # tamasfe.even-better-toml # toml support
           # skyapps.fish-vscode # fish support
@@ -81,6 +80,10 @@ in {
           yzhang.markdown-all-in-one # markdown support
           bierner.markdown-emoji # add emoji syntax support
           bierner.markdown-preview-github-styles # github markdown styles
+
+          # C/C++
+          # ms-vscode.cpptools
+          xaver.clang-format
 
           # Utilities
           naumovs.color-highlight # highlight colors
@@ -146,6 +149,13 @@ in {
           "nix.serverPath" = "nixd";
           "nix.serverSettings"."nixd"."formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
           "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
+
+          # C/C++
+          "[c]"."editor.defaultFormatter" = "xaver.clang-format";
+          "[cpp]"."editor.defaultFormatter" = "xaver.clang-format";
+          "clang-format.executable" = "${pkgs.clang-tools}/bin/clang-format";
+          "C_Cpp.clang_format_path" = "${pkgs.clang-tools}/bin/clang-format";
+
           "json.schemaDownload.trustedDomains" = {
             "https://schemastore.azurewebsites.net/" = true;
             "https://raw.githubusercontent.com/microsoft/vscode/" = true;
