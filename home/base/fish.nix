@@ -1,4 +1,38 @@
-{isDarwin, ...}: {
+{
+  isDarwin,
+  pkgs,
+  ...
+}: let
+  zoxideGhqFunctions = pkgs.writeText "fish-zoxide-ghq.fish" ''
+    function z
+        __zoxide_z $argv
+    end
+
+    function __zoxide_list_missing
+        if ! type -q ghq
+            return 0
+        end
+
+        diff \
+            (zoxide query --list | sort | psub) \
+            (ghq list -p | sort | psub) \
+            | string match --regex --entire "^> " \
+            | string replace -r "^> " ""
+    end
+
+    function __zoxide_add_missing
+        set -l missing (__zoxide_list_missing)
+        if test (count $missing) -gt 0
+            zoxide add $missing
+        end
+    end
+
+    function zi --description "zoxide with ghq"
+        __zoxide_add_missing
+        __zoxide_zi $argv || true
+    end
+  '';
+in {
   programs.fish = {
     enable = true;
 
@@ -32,7 +66,10 @@
           echo "" >$CONFIG_CACHE
 
           # tools
-          type -q zoxide && zoxide init fish >>$CONFIG_CACHE
+          if type -q zoxide
+              zoxide init fish --no-cmd >>$CONFIG_CACHE
+              cat ${zoxideGhqFunctions} >>$CONFIG_CACHE
+          end
           direnv hook fish >>$CONFIG_CACHE
 
           set_color brmagenta --bold --underline
