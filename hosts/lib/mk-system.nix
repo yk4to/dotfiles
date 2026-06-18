@@ -45,7 +45,7 @@
                   else (inputs.import-tree ../../home/linux)
                 )
               ]
-              ++ optionalImport (hostDir + "/home-manager.nix");
+              ++ optionalImport (hostDir + "/home.nix");
 
             sharedModules = [
               inputs.nix-inkdrop.homeModules.default
