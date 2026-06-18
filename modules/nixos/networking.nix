@@ -3,11 +3,6 @@
   networking.networkmanager.enable = true;
   users.users.${vars.username}.extraGroups = ["networkmanager"];
 
-  # Enable ssh
-  services.openssh.enable = true;
-  # disable to prevent conflict with services.gnome.gcr-ssh-agent.enable
-  # programs.ssh.startAgent = true;
-
   # Enable mDNS
   services.avahi = {
     enable = true;
