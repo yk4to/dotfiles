@@ -29,7 +29,6 @@
           then (inputs.import-tree ../../modules/darwin)
           else (inputs.import-tree ../../modules/nixos)
         )
-        inputs.agenix.${moduleName}.default
         inputs.home-manager.${moduleName}.home-manager
         {
           home-manager = {
@@ -46,10 +45,6 @@
                 )
               ]
               ++ optionalImport (hostDir + "/home.nix");
-
-            sharedModules = [
-              inputs.nix-inkdrop.homeModules.default
-            ];
 
             extraSpecialArgs = specialArgs;
           };

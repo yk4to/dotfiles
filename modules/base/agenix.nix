@@ -1,9 +1,18 @@
 {
   vars,
   inputs,
+  isDarwin,
   system,
   ...
 }: {
+  imports = [
+    (
+      if isDarwin
+      then inputs.agenix.darwinModules.default
+      else inputs.agenix.nixosModules.default
+    )
+  ];
+
   # Install agenix
   environment.systemPackages = [
     inputs.agenix.packages."${system}".default

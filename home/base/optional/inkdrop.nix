@@ -9,6 +9,10 @@
 with lib; let
   cfg = config.optionalModules.base.inkdrop;
 in {
+  imports = [
+    inputs.nix-inkdrop.homeModules.default
+  ];
+
   options.optionalModules.base.inkdrop = {
     enable = mkEnableOption "Inkdrop";
   };
