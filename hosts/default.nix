@@ -1,7 +1,7 @@
 inputs: let
   inherit (inputs.nixpkgs) lib;
   machines = import ./machines.nix;
-  mkSystems = import ./lib/mk-system.nix {inherit inputs lib;};
+  mkSystems = import ./lib/mk-systems.nix {inherit inputs lib;};
 
   isDarwin = _: cfg: lib.strings.hasSuffix "darwin" cfg.system;
   isLinux = name: cfg: !(isDarwin name cfg);
