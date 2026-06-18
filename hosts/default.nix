@@ -90,6 +90,11 @@ in {
       system = "x86_64-linux";
       stateVersion = "25.05";
     };
+
+    lucy-wsl = {
+      system = "x86_64-linux";
+      stateVersion = "26.05";
+    };
   };
 
   darwin = mkSystems {
