@@ -19,10 +19,5 @@
       HostName = "umiusi2.local";
       User = "pi";
     };
-
-    lucy-wsl = {
-      HostName = "lucy-wsl";
-      User = "yuta";
-    };
   };
 }

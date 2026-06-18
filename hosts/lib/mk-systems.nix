@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  machines,
 }: let
   mylib = import ../../lib {inherit lib;};
   vars = import ../../vars.nix;
@@ -18,7 +19,7 @@
     hostDir = ../. + "/${hostName}";
 
     specialArgs = {
-      inherit inputs vars system isDarwin hostName hostConfig mylib;
+      inherit inputs vars system isDarwin hostName hostConfig machines mylib;
     };
 
     modules =
