@@ -97,11 +97,19 @@
     // inputs.flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import inputs.nixpkgs {inherit system;};
       inherit (inputs.nixpkgs) lib;
+
+      hostsForSystem = hostConfigs:
+        lib.filterAttrs (_: host: host.pkgs.stdenv.hostPlatform.system == system) hostConfigs;
+
+      mkDarwinChecks = hostConfigs:
+        lib.mapAttrs (_: host: host.system) (hostsForSystem hostConfigs);
+      mkNixosChecks = hostConfigs:
+        lib.mapAttrs (_: host: host.config.system.build.toplevel) (hostsForSystem hostConfigs);
     in {
       formatter = pkgs.alejandra;
       checks =
         if pkgs.stdenv.isDarwin
-        then lib.mapAttrs (_: config: config.system) hosts.darwin
-        else lib.mapAttrs (_: config: config.config.system.build.toplevel) hosts.nixos;
+        then mkDarwinChecks hosts.darwin
+        else mkNixosChecks hosts.nixos;
     });
 }
