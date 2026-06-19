@@ -25,6 +25,11 @@
     stateVersion = "26.05";
   };
 
+  kamino = {
+    system = "aarch64-linux";
+    stateVersion = "24.11";
+  };
+
   yuta-mba = {
     system = "aarch64-darwin";
     darwinStateVersion = 5;
