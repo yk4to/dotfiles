@@ -13,6 +13,7 @@
     ]);
 
   optionalModules.nixos = {
+    nextdns.enable = true;
     services.enable = true;
     tailscale.enable = true;
     vscode-server.enable = true;

@@ -12,3 +12,6 @@
 - `mate`: NEC Mate MC-4 (Japanese variant of ThinkCentre M720q Tiny)
   - NixOS unstable
   - Core i5 8500T, 8GB RAM, 512GB SSD
+- `kamino`: OCI A1 Flex instance
+  - NixOS unstable
+  - Ampere Altra (Neoverse-N1) 4 vCPU, 24GB RAM, 45GB SSD

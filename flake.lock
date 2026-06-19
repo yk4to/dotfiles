@@ -207,6 +207,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781152676,
+        "narHash": "sha256-RxWs5ND31KzTG7wvMM+PMfUjyNpmIEr999lqNARaM5o=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "ff8702b4de27f72b4c78573dfb89ec74e36abdf1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -1089,6 +1109,7 @@
         "agenix": "agenix",
         "catppuccin": "catppuccin",
         "darwin-custom-icons": "darwin-custom-icons",
+        "disko": "disko",
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager_2",
         "homebrew-cask": "homebrew-cask",
@@ -1178,11 +1199,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1781790816,
-        "narHash": "sha256-s1KvY2AMpKvDDzYNpzRmw0pKUUNucPuedaBkUnneH+k=",
+        "lastModified": 1781842638,
+        "narHash": "sha256-IXZs6CB/qnvk4pawNCIjJmcN9NC9E4IwHEkG6nzmHQA=",
         "ref": "refs/heads/main",
-        "rev": "c31cbbe32dbc4cf29a087415aa423338f8290127",
-        "revCount": 24,
+        "rev": "4153f8b2f0d560133550c241faec204e601724c6",
+        "revCount": 25,
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-secrets"
       },

@@ -11,6 +11,7 @@
     docker.enable = true;
     gui.enable = true;
     niri.enable = true;
+    nextdns.enable = true;
     tailscale.enable = true;
     vscode-server.enable = true;
   };

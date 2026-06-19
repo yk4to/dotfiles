@@ -3,10 +3,16 @@
   config,
   lib,
   ...
-}: let
+}:
+with lib; let
+  cfg = config.optionalModules.nixos.nextdns;
   isWsl = config.wsl.enable or false;
 in {
-  config = lib.mkIf (!isWsl) {
+  options.optionalModules.nixos.nextdns = {
+    enable = mkEnableOption "NextDNS";
+  };
+
+  config = mkIf (cfg.enable && !isWsl) {
     services.nextdns = {
       enable = true;
       arguments = ["-config-file" "${config.age.secrets.nextdns.path}"];
