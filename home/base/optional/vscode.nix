@@ -4,10 +4,23 @@
   config,
   lib,
   system,
+  hostName,
+  machines,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.base.vscode;
+  machineNames = builtins.filter (name: name != hostName) (builtins.attrNames machines);
+  machineRemotePlatforms = genAttrs machineNames (
+    name: let
+      machineSystem = machines.${name}.system;
+    in
+      if hasSuffix "linux" machineSystem
+      then "linux"
+      else if hasSuffix "darwin" machineSystem
+      then "macOS"
+      else throw "Unsupported VS Code Remote SSH platform for system ${machineSystem}"
+  );
 
   # ref: https://github.com/nix-community/nix-vscode-extensions/issues/99#issuecomment-2701520457
   # use overlay to allow unfree packages
@@ -127,8 +140,6 @@ in {
 
           "workbench.startupEditor" = "none"; # disable welcome page
           "workbench.editor.empty.hint" = "hidden";
-          # "workbench.colorTheme" = "One Dark Pro";
-          # "workbench.iconTheme" = "material-icon-theme";
 
           "window.commandCenter" = false; # disable command center on title bar
 
@@ -141,8 +152,11 @@ in {
           # Extensions
           "wikitext.host" = "ja.wikipedia.org";
           # "platformio-ide.useBuiltinPIOCore" = false;
+
+          # Remote Development
           "remote.SSH.useLocalServer" = false;
           "remote.autoForwardPortsSource" = "hybrid";
+          "remote.SSH.remotePlatform" = machineRemotePlatforms;
 
           # Nix
           "nix.enableLanguageServer" = true;
@@ -166,6 +180,8 @@ in {
             "https://developer.microsoft.com/json-schemas/" = true;
             "https://biomejs.dev" = true;
           };
+
+          "redhat.telemetry.enabled" = false;
         };
       };
     };
