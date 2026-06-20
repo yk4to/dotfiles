@@ -12,6 +12,7 @@
     bottom # system monitor
 
     nodejs_latest
+    biome
 
     nix-output-monitor
     nixd # nix language server
