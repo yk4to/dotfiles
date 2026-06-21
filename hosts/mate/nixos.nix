@@ -16,7 +16,6 @@
     nextdns.enable = true;
     services.enable = true;
     tailscale.enable = true;
-    vscode-server.enable = true;
   };
 
   boot.loader = {

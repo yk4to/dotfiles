@@ -44,8 +44,6 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-
     nix-hazkey = {
       url = "github:aster-void/nix-hazkey";
       inputs.nixpkgs.follows = "nixpkgs";
