@@ -28,13 +28,13 @@ See [./hosts](./hosts) for details.
 | Other CLI Tools   | [direnv](https://github.com/direnv/direnv), [just](https://github.com/casey/just), [hyperfine](https://github.com/sharkdp/hyperfine), ...                                                                |
 | VPN               | [Tailscale](https://github.com/tailscale/tailscale)                                                                                                                                                      |
 
-#### Neovim plugins
+#### Neovim
 
-|                | Managed by Nix                                                  |
-| -------------- | --------------------------------------------------------------- |
-| Plugin Manager | [lazy.nvim](https://github.com/folke/lazy.nvim)                 |
-| File Tree      | [Neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim) |
-| Statusline     | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)    |
+|            | Managed by [Nixvim](https://github.com/nix-community/nixvim)                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| UI         | [Snacks.nvim](https://github.com/folke/snacks.nvim), [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) |
+| Completion | [blink.cmp](https://github.com/Saghen/blink.cmp) + [copilot.lua](https://github.com/zbirenbaum/copilot.lua)       |
+| Formatter  | [conform.nvim](https://github.com/stevearc/conform.nvim) with `alejandra`, `biome`, `prettier`, ...               |
 
 ### macOS
 
