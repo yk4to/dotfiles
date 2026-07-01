@@ -21,6 +21,12 @@
     systemd-boot = {
       enable = true;
       extraInstallCommands = "echo 'default @saved' > /boot/loader/loader.conf";
+      extraEntries = {
+        "ubuntu.conf" = ''
+          title Ubuntu
+          efi /EFI/ubuntu/shimx64.efi
+        '';
+      };
     };
 
     efi.canTouchEfiVariables = true;
