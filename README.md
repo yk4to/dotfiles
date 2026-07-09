@@ -14,7 +14,7 @@ See [./hosts](./hosts) for details.
 
 |                   | Managed by [Nix](https://github.com/NixOS/nix) and [Home Manager](https://github.com/nix-community/home-manager)                                                                                         |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Shell             | [Fish](https://github.com/fish-shell/fish-shell)                                                                                                                                                         |
+| Shell             | [Zsh](https://www.zsh.org)                                                                                                                                                                               |
 | Shell Prompt      | [Starship](https://github.com/starship/starship)                                                                                                                                                         |
 | Terminal Emulator | [Ghostty](https://github.com/ghostty-org/ghostty)                                                                                                                                                        |
 | Editor            | [VSCode](https://github.com/microsoft/vscode), [Neovim](https://github.com/neovim/neovim)                                                                                                                |

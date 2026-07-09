@@ -1,14 +1,9 @@
 {pkgs, ...}: {
   environment = {
-    shells = [pkgs.zsh pkgs.fish];
-
-    systemPackages = with pkgs; [
-      fish
-    ];
+    shells = [pkgs.zsh];
   };
 
   programs = {
     zsh.enable = true;
-    fish.enable = true;
   };
 }

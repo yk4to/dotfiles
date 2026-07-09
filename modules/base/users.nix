@@ -18,7 +18,7 @@
   users.users.${vars.username} =
     {
       description = vars.userfullname;
-      shell = pkgs.fish;
+      shell = pkgs.zsh;
     }
     // (
       if isDarwin

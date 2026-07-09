@@ -82,7 +82,6 @@ in {
           # idleberg.applescript # applescript support
           # denoland.vscode-deno # deno support
           # tamasfe.even-better-toml # toml support
-          # skyapps.fish-vscode # fish support
           mechatroner.rainbow-csv # csv support
           # mariomatheu.syntax-project-pbxproj # Xcode syntax support
           # mhcpnl.xcodestrings # Xcode strings support

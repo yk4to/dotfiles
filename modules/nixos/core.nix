@@ -5,7 +5,7 @@
 }: {
   programs = {
     git.enable = true;
-    fish.enable = true;
+    zsh.enable = true;
   };
 
   system.stateVersion = hostConfig.stateVersion;
