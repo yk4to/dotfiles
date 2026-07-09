@@ -7,27 +7,32 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    autosuggestion = {
+      enable = true;
+      strategy = [
+        "history"
+        "completion"
+      ];
+      highlight = "fg=8";
+    };
+    historySubstringSearch = {
+      enable = true;
+      searchUpKey = [
+        "^[[A"
+        "^P"
+      ];
+      searchDownKey = [
+        "^[[B"
+        "^N"
+      ];
+    };
+    syntaxHighlighting.enable = true;
 
     plugins = [
       {
         name = "zsh-abbr";
         src = pkgs.zsh-abbr.src;
         file = "zsh-abbr.plugin.zsh";
-      }
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions;
-        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-      }
-      {
-        name = "zsh-history-substring-search";
-        src = pkgs.zsh-history-substring-search;
-        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting;
-        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       }
     ];
 
@@ -52,14 +57,6 @@
       zstyle ':completion:*' squeeze-slashes true
       zstyle ':completion:*:descriptions' format '%F{blue}[%d]%f'
       zstyle ':completion:*:warnings' format '%F{yellow}no matches for:%f %d'
-
-      ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
-      bindkey '^P' history-substring-search-up
-      bindkey '^N' history-substring-search-down
 
       abbr add --quiet --session --force ll='eza --icons -al'
       abbr add --quiet --session --force nn='nvim'
