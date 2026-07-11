@@ -2,7 +2,7 @@
   programs = {
     direnv = {
       enable = true;
-      # enableFishIntegration = true;
+      enableZshIntegration = false;
       nix-direnv.enable = true;
 
       config.global = {

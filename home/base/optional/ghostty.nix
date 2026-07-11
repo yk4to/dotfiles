@@ -36,7 +36,7 @@ in {
         then null
         else pkgs.ghostty;
 
-      enableFishIntegration = true;
+      enableZshIntegration = true;
 
       settings =
         {

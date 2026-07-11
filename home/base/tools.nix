@@ -26,7 +26,7 @@
   # shell history replacement
   programs.atuin = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = false;
   };
 
   # system info (`neofetch` replacement)
