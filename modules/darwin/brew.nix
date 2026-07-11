@@ -48,6 +48,7 @@
       # "Logic Pro" = 634148309;
       # "ReadKit" = 1615798039;
       "Simple Money" = 6477733738;
+      "Structured" = 1499198946;
       "Todoist" = 585829637;
       "辞書 by 物書堂" = 1380563956;
 
@@ -92,7 +93,6 @@
     casks = [
       # Browsers
       "arc"
-      "chatgpt-atlas"
       "thebrowsercompany-dia"
       "google-chrome"
 
