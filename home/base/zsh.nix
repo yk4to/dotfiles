@@ -70,11 +70,13 @@
   zshStaticHooks =
     pkgs.runCommand "zsh-static-hooks" {
       nativeBuildInputs = [
+        pkgs.atuin
         pkgs.direnv
         pkgs.zoxide
       ];
     } ''
       mkdir -p "$out"
+      HOME="$TMPDIR/atuin-home" XDG_CONFIG_HOME="$TMPDIR/atuin-home/.config" ATUIN_TMUX_POPUP=false atuin init zsh > "$out/atuin.zsh"
       zoxide init zsh --no-cmd > "$out/zoxide.zsh"
       direnv hook zsh > "$out/direnv.zsh"
     '';
@@ -196,6 +198,9 @@ in {
       source ${zshStaticHooks}/zoxide.zsh
       ${lib.optionalString config.programs.direnv.enable ''
         source ${zshStaticHooks}/direnv.zsh
+      ''}
+      ${lib.optionalString config.programs.atuin.enable ''
+        source ${zshStaticHooks}/atuin.zsh
       ''}
 
       __zoxide_list_missing() {
