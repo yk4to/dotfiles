@@ -28,16 +28,15 @@ in {
         else inputs.nix-inkdrop.packages.${system}.inkdrop-canary;
 
       themes = {
-        ui = "default-dark-ui";
-        syntax = "atom-one-dark-mod-syntax";
+        # ui = "default-dark-ui";
+        # syntax = "atom-one-dark-mod-syntax";
       };
 
       plugins = [
         "math"
         # "sidetoc"
         # "emoji-picker"
-        # "thumbnail-list"
-        "img-small"
+        "thumbnail-list"
       ];
 
       extraConfig = {
