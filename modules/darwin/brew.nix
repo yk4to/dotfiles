@@ -121,8 +121,6 @@
       "apparency"
       "arduino-ide"
       "balenaetcher"
-      # "clion"
-      "codex-app"
       "orbstack"
       "raspberry-pi-imager"
       # "sf-symbols"
@@ -155,8 +153,9 @@
       "zoom"
 
       # AI
-      "chatgpt"
+      # "chatgpt"
       "claude"
+      "codex-app"
       "google-gemini"
 
       # Others
