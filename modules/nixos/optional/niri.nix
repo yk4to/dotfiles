@@ -18,6 +18,7 @@ in {
 
   config = mkIf cfg.enable {
     nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
+    niri-flake.cache.enable = false;
 
     programs.niri = {
       enable = true;
