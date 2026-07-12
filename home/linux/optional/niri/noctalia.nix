@@ -49,6 +49,14 @@ in {
           ];
           place-within-backdrop = true;
         }
+        {
+          matches = [
+            {
+              namespace = "^noctalia-(background|launcher-overlay|dock)-.*$";
+            }
+          ];
+          background-effect.xray = false;
+        }
       ];
 
       debug = {

@@ -38,7 +38,20 @@ in {
 
           gestures.hot-corners.enable = false;
 
+          blur = {
+            passes = 2;
+            offset = 3.0;
+            noise = 0.03;
+            saturation = 1.0;
+          };
+
           window-rules = [
+            {
+              background-effect = {
+                blur = true;
+                xray = false;
+              };
+            }
             {
               matches = [
                 {
