@@ -49,7 +49,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop?ref=support-v6";
+    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop";
 
     nur.url = "github:nix-community/nur";
 
