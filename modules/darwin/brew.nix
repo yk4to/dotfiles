@@ -139,7 +139,6 @@
       "kicad"
 
       # 3D Printing
-      "creality-print"
       "bambu-studio"
 
       # Cloud Storage
