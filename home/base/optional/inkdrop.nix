@@ -20,12 +20,11 @@ in {
   config = mkIf (cfg.enable) {
     programs.inkdrop = {
       enable = true;
-      useCanary = true;
 
       package =
         if isDarwin
         then null
-        else inputs.nix-inkdrop.packages.${system}.inkdrop-canary;
+        else inputs.nix-inkdrop.packages.${system}.inkdrop;
 
       themes = {
         # ui = "default-dark-ui";
@@ -36,7 +35,7 @@ in {
         "math"
         # "sidetoc"
         # "emoji-picker"
-        "thumbnail-list"
+        #  "thumbnail-list"
       ];
 
       extraConfig = {
