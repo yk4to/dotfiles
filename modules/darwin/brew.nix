@@ -99,12 +99,12 @@
       # Utilities
       "appcleaner"
       # "bartender"
-      "betterdisplay"
       "cleanshot"
       "iina"
       "istat-menus"
       "karabiner-elements"
       "keka"
+      "keycastr"
       "latest"
       "logi-options+"
       "mac-mouse-fix"
