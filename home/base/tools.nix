@@ -12,6 +12,7 @@
     bottom # system monitor
 
     nodejs_latest
+    bun
     biome
 
     nix-output-monitor
