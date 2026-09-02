@@ -60,6 +60,7 @@
       # Utilities
       "Amphetamine" = 937984704;
       "CleanMyKeyboard" = 6468120888;
+      "DaisyDisk" = 411643860;
       "Hand Mirror" = 1502839586;
       "Pure Paste" = 1611378436;
       "Sleeve" = 1606145041;
@@ -68,6 +69,7 @@
 
       # Dev Tools
       "Tailscale" = 1475387142;
+      "TestFlight" = 899247664;
 
       # Safari Extensions
       "1Blocker" = 1365531024;
