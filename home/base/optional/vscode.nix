@@ -149,6 +149,8 @@ in {
           "extensions.ignoreRecommendations" = true;
 
           # Extensions
+          "biome.requireConfiguration" = true;
+          "prettier.requireConfig" = true;
           "wikitext.host" = "ja.wikipedia.org";
           # "platformio-ide.useBuiltinPIOCore" = false;
 
