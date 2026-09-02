@@ -48,9 +48,9 @@
     shellWrapperName = "gg";
 
     settings = {
-      git.pagers = [
+      git.diffRenderers = [
         {
-          pager = "delta --paging=never";
+          command = "delta --paging=never";
         }
       ];
 
