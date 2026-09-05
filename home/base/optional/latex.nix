@@ -8,15 +8,48 @@
 }:
 with lib; let
   cfg = config.optionalModules.base.latex;
+  # LuaLaTeX reports: Japanese text, figures, tables, and hyperlinks.
+  reportTex = pkgs.texliveBasic.withPackages (ps:
+    with ps; [
+      luatex
+      luatexja
+      haranoaji
+      lm
+      latexmk
+      latexindent
+      geometry
+      graphics
+      booktabs
+      tools
+      float
+      hyperref
+      luacode
+      # Engineering reports: equations, PDF covers, tables, and diagrams.
+      amsmath
+      amsfonts
+      pdfpages
+      pdflscape
+      multirow
+      caption
+      enumitem
+      pgf
+      babel-japanese
+      # LuaTeX-ja's runtime requirements seen in the report build logs.
+      xkeyval
+      etoolbox
+      everyhook
+      svn-prov
+      jsclasses
+    ]);
 in {
   options.optionalModules.base.latex = {
     enable = mkEnableOption "LaTeX (TeX Live)";
 
     package = mkOption {
       type = types.package;
-      default = pkgs.texliveFull;
-      defaultText = literalExpression "pkgs.texliveFull";
-      description = "Tex package to install";
+      default = reportTex;
+      defaultText = literalExpression "pkgs.texliveBasic.withPackages (ps: with ps; [ luatex luatexja haranoaji lm latexmk latexindent geometry graphics booktabs tools float hyperref luacode amsmath amsfonts pdfpages pdflscape multirow caption enumitem pgf babel-japanese xkeyval etoolbox everyhook svn-prov jsclasses ])";
+      description = "TeX environment for Japanese LuaLaTeX reports";
     };
   };
 
