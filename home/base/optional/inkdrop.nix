@@ -26,16 +26,13 @@ in {
         then null
         else inputs.nix-inkdrop.packages.${system}.inkdrop;
 
-      themes = {
-        # ui = "default-dark-ui";
-        # syntax = "atom-one-dark-mod-syntax";
-      };
+      theme = "catppuccin-mocha";
 
       plugins = [
         "math"
         # "sidetoc"
         # "emoji-picker"
-        #  "thumbnail-list"
+        "thumbnail-list"
       ];
 
       extraConfig = {
