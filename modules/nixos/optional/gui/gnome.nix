@@ -12,7 +12,6 @@
     services.desktopManager.gnome.enable = true;
 
     environment.gnome.excludePackages = with pkgs; [
-      gnome-photos
       gnome-tour
       gnome-calendar
       gnome-connections
