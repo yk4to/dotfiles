@@ -131,7 +131,7 @@
       "ghostty"
 
       # Design Tools
-      "adobe-creative-cloud"
+      # "adobe-creative-cloud"
       "figma"
       "sketch"
       "icon-composer"
