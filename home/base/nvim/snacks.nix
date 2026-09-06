@@ -40,9 +40,19 @@ in {
         };
         indent.enabled = true;
         input.enabled = true;
-        lazygit.enabled = true;
+        lazygit = {
+          enabled = true;
+          configure = false;
+        };
         notifier.enabled = true;
-        picker.enabled = true;
+        picker = {
+          enabled = true;
+          sources = {
+            explorer.hidden = true;
+            files.hidden = true;
+            grep.hidden = true;
+          };
+        };
         terminal.enabled = true;
       };
     };
