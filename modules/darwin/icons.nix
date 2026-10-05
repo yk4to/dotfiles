@@ -27,14 +27,6 @@ in {
         icon = "${iconsPath}/kicad.icns";
       }
       {
-        path = "/Applications/Creality Print.app/";
-        icon = "${iconsPath}/crealityprint.icns";
-      }
-      {
-        path = "/Applications/FlashPrint 5.app/";
-        icon = "${iconsPath}/flashprint.icns";
-      }
-      {
         path = "/Applications/Notion.app/";
         icon = "${iconsPath}/notion.icns";
       }
