@@ -39,7 +39,6 @@
           "/System/Applications/Notes.app"
           "/System/Applications/Music.app"
           "/System/Applications/System Settings.app"
-          "/Applications/Todoist.app"
           "/Applications/Discord.app"
           "/Applications/Slack.app"
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
