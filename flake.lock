@@ -1130,6 +1130,7 @@
         "private-assets": "private-assets",
         "rss-generator": "rss-generator",
         "secrets": "secrets",
+        "tinycast-tap": "tinycast-tap",
         "zen-browser": "zen-browser"
       }
     },
@@ -1313,6 +1314,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "tinycast-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791145031,
+        "narHash": "sha256-OKq5L3aS4tgY1NfT7/4bnKNZp3sQyNoOE+8pIXuvOJo=",
+        "owner": "abue-ammar",
+        "repo": "homebrew-tinycast",
+        "rev": "db8961388d00f1894e7742daf7adf316dd2a7134",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abue-ammar",
+        "repo": "homebrew-tinycast",
         "type": "github"
       }
     },

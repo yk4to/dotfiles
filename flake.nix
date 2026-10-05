@@ -88,6 +88,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    tinycast-tap = {
+      url = "github:abue-ammar/homebrew-tinycast";
+      flake = false;
+    };
 
     darwin-custom-icons.url = "github:ryanccn/nix-darwin-custom-icons";
   };

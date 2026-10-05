@@ -22,7 +22,11 @@
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "abue-ammar/homebrew-tinycast" = inputs.tinycast-tap;
     };
+
+    # Trust only the Tinycast cask rather than every item in its third-party tap.
+    trust.casks = ["abue-ammar/tinycast/tinycast"];
 
     # Optional: Enable fully-declarative tap management
     #
@@ -114,6 +118,7 @@
       # "notchnook"
       "raycast"
       "thaw"
+      "tinycast"
 
       # Notes
       # "inkdrop" # disabled until the v6 release
