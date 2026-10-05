@@ -52,7 +52,7 @@ in {
             then cfg.fontSizeInPt
             else mylib.display.getLinuxPt cfg.fontSizeInPt;
 
-          macos-titlebar-style = "tabs";
+          # macos-titlebar-style = "tabs";
           macos-window-shadow = false;
 
           background-opacity = 0.95;
