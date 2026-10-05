@@ -15,7 +15,7 @@
 
     virtualisation.oci-containers.containers = {
       freshrss = {
-        image = "lscr.io/linuxserver/freshrss:version-1.29.1";
+        image = "lscr.io/linuxserver/freshrss:version-1.30.0";
         volumes = [
           "/srv/data/freshrss/config:/config"
         ];
@@ -24,6 +24,8 @@
           "PUID" = "1000";
           "PGID" = "1000";
           "CRON_MIN" = "1,16,31,46";
+          # 1.30.0+ blocks requests to private networks by default
+          "INTERNAL_HOST_ALLOWLIST" = "rss-bridge:80 rsshub:1200 host.containers.internal:4000";
         };
         ports = ["80:80"];
         extraOptions = [

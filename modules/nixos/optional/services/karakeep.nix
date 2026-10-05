@@ -27,7 +27,7 @@
 
     virtualisation.oci-containers.containers = {
       karakeep = {
-        image = "ghcr.io/karakeep-app/karakeep:0.33.1";
+        image = "ghcr.io/karakeep-app/karakeep:0.33.2";
 
         dependsOn = ["meilisearch" "chrome"];
 
