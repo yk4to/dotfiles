@@ -42,6 +42,11 @@
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
+    mcp-servers-nix = {
+      url = "github:natsukium/mcp-servers-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     nix-hazkey = {
