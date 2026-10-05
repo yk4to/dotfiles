@@ -120,7 +120,7 @@
       "tinycast"
 
       # Notes
-      # "inkdrop" # disabled until the v6 release
+      "inkdrop"
       "notion"
 
       # Dev Tools
