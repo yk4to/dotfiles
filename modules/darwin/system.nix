@@ -6,13 +6,6 @@
   # use TouchID for sudo authentication
   security.pam.services.sudo_local.touchIdAuth = true;
 
-  # keep ghostty terminfo
-  # ref: https://ryanccn.dev/posts/ghostty-sudo-terminfo/
-  # `security.sudo.keepTerminfo` does not exist in nix-darwin
-  security.sudo.extraConfig = ''
-    Defaults    env_keep += "TERMINFO"
-  '';
-
   system = {
     primaryUser = vars.username;
 
