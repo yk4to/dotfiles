@@ -9,8 +9,7 @@
     wrapRc = true;
     defaultEditor = true;
 
-    # TODO: remove this line when this issue is resolved:
-    # https://github.com/nix-community/nixvim/issues/4408#issuecomment-4699739928
+    # use global nixpkgs to inherit `allowUnfree` (e.g. for copilot-language-server)
     nixpkgs.useGlobalPackages = true;
   };
 }
