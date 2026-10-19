@@ -2,9 +2,11 @@
   disko.devices = {
     disk.main = {
       type = "disk";
-      # 1TB SSD dedicated to NixOS. Windows lives on a separate SSD.
+      # External 1TB SSD (SanDisk Extreme Portable) dedicated to NixOS.
+      # Windows lives on the internal NVMe SSD.
+      # Use a stable ID since USB disk names (sda, sdb, ...) depend on enumeration order.
       # NOTE: This is only used when partitioning; mounts refer to partition labels.
-      device = "/dev/sda";
+      device = "/dev/disk/by-id/ata-SanDisk_Extreme_Portable_SSD_1951C5806703";
 
       content = {
         type = "gpt";
