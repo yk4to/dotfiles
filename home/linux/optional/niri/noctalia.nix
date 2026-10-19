@@ -12,76 +12,57 @@ in {
   ];
 
   config = lib.mkIf config.optionalModules.linux.niri.enable {
-    programs.niri.settings = {
-      spawn-at-startup = [
+    wayland.windowManager.niri.settings = {
+      debug = {
+        # Allows notification actions and window activation from Noctalia.
+        honor-xdg-activation-with-invalid-serial = {};
+      };
+
+      _children = [
         {
-          command = [
-            "noctalia"
-          ];
+          spawn-at-startup = "noctalia";
         }
-      ];
-
-      window-rules = [
         {
-          # Rounded corners for a modern look.
-          geometry-corner-radius = {
-            bottom-left = 20.0;
-            bottom-right = 20.0;
-            top-left = 20.0;
-            top-right = 20.0;
-          };
+          window-rule = {
+            # Rounded corners for a modern look.
+            geometry-corner-radius = 20.0;
 
-          # Clips window contents to the rounded corner boundaries.
-          clip-to-geometry = true;
+            # Clips window contents to the rounded corner boundaries.
+            clip-to-geometry = true;
+          };
         }
         {
           # Floating Noctalia settings window.
-          matches = [
-            {
-              app-id = "^dev\\.noctalia\\.Noctalia$";
-            }
-          ];
-          open-floating = true;
-          default-column-width.fixed = 1080;
-          default-window-height.fixed = 920;
+          window-rule = {
+            match._props.app-id = "^dev\\.noctalia\\.Noctalia$";
+            open-floating = true;
+            default-column-width.fixed = 1080;
+            default-window-height.fixed = 920;
+          };
         }
-      ];
-
-      layer-rules = [
         {
           # Blurred wallpaper in the overview (requires `backdrop.enabled`).
-          matches = [
-            {
-              namespace = "^noctalia-backdrop";
-            }
-          ];
-          place-within-backdrop = true;
+          layer-rule = {
+            match._props.namespace = "^noctalia-backdrop";
+            place-within-backdrop = true;
+          };
         }
         {
-          matches = [
-            {
-              namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$";
-            }
-          ];
-          background-effect.xray = false;
+          layer-rule = {
+            match._props.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$";
+            background-effect.xray = false;
+          };
         }
         {
-          matches = [
-            {
-              namespace = "^noctalia-window-switcher$";
-            }
-          ];
-          background-effect = {
-            blur = true;
-            xray = false;
+          layer-rule = {
+            match._props.namespace = "^noctalia-window-switcher$";
+            background-effect = {
+              blur = true;
+              xray = false;
+            };
           };
         }
       ];
-
-      debug = {
-        # Allows notification actions and window activation from Noctalia.
-        honor-xdg-activation-with-invalid-serial = [];
-      };
     };
 
     programs.noctalia = {
@@ -94,7 +75,11 @@ in {
           builtin = "Catppuccin";
         };
 
-        shell.avatar_path = "${../../../../icon.jpg}";
+        shell = {
+          avatar_path = "${../../../../icon.jpg}";
+          # Replaces the polkit-kde agent previously provided by niri-flake.
+          polkit_agent = true;
+        };
 
         wallpaper = {
           directory = wallpaperDirectory;

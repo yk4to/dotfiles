@@ -128,11 +128,9 @@ with lib; let
   };
 in {
   config = mkIf config.optionalModules.linux.niri.enable {
-    programs.niri.settings.spawn-at-startup = mkBefore [
+    wayland.windowManager.niri.settings._children = mkBefore [
       {
-        command = [
-          "${floatZenPipScript}/bin/niri-float-zen-pip"
-        ];
+        spawn-at-startup = "${floatZenPipScript}/bin/niri-float-zen-pip";
       }
     ];
   };

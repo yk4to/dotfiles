@@ -33,8 +33,6 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    niri-flake.url = "github:epireyn/niri-flake";
-
     # Not following nixpkgs, and tracking the `cachix` branch, to hit noctalia.cachix.org.
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
