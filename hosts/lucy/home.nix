@@ -5,7 +5,8 @@
         enable = true;
         disableWindowDecoration = true;
       };
-      inkdrop.enable = true;
+      # TODO: Re-enable once nix-inkdrop is fixed (dist.inkdrop.app returns 403 for the pinned .deb).
+      # inkdrop.enable = true;
       # latex.enable = true;
       # platformio.enable = true;
       vscode = {
