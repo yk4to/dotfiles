@@ -633,11 +633,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1788496626,
-        "narHash": "sha256-YTLupJrLd2bWBHSwD9bl1/8eVzeMnNxHGCldxPrVc/k=",
+        "lastModified": 1792419211,
+        "narHash": "sha256-+KOIGMzbUbx702CHZnsxmkk/oHbFrTN5sX6Xl10RKBk=",
         "ref": "refs/heads/main",
-        "rev": "493934933a774a4e5a06c9b3475b30212356e59a",
-        "revCount": 63,
+        "rev": "21970fdad9f89b1dd89e5fa459630f29a7c201ea",
+        "revCount": 65,
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-inkdrop"
       },
@@ -1095,11 +1095,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1781863422,
-        "narHash": "sha256-hbh85bXFDPflYmYwa+zBSqkTOuklfdLIF7s/mt/WkeY=",
+        "lastModified": 1792421084,
+        "narHash": "sha256-Kbd3vkjbGvXSwHgMC5kIMNRhF3aToszjiEK3GQObxbU=",
         "ref": "refs/heads/main",
-        "rev": "a9921027dae43cec4bea5734cef1c2b5f9ca0278",
-        "revCount": 27,
+        "rev": "1669aa5b5417ce82c1ec313ee49e95c5b2502e72",
+        "revCount": 29,
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-secrets"
       },

@@ -15,6 +15,22 @@
     ];
   };
 
+  lucy = {
+    system = "x86_64-linux";
+    stateVersion = "26.05";
+    displays = [
+      {
+        # Dell S2722QC
+        connector = "HDMI-A-1";
+        resolution = {
+          width = 3840;
+          height = 2160;
+        };
+        inch = 27;
+      }
+    ];
+  };
+
   mate = {
     system = "x86_64-linux";
     stateVersion = "25.05";

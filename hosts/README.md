@@ -6,7 +6,10 @@
 - `x13`: ThinkPad X13 Gen 1
   - NixOS unstable (dual-boot with Windows 11)
   - Core i5 10310U, 16GB RAM, 1TB SSD
-- `lucy-wsl`: Desktop PC
+- `lucy`: Desktop PC
+  - NixOS unstable (dual-boot with Windows 11 on the internal NVMe SSD)
+  - Ryzen 5 5600, 32GB RAM, 1TB external SSD, GeForce RTX 3060 (12GB), ASRock B550M Pro4
+- `lucy-wsl`: Desktop PC (same machine as `lucy`)
   - NixOS unstable (running on WSL2)
   - Ryzen 5 5600, 32GB RAM, 1TB SSD, GeForce RTX 3060 (12GB)
 - `mate`: NEC Mate MC-4 (Japanese variant of ThinkCentre M720q Tiny)
