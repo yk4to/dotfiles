@@ -94,6 +94,10 @@ in {
           order = ["main"];
 
           main = {
+            # Full-length bar with square corners.
+            margin_ends = 0;
+            radius = 0;
+
             start = [
               "launcher"
               "workspaces"
