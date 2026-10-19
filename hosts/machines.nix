@@ -15,6 +15,22 @@
     ];
   };
 
+  lucy = {
+    system = "x86_64-linux";
+    stateVersion = "26.05";
+    displays = [
+      {
+        # TODO: Verify with `niri msg outputs` after the first boot.
+        connector = "DP-1";
+        resolution = {
+          width = 3840;
+          height = 2160;
+        };
+        inch = 27;
+      }
+    ];
+  };
+
   mate = {
     system = "x86_64-linux";
     stateVersion = "25.05";
