@@ -9,9 +9,8 @@ with lib; let
 
   noctalia = cmd:
     [
-      "noctalia-shell"
-      "ipc"
-      "call"
+      "noctalia"
+      "msg"
     ]
     ++ (pkgs.lib.splitString " " cmd);
 in {
@@ -63,10 +62,15 @@ in {
         "Mod+V".action.toggle-window-floating = [];
         "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = [];
 
-        "Mod+Space".action.spawn = noctalia "launcher toggle";
-        "XF86AudioLowerVolume".action.spawn = noctalia "volume decrease";
-        "XF86AudioRaiseVolume".action.spawn = noctalia "volume increase";
-        "XF86AudioMute".action.spawn = noctalia "volume muteOutput";
+        "Mod+Space".action.spawn = noctalia "panel-toggle launcher";
+        "Mod+S".action.spawn = noctalia "panel-toggle control-center";
+        "Mod+Comma".action.spawn = noctalia "settings-toggle";
+
+        "XF86AudioLowerVolume".action.spawn = noctalia "volume-down";
+        "XF86AudioRaiseVolume".action.spawn = noctalia "volume-up";
+        "XF86AudioMute".action.spawn = noctalia "volume-mute";
+        "XF86MonBrightnessUp".action.spawn = noctalia "brightness-up";
+        "XF86MonBrightnessDown".action.spawn = noctalia "brightness-down";
       };
     };
   };

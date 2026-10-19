@@ -35,10 +35,8 @@
 
     niri-flake.url = "github:epireyn/niri-flake";
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Not following nixpkgs, and tracking the `cachix` branch, to hit noctalia.cachix.org.
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
     llm-agents.url = "github:numtide/llm-agents.nix";
 
