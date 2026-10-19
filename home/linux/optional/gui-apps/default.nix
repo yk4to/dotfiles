@@ -2,6 +2,8 @@
   pkgs,
   config,
   lib,
+  inputs,
+  system,
   ...
 }:
 with lib; let
@@ -12,13 +14,19 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      discord
-      slack
+    home.packages =
+      (with pkgs; [
+        discord
+        slack
 
-      todoist-electron
+        todoist-electron
 
-      parsec-bin
-    ];
+        parsec-bin
+      ])
+      # Official Linux builds, tracked more closely by llm-agents than nixpkgs.
+      ++ (with inputs.llm-agents.packages.${system}; [
+        chatgpt
+        claude-desktop
+      ]);
   };
 }
