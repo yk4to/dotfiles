@@ -3,14 +3,16 @@
   mylib,
   hostConfig,
   lib,
-  pkgs,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.linux.niri;
   displays = hostConfig.displays or [];
-  mkNiriDisplayOutputs = display: {
-    "${display.connector}".scale = mylib.display.getScale display;
+  mkNiriDisplayOutput = display: {
+    output = {
+      _args = [display.connector];
+      scale = mylib.display.getScale display;
+    };
   };
 in {
   options.optionalModules.linux.niri = {
@@ -18,60 +20,63 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.niri = {
-      package = pkgs.niri-unstable;
-      settings =
-        {
-          xwayland-satellite = {
-            enable = true;
-            path = getExe pkgs.xwayland-satellite-unstable;
-          };
+    wayland.windowManager.niri = {
+      enable = true;
 
-          environment = {
-            NIXOS_OZONE_WL = "1";
-            QT_QPA_PLATFORMTHEME = "gtk3";
-          };
+      # Session units and portals are provided by the NixOS module (programs.niri).
+      systemd.enable = false;
+      portalPackage = null;
 
-          cursor.theme = "catppuccin-mocha-mauve-cursors";
+      settings = {
+        environment = {
+          NIXOS_OZONE_WL = "1";
+          QT_QPA_PLATFORMTHEME = "gtk3";
+        };
 
-          input.touchpad.natural-scroll = false;
+        cursor.xcursor-theme = "catppuccin-mocha-mauve-cursors";
 
-          gestures.hot-corners.enable = false;
+        input.touchpad.tap = {};
 
-          blur = {
-            passes = 2;
-            offset = 3.0;
-            noise = 0.03;
-            saturation = 1.0;
-          };
+        # Let windows pick their initial width instead of niri's default of 0.5.
+        layout.default-column-width = {};
 
-          window-rules = [
+        gestures.hot-corners.off = {};
+
+        blur = {
+          passes = 2;
+          offset = 3.0;
+          noise = 0.03;
+          saturation = 1.0;
+        };
+
+        _children =
+          [
             {
-              background-effect = {
+              window-rule.background-effect = {
                 blur = true;
                 xray = false;
               };
             }
             {
-              matches = [
-                {
+              window-rule = {
+                match._props = {
                   app-id = "^zen-beta$";
                   title = "^Picture-in-Picture$";
-                }
-              ];
-              open-floating = true;
+                };
+                open-floating = true;
+              };
             }
             {
-              matches = [{app-id = "com.mitchellh.ghostty";}];
-              draw-border-with-background = false;
+              window-rule = {
+                match._props.app-id = "com.mitchellh.ghostty";
+                draw-border-with-background = false;
+              };
             }
-          ];
-        }
-        // optionalAttrs (displays != []) {
+          ]
           # [{ connector = "eDP-1"; resolution = { width = 1920; height = 1080; }; inch = 13.3; is_laptop = true; }] ->
-          # outputs."eDP-1".scale = 1.3041898142341162;
-          outputs = mkMerge (map mkNiriDisplayOutputs displays);
-        };
+          # output "eDP-1" { scale 1.304190; }
+          ++ map mkNiriDisplayOutput displays;
+      };
     };
   };
 }
