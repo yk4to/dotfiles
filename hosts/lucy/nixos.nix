@@ -2,6 +2,8 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./disk-config.nix
+      inputs.disko.nixosModules.disko
     ]
     ++ (with inputs.nixos-hardware.nixosModules; [
       common-cpu-amd
