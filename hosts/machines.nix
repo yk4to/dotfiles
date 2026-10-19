@@ -20,8 +20,8 @@
     stateVersion = "26.05";
     displays = [
       {
-        # TODO: Verify with `niri msg outputs` after the first boot.
-        connector = "DP-1";
+        # Dell S2722QC
+        connector = "HDMI-A-1";
         resolution = {
           width = 3840;
           height = 2160;
