@@ -18,6 +18,7 @@
     niri.enable = true;
     nextdns.enable = true;
     nvidia.enable = true;
+    openrgb.enable = true;
     tailscale.enable = true;
   };
 
