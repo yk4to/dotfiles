@@ -51,4 +51,7 @@
 
   # set hardware clock in local time to prevent Windows clock from going wrong
   time.hardwareClockInLocalTime = true;
+
+  # Run unpatched dynamic binaries such as VS Code Remote-SSH server.
+  programs.nix-ld.enable = true;
 }
