@@ -19,6 +19,8 @@ in {
   # initialization order validated by the Pure benchmark configuration.
   programs.zsh.initContent = lib.mkAfter ''
     fpath+=(${pureCompiled}/share/zsh/site-functions)
+    # Starship-style green so success is easy to tell apart from the red error prompt.
+    zstyle :prompt:pure:prompt:success color green
     source ${pureCompiled}/share/zsh/site-functions/prompt_pure_setup
   '';
 }
