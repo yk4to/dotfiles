@@ -5,8 +5,6 @@
     zoxide # `cd` replacement
     fzf # fuzzy finder
 
-    just # simple task runner
-
     hyperfine # benchmarking tool
 
     bottom # system monitor

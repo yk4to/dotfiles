@@ -8,6 +8,29 @@
 
 See [./hosts](./hosts) for details.
 
+## Usage
+
+Rebuilds and garbage collection are done with [nh](https://github.com/nix-community/nh). The flake path comes from `NH_FLAKE`, and the host is detected from the hostname.
+
+```sh
+nh darwin switch           # macOS
+nh os switch               # NixOS
+nh clean all --keep 5      # garbage collect (also runs weekly)
+```
+
+Run nh as your own user, not with `sudo`. Some flake inputs are private repositories fetched over SSH, so evaluation needs your SSH keys; nh builds as you and calls `sudo` only for activation.
+
+If nh is unavailable (e.g. on the first switch), fall back to the plain commands. `darwin-rebuild` evaluates the flake as root, so build it as your user first:
+
+```sh
+# macOS
+nix build .#darwinConfigurations.<host>.system
+sudo darwin-rebuild switch --flake .#<host>
+
+# NixOS (`--sudo` only elevates activation)
+nixos-rebuild switch --sudo --flake .#<host>
+```
+
 ## Stacks
 
 ### Base (shared on macOS and Linux)
@@ -22,11 +45,12 @@ See [./hosts](./hosts) for details.
 | Font              | [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [UDEV Gothic](https://github.com/yuru7/udev-gothic) 🇯🇵                                                                                     |
 | Color Scheme      | [Catppuccin Mocha](https://github.com/catppuccin/nix)                                                                                                                                                    |
 | Nix Formatter     | [Alejandra](https://github.com/kamadorueda/alejandra)                                                                                                                                                    |
+| Nix CLI Helper    | [nh](https://github.com/nix-community/nh)                                                                                                                                                                |
 | Secret Management | [ragenix](https://github.com/yaxitech/ragenix)                                                                                                                                                           |
 | System Monitor    | [bottom](https://github.com/ClementTsang/bottom)                                                                                                                                                         |
 | Git-related Tools | [Commitizen](https://github.com/commitizen-tools/commitizen), [Lazygit](https://github.com/jesseduffield/lazygit), [delta](https://github.com/dandavison/delta), [ghq](https://github.com/x-motemen/ghq) |
 | Modern CLI Tools  | [zoxide](https://github.com/ajeetdsouza/zoxide), [eza](https://github.com/eza-community/eza), [bat](https://github.com/sharkdp/bat), [Atuin](https://github.com/atuinsh/atuin)                           |
-| Other CLI Tools   | [direnv](https://github.com/direnv/direnv), [just](https://github.com/casey/just), [hyperfine](https://github.com/sharkdp/hyperfine), ...                                                                |
+| Other CLI Tools   | [direnv](https://github.com/direnv/direnv), [hyperfine](https://github.com/sharkdp/hyperfine), ...                                                                                                       |
 | VPN               | [Tailscale](https://github.com/tailscale/tailscale)                                                                                                                                                      |
 
 #### Neovim
