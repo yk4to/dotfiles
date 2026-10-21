@@ -18,10 +18,16 @@ nh os switch               # NixOS
 nh clean all --keep 5      # garbage collect (also runs weekly)
 ```
 
-If nh is unavailable, fall back to the plain commands:
+Run nh as your own user, not with `sudo`. Some flake inputs are private repositories fetched over SSH, so evaluation needs your SSH keys; nh builds as you and calls `sudo` only for activation.
+
+If nh is unavailable (e.g. on the first switch), fall back to the plain commands. `darwin-rebuild` evaluates the flake as root, so build it as your user first:
 
 ```sh
+# macOS
+nix build .#darwinConfigurations.<host>.system
 sudo darwin-rebuild switch --flake .#<host>
+
+# NixOS (`--sudo` only elevates activation)
 nixos-rebuild switch --sudo --flake .#<host>
 ```
 
