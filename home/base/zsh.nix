@@ -11,6 +11,7 @@
     g = "git";
     ll = "eza --icons -al";
     nn = "nvim";
+    ns = "tv nix-search-tv";
     to = "touch";
     tr = "trash";
   };
