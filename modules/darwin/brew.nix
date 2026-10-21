@@ -115,7 +115,8 @@
       "mac-mouse-fix"
       # "monitorcontrol"
       # "notchnook"
-      "raycast"
+      "purge"
+      # "raycast"
       "thaw"
       "tinycast"
 
