@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  isDarwin,
+  ...
+}: {
   home.packages = with pkgs; [
     eza # `ls` replacement
     ripgrep # `grep` replacement
@@ -26,6 +32,24 @@
   programs.atuin = {
     enable = true;
     enableZshIntegration = false;
+  };
+
+  # fuzzy finder TUI
+  programs.television = {
+    enable = true;
+    # `tv init zsh` binds Ctrl-R, which conflicts with Atuin
+    enableZshIntegration = false;
+  };
+
+  # fuzzy search for Nix packages and options (`tv nix-search-tv`)
+  programs.nix-search-tv = {
+    enable = true;
+    settings.indexes = ["nixpkgs" "home-manager" "nixos" "darwin" "nur"];
+  };
+
+  # nix-search-tv reads `~/Library/Application Support` on macOS unless `XDG_CONFIG_HOME` is set
+  home.file."Library/Application Support/nix-search-tv/config.json" = lib.mkIf isDarwin {
+    inherit (config.xdg.configFile."nix-search-tv/config.json") source;
   };
 
   # system info (`neofetch` replacement)
