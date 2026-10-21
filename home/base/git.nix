@@ -4,9 +4,15 @@
   ...
 }: {
   home.packages = with pkgs; [
-    commitizen
+    koji # conventional commit prompt
     ghq
   ];
+
+  # Layered on top of koji's defaults, so the default commit types are kept
+  xdg.configFile."koji/config.toml".source = (pkgs.formats.toml {}).generate "koji-config.toml" {
+    # Suggest scopes from the commit history
+    autocomplete = true;
+  };
 
   programs.git = {
     enable = true;
@@ -62,10 +68,11 @@
       customCommands = [
         {
           key = "C";
-          command = "git cz c";
-          description = "commit with commitizen";
+          # Commit with git itself so that hooks run (koji commits via libgit2)
+          command = ''git commit -m "$(koji --stdout)"'';
+          description = "commit with koji";
           context = "files";
-          loadingText = "opening commitizen commit tool";
+          loadingText = "opening koji commit tool";
           output = "terminal";
         }
       ];
