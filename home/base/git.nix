@@ -31,6 +31,9 @@
 
       alias = {
         main = "switch main";
+        # Conventional commit via koji, committed by git itself so that hooks run
+        # (koji commits via libgit2). Extra args are passed to `git commit`.
+        cz = ''!f() { git commit -m "$(koji --stdout)" "$@"; }; f'';
       };
 
       init.defaultBranch = "main";
@@ -68,8 +71,7 @@
       customCommands = [
         {
           key = "C";
-          # Commit with git itself so that hooks run (koji commits via libgit2)
-          command = ''git commit -m "$(koji --stdout)"'';
+          command = "git cz";
           description = "commit with koji";
           context = "files";
           loadingText = "opening koji commit tool";
