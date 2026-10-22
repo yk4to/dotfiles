@@ -1,8 +1,4 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{inputs, ...}: {
   imports =
     [
       ./hardware-configuration.nix
@@ -23,7 +19,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    rtw88 # realtek wifi driver
-  ];
+  # The Wi-Fi adapter (TP-Link Archer T2U Plus, RTL8821AU) is handled by the
+  # in-tree rtw88 driver (`rtw_8821au`) since Linux 6.13; no out-of-tree module needed.
 }
