@@ -15,7 +15,7 @@
 
     virtualisation.oci-containers.containers = {
       freshrss = {
-        image = "lscr.io/linuxserver/freshrss:version-1.30.0";
+        image = "lscr.io/linuxserver/freshrss:version-1.30.4";
         volumes = [
           "/srv/data/freshrss/config:/config"
         ];
@@ -35,6 +35,8 @@
 
       rss-bridge = {
         image = "rssbridge/rss-bridge:latest";
+        # `latest` is a moving tag; re-pull on start so security rebuilds are picked up
+        pull = "newer";
         volumes = [
           "/srv/data/rss-bridge/config:/config"
         ];
