@@ -18,4 +18,7 @@
       extraArgs = "--keep 5 --keep-since 7d";
     };
   };
+
+  # Show activation output on `nh os/darwin switch` instead of hiding it
+  environment.variables.NH_SHOW_ACTIVATION_LOGS = "1";
 }
