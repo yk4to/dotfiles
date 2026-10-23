@@ -13,13 +13,13 @@ in {
       users.users.${vars.username}.extraGroups = ["networkmanager"];
     })
     {
-    # Enable mDNS
+      # Enable mDNS
       services.avahi = {
         enable = true;
         nssmdns4 = true;
-        publish = {
-          enable = true;
-          addresses = true;
+        settings.publish = {
+          disable-publishing = false;
+          publish-addresses = true;
         };
       };
       networking.firewall.allowedUDPPorts = [5353];
