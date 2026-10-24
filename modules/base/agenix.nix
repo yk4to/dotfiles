@@ -20,6 +20,10 @@
 
   age.identityPaths = [
     "/etc/ssh/ssh_host_ed25519_key"
-    "/home/${vars.username}/.ssh/id_ed25519"
+    (
+      if isDarwin
+      then "/Users/${vars.username}/.ssh/id_ed25519"
+      else "/home/${vars.username}/.ssh/id_ed25519"
+    )
   ];
 }
