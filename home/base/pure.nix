@@ -3,15 +3,16 @@
   pkgs,
   ...
 }: let
-  pureCompiled = pkgs.runCommand "pure-prompt-compiled" {
-    nativeBuildInputs = [pkgs.zsh];
-  } ''
-    cp -R ${pkgs.pure-prompt}/. "$out"
-    chmod -R u+w "$out"
+  pureCompiled =
+    pkgs.runCommand "pure-prompt-compiled" {
+      nativeBuildInputs = [pkgs.zsh];
+    } ''
+      cp -R ${pkgs.pure-prompt}/. "$out"
+      chmod -R u+w "$out"
 
-    zsh -fc 'zcompile "$1"' _ "$out/share/zsh/site-functions/async"
-    zsh -fc 'zcompile "$1"' _ "$out/share/zsh/site-functions/prompt_pure_setup"
-  '';
+      zsh -fc 'zcompile "$1"' _ "$out/share/zsh/site-functions/async"
+      zsh -fc 'zcompile "$1"' _ "$out/share/zsh/site-functions/prompt_pure_setup"
+    '';
 in {
   home.packages = [pureCompiled];
 

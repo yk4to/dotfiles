@@ -58,15 +58,16 @@
 
   commandHighlightStyle = "fg=${config.catppuccin.accent}";
 
-  zshAbbrCompiled = pkgs.runCommand "zsh-abbr-compiled" {
-    nativeBuildInputs = [pkgs.zsh];
-  } ''
-    cp -R ${pkgs.zsh-abbr.src}/. "$out"
-    chmod -R u+w "$out"
+  zshAbbrCompiled =
+    pkgs.runCommand "zsh-abbr-compiled" {
+      nativeBuildInputs = [pkgs.zsh];
+    } ''
+      cp -R ${pkgs.zsh-abbr.src}/. "$out"
+      chmod -R u+w "$out"
 
-    zsh -fc 'zcompile "$1"' _ "$out/zsh-abbr.zsh"
-    zsh -fc 'zcompile "$1"' _ "$out/zsh-job-queue/zsh-job-queue.zsh"
-  '';
+      zsh -fc 'zcompile "$1"' _ "$out/zsh-abbr.zsh"
+      zsh -fc 'zcompile "$1"' _ "$out/zsh-job-queue/zsh-job-queue.zsh"
+    '';
 
   zshStaticHooks =
     pkgs.runCommand "zsh-static-hooks" {
