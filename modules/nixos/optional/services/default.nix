@@ -11,20 +11,13 @@ in {
   };
 
   config = mkIf cfg.enable {
+    optionalModules.nixos.docker.enable = true;
+
     virtualisation = {
-      containers.enable = true;
+      # Dokploy runs on Docker Swarm, which is incompatible with live-restore.
+      docker.liveRestore = false;
 
-      podman = {
-        enable = true;
-
-        # Create a `docker` alias for podman, to use it as a drop-in replacement
-        dockerCompat = true;
-
-        # Required for containers under podman-compose to be able to talk to each other.
-        defaultNetwork.settings.dns_enabled = true;
-      };
-
-      oci-containers.backend = "podman";
+      oci-containers.backend = "docker";
     };
   };
 }

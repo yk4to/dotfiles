@@ -14,11 +14,17 @@ in {
         "${tunnelId}" = {
           credentialsFile = config.age.secrets.cloudflared.path;
           ingress = {
-            "rss.fus1on.dev" = "http://localhost:80";
+            "rss.fus1on.dev" = "http://localhost:8080";
             "memos.fus1on.dev" = "http://localhost:5230";
             "karakeep.fus1on.dev" = "http://localhost:5000";
+            # Only GitHub webhooks are public; the dashboard stays on Tailscale (mate:3000).
+            "dokploy.fus1on.dev" = {
+              service = "http://localhost:3000";
+              path = "^/api/deploy/";
+            };
           };
-          default = "http_status:404";
+          # Any other hostname routed to this tunnel goes to apps deployed by Dokploy.
+          default = "http://localhost:80";
         };
       };
     };

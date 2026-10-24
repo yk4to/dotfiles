@@ -27,9 +27,12 @@
           # 1.30.0+ blocks requests to private networks by default
           "INTERNAL_HOST_ALLOWLIST" = "rss-bridge:80 rsshub:1200 host.containers.internal:4000";
         };
-        ports = ["80:80"];
+        ports = ["8080:80"];
         extraOptions = [
           "--network=rss-net"
+          # rss-generator is deployed by Dokploy and published on the host's port 4000.
+          # Keep the hostname used by the existing feed URLs.
+          "--add-host=host.containers.internal:host-gateway"
         ];
       };
 
@@ -40,7 +43,7 @@
         volumes = [
           "/srv/data/rss-bridge/config:/config"
         ];
-        ports = ["3000:80"];
+        ports = ["3001:80"];
         extraOptions = [
           "--network=rss-net"
         ];
@@ -80,26 +83,23 @@
       };
     };
 
-    networking.firewall = {
-      allowedTCPPorts = [
-        80 # FreshRSS
-        3000 # RSS-Bridge
-      ];
+    networking.firewall.allowedTCPPorts = [
+      8080 # FreshRSS
+      3001 # RSS-Bridge
+    ];
 
-      # enable dns on `rss-net` network
-      # ref: https://github.com/NixOS/nixpkgs/issues/226365
-      interfaces."podman*".allowedUDPPorts = [53 5353];
-    };
-
-    systemd.services."create-podman-rss-network" = {
-      path = [pkgs.podman];
+    systemd.services."create-docker-rss-network" = {
+      after = ["docker.service"];
+      requires = ["docker.service"];
+      before = map (name: "docker-${name}.service") ["freshrss" "rss-bridge" "rsshub" "browserless" "redis"];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
-        ExecStop = "${pkgs.podman}/bin/podman network rm -f rss-net";
+        ExecStop = "${pkgs.docker}/bin/docker network rm -f rss-net";
       };
       script = ''
-        ${pkgs.podman}/bin/podman network exists rss-net || ${pkgs.podman}/bin/podman network create rss-net
+        ${pkgs.docker}/bin/docker network inspect rss-net >/dev/null 2>&1 \
+          || ${pkgs.docker}/bin/docker network create rss-net
       '';
       wantedBy = [
         "multi-user.target"
