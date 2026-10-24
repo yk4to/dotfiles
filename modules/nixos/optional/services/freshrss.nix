@@ -39,7 +39,8 @@
       rss-bridge = {
         image = "rssbridge/rss-bridge:latest";
         # `latest` is a moving tag; re-pull on start so security rebuilds are picked up
-        pull = "newer";
+        # (Docker has no `newer` policy; that one is podman-only)
+        pull = "always";
         volumes = [
           "/srv/data/rss-bridge/config:/config"
         ];

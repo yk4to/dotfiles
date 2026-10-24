@@ -42,6 +42,7 @@ in {
 
         ${docker} service inspect dokploy-postgres >/dev/null 2>&1 \
           || ${docker} service create \
+            --detach \
             --name dokploy-postgres \
             --constraint 'node.role==manager' \
             --network dokploy-network \
@@ -54,6 +55,7 @@ in {
 
         ${docker} service inspect dokploy >/dev/null 2>&1 \
           || ${docker} service create \
+            --detach \
             --name dokploy \
             --replicas 1 \
             --network dokploy-network \

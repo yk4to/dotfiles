@@ -69,7 +69,8 @@
       };
 
       chrome = {
-        image = "gcr.io/zenika-hub/alpine-chrome:124";
+        # gcr.io/zenika-hub refuses pulls (registry billing disabled); use the Docker Hub mirror
+        image = "docker.io/zenika/alpine-chrome:124";
         cmd = [
           "--no-sandbox"
           "--disable-gpu"
