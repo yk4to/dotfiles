@@ -12,7 +12,7 @@ in {
 
     systemd.services.homepage-dashboard = {
       serviceConfig = {
-        SupplementaryGroups = ["podman"];
+        SupplementaryGroups = ["docker"];
       };
     };
 
@@ -25,7 +25,7 @@ in {
 
       environmentFiles = [config.age.secrets.homepage.path];
 
-      docker.podman.socket = "/run/podman/podman.sock";
+      docker.local.socket = "/var/run/docker.sock";
 
       widgets = [
         {
@@ -89,12 +89,12 @@ in {
               FreshRSS = {
                 icon = "freshrss.svg";
                 description = "RSS feed reader";
-                server = "podman";
+                server = "local";
                 container = "freshrss";
-                href = "http://${localDomain}:80";
+                href = "http://${localDomain}:8080";
                 widget = {
                   type = "freshrss";
-                  url = "http://${localDomain}:80";
+                  url = "http://${localDomain}:8080";
                   username = "{{HOMEPAGE_VAR_FRESHRSS_USERNAME}}";
                   password = "{{HOMEPAGE_VAR_FRESHRSS_PASSWORD}}";
                 };
@@ -104,7 +104,7 @@ in {
               RSSHub = {
                 icon = "rsshub.png";
                 description = "RSS feed generator";
-                server = "podman";
+                server = "local";
                 container = "rsshub";
                 href = "http://${localDomain}:1200";
               };
@@ -113,16 +113,16 @@ in {
               RSS-Bridge = {
                 icon = "rss-bridge.svg";
                 description = "RSS feed bridge";
-                server = "podman";
+                server = "local";
                 container = "rss-bridge";
-                href = "http://${localDomain}:3000";
+                href = "http://${localDomain}:3001";
               };
             }
             {
               Memos = {
                 icon = "memos.png";
                 description = "Self-hosted note-taking service";
-                server = "podman";
+                server = "local";
                 container = "memos";
                 href = "http://${localDomain}:5230";
               };
@@ -131,7 +131,7 @@ in {
               Karakeep = {
                 icon = "karakeep.svg";
                 description = "Knowledge management system";
-                server = "podman";
+                server = "local";
                 container = "karakeep";
                 href = "http://${localDomain}:5000";
               };
