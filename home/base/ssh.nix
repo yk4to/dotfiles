@@ -1,13 +1,11 @@
 {
   lib,
   isDarwin,
-  hostName,
-  machines,
+  otherMachineNames,
   vars,
   ...
 }: let
-  machineNames = builtins.filter (name: name != hostName) (builtins.attrNames machines);
-  machineSshSettings = lib.genAttrs machineNames (name: {
+  machineSshSettings = lib.genAttrs otherMachineNames (name: {
     # Use the machine name as the MagicDNS hostname on Tailscale.
     HostName = name;
     User = vars.username;

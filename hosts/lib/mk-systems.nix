@@ -20,6 +20,8 @@
 
     specialArgs = {
       inherit inputs vars system isDarwin hostName hostConfig machines mylib;
+      # Names of the managed machines other than this one
+      otherMachineNames = builtins.filter (name: name != hostName) (builtins.attrNames machines);
     };
 
     modules =

@@ -4,14 +4,13 @@
   config,
   lib,
   system,
-  hostName,
   machines,
+  otherMachineNames,
   ...
 }:
 with lib; let
   cfg = config.optionalModules.base.vscode;
-  machineNames = builtins.filter (name: name != hostName) (builtins.attrNames machines);
-  machineRemotePlatforms = genAttrs machineNames (
+  machineRemotePlatforms = genAttrs otherMachineNames (
     name: let
       machineSystem = machines.${name}.system;
     in
