@@ -61,10 +61,6 @@
       flake = false;
     };
 
-    rss-generator.url = "git+ssh://git@github.com/yk4to/rss-generator";
-
-    hoshiimo.url = "git+ssh://git@github.com/yk4to/hoshiimo";
-
     private-assets = {
       url = "git+ssh://git@github.com/yk4to/private-assets?ref=main";
       flake = false;

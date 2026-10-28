@@ -11,16 +11,18 @@
       "d /srv/data/karakeep/meili 0755 root root - -"
     ];
 
-    systemd.services."create-podman-karakeep-network" = {
-      path = [pkgs.podman];
+    systemd.services."create-docker-karakeep-network" = {
+      after = ["docker.service"];
+      requires = ["docker.service"];
+      before = map (name: "docker-${name}.service") ["karakeep" "meilisearch" "chrome"];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
-        ExecStop = "${pkgs.podman}/bin/podman network rm -f karakeep-net";
+        ExecStop = "${pkgs.docker}/bin/docker network rm -f karakeep-net";
       };
       script = ''
-        ${pkgs.podman}/bin/podman network exists karakeep-net \
-          || ${pkgs.podman}/bin/podman network create karakeep-net
+        ${pkgs.docker}/bin/docker network inspect karakeep-net >/dev/null 2>&1 \
+          || ${pkgs.docker}/bin/docker network create karakeep-net
       '';
       wantedBy = ["multi-user.target"];
     };
@@ -67,7 +69,8 @@
       };
 
       chrome = {
-        image = "gcr.io/zenika-hub/alpine-chrome:124";
+        # gcr.io/zenika-hub refuses pulls (registry billing disabled); use the Docker Hub mirror
+        image = "docker.io/zenika/alpine-chrome:124";
         cmd = [
           "--no-sandbox"
           "--disable-gpu"
