@@ -24,15 +24,15 @@
           "PUID" = "1000";
           "PGID" = "1000";
           "CRON_MIN" = "1,16,31,46";
-          # 1.30.0+ blocks requests to private networks by default
-          "INTERNAL_HOST_ALLOWLIST" = "rss-bridge:80 rsshub:1200 host.containers.internal:4000";
+          # 1.30.0+ blocks requests to private networks by default.
+          # rss-generator is deployed by Dokploy and published on the host's port 4000.
+          # Reach it via the docker0 gateway IP: FreshRSS resolves hosts with DNS only,
+          # so /etc/hosts entries such as host.docker.internal are rejected.
+          "INTERNAL_HOST_ALLOWLIST" = "rss-bridge:80 rsshub:1200 172.17.0.1:4000";
         };
         ports = ["8080:80"];
         extraOptions = [
           "--network=rss-net"
-          # rss-generator is deployed by Dokploy and published on the host's port 4000.
-          # Keep the hostname used by the existing feed URLs.
-          "--add-host=host.containers.internal:host-gateway"
         ];
       };
 
