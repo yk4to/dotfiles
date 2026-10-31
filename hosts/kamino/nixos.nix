@@ -19,8 +19,6 @@
         efiSysMountPoint = "/boot";
       };
     };
-
-    initrd.systemd.enable = true;
   };
 
   services.openssh = {
