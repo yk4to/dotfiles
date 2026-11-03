@@ -14,6 +14,13 @@
   } (builtins.readFile ./codex-permissions.py);
 
   themeFile = "catppuccin-${config.catppuccin.flavor}.conf";
+
+  # Move REX_BIN_DIR to the front without duplicating it.
+  rexPath = ''
+    if [[ -n "$REX_BIN_DIR" ]]; then
+      path=("$REX_BIN_DIR" ''${path:#$REX_BIN_DIR})
+    fi
+  '';
 in {
   # App settings live in user defaults rather than init.lua.
   targets.darwin.defaults."com.superlogical.rex" = {
@@ -54,12 +61,11 @@ in {
   };
 
   # Rex prepends REX_BIN_DIR to PATH, but nix-darwin resets PATH on shell start.
+  # Commands Rex starts directly (e.g. `rex split -- claude`) get a non-interactive login
+  # shell's environment, so restore it in .zprofile too; .zshrc puts Homebrew in front later.
   # ref: https://www.superlogical.com/rex/docs/automate/cli#nix
-  programs.zsh.initContent = lib.mkAfter ''
-    if [ -n "$REX_BIN_DIR" ]; then
-      export PATH="$REX_BIN_DIR:$PATH"
-    fi
-  '';
+  programs.zsh.profileExtra = lib.mkAfter rexPath;
+  programs.zsh.initContent = lib.mkAfter rexPath;
 
   # Guard written by `rex terminfo setup`: fall back to xterm-256color on hosts without xterm-rex.
   programs.ssh.includes = ["~/.config/rex/ssh_config"];
