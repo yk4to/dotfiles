@@ -1,0 +1,6 @@
+-- Rex configuration
+-- ref: https://www.superlogical.com/rex/docs/customize/config
+-- ref: https://www.superlogical.com/rex/docs/reference/lua
+--
+-- List the actions the app provides with `rex -C <client> actions`,
+-- and check this file with `rex config check`.
