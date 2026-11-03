@@ -66,7 +66,8 @@ in {
 
   home.activation.rexIntegrations = lib.hm.dag.entryAfter ["writeBoundary"] ''
     if [ -x "${rex}" ]; then
-      run "${rex}" terminfo setup || true
+      # Rex verifies the ssh guard with ssh, which is not on the activation PATH.
+      run env PATH="$PATH:/usr/bin" "${rex}" terminfo setup || true
       run "${rex}" skill setup || true
     fi
   '';
