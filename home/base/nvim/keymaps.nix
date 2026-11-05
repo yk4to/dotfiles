@@ -15,16 +15,10 @@ in {
       options.desc = "Go to definition";
     }
     {
-      key = "gr";
+      key = "grr";
       mode = "n";
       action = "<cmd>lua Snacks.picker.lsp_references()<cr>";
       options.desc = "References";
-    }
-    {
-      key = "K";
-      mode = "n";
-      action = helpers.mkRaw "vim.lsp.buf.hover";
-      options.desc = "Hover";
     }
     {
       key = "<leader>ca";
@@ -37,24 +31,6 @@ in {
       mode = "n";
       action = helpers.mkRaw "vim.lsp.buf.rename";
       options.desc = "Rename symbol";
-    }
-    {
-      key = "<leader>fd";
-      mode = "n";
-      action = helpers.mkRaw "vim.diagnostic.open_float";
-      options.desc = "Line diagnostics";
-    }
-    {
-      key = "[d";
-      mode = "n";
-      action = helpers.mkRaw "vim.diagnostic.goto_prev";
-      options.desc = "Previous diagnostic";
-    }
-    {
-      key = "]d";
-      mode = "n";
-      action = helpers.mkRaw "vim.diagnostic.goto_next";
-      options.desc = "Next diagnostic";
     }
     {
       key = "<leader>bd";
