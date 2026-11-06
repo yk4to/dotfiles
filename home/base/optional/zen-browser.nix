@@ -4,10 +4,17 @@
   config,
   inputs,
   ...
-}: {
+}:
+with lib; let
+  cfg = config.optionalModules.base.zen-browser;
+in {
   imports = [inputs.zen-browser.homeModules.beta];
 
-  config = lib.mkIf config.optionalModules.linux.gui-apps.enable {
+  options.optionalModules.base.zen-browser = {
+    enable = mkEnableOption "Zen Browser";
+  };
+
+  config = mkIf cfg.enable {
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;
