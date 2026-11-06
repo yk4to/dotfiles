@@ -82,6 +82,9 @@ in {
 
           "intl.locale.requested" = "ja,en-US";
 
+          # Pop playing videos out into Picture-in-Picture when switching tabs.
+          "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = true;
+
           # Nix owns extensions and prefs; Sync carries spaces/pins and browsing data.
           "services.sync.engine.addons" = false;
           "services.sync.engine.prefs" = false;
