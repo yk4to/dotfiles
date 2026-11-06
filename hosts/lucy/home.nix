@@ -6,6 +6,7 @@
         disableWindowDecoration = true;
       };
       inkdrop.enable = true;
+      zen-browser.enable = true;
       # latex.enable = true;
       # platformio.enable = true;
       vscode = {

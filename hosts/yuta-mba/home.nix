@@ -6,6 +6,7 @@
       latex.enable = true;
       platformio.enable = true;
       vscode.enable = true;
+      zen-browser.enable = true;
     };
   };
 
