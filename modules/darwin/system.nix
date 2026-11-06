@@ -1,8 +1,11 @@
 {
+  config,
   vars,
-  pkgs,
   ...
-}: {
+}: let
+  hm = config.home-manager.users.${vars.username};
+  hmApp = name: "${hm.home.homeDirectory}/${hm.targets.darwin.copyApps.directory}/${name}.app";
+in {
   # use TouchID for sudo authentication
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -34,7 +37,7 @@
           "/System/Applications/System Settings.app"
           "/Applications/Discord.app"
           "/Applications/Slack.app"
-          "${pkgs.vscode}/Applications/Visual Studio Code.app"
+          (hmApp "Visual Studio Code")
           "/Applications/Ghostty.app"
           "/Applications/CotEditor.app"
           "/Applications/Notion.app"
