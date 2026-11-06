@@ -50,10 +50,6 @@ in {
     programs.zen-browser = {
       enable = true;
 
-      # On macOS the app is installed by modules/darwin/zen-browser.nix, which copies it
-      # into /Applications/Nix Apps; Home Manager would only symlink it into ~/Applications.
-      package = mkIf isDarwin null;
-
       # Writes xdg.mimeApps, which only exists on Linux.
       setAsDefaultBrowser = !isDarwin;
 
