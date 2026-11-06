@@ -36,6 +36,33 @@ with lib; let
       platforms = platforms.darwin;
     };
   };
+
+  # Science Tokyo auto-login; credentials are set in each add-on's options page.
+  t2extension = addons.buildFirefoxXpiAddon {
+    pname = "t2extension";
+    version = "1.1.2";
+    addonId = "t2extension@github.sheat.tokyo";
+    url = "https://raw.githubusercontent.com/oha-4/Chrome-T2Extension/bec265cadfd74633f4f1583ff8e7a8dfa451adac/firefox/releases/1.1.2.xpi";
+    sha256 = "df4f12de20b5ee37c60f25a187d16dd41f8991ae54350cecd82a27047e41cb4d";
+    meta = {
+      homepage = "https://github.com/oha-4/Chrome-T2Extension";
+      license = licenses.unfree;
+      platforms = platforms.all;
+    };
+  };
+
+  isct-login = addons.buildFirefoxXpiAddon {
+    pname = "isct-login";
+    version = "1.0.1";
+    addonId = "isct-login@github.sheat.tokyo";
+    url = "https://raw.githubusercontent.com/oha-4/ISCT-Login/ca66f036a11d62172d813c8f0000d1dc57e9539a/firefox/releases/1.0.1.xpi";
+    sha256 = "658799676a4112d696276ae5899fbeb2f9dac1154b7482d80c1ab62695ed7731";
+    meta = {
+      homepage = "https://github.com/oha-4/ISCT-Login";
+      license = licenses.unfree;
+      platforms = platforms.all;
+    };
+  };
 in {
   imports = [inputs.zen-browser.homeModules.beta];
 
@@ -103,7 +130,7 @@ in {
               ublock-origin
               wappalyzer
             ])
-            ++ [amazon-unsponsor]
+            ++ [amazon-unsponsor isct-login t2extension]
             ++ optional isDarwin icloud-passwords;
         };
 
