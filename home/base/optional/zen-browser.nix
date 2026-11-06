@@ -38,15 +38,15 @@ with lib; let
   };
 
   # Science Tokyo auto-login; credentials are set in each add-on's options page.
-  t2extension = addons.buildFirefoxXpiAddon {
-    pname = "t2extension";
-    version = "1.1.2";
-    addonId = "t2extension@github.sheat.tokyo";
-    url = "https://raw.githubusercontent.com/oha-4/Chrome-T2Extension/bec265cadfd74633f4f1583ff8e7a8dfa451adac/firefox/releases/1.1.2.xpi";
-    sha256 = "df4f12de20b5ee37c60f25a187d16dd41f8991ae54350cecd82a27047e41cb4d";
+  titech-authenticator = addons.buildFirefoxXpiAddon {
+    pname = "titech-authenticator";
+    version = "1.0.3resigned1";
+    addonId = "titech-authenricator@hallelujahdrive.github.io";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4275145/titech_authenticator-1.0.3resigned1.xpi";
+    sha256 = "1c661571e13bfa7b4193f0063f822d196d7abfdeb472138b8a9b0c94bf2a557d";
     meta = {
-      homepage = "https://github.com/oha-4/Chrome-T2Extension";
-      license = licenses.unfree;
+      homepage = "https://github.com/hallelujahdrive/Titech-Authenticator";
+      license = licenses.wtfpl;
       platforms = platforms.all;
     };
   };
@@ -130,7 +130,7 @@ in {
               ublock-origin
               wappalyzer
             ])
-            ++ [amazon-unsponsor isct-login t2extension]
+            ++ [amazon-unsponsor isct-login titech-authenticator]
             ++ optional isDarwin icloud-passwords;
         };
 
