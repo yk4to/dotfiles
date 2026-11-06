@@ -8,6 +8,34 @@
 }:
 with lib; let
   cfg = config.optionalModules.base.zen-browser;
+
+  addons = pkgs.nur.repos.rycee.firefox-addons;
+
+  # Add-ons missing from rycee's NUR repo, pinned to their AMO release.
+  amazon-unsponsor = addons.buildFirefoxXpiAddon {
+    pname = "amazon-unsponsor";
+    version = "0.0.8";
+    addonId = "amazon-unsponsor@github.com";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4461440/amazon-0.0.8.xpi";
+    sha256 = "1dcee2802a1ef623f04a817a089219fc8bce836c1cd4579c1978cfaeadf9cd33";
+    meta = {
+      homepage = "https://github.com/Cside/amazon-unsponsor";
+      license = licenses.mit;
+      platforms = platforms.all;
+    };
+  };
+
+  icloud-passwords = addons.buildFirefoxXpiAddon {
+    pname = "icloud-passwords";
+    version = "3.4.0";
+    addonId = "password-manager-firefox-extension@apple.com";
+    url = "https://addons.mozilla.org/firefox/downloads/file/5070185/icloud_passwords-3.4.0.xpi";
+    sha256 = "0cffb1716a9eff72e44a592bdef05e32d102d68253fdc508e5e6bdb5880ecbef";
+    meta = {
+      license = licenses.unfree;
+      platforms = platforms.darwin;
+    };
+  };
 in {
   imports = [inputs.zen-browser.homeModules.beta];
 
@@ -15,6 +43,9 @@ in {
     enable = mkEnableOption "Zen Browser";
   };
 
+  # Ownership is split so nothing is managed twice:
+  # - Nix: policies, prefs, extensions, containers (same on every machine).
+  # - Zen Sync: spaces, pins, essentials, folders, bookmarks, history.
   config = mkIf cfg.enable {
     programs.zen-browser = {
       enable = true;
@@ -48,46 +79,47 @@ in {
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
           "extensions.autoDisableScopes" = 0;
           "zen.welcome-screen.seen" = true;
+
+          # Nix owns extensions and prefs; Sync carries spaces/pins and browsing data.
+          "services.sync.engine.addons" = false;
+          "services.sync.engine.prefs" = false;
+          "services.sync.engine.spaces" = true;
         };
 
         extensions = {
           force = true;
 
-          packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            ublock-origin
-            ublacklist
-            refined-github
-            stylus
-            translate-web-pages
-            control-panel-for-twitter
-            wappalyzer
-          ];
+          packages =
+            (with addons; [
+              control-panel-for-twitter
+              control-panel-for-youtube
+              github-file-icons
+              karakeep
+              keepa
+              refined-github
+              stylus
+              ublacklist
+              ublock-origin
+              wappalyzer
+            ])
+            ++ [amazon-unsponsor]
+            ++ optional isDarwin icloud-passwords;
         };
 
-        bookmarks = {
-          force = true;
-          settings = [
-            {
-              name = "YouTube";
-              url = "https://www.youtube.com/";
-            }
-            {
-              name = "GitHub";
-              url = "https://github.com/";
-            }
-            {
-              name = "NixOS Search - Packages";
-              url = "https://search.nixos.org/packages?channel=unstable";
-            }
-            {
-              name = "Home Manager - Option Search";
-              url = "https://home-manager-options.extranix.com/";
-            }
-            {
-              name = "Darwin Configuration Options";
-              url = "https://daiderd.com/nix-darwin/manual/index.html";
-            }
-          ];
+        # Spaces refer to containers by id, and Sync does not carry containers,
+        # so they are declared here to keep the ids identical across machines.
+        containersForce = true;
+        containers = {
+          Work = {
+            id = 1;
+            color = "turquoise";
+            icon = "briefcase";
+          };
+          Uni = {
+            id = 2;
+            color = "green";
+            icon = "fingerprint";
+          };
         };
       };
     };
