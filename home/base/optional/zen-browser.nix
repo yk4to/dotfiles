@@ -50,10 +50,6 @@ in {
     programs.zen-browser = {
       enable = true;
 
-      # On macOS the app is installed by modules/darwin/zen-browser.nix, which copies it
-      # into /Applications/Nix Apps; Home Manager would only symlink it into ~/Applications.
-      package = mkIf isDarwin null;
-
       # Writes xdg.mimeApps, which only exists on Linux.
       setAsDefaultBrowser = !isDarwin;
 
@@ -128,12 +124,5 @@ in {
         };
       };
     };
-
-    # The pinned Home Manager drops `policies` on macOS, so hand them to Zen through
-    # its defaults domain, where Gecko reads enterprise policies on macOS.
-    targets.darwin.defaults."app.zen-browser.zen" = mkIf isDarwin ({
-        EnterprisePoliciesEnabled = true;
-      }
-      // config.programs.zen-browser.policies);
   };
 }
