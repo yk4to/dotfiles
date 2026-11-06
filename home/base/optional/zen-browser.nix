@@ -80,6 +80,8 @@ in {
           "extensions.autoDisableScopes" = 0;
           "zen.welcome-screen.seen" = true;
 
+          "intl.locale.requested" = "ja,en-US";
+
           # Nix owns extensions and prefs; Sync carries spaces/pins and browsing data.
           "services.sync.engine.addons" = false;
           "services.sync.engine.prefs" = false;
