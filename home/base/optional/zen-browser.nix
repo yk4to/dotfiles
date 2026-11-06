@@ -128,12 +128,5 @@ in {
         };
       };
     };
-
-    # The pinned Home Manager drops `policies` on macOS, so hand them to Zen through
-    # its defaults domain, where Gecko reads enterprise policies on macOS.
-    targets.darwin.defaults."app.zen-browser.zen" = mkIf isDarwin ({
-        EnterprisePoliciesEnabled = true;
-      }
-      // config.programs.zen-browser.policies);
   };
 }
