@@ -26,7 +26,7 @@
 
         persistent-apps = [
           "/System/Applications/Apps.app"
-          "/Applications/Arc.app"
+          "/Applications/Nix Apps/Zen Browser (Beta).app"
           "/System/Cryptexes/App/System/Applications/Safari.app"
           "/Applications/Google Chrome.app"
           "/System/Applications/Notes.app"
