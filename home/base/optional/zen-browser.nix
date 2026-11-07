@@ -36,6 +36,33 @@ with lib; let
       platforms = platforms.darwin;
     };
   };
+
+  # Science Tokyo auto-login; credentials are set in each add-on's options page.
+  titech-authenticator = addons.buildFirefoxXpiAddon {
+    pname = "titech-authenticator";
+    version = "1.0.3resigned1";
+    addonId = "titech-authenricator@hallelujahdrive.github.io";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4275145/titech_authenticator-1.0.3resigned1.xpi";
+    sha256 = "1c661571e13bfa7b4193f0063f822d196d7abfdeb472138b8a9b0c94bf2a557d";
+    meta = {
+      homepage = "https://github.com/hallelujahdrive/Titech-Authenticator";
+      license = licenses.wtfpl;
+      platforms = platforms.all;
+    };
+  };
+
+  isct-login = addons.buildFirefoxXpiAddon {
+    pname = "isct-login";
+    version = "1.0.1";
+    addonId = "isct-login@github.sheat.tokyo";
+    url = "https://raw.githubusercontent.com/oha-4/ISCT-Login/ca66f036a11d62172d813c8f0000d1dc57e9539a/firefox/releases/1.0.1.xpi";
+    sha256 = "658799676a4112d696276ae5899fbeb2f9dac1154b7482d80c1ab62695ed7731";
+    meta = {
+      homepage = "https://github.com/oha-4/ISCT-Login";
+      license = licenses.unfree;
+      platforms = platforms.all;
+    };
+  };
 in {
   imports = [inputs.zen-browser.homeModules.beta];
 
@@ -103,7 +130,7 @@ in {
               ublock-origin
               wappalyzer
             ])
-            ++ [amazon-unsponsor]
+            ++ [amazon-unsponsor isct-login titech-authenticator]
             ++ optional isDarwin icloud-passwords;
         };
 
