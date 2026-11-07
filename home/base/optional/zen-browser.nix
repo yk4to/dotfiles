@@ -105,6 +105,10 @@ in {
 
           "intl.locale.requested" = "ja,en-US";
 
+          # macOS window backdrop: underWindowBackground instead of the default hudWindow,
+          # the closest of Zen's options to the native sidebar material.
+          "zen.widget.macos.window-material" = 7;
+
           # Pop playing videos out into Picture-in-Picture when switching tabs.
           "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = true;
 
