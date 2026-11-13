@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   mylib,
   hostConfig,
   lib,
@@ -7,6 +8,7 @@
 }:
 with lib; let
   cfg = config.optionalModules.linux.niri;
+  cursors = osConfig.catppuccin.cursors;
   displays = hostConfig.displays or [];
   mkNiriDisplayOutput = display: {
     output = {
@@ -33,7 +35,7 @@ in {
           QT_QPA_PLATFORMTHEME = "gtk3";
         };
 
-        cursor.xcursor-theme = "catppuccin-mocha-mauve-cursors";
+        cursor.xcursor-theme = "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
 
         input.touchpad.tap = {};
 

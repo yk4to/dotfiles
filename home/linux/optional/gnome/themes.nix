@@ -1,15 +1,16 @@
 {
   lib,
   config,
+  osConfig,
   ...
 }: let
-  flavor = "mocha";
-  accent = "blue";
+  # Installed system-wide by the NixOS catppuccin cursors port
+  cursors = osConfig.catppuccin.cursors;
 in {
   config = lib.mkIf config.optionalModules.linux.gnome.enable {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
-        cursor-theme = "catppuccin-${flavor}-${accent}-cursors";
+        cursor-theme = "catppuccin-${cursors.flavor}-${cursors.accent}-cursors";
         # gtk-theme = "Yaru-blue-dark";
         icon-theme = "Papirus-Dark";
         color-scheme = "prefer-dark";
