@@ -18,7 +18,6 @@
   users.users.${vars.username} =
     {
       description = vars.userfullname;
-      shell = pkgs.zsh;
     }
     // (
       if isDarwin
@@ -27,6 +26,8 @@
       }
       else {
         home = "/home/${vars.username}";
+        # nix-darwin applies `shell` only to `users.knownUsers`, so set it on NixOS only
+        shell = pkgs.zsh;
         isNormalUser = true;
         extraGroups = ["wheel"];
         # password.age must contain a single mkpasswd-compatible hash line.
