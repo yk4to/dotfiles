@@ -12,5 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.niri.enable = true;
+    # keyring GUI; GNOME ships it, niri does not
+    programs.seahorse.enable = true;
   };
 }
