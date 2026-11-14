@@ -22,7 +22,6 @@ in {
           publish-addresses = true;
         };
       };
-      networking.firewall.allowedUDPPorts = [5353];
     }
   ];
 }

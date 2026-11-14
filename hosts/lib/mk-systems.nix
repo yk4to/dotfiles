@@ -64,7 +64,7 @@
       then inputs.nix-darwin.lib.darwinSystem
       else inputs.nixpkgs.lib.nixosSystem
     ) {
-      inherit system modules specialArgs;
+      inherit modules specialArgs;
     };
 in
   lib.mapAttrs mkSystem

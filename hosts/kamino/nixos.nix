@@ -21,12 +21,9 @@
     };
   };
 
-  services.openssh = {
-    openFirewall = true;
-    settings = {
-      KbdInteractiveAuthentication = false;
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-    };
+  services.openssh.settings = {
+    KbdInteractiveAuthentication = false;
+    PasswordAuthentication = false;
+    PermitRootLogin = "no";
   };
 }

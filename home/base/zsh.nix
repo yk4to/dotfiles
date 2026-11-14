@@ -94,7 +94,6 @@ in {
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
     profileExtra = lib.optionalString isDarwin ''
       # OrbStack command-line tools and integration
       source ~/.orbstack/shell/init.zsh 2>/dev/null || :

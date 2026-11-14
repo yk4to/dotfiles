@@ -21,25 +21,14 @@ in {
     networking = {
       nftables.enable = true;
 
-      firewall = {
-        enable = true;
-
-        # always allow traffic from your Tailscale network
-        trustedInterfaces = ["tailscale0"];
-
-        # let you SSH in over the public internet
-        allowedTCPPorts = [22];
-      };
+      # always allow traffic from your Tailscale network
+      firewall.trustedInterfaces = ["tailscale0"];
     };
 
     # Force tailscaled to use nftables
     systemd.services.tailscaled.serviceConfig.Environment = [
       "TS_DEBUG_FIREWALL_MODE=nftables"
     ];
-
-    # Prevent systemd from waiting for network online
-    systemd.network.wait-online.enable = false;
-    boot.initrd.systemd.network.wait-online.enable = false;
 
     age.secrets = {
       tailscale = {

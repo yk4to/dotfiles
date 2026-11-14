@@ -36,8 +36,6 @@ in {
         then null
         else pkgs.ghostty;
 
-      enableZshIntegration = true;
-
       settings =
         {
           font-family = [

@@ -1,9 +1,3 @@
 {pkgs, ...}: {
-  environment = {
-    shells = [pkgs.zsh];
-  };
-
-  programs = {
-    zsh.enable = true;
-  };
+  environment.shells = [pkgs.zsh];
 }
