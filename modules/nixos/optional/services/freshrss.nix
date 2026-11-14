@@ -107,11 +107,6 @@
       ];
     };
 
-    age.secrets = {
-      rsshub = {
-        file = "${inputs.secrets}/rsshub.age";
-        mode = "600";
-      };
-    };
+    age.secrets.rsshub.file = "${inputs.secrets}/rsshub.age";
   };
 }

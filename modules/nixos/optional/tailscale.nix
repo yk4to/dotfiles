@@ -30,11 +30,6 @@ in {
       "TS_DEBUG_FIREWALL_MODE=nftables"
     ];
 
-    age.secrets = {
-      tailscale = {
-        file = "${inputs.secrets}/tailscale.age";
-        mode = "600";
-      };
-    };
+    age.secrets.tailscale.file = "${inputs.secrets}/tailscale.age";
   };
 }

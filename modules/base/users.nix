@@ -8,10 +8,7 @@
   ...
 }: {
   age.secrets = lib.mkIf (!isDarwin) {
-    user-password = {
-      file = "${inputs.secrets}/password.age";
-      mode = "600";
-    };
+    user-password.file = "${inputs.secrets}/password.age";
   };
 
   # Define a user account.

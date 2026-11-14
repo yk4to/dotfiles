@@ -23,11 +23,6 @@ in {
       "::1"
     ];
 
-    age.secrets = {
-      nextdns = {
-        file = "${inputs.secrets}/nextdns.age";
-        mode = "600";
-      };
-    };
+    age.secrets.nextdns.file = "${inputs.secrets}/nextdns.age";
   };
 }

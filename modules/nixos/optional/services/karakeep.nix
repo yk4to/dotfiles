@@ -87,11 +87,6 @@
 
     networking.firewall.allowedTCPPorts = [5000];
 
-    age.secrets = {
-      karakeep = {
-        file = "${inputs.secrets}/karakeep.age";
-        mode = "600";
-      };
-    };
+    age.secrets.karakeep.file = "${inputs.secrets}/karakeep.age";
   };
 }
