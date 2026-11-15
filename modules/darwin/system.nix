@@ -46,7 +46,7 @@ in {
         persistent-others = [
           {
             folder = {
-              path = "/Users/${vars.username}/Downloads";
+              path = "${config.users.users.${vars.username}.home}/Downloads";
               arrangement = "date-added";
               displayas = "stack";
               showas = "fan";

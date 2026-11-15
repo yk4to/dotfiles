@@ -1,16 +1,13 @@
 {
+  config,
   vars,
-  isDarwin,
   ...
 }: {
   programs.nh = {
     enable = true;
 
     # Sets `NH_FLAKE`, so `nh os/darwin switch` works from any directory
-    flake =
-      if isDarwin
-      then "/Users/${vars.username}/dotfiles"
-      else "/home/${vars.username}/dotfiles";
+    flake = "${config.users.users.${vars.username}.home}/dotfiles";
 
     # Periodic garbage collection (replaces `nix.gc`)
     clean = {

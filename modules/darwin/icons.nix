@@ -1,9 +1,10 @@
 {
+  config,
   inputs,
   vars,
   ...
 }: let
-  icloudPath = "/Users/${vars.username}/Library/Mobile Documents/com~apple~CloudDocs";
+  icloudPath = "${config.users.users.${vars.username}.home}/Library/Mobile Documents/com~apple~CloudDocs";
   iconsPath = "${icloudPath}/icons";
 in {
   imports = [
