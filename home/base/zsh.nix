@@ -16,44 +16,8 @@
     tr = "trash";
   };
 
-  escapeZshRegexp = value:
-    lib.replaceStrings
-    [
-      "\\"
-      "."
-      "+"
-      "*"
-      "?"
-      "("
-      ")"
-      "["
-      "]"
-      "{"
-      "}"
-      "^"
-      "$"
-      "|"
-    ]
-    [
-      "\\\\"
-      "\\."
-      "\\+"
-      "\\*"
-      "\\?"
-      "\\("
-      "\\)"
-      "\\["
-      "\\]"
-      "\\{"
-      "\\}"
-      "\\^"
-      "\\$"
-      "\\|"
-    ]
-    value;
-
   regularAbbreviationRegexp = lib.concatStringsSep "|" (
-    map escapeZshRegexp (builtins.attrNames regularAbbreviations)
+    map lib.escapeRegex (builtins.attrNames regularAbbreviations)
   );
 
   commandHighlightStyle = "fg=${config.catppuccin.accent}";

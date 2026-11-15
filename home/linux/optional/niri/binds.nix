@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 with lib; let
@@ -12,7 +11,7 @@ with lib; let
       "noctalia"
       "msg"
     ]
-    ++ (pkgs.lib.splitString " " cmd);
+    ++ (splitString " " cmd);
 in {
   config = mkIf cfg.enable {
     wayland.windowManager.niri.settings = {
