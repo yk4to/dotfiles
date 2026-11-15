@@ -4,10 +4,10 @@
       lua
     ];
 
-    plugins.lsp.servers.lua_ls = {
+    lsp.servers.lua_ls = {
       enable = true;
 
-      settings = {
+      config.settings = {
         Lua = {
           diagnostics.globals = ["vim"];
           workspace.checkThirdParty = false;

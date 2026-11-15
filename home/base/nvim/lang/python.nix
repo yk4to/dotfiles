@@ -8,10 +8,10 @@
       python
     ];
 
-    plugins.lsp.servers.pylsp = {
+    lsp.servers.pylsp = {
       enable = true;
 
-      settings = {
+      config.settings = {
         pylsp.plugins = {
           autopep8.enabled = false;
           mccabe.enabled = false;

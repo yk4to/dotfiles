@@ -8,7 +8,7 @@
       nix
     ];
 
-    plugins.lsp.servers.nixd.enable = true;
+    lsp.servers.nixd.enable = true;
 
     plugins.conform-nvim.settings = {
       formatters.alejandra.command = lib.getExe pkgs.alejandra;

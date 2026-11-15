@@ -16,7 +16,7 @@
       yaml
     ];
 
-    plugins.lsp.servers = {
+    lsp.servers = {
       bashls.enable = true;
       yamlls.enable = true;
     };
