@@ -7,12 +7,8 @@ in {
 
       settings = {
         format_on_save = {
-          lsp_fallback = true;
+          lsp_format = "fallback";
           timeout_ms = 500;
-        };
-
-        formatters_by_ft = {
-          nix = ["alejandra"];
         };
 
         notify_on_error = false;
@@ -25,7 +21,7 @@ in {
         mode = "n";
         action = helpers.mkRaw ''
           function()
-            require("conform").format({ async = true, lsp_fallback = true })
+            require("conform").format({ async = true, lsp_format = "fallback" })
           end
         '';
         options.desc = "Format buffer";
