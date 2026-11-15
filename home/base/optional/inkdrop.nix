@@ -26,7 +26,7 @@ in {
         then null
         else inputs.nix-inkdrop.packages.${system}.inkdrop;
 
-      theme = "catppuccin-mocha";
+      theme = "catppuccin-${config.catppuccin.flavor}";
 
       plugins = [
         "math"

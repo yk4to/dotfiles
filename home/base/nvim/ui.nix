@@ -6,7 +6,7 @@ in {
       enable = true;
 
       settings = {
-        flavour = "mocha";
+        flavour = config.catppuccin.flavor;
         transparent_background = true;
         integrations = {
           cmp = true;
