@@ -114,6 +114,8 @@ in {
 
           # Show the default engine's search suggestions (off by default in Zen).
           "browser.search.suggest.enabled" = true;
+          # List open tabs (incl. pins) and history above search suggestions.
+          "browser.urlbar.showSearchSuggestionsFirst" = false;
 
           # Pop playing videos out into Picture-in-Picture when switching tabs.
           "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = true;
