@@ -8,7 +8,9 @@
 
     config.allowUnfree = true;
 
-    # enable nur
-    overlays = [inputs.nur.overlays.default];
+    overlays = [
+      inputs.nur.overlays.default
+      inputs.nix-vscode-extensions.overlays.default
+    ];
   };
 }

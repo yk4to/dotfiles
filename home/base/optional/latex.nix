@@ -1,9 +1,7 @@
 {
   pkgs,
-  inputs,
   config,
   lib,
-  system,
   ...
 }:
 with lib; let
@@ -57,8 +55,7 @@ in {
     home.packages = [cfg.package];
 
     programs.vscode.profiles.default = {
-      extensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace-release;
-      with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
+      extensions = with pkgs.vscode-marketplace; [
         james-yu.latex-workshop # latex support
       ];
 

@@ -1,9 +1,7 @@
 {
   pkgs,
-  inputs,
   config,
   lib,
-  system,
   machines,
   otherMachineNames,
   ...
@@ -20,14 +18,6 @@ with lib; let
       then "macOS"
       else throw "Unsupported VS Code Remote SSH platform for system ${machineSystem}"
   );
-
-  # ref: https://github.com/nix-community/nix-vscode-extensions/issues/99#issuecomment-2701520457
-  # use overlay to allow unfree packages
-  pkgs-ext = import inputs.nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-    overlays = [inputs.nix-vscode-extensions.overlays.default];
-  };
 in {
   options.optionalModules.base.vscode = {
     enable = mkEnableOption "Visual Studio Code";
@@ -51,7 +41,7 @@ in {
         # because extension update check is set to disabled
         enableExtensionUpdateCheck = false;
 
-        extensions = with pkgs-ext.vscode-marketplace-release; [
+        extensions = with pkgs.vscode-marketplace-release; [
           # General
           ms-ceintl.vscode-language-pack-ja # japanese language pack
 
