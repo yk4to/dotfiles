@@ -71,6 +71,7 @@
       # "Velja" = 1607635845;
 
       # Dev Tools
+      "DynamixelWizard2" = 1471288434;
       "Tailscale" = 1475387142;
       "TestFlight" = 899247664;
 
