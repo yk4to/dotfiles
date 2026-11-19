@@ -4,6 +4,7 @@
   mylib,
   hostConfig,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -16,6 +17,10 @@ with lib; let
       scale = mylib.display.getScale display;
     };
   };
+  # Floats Zen PiP windows that get their title after opening
+  floatZenPip = pkgs.writers.writePython3Bin "niri-float-zen-pip" {
+    flakeIgnore = ["E501"];
+  } (builtins.readFile ./pip-floating.py);
 in {
   options.optionalModules.linux.niri = {
     enable = mkEnableOption "Niri window manager";
@@ -68,6 +73,7 @@ in {
                 open-floating = true;
               };
             }
+            {spawn-at-startup = "${floatZenPip}/bin/niri-float-zen-pip";}
             {
               window-rule = {
                 match._props.app-id = "com.mitchellh.ghostty";
