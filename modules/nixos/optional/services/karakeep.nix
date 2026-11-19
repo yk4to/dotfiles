@@ -49,9 +49,7 @@
 
         environmentFiles = [config.age.secrets.karakeep.path];
 
-        extraOptions = [
-          "--network=karakeep-net"
-        ];
+        networks = ["karakeep-net"];
       };
 
       meilisearch = {
@@ -63,9 +61,7 @@
         volumes = [
           "/srv/data/karakeep/meili:/meili_data"
         ];
-        extraOptions = [
-          "--network=karakeep-net"
-        ];
+        networks = ["karakeep-net"];
       };
 
       chrome = {
@@ -78,10 +74,8 @@
           "--disable-blink-features=AutomationControlled"
           "--window-size=1440,900"
         ];
-        extraOptions = [
-          "--init"
-          "--network=karakeep-net"
-        ];
+        networks = ["karakeep-net"];
+        extraOptions = ["--init"];
       };
     };
 

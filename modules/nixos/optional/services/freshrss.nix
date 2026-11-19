@@ -31,9 +31,7 @@
           "INTERNAL_HOST_ALLOWLIST" = "rss-bridge:80 rsshub:1200 172.17.0.1:4000";
         };
         ports = ["8080:80"];
-        extraOptions = [
-          "--network=rss-net"
-        ];
+        networks = ["rss-net"];
       };
 
       rss-bridge = {
@@ -45,9 +43,7 @@
           "/srv/data/rss-bridge/config:/config"
         ];
         ports = ["3001:80"];
-        extraOptions = [
-          "--network=rss-net"
-        ];
+        networks = ["rss-net"];
       };
 
       rsshub = {
@@ -60,17 +56,13 @@
         };
         ports = ["1200:1200"];
         dependsOn = ["redis" "browserless"];
-        extraOptions = [
-          "--network=rss-net"
-        ];
+        networks = ["rss-net"];
         environmentFiles = [config.age.secrets.rsshub.path];
       };
 
       browserless = {
         image = "browserless/chrome";
-        extraOptions = [
-          "--network=rss-net"
-        ];
+        networks = ["rss-net"];
       };
 
       redis = {
@@ -78,9 +70,7 @@
         volumes = [
           "/srv/data/rsshub/data:/data"
         ];
-        extraOptions = [
-          "--network=rss-net"
-        ];
+        networks = ["rss-net"];
       };
     };
 
