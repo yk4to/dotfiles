@@ -1011,11 +1011,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1792421084,
-        "narHash": "sha256-Kbd3vkjbGvXSwHgMC5kIMNRhF3aToszjiEK3GQObxbU=",
+        "lastModified": 1795155419,
+        "narHash": "sha256-Op7C/21PM0Axu3gZasYQ1SEAb/epp2bRXqd2CGTq6+s=",
         "ref": "refs/heads/main",
-        "rev": "1669aa5b5417ce82c1ec313ee49e95c5b2502e72",
-        "revCount": 29,
+        "rev": "cdc1140e8fafd9a5b77cb5f7ea5e2bb5a37404b7",
+        "revCount": 30,
         "type": "git",
         "url": "ssh://git@github.com/yk4to/nix-secrets"
       },
