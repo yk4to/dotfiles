@@ -1,8 +1,6 @@
 name: update-flake-lock
 on:
-  workflow_dispatch: # allows manual triggering
-  schedule:
-    - cron: "0 3 * * 5" # runs weekly on Friday at 3:00 UTC (12:00 JST)
+  workflow_dispatch: # triggered weekly by a systemd timer on mate
 
 jobs:
   lockfile:
