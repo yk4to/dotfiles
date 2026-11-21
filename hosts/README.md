@@ -1,7 +1,7 @@
 # Hosts
 
 - `yuta-mba`: MacBook Air (13-inch, M3, 2024)
-  - macOS Tahoe
+  - macOS Golden Gate
   - Apple M3, 16GB RAM, 512GB SSD
 - `x13`: ThinkPad X13 Gen 1
   - NixOS unstable (dual-boot with Windows 11)
