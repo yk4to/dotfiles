@@ -40,11 +40,8 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@v32
-
-      - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.10.0
         with:
-          ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
+          github_access_token: ${{ secrets.NIX_GITHUB_TOKEN }}
 
       - name: Evaluate flake outputs
         run: |

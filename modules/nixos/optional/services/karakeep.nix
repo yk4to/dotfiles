@@ -29,7 +29,7 @@
 
     virtualisation.oci-containers.containers = {
       karakeep = {
-        image = "ghcr.io/karakeep-app/karakeep:0.34.1";
+        image = "ghcr.io/karakeep-app/karakeep:0.35.0";
 
         dependsOn = ["meilisearch" "chrome"];
 
@@ -66,7 +66,7 @@
 
       chrome = {
         # the entrypoint already sets --no-sandbox and serves CDP on 9222
-        image = "ghcr.io/karakeep-app/karakeep-chrome:157.0.8103.38-r1";
+        image = "ghcr.io/karakeep-app/karakeep-chrome:158.0.8127.88-r1";
         cmd = [
           "--disable-gpu"
           "--disable-dev-shm-usage"

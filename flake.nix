@@ -53,19 +53,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-inkdrop.url = "git+ssh://git@github.com/yk4to/nix-inkdrop";
+    nix-inkdrop.url = "github:yk4to/nix-inkdrop";
 
     nur.url = "github:nix-community/nur";
 
     agenix.url = "github:yaxitech/ragenix";
 
     secrets = {
-      url = "git+ssh://git@github.com/yk4to/nix-secrets";
+      url = "github:yk4to/nix-secrets";
       flake = false;
     };
 
     private-assets = {
-      url = "git+ssh://git@github.com/yk4to/private-assets?ref=main";
+      url = "github:yk4to/private-assets/main";
       flake = false;
     };
 

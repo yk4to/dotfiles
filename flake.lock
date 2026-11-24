@@ -617,15 +617,15 @@
       "locked": {
         "lastModified": 1793774156,
         "narHash": "sha256-KSbl9pCQbmn+l6TjO4npSAdEFUwiLKyK9YL9K+K1eVQ=",
-        "ref": "refs/heads/main",
+        "owner": "yk4to",
+        "repo": "nix-inkdrop",
         "rev": "117d2a7f4158f2f6e44f73d53928200c1fc015b5",
-        "revCount": 67,
-        "type": "git",
-        "url": "ssh://git@github.com/yk4to/nix-inkdrop"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/yk4to/nix-inkdrop"
+        "owner": "yk4to",
+        "repo": "nix-inkdrop",
+        "type": "github"
       }
     },
     "nix-vscode-extensions": {
@@ -923,16 +923,16 @@
       "locked": {
         "lastModified": 1780736679,
         "narHash": "sha256-QQAjI61qdM7ekJh5mux9+SHlawmI/CUkERndifOYaC4=",
-        "ref": "main",
+        "owner": "yk4to",
+        "repo": "private-assets",
         "rev": "173667b286330de4e59cd604f52f66d39fef912e",
-        "revCount": 1,
-        "type": "git",
-        "url": "ssh://git@github.com/yk4to/private-assets"
+        "type": "github"
       },
       "original": {
+        "owner": "yk4to",
         "ref": "main",
-        "type": "git",
-        "url": "ssh://git@github.com/yk4to/private-assets"
+        "repo": "private-assets",
+        "type": "github"
       }
     },
     "root": {
@@ -1011,17 +1011,17 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1795155419,
-        "narHash": "sha256-Op7C/21PM0Axu3gZasYQ1SEAb/epp2bRXqd2CGTq6+s=",
-        "ref": "refs/heads/main",
-        "rev": "cdc1140e8fafd9a5b77cb5f7ea5e2bb5a37404b7",
-        "revCount": 30,
-        "type": "git",
-        "url": "ssh://git@github.com/yk4to/nix-secrets"
+        "lastModified": 1795514629,
+        "narHash": "sha256-QprNFTg0r4J0Tp2onPWOd0aJk5V8fXshJgDWw2DBnnU=",
+        "owner": "yk4to",
+        "repo": "nix-secrets",
+        "rev": "b2cdb603a315bfb777073301dfeb98e7d79ddef8",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/yk4to/nix-secrets"
+        "owner": "yk4to",
+        "repo": "nix-secrets",
+        "type": "github"
       }
     },
     "systems": {
