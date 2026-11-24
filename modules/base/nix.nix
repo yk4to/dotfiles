@@ -1,4 +1,21 @@
-{vars, ...}: {
+{
+  config,
+  inputs,
+  vars,
+  ...
+}: {
+  # Holds `access-tokens = github.com=<token>`; owned by the user since nh evaluates as them
+  age.secrets.nix-github-token = {
+    file = "${inputs.secrets}/nix-github-token.age";
+    owner = vars.username;
+    mode = "400";
+  };
+
+  # `!include` skips a missing file, so the first switch can use NIX_CONFIG instead
+  nix.extraOptions = ''
+    !include ${config.age.secrets.nix-github-token.path}
+  '';
+
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
     trusted-users = ["root" vars.username];

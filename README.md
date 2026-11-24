@@ -18,11 +18,18 @@ nh os switch               # NixOS
 nh clean all --keep 5      # garbage collect (also runs weekly)
 ```
 
-Run nh as your own user, not with `sudo`. Some flake inputs are private repositories fetched over SSH, so evaluation needs your SSH keys; nh builds as you and calls `sudo` only for activation.
+Run nh as your own user, not with `sudo`. nh builds as you and calls `sudo` only for activation.
 
-If nh is unavailable (e.g. on the first switch), fall back to the plain commands. `darwin-rebuild` evaluates the flake as root, so build it as your user first:
+### Private inputs
+
+Some flake inputs are private GitHub repositories, so Nix needs a GitHub token to fetch them. After the first switch, agenix places it at `/run/agenix/nix-github-token` and `nix.conf` includes it.
+
+On a new machine, the token is not there yet, so pass one from the GitHub CLI for the first switch. nh is unavailable then too, so use the plain commands. `darwin-rebuild` evaluates the flake as root, so build it as your user first:
 
 ```sh
+nix run nixpkgs#gh -- auth login
+export NIX_CONFIG="access-tokens = github.com=$(nix run nixpkgs#gh -- auth token)"
+
 # macOS
 nix build .#darwinConfigurations.<host>.system
 sudo darwin-rebuild switch --flake .#<host>
@@ -30,6 +37,8 @@ sudo darwin-rebuild switch --flake .#<host>
 # NixOS (`--sudo` only elevates activation)
 nixos-rebuild switch --sudo --flake .#<host>
 ```
+
+The `nix-github-token` secret holds one line, `access-tokens = github.com=<token>`, with a fine-grained token that can read the private repositories. CI reads the same kind of token from the `NIX_GITHUB_TOKEN` repository secret.
 
 ## Stacks
 

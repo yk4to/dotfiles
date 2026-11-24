@@ -15,11 +15,8 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@v31
-
-      - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.10.0
         with:
-          ssh-private-key: ${{ secrets.GH_NIX_FLAKE_UPDATE_KEY  }}
+          github_access_token: ${{ secrets.NIX_GITHUB_TOKEN }}
 
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v29
