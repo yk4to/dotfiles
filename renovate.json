@@ -2,6 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "prHourlyLimit": 0,
+  "gitAuthor": "Renovate Bot <29139614+renovate[bot]@users.noreply.github.com>",
   "nix": {
     "enabled": true
   },
