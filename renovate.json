@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "prHourlyLimit": 0,
+  "nix": {
+    "enabled": true
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["at any time"]
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Container images of oci-containers",
+      "managerFilePatterns": ["/^modules/nixos/optional/services/.+\\.nix$/"],
+      "matchStrings": ["image = \"(?<depName>[^\":]+):(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "docker"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Needs a data migration across versions",
+      "matchPackageNames": ["docker.io/getmeili/meilisearch"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["ghcr.io/karakeep-app/karakeep", "ghcr.io/karakeep-app/karakeep-chrome"],
+      "groupName": "karakeep"
+    },
+    {
+      "matchPackageNames": ["ghcr.io/karakeep-app/karakeep-chrome"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)-r(?<revision>\\d+)$"
+    },
+    {
+      "matchPackageNames": ["lscr.io/linuxserver/freshrss"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    }
+  ]
+}
