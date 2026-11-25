@@ -1,0 +1,47 @@
+name: flake-lock-diff
+on:
+  pull_request:
+    paths:
+      - flake.lock
+      - .github/scripts/flake-lock-diff.py
+      - .github/workflows/flake-lock-diff.yml
+
+concurrency:
+  group: flake-lock-diff-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Summarize flake.lock changes
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          base=$(git merge-base "$BASE" "$HEAD")
+          git show "$base:flake.lock" > "$RUNNER_TEMP/base.lock" || true
+          git show "$HEAD:flake.lock" > "$RUNNER_TEMP/head.lock"
+          python3 .github/scripts/flake-lock-diff.py "$RUNNER_TEMP/base.lock" "$RUNNER_TEMP/head.lock" > "$RUNNER_TEMP/comment.md"
+
+      - name: Post or update the comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          comments="repos/$GITHUB_REPOSITORY/issues/$PR/comments"
+          id=$(gh api "$comments" --paginate \
+            --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("<!-- flake-lock-diff -->"))) | .id' | head -n1)
+          if [ -n "$id" ]; then
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$id" -F body=@"$RUNNER_TEMP/comment.md" > /dev/null
+          else
+            gh api "$comments" -F body=@"$RUNNER_TEMP/comment.md" > /dev/null
+          fi
