@@ -42,6 +42,13 @@
         volumes = [
           "/srv/data/rss-bridge/config:/config"
         ];
+        environment = {
+          # Default 3s timeout is too short for slow sources
+          "RSSBRIDGE_http_timeout" = "15";
+          # Return failures as HTTP errors instead of injecting error items into feeds
+          "RSSBRIDGE_error_output" = "http";
+          "RSSBRIDGE_error_report_limit" = "3";
+        };
         ports = ["3001:80"];
         networks = ["rss-net"];
       };
