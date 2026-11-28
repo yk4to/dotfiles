@@ -66,7 +66,7 @@
 
       chrome = {
         # the entrypoint already sets --no-sandbox and serves CDP on 9222
-        image = "ghcr.io/karakeep-app/karakeep-chrome:158.0.8127.88-r1";
+        image = "ghcr.io/karakeep-app/karakeep-chrome:158.0.8127.88-r2";
         cmd = [
           "--disable-gpu"
           "--disable-dev-shm-usage"
