@@ -9,7 +9,7 @@
     ];
 
     virtualisation.oci-containers.containers.memos = {
-      image = "docker.io/neosmemo/memos:26.11.2";
+      image = "docker.io/neosmemo/memos:26.11.3";
       volumes = [
         "/srv/data/memos:/var/opt/memos"
       ];
